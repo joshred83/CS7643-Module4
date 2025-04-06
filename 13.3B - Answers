@@ -1,0 +1,77 @@
+# Answer Key: Generative Adversarial Networks (GANs)
+
+---
+
+### Question 1 (True/False)  
+**Correct Answer:** False  
+**Justification:**  
+> "Generative adversarial networks or GANS did not learn an explicit density function p of x, rather they fit under the implicit density category."&#8203;:contentReference[oaicite:0]{index=0}
+
+---
+
+### Question 2 (Multiple Choice)  
+**Correct Answer:** To distinguish between real and generated samples  
+**Justification:**  
+> "The key idea of generative adversarial networks is to have another network that distinguishes between real and generated or fake images."&#8203;:contentReference[oaicite:1]{index=1}
+
+---
+
+### Question 3 (Multiple Select)  
+**Correct Answers:** Instability due to adversarial training, Mode collapse, Non-convex optimization difficulties  
+**Justification:**  
+> "The complex dynamics of learning will actually turn out to be quite difficult to train."  
+> "You have all sorts of strange dynamics that can occur between the generator and discriminator."  
+> "There's something called mode collapse where you can't capture all the modes of the distribution."  
+> "We're using very deep complex neural networks that are non convex."&#8203;:contentReference[oaicite:2]{index=2}
+
+---
+
+### Question 4 (True/False)  
+**Correct Answer:** False  
+**Justification:**  
+> "Note that for the generator, only one part of this objective function is valid... gradients for the discriminator comes from both."&#8203;:contentReference[oaicite:3]{index=3}
+
+---
+
+### Question 5 (Multiple Choice)  
+**Correct Answer:** A vector sampled from a Gaussian distribution  
+**Justification:**  
+> "We’re going to use a simple idea of first sampling from a simple distribution, say a Gaussian... then feed it through a neural network."&#8203;:contentReference[oaicite:4]{index=4}
+
+---
+
+### Question 6 (Multiple Select)  
+**Correct Answers:** Batch normalization, Removing fully connected layers, Using LeakyReLU in the discriminator  
+**Justification:**  
+> "Several findings were developed. For example, replacing pooling layers with strided convolution, using batchnorm both in the generator and discriminator, removing the fully connected hidden layers... using LeakyReLU activations for the discriminator."&#8203;:contentReference[oaicite:5]{index=5}
+
+---
+
+### Question 7 (Multiple Choice)  
+**Correct Answer:** To fool the discriminator into thinking generated images are real  
+**Justification:**  
+> "That means that it taking fake data and giving it a probability of being real as 1, which is what the generator wants because it wants to fool the discriminator."&#8203;:contentReference[oaicite:6]{index=6}
+
+---
+
+### Question 8 (True/False)  
+**Correct Answer:** True  
+**Justification:**  
+> "At the end of the training, we'll have an implicit generator model... We actually don't need the discriminator for this process, we can just throw it away."&#8203;:contentReference[oaicite:7]{index=7}
+
+---
+
+### Question 9 (Multiple Choice)  
+**Correct Answer:** The generator produces a small set of nearly identical outputs  
+**Justification:**  
+> "There's something called mode collapse... you're not truly sampling from the distribution, you're just outputting the samples that you already have."&#8203;:contentReference[oaicite:8]{index=8}
+
+---
+
+### Question 10 (Multiple Select)  
+**Correct Answers:** Video generation, Audio synthesis, Domain adaptation using adversarial losses  
+**Justification:**  
+> "These days other adaptations have been developed to produce audio waveforms..."  
+> "You can then take as input a 10 second footage of you... generate an entire video of you dancing..."  
+> "The notion of adversarial losses... have been used successfully."&#8203;:contentReference[oaicite:9]{index=9}
+
