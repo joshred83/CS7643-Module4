@@ -1,0 +1,7159 @@
+1
+00:00:26,260 --> 00:00:29,284
+Welcome to the last
+week of class.
+
+2
+00:00:29,284 --> 00:00:32,555
+I guess you can tell last week.
+
+3
+00:00:32,555 --> 00:00:38,375
+So today we're going to
+cover diffusion models.
+
+4
+00:00:38,375 --> 00:00:44,045
+And then pretty much
+next time I will either,
+
+5
+00:00:44,045 --> 00:00:46,820
+if there are requests for its
+content, will cover that.
+
+6
+00:00:46,820 --> 00:00:49,520
+Otherwise, I will do a
+wrap-up session talking about
+
+7
+00:00:49,520 --> 00:00:52,040
+the future of deep learning
+
+8
+00:00:52,040 --> 00:00:54,019
+and how things have progressed.
+
+9
+00:00:54,019 --> 00:00:55,684
+In the past semester,
+
+10
+00:00:55,684 --> 00:00:57,289
+even things have
+been going crazy.
+
+11
+00:00:57,289 --> 00:00:59,540
+So I think there's
+
+12
+00:00:59,540 --> 00:01:00,859
+probably a good discussion
+
+13
+00:01:00,859 --> 00:01:02,750
+to be had about various things,
+
+14
+00:01:02,750 --> 00:01:07,610
+including all the
+concerns surrounding AI.
+
+15
+00:01:07,610 --> 00:01:14,659
+I will say that today's
+slides are largely develop,
+
+16
+00:01:14,659 --> 00:01:19,955
+identify who's teaching
+the fall semester class.
+
+17
+00:01:19,955 --> 00:01:22,369
+Of course modified a little bit.
+
+18
+00:01:22,369 --> 00:01:24,019
+The other thing is project,
+
+19
+00:01:24,019 --> 00:01:28,159
+so that's the last kind of
+thing that you need to do.
+
+20
+00:01:28,159 --> 00:01:31,309
+So please do make sure
+that you are making
+
+21
+00:01:31,309 --> 00:01:34,280
+good progress on a
+consistent basis
+
+22
+00:01:34,280 --> 00:01:37,475
+on the projects because
+it's coming up soon.
+
+23
+00:01:37,475 --> 00:01:42,569
+So make sure as we
+mentioned in Piazza,
+
+24
+00:01:42,670 --> 00:01:48,155
+that you are contributing
+equally to the team.
+
+25
+00:01:48,155 --> 00:01:51,845
+I posted all the materials,
+
+26
+00:01:51,845 --> 00:01:54,275
+including a sample report.
+
+27
+00:01:54,275 --> 00:01:57,814
+There's a latex template,
+there's a rubrics.
+
+28
+00:01:57,814 --> 00:01:59,809
+So it should be fairly
+straightforward,
+
+29
+00:01:59,809 --> 00:02:01,760
+especially the rubrics
+make sure that you
+
+30
+00:02:01,760 --> 00:02:04,460
+don't miss points
+that we include.
+
+31
+00:02:04,460 --> 00:02:06,319
+So the easiest way
+to lose points
+
+32
+00:02:06,319 --> 00:02:08,404
+is to not answer
+
+33
+00:02:08,404 --> 00:02:10,999
+certain questions we
+have in the rubrics.
+
+34
+00:02:10,999 --> 00:02:13,130
+Are there any questions about
+
+35
+00:02:13,130 --> 00:02:21,799
+the projects? I see questions.
+
+36
+00:02:21,799 --> 00:02:25,519
+And I know there's
+few people online,
+
+37
+00:02:25,519 --> 00:02:28,580
+so I guess Yeah,
+
+38
+00:02:28,580 --> 00:02:31,340
+I think more people online
+than in person today.
+
+39
+00:02:31,340 --> 00:02:37,235
+So maybe I'll try to take the
+online questions as well.
+
+40
+00:02:37,235 --> 00:02:39,724
+Okay, Any questions?
+
+41
+00:02:39,724 --> 00:02:42,410
+Cool. So last time we talked
+
+42
+00:02:42,410 --> 00:02:45,454
+about a range of
+generator models.
+
+43
+00:02:45,454 --> 00:02:49,459
+These are models that do
+not take labeled data,
+
+44
+00:02:49,459 --> 00:02:51,725
+they take unlabeled
+data and try to
+
+45
+00:02:51,725 --> 00:02:55,819
+learn generative
+distribution P of X.
+
+46
+00:02:55,819 --> 00:03:00,619
+We talked about
+Pixel, RNN and CNN,
+
+47
+00:03:00,619 --> 00:03:03,319
+which make simplifying
+assumptions
+
+48
+00:03:03,319 --> 00:03:06,380
+about the joint distribution
+over all pixels in an image,
+
+49
+00:03:06,380 --> 00:03:09,065
+e.g. by factorizing them.
+
+50
+00:03:09,065 --> 00:03:11,119
+So if you remember,
+
+51
+00:03:11,119 --> 00:03:15,229
+we conditions degeneration of
+a particular pixel based on
+
+52
+00:03:15,229 --> 00:03:17,689
+either some set of neighbors
+
+53
+00:03:17,689 --> 00:03:20,209
+that we decided an
+ordering over the pixels.
+
+54
+00:03:20,209 --> 00:03:22,219
+Or if you're using convolution,
+
+55
+00:03:22,219 --> 00:03:25,429
+then a window around that pixel.
+
+56
+00:03:25,429 --> 00:03:28,625
+We talked about
+variational autoencoders.
+
+57
+00:03:28,625 --> 00:03:31,670
+There was a lot of math that
+all lead to something very
+
+58
+00:03:31,670 --> 00:03:34,849
+simple and that it will be
+a theme continuing today.
+
+59
+00:03:34,849 --> 00:03:37,144
+There's gonna be a
+lot of math today.
+
+60
+00:03:37,144 --> 00:03:39,770
+A lot of it I'm not
+going to go through
+
+61
+00:03:39,770 --> 00:03:43,250
+because I have to skip
+a lot of iterations.
+
+62
+00:03:43,250 --> 00:03:46,310
+A lot of these papers have
+pages and pages of math.
+
+63
+00:03:46,310 --> 00:03:48,634
+They all lead to
+something very simple,
+
+64
+00:03:48,634 --> 00:03:50,674
+which is a simple
+regression problem
+
+65
+00:03:50,674 --> 00:03:53,119
+for variational autoencoders,
+if you remember,
+
+66
+00:03:53,119 --> 00:03:55,519
+and this is something
+that we should remember
+
+67
+00:03:55,519 --> 00:03:58,219
+because it will come up
+again for diffusion models.
+
+68
+00:03:58,219 --> 00:04:01,834
+The, one of the key
+things that was,
+
+69
+00:04:01,834 --> 00:04:05,209
+that we used is to leverage
+
+70
+00:04:05,209 --> 00:04:08,570
+this notion of what's
+
+71
+00:04:08,570 --> 00:04:10,534
+called an evidence-based
+lower bound.
+
+72
+00:04:10,534 --> 00:04:12,529
+That is, our loss,
+
+73
+00:04:12,529 --> 00:04:14,360
+which is always maximizing
+
+74
+00:04:14,360 --> 00:04:16,414
+the log likelihood of the data,
+
+75
+00:04:16,414 --> 00:04:21,155
+is decomposed after some
+derivation into a set of terms.
+
+76
+00:04:21,155 --> 00:04:23,374
+In this case three terms.
+
+77
+00:04:23,374 --> 00:04:27,589
+And the key idea is
+that these two terms we
+
+78
+00:04:27,589 --> 00:04:33,559
+could optimize or have some
+methods to optimize, e.g.
+
+79
+00:04:33,559 --> 00:04:35,569
+on the left, the
+log probability of
+
+80
+00:04:35,569 --> 00:04:37,985
+the image given some latent,
+
+81
+00:04:37,985 --> 00:04:40,715
+latent variables, which is
+the bottleneck features,
+
+82
+00:04:40,715 --> 00:04:45,874
+or the KL divergence
+between the prior,
+
+83
+00:04:45,874 --> 00:04:48,890
+the prior over the z,
+
+84
+00:04:48,890 --> 00:04:50,000
+which is the latent variables,
+
+85
+00:04:50,000 --> 00:04:52,775
+which is something we
+knew, which has e.g.
+
+86
+00:04:52,775 --> 00:04:56,479
+mean zero and standard units,
+
+87
+00:04:56,479 --> 00:04:58,399
+the standard deviation of one
+
+88
+00:04:58,399 --> 00:05:00,694
+and the estimate from the model.
+
+89
+00:05:00,694 --> 00:05:05,074
+So this was easy to do.
+
+90
+00:05:05,074 --> 00:05:07,430
+However, this particular term.
+
+91
+00:05:07,430 --> 00:05:10,219
+Was a KL divergence that is not
+
+92
+00:05:10,219 --> 00:05:13,354
+tractable to optimize
+and so we ignore it.
+
+93
+00:05:13,354 --> 00:05:15,200
+We know that it's greater
+or equal to zero.
+
+94
+00:05:15,200 --> 00:05:18,620
+And so we know that if
+we continue to push up
+
+95
+00:05:18,620 --> 00:05:20,585
+the left two terms
+
+96
+00:05:20,585 --> 00:05:23,719
+through optimization
+of the parameters,
+
+97
+00:05:23,719 --> 00:05:26,240
+we will still push
+up the overall log,
+
+98
+00:05:26,240 --> 00:05:28,039
+log-likelihood of the data,
+
+99
+00:05:28,039 --> 00:05:30,049
+which is ultimately
+what we want to do.
+
+100
+00:05:30,049 --> 00:05:31,640
+So keep this in
+mind because again,
+
+101
+00:05:31,640 --> 00:05:34,130
+it will come up nothing.
+
+102
+00:05:34,130 --> 00:05:37,669
+All of these generative models
+have a tractability issue.
+
+103
+00:05:37,669 --> 00:05:40,415
+Whether typically, you know,
+
+104
+00:05:40,415 --> 00:05:42,410
+it's kind of how do you
+
+105
+00:05:42,410 --> 00:05:45,680
+deal with the normalizing
+constant on the bottom,
+
+106
+00:05:45,680 --> 00:05:49,669
+which requires kind of
+support over everything.
+
+107
+00:05:49,669 --> 00:05:54,395
+Um, so every kind of
+generative model,
+
+108
+00:05:54,395 --> 00:05:56,299
+including energy-based
+and other methods
+
+109
+00:05:56,299 --> 00:05:58,669
+somehow get around this
+tractability issue.
+
+110
+00:05:58,669 --> 00:06:00,290
+Nobody can really magically
+
+111
+00:06:00,290 --> 00:06:01,519
+solve this tractability issue.
+
+112
+00:06:01,519 --> 00:06:03,470
+It's really what are the set of
+
+113
+00:06:03,470 --> 00:06:05,210
+assumptions that we're going to
+
+114
+00:06:05,210 --> 00:06:08,299
+make in making it
+more tractable.
+
+115
+00:06:08,299 --> 00:06:11,584
+And overall the
+architecture wise.
+
+116
+00:06:11,584 --> 00:06:12,889
+If you remember, this was
+
+117
+00:06:12,889 --> 00:06:15,394
+the architecture we
+had again, an image.
+
+118
+00:06:15,394 --> 00:06:18,124
+This is an unlabeled
+image during training,
+
+119
+00:06:18,124 --> 00:06:21,935
+fed to an encoder
+which estimates
+
+120
+00:06:21,935 --> 00:06:24,200
+the distribution or
+parameters of a district of
+
+121
+00:06:24,200 --> 00:06:26,509
+a Gaussian over the
+latent variables.
+
+122
+00:06:26,509 --> 00:06:31,834
+And that gets fed into the
+decoder which tries to read,
+
+123
+00:06:31,834 --> 00:06:34,475
+constructs the inputs,
+the original input.
+
+124
+00:06:34,475 --> 00:06:38,224
+Again, because we're using
+
+125
+00:06:38,224 --> 00:06:41,255
+Gaussians here everything is
+mean, standard deviation.
+
+126
+00:06:41,255 --> 00:06:44,600
+This log probability
+of the data given
+
+127
+00:06:44,600 --> 00:06:46,940
+the latent variables is really
+
+128
+00:06:46,940 --> 00:06:48,649
+just mean squared error
+
+129
+00:06:48,649 --> 00:06:50,315
+devolves into a
+mean squared error.
+
+130
+00:06:50,315 --> 00:06:54,079
+Again, you'll see this again
+in diffusion models as well.
+
+131
+00:06:54,079 --> 00:06:55,925
+Then the other part,
+
+132
+00:06:55,925 --> 00:06:59,239
+the KL divergence for
+the prior over the z is
+
+133
+00:06:59,239 --> 00:07:04,219
+just closed form because we
+know the Gaussian parameters.
+
+134
+00:07:04,219 --> 00:07:07,849
+So that was variational
+autoencoder.
+
+135
+00:07:07,849 --> 00:07:09,124
+So now we're going to talk about
+
+136
+00:07:09,124 --> 00:07:10,384
+a different class of models.
+
+137
+00:07:10,384 --> 00:07:12,874
+These are very different
+because unlike
+
+138
+00:07:12,874 --> 00:07:15,109
+variational autoencoders as well
+
+139
+00:07:15,109 --> 00:07:17,734
+as something that I didn't
+cover, which is gans.
+
+140
+00:07:17,734 --> 00:07:21,604
+This is going to be an iterative
+process of generation.
+
+141
+00:07:21,604 --> 00:07:23,360
+We're not going to
+be able to have
+
+142
+00:07:23,360 --> 00:07:26,960
+one neural network that just
+takes some random vector,
+
+143
+00:07:26,960 --> 00:07:29,660
+a vector of random numbers
+and generates an image.
+
+144
+00:07:29,660 --> 00:07:32,254
+It will be iterative process.
+
+145
+00:07:32,254 --> 00:07:34,669
+And specifically it'll
+be an iterative process
+
+146
+00:07:34,669 --> 00:07:37,280
+to progressively remove noise.
+
+147
+00:07:37,280 --> 00:07:39,500
+So you'll start with a
+noisy image and you'll
+
+148
+00:07:39,500 --> 00:07:42,500
+progressively estimate
+what noise to
+
+149
+00:07:42,500 --> 00:07:43,880
+remove from it such that
+
+150
+00:07:43,880 --> 00:07:48,725
+it tends towards a real
+natural image, e.g.
+
+151
+00:07:48,725 --> 00:07:50,389
+or models whatever joint
+
+152
+00:07:50,389 --> 00:07:51,695
+distribution of the data
+
+153
+00:07:51,695 --> 00:07:53,240
+that you give it
+during training.
+
+154
+00:07:53,240 --> 00:07:57,425
+So again, I'm going to
+give you very like kind of
+
+155
+00:07:57,425 --> 00:08:02,120
+just the steps to the
+proofs and derivations.
+
+156
+00:08:02,120 --> 00:08:03,200
+I'm not going to
+actually give you
+
+157
+00:08:03,200 --> 00:08:04,535
+a lot of the derivations.
+
+158
+00:08:04,535 --> 00:08:06,739
+There's resources to
+actually do this.
+
+159
+00:08:06,739 --> 00:08:07,940
+This is, this would take
+
+160
+00:08:07,940 --> 00:08:11,165
+probably like three or 4 h
+to go through all of that.
+
+161
+00:08:11,165 --> 00:08:12,289
+So there's a lot of math,
+
+162
+00:08:12,289 --> 00:08:13,609
+but like the end result,
+
+163
+00:08:13,609 --> 00:08:15,319
+just like variational
+autoencoder is gonna be
+
+164
+00:08:15,319 --> 00:08:18,259
+a super simple
+objective function that
+
+165
+00:08:18,259 --> 00:08:23,195
+we can optimize the
+diffusion models.
+
+166
+00:08:23,195 --> 00:08:25,580
+I shouldn't have to
+motivate anymore.
+
+167
+00:08:25,580 --> 00:08:29,705
+They've been really
+rising in popularity.
+
+168
+00:08:29,705 --> 00:08:32,494
+The key idea is, again,
+
+169
+00:08:32,494 --> 00:08:34,880
+they can generate very
+high resolution images.
+
+170
+00:08:34,880 --> 00:08:36,919
+So variational
+autoencoders I mentioned,
+
+171
+00:08:36,919 --> 00:08:39,425
+tend to produce
+really blurry images.
+
+172
+00:08:39,425 --> 00:08:41,239
+Gans, which I didn't cover,
+
+173
+00:08:41,239 --> 00:08:42,920
+tend to do pretty good images,
+
+174
+00:08:42,920 --> 00:08:45,664
+but there's still
+a lot of limits,
+
+175
+00:08:45,664 --> 00:08:49,669
+especially scaling it up to
+very high resolution images,
+
+176
+00:08:49,669 --> 00:08:52,444
+especially with simpler models,
+
+177
+00:08:52,444 --> 00:08:55,730
+not having to scale up
+to very gigantic models
+
+178
+00:08:55,730 --> 00:08:59,540
+that Nvidia and others
+have done. For gans.
+
+179
+00:08:59,540 --> 00:09:01,145
+There is a back-and-forth now
+
+180
+00:09:01,145 --> 00:09:03,020
+between Gans and
+diffusion models.
+
+181
+00:09:03,020 --> 00:09:04,954
+One of the nice things about
+
+182
+00:09:04,954 --> 00:09:07,309
+diffusion models that
+we'll see is that you
+
+183
+00:09:07,309 --> 00:09:09,380
+can have a nice way to
+
+184
+00:09:09,380 --> 00:09:12,545
+condition the generation
+process on some input,
+
+185
+00:09:12,545 --> 00:09:15,139
+the typical input that
+we know about his texts.
+
+186
+00:09:15,139 --> 00:09:19,070
+So you want to be able
+to give in a sentence,
+
+187
+00:09:19,070 --> 00:09:21,740
+generate a particular
+image for that sentence.
+
+188
+00:09:21,740 --> 00:09:24,200
+And we're going to just
+look at that as again,
+
+189
+00:09:24,200 --> 00:09:27,679
+a generative process
+that models how to
+
+190
+00:09:27,679 --> 00:09:29,990
+specifically how to
+progressively remove
+
+191
+00:09:29,990 --> 00:09:32,690
+noise from a noisy image
+to generate an image,
+
+192
+00:09:32,690 --> 00:09:35,269
+but will guide the process of
+
+193
+00:09:35,269 --> 00:09:39,529
+generation through this
+condition on the text inputs.
+
+194
+00:09:39,529 --> 00:09:41,749
+So one of the nice things
+is Gans can of course
+
+195
+00:09:41,749 --> 00:09:44,875
+also be somewhat
+conditioned on text,
+
+196
+00:09:44,875 --> 00:09:46,970
+but diffusion model is
+
+197
+00:09:46,970 --> 00:09:48,860
+actually handle it
+much more naturally.
+
+198
+00:09:48,860 --> 00:09:50,929
+There's a lot of
+mathematics and again,
+
+199
+00:09:50,929 --> 00:09:55,475
+behind how to do it like
+in a principled way.
+
+200
+00:09:55,475 --> 00:09:58,459
+And the key thing is these
+
+201
+00:09:58,459 --> 00:10:01,595
+generation processes when
+conditioned on texts,
+
+202
+00:10:01,595 --> 00:10:04,550
+generates a lot of
+new novel data.
+
+203
+00:10:04,550 --> 00:10:07,610
+So clearly, this
+does not happen.
+
+204
+00:10:07,610 --> 00:10:11,210
+Yet. It's able to take the
+compositional nature of
+
+205
+00:10:11,210 --> 00:10:13,639
+language such that even though
+
+206
+00:10:13,639 --> 00:10:15,020
+the training set did not have
+
+207
+00:10:15,020 --> 00:10:16,820
+this particular type of image,
+
+208
+00:10:16,820 --> 00:10:21,364
+maybe it had, it had the
+particular teddy bears,
+
+209
+00:10:21,364 --> 00:10:23,915
+it had the moon, it had
+other types of things.
+
+210
+00:10:23,915 --> 00:10:26,075
+And it's able to do
+compositionally,
+
+211
+00:10:26,075 --> 00:10:27,589
+combine these things,
+
+212
+00:10:27,589 --> 00:10:29,780
+which is kinda one
+of the magic and why
+
+213
+00:10:29,780 --> 00:10:32,645
+people were really
+impressed by it.
+
+214
+00:10:32,645 --> 00:10:34,339
+Then of course, you know.
+
+215
+00:10:34,339 --> 00:10:37,880
+Over time, people have really
+increased in the amount of
+
+216
+00:10:37,880 --> 00:10:42,574
+detail and these are
+just generating super,
+
+217
+00:10:42,574 --> 00:10:45,754
+super crazy images disease.
+
+218
+00:10:45,754 --> 00:10:51,320
+There's kind of a nice set
+of open source models.
+
+219
+00:10:51,320 --> 00:10:53,630
+I shouldn't, you know, a lot of
+
+220
+00:10:53,630 --> 00:10:56,750
+these things except for
+maybe GPT, it's kinda stuff.
+
+221
+00:10:56,750 --> 00:10:59,179
+Have a lot of open
+source kinda model
+
+222
+00:10:59,179 --> 00:11:00,469
+that worked really well.
+
+223
+00:11:00,469 --> 00:11:02,359
+So really these
+all have been more
+
+224
+00:11:02,359 --> 00:11:06,019
+democratized and things
+like language models, e.g.
+
+225
+00:11:06,019 --> 00:11:10,460
+so this really
+started around 2015,
+
+226
+00:11:10,460 --> 00:11:14,090
+where some folks
+at Stanford really
+
+227
+00:11:14,090 --> 00:11:16,849
+took knowledge from what
+
+228
+00:11:16,849 --> 00:11:19,100
+are called diffusion
+processes from physics.
+
+229
+00:11:19,100 --> 00:11:23,630
+So these are inspired by a
+bunch of methods in physics
+
+230
+00:11:23,630 --> 00:11:26,074
+and mathematical methods for
+
+231
+00:11:26,074 --> 00:11:29,539
+estimating distributions
+of data from physics.
+
+232
+00:11:29,539 --> 00:11:31,849
+Initially, this was ported to
+
+233
+00:11:31,849 --> 00:11:34,640
+this problem of image
+generation in 2015.
+
+234
+00:11:34,640 --> 00:11:37,789
+Of course, the results then
+we're kind of not great,
+
+235
+00:11:37,789 --> 00:11:40,010
+but they showed conceptually
+
+236
+00:11:40,010 --> 00:11:41,914
+that this is a method
+that can work.
+
+237
+00:11:41,914 --> 00:11:44,255
+And one kind of
+
+238
+00:11:44,255 --> 00:11:49,415
+some success was had a cross
+generating larger images.
+
+239
+00:11:49,415 --> 00:11:52,354
+And then of course, conditioning
+on texts and so on.
+
+240
+00:11:52,354 --> 00:11:54,380
+The progress has been crazy.
+
+241
+00:11:54,380 --> 00:11:59,074
+So really, I'll cover a
+few of these concepts.
+
+242
+00:11:59,074 --> 00:12:01,880
+I just cannot possibly
+cover all of these things.
+
+243
+00:12:01,880 --> 00:12:04,069
+Even the 2015 paper, again,
+
+244
+00:12:04,069 --> 00:12:06,559
+that's the original one that
+has all the math laid out.
+
+245
+00:12:06,559 --> 00:12:08,959
+If you want to
+delve into it line
+
+246
+00:12:08,959 --> 00:12:11,929
+by line over many hours.
+
+247
+00:12:11,929 --> 00:12:14,615
+That's really the source,
+
+248
+00:12:14,615 --> 00:12:17,659
+the original source and
+then the DD PM paper
+
+249
+00:12:17,659 --> 00:12:20,195
+over here also has
+a really nice,
+
+250
+00:12:20,195 --> 00:12:22,715
+I guess, a little
+bit simpler kind of
+
+251
+00:12:22,715 --> 00:12:26,390
+formulation for the math
+to understand better.
+
+252
+00:12:26,390 --> 00:12:30,005
+The overall process that
+we will consider now
+
+253
+00:12:30,005 --> 00:12:33,544
+is very different from
+the auto-encoders.
+
+254
+00:12:33,544 --> 00:12:37,070
+We're going to have what's
+called a diffusion process.
+
+255
+00:12:37,070 --> 00:12:38,854
+So again, during training,
+
+256
+00:12:38,854 --> 00:12:40,984
+we have just unlabeled data.
+
+257
+00:12:40,984 --> 00:12:44,254
+So what are we gonna do
+with that unlabeled data?
+
+258
+00:12:44,254 --> 00:12:46,370
+We're going to have what's
+
+259
+00:12:46,370 --> 00:12:48,229
+called the former
+diffusion process,
+
+260
+00:12:48,229 --> 00:12:51,574
+which will add Gaussian
+noise at each step.
+
+261
+00:12:51,574 --> 00:12:53,840
+Will see there's a
+lot of complexities.
+
+262
+00:12:53,840 --> 00:12:56,630
+It won't be the same
+Gaussian parameters,
+
+263
+00:12:56,630 --> 00:12:59,629
+mean and standard deviation
+or mean and variance.
+
+264
+00:12:59,629 --> 00:13:01,970
+Every timestep
+will actually have
+
+265
+00:13:01,970 --> 00:13:04,220
+a time-varying set of
+
+266
+00:13:04,220 --> 00:13:06,769
+parameters for the Gaussian
+that you're adding.
+
+267
+00:13:06,769 --> 00:13:08,164
+But that's what we're gonna do.
+
+268
+00:13:08,164 --> 00:13:11,105
+We're gonna just
+progressively take the image,
+
+269
+00:13:11,105 --> 00:13:16,534
+add more and more noise to
+it over the time-steps.
+
+270
+00:13:16,534 --> 00:13:18,169
+So you're iterate
+every time step,
+
+271
+00:13:18,169 --> 00:13:21,109
+you add again more
+noise samples from
+
+272
+00:13:21,109 --> 00:13:23,075
+some normal Gaussian
+distribution
+
+273
+00:13:23,075 --> 00:13:26,270
+with some parameters
+Mu and Sigma.
+
+274
+00:13:26,270 --> 00:13:30,800
+What? That's going to end
+up in a provable way to
+
+275
+00:13:30,800 --> 00:13:34,939
+lead to this isotropic noise,
+
+276
+00:13:34,939 --> 00:13:37,160
+which is just from
+
+277
+00:13:37,160 --> 00:13:40,310
+this normal or standard normal
+distribution with a mean
+
+278
+00:13:40,310 --> 00:13:44,255
+of zero and identity variance.
+
+279
+00:13:44,255 --> 00:13:48,275
+So I'm not gonna go into
+why this is the case.
+
+280
+00:13:48,275 --> 00:13:49,759
+This is a lot of like properties
+
+281
+00:13:49,759 --> 00:13:51,409
+of Gaussians and
+things like that.
+
+282
+00:13:51,409 --> 00:13:53,885
+The key thing is that again,
+
+283
+00:13:53,885 --> 00:13:56,254
+the variance has to be,
+
+284
+00:13:56,254 --> 00:13:58,909
+there has to be properties to
+the variance you're adding.
+
+285
+00:13:58,909 --> 00:14:01,249
+Obviously you can't e.g.
+
+286
+00:14:01,249 --> 00:14:03,904
+add sort of like
+different biases
+
+287
+00:14:03,904 --> 00:14:08,449
+or it can explode if you add
+too much variance and so on.
+
+288
+00:14:08,449 --> 00:14:11,045
+So we're going to have
+a bounded kind of
+
+289
+00:14:11,045 --> 00:14:12,980
+equation for what the variance
+
+290
+00:14:12,980 --> 00:14:14,690
+should be at each timestep.
+
+291
+00:14:14,690 --> 00:14:18,559
+And we're going to then
+mean and variance.
+
+292
+00:14:18,559 --> 00:14:21,755
+And then we're going
+to, after some math,
+
+293
+00:14:21,755 --> 00:14:23,150
+which I won't cover,
+
+294
+00:14:23,150 --> 00:14:25,265
+it will probably lead to
+
+295
+00:14:25,265 --> 00:14:28,490
+just by the end of
+the process noise.
+
+296
+00:14:28,490 --> 00:14:31,969
+Typically there's some
+timestep, number of timesteps.
+
+297
+00:14:31,969 --> 00:14:35,630
+You do this at something
+around like 1,000.
+
+298
+00:14:35,630 --> 00:14:38,944
+Um, I think recent
+methods only do hundreds,
+
+299
+00:14:38,944 --> 00:14:41,509
+but that's the standard process.
+
+300
+00:14:41,509 --> 00:14:42,949
+So this is a very simple,
+
+301
+00:14:42,949 --> 00:14:44,554
+conceptually, very simple idea.
+
+302
+00:14:44,554 --> 00:14:47,944
+We're just going to take image
+and over many timesteps,
+
+303
+00:14:47,944 --> 00:14:51,029
+add more and more noise to it.
+
+304
+00:14:51,130 --> 00:14:54,259
+The key thing that we want to
+
+305
+00:14:54,259 --> 00:14:57,379
+learn is how to do the reverse,
+
+306
+00:14:57,379 --> 00:14:59,509
+which is take a noise image.
+
+307
+00:14:59,509 --> 00:15:01,700
+This is very similar to
+autoencoders where we
+
+308
+00:15:01,700 --> 00:15:04,505
+took a vector of
+latent variables.
+
+309
+00:15:04,505 --> 00:15:07,230
+We want to noise image.
+
+310
+00:15:07,390 --> 00:15:10,984
+So one thing to note
+is for all of these,
+
+311
+00:15:10,984 --> 00:15:13,100
+x zero is always
+
+312
+00:15:13,100 --> 00:15:19,139
+the original image and x t
+is always the pure noise.
+
+313
+00:15:19,450 --> 00:15:22,220
+So what we're gonna
+do is we're going to
+
+314
+00:15:22,220 --> 00:15:25,430
+have de-noising process
+which does the reverse.
+
+315
+00:15:25,430 --> 00:15:28,234
+It takes a noisy image
+and it progressively,
+
+316
+00:15:28,234 --> 00:15:31,279
+you can think of it as
+removing noise that was
+
+317
+00:15:31,279 --> 00:15:35,074
+added to recover
+the original image.
+
+318
+00:15:35,074 --> 00:15:37,745
+And so, not surprisingly,
+
+319
+00:15:37,745 --> 00:15:39,514
+that is what we're
+going to learn
+
+320
+00:15:39,514 --> 00:15:42,170
+a neural network to
+progressively take
+
+321
+00:15:42,170 --> 00:15:47,390
+out noise from a noisy
+image to generate an image.
+
+322
+00:15:47,390 --> 00:15:49,009
+And again, this
+is unconditioned.
+
+323
+00:15:49,009 --> 00:15:50,780
+That is, if you,
+
+324
+00:15:50,780 --> 00:15:54,184
+let's say you learned this
+magical reverse process,
+
+325
+00:15:54,184 --> 00:15:56,569
+what you can do is
+now sample from
+
+326
+00:15:56,569 --> 00:15:59,480
+the distribution of the
+data, let's say images.
+
+327
+00:15:59,480 --> 00:16:00,334
+So you can.
+
+328
+00:16:00,334 --> 00:16:03,995
+Take a sample different
+noise images,
+
+329
+00:16:03,995 --> 00:16:06,185
+and each of those
+nodes images will,
+
+330
+00:16:06,185 --> 00:16:08,150
+through this reverse process,
+
+331
+00:16:08,150 --> 00:16:10,519
+generate a new image that
+
+332
+00:16:10,519 --> 00:16:13,025
+comes from the distribution
+of natural images.
+
+333
+00:16:13,025 --> 00:16:15,290
+Again, where does this come
+
+334
+00:16:15,290 --> 00:16:17,390
+from and why would
+anyone want to do this?
+
+335
+00:16:17,390 --> 00:16:20,435
+This comes from a lot of
+ties to things like physics.
+
+336
+00:16:20,435 --> 00:16:23,000
+There's something called
+annealed importance sampling and
+
+337
+00:16:23,000 --> 00:16:26,314
+physics where all
+of this comes from.
+
+338
+00:16:26,314 --> 00:16:29,000
+There's a lot of
+kind of way deep
+
+339
+00:16:29,000 --> 00:16:32,419
+math as background
+for why you wanna do.
+
+340
+00:16:32,419 --> 00:16:34,520
+Are there any questions
+on just the framework?
+
+341
+00:16:34,520 --> 00:16:36,604
+I didn't tell you anything
+about how to do this.
+
+342
+00:16:36,604 --> 00:16:38,029
+All I'm telling
+you is that about
+
+343
+00:16:38,029 --> 00:16:40,820
+the process and what we
+want to ultimately there.
+
+344
+00:16:40,820 --> 00:16:43,169
+Any questions?
+
+345
+00:16:46,470 --> 00:16:50,230
+So again, as an overview,
+
+346
+00:16:50,230 --> 00:16:53,440
+I showed you variational
+autoencoders where again you
+
+347
+00:16:53,440 --> 00:16:56,200
+had like an image and
+it had an encoder.
+
+348
+00:16:56,200 --> 00:16:57,699
+It gives you some
+latent variables,
+
+349
+00:16:57,699 --> 00:17:00,640
+and then it gave you a decoder
+to output a new image,
+
+350
+00:17:00,640 --> 00:17:02,244
+which is the reconstruction.
+
+351
+00:17:02,244 --> 00:17:06,729
+And the key is during
+the inference process.
+
+352
+00:17:06,729 --> 00:17:07,989
+To generate new images,
+
+353
+00:17:07,989 --> 00:17:09,010
+you just do this, right?
+
+354
+00:17:09,010 --> 00:17:11,394
+You take a z and then
+
+355
+00:17:11,394 --> 00:17:14,860
+you degenerates you an
+image through the decoder.
+
+356
+00:17:14,860 --> 00:17:16,539
+What we're gonna do is
+something different.
+
+357
+00:17:16,539 --> 00:17:20,214
+We're going to be given sort of
+
+358
+00:17:20,214 --> 00:17:22,959
+the noise and then
+we're going to generate
+
+359
+00:17:22,959 --> 00:17:26,939
+an image iteratively
+step-by-step.
+
+360
+00:17:26,939 --> 00:17:30,649
+So we will have these timesteps
+for all of these things,
+
+361
+00:17:30,649 --> 00:17:33,739
+which is very different from
+any of these other methods,
+
+362
+00:17:33,739 --> 00:17:35,660
+it also has a
+downside that it is
+
+363
+00:17:35,660 --> 00:17:37,955
+slower because you have to
+
+364
+00:17:37,955 --> 00:17:41,450
+iteratively do run
+neural networks
+
+365
+00:17:41,450 --> 00:17:45,050
+rather than just do a
+one-shot. Here's no worries.
+
+366
+00:17:45,050 --> 00:17:47,524
+Here's a one-shot neural
+network that gives me an image.
+
+367
+00:17:47,524 --> 00:17:48,875
+So there's a downside.
+
+368
+00:17:48,875 --> 00:17:50,960
+And you can try to, of course,
+
+369
+00:17:50,960 --> 00:17:52,580
+people are always working on how
+
+370
+00:17:52,580 --> 00:17:54,980
+to mitigate those downsides.
+
+371
+00:17:54,980 --> 00:17:57,420
+You have a question. Yeah.
+
+372
+00:18:17,080 --> 00:18:20,120
+I'm sorry.
+
+373
+00:18:20,120 --> 00:18:21,259
+Is this the training process or
+
+374
+00:18:21,259 --> 00:18:23,795
+inference process that
+you're asking about?
+
+375
+00:18:23,795 --> 00:18:26,224
+The training process, we'll see,
+
+376
+00:18:26,224 --> 00:18:28,970
+we'll actually just pick
+a random timestep and
+
+377
+00:18:28,970 --> 00:18:32,914
+just learn how to generate
+the next time-step.
+
+378
+00:18:32,914 --> 00:18:35,540
+It is a little bit kind of like
+
+379
+00:18:35,540 --> 00:18:36,710
+the recurrent neural network
+
+380
+00:18:36,710 --> 00:18:37,850
+in the sense that it's gonna be
+
+381
+00:18:37,850 --> 00:18:40,550
+one neural network
+that will iteratively
+
+382
+00:18:40,550 --> 00:18:43,550
+be applied to you,
+
+383
+00:18:43,550 --> 00:18:45,575
+apply the noise image
+to the neural network.
+
+384
+00:18:45,575 --> 00:18:47,930
+It'll give you a slightly
+less noisy image.
+
+385
+00:18:47,930 --> 00:18:49,190
+You take that slightly less
+
+386
+00:18:49,190 --> 00:18:50,300
+though a gym and
+you run it through
+
+387
+00:18:50,300 --> 00:18:52,009
+the same neural network to
+
+388
+00:18:52,009 --> 00:18:53,975
+get a slightly
+less noise damage.
+
+389
+00:18:53,975 --> 00:18:56,374
+Of course, this is all going
+to be timed conditions.
+
+390
+00:18:56,374 --> 00:18:59,299
+As I mentioned, things
+are not static over time,
+
+391
+00:18:59,299 --> 00:19:03,094
+so the variance and
+mean will differ.
+
+392
+00:19:03,094 --> 00:19:04,924
+So what we'll do
+is we'll just add
+
+393
+00:19:04,924 --> 00:19:07,609
+like basically if you like,
+kinda like Transformers,
+
+394
+00:19:07,609 --> 00:19:09,845
+positional encoding
+will add like
+
+395
+00:19:09,845 --> 00:19:11,659
+a input to the neural network
+
+396
+00:19:11,659 --> 00:19:13,759
+that tells us what
+timestep it is.
+
+397
+00:19:13,759 --> 00:19:15,980
+It's a little bit
+of a weird hybrid
+
+398
+00:19:15,980 --> 00:19:18,260
+of kind of like in the recurrent
+neural network, right?
+
+399
+00:19:18,260 --> 00:19:21,350
+In that it is sequential
+and there's timesteps,
+
+400
+00:19:21,350 --> 00:19:22,969
+but we're just
+feeding it over and
+
+401
+00:19:22,969 --> 00:19:24,289
+over to the same neural network.
+
+402
+00:19:24,289 --> 00:19:26,090
+There's no notion of
+hidden state here though.
+
+403
+00:19:26,090 --> 00:19:27,380
+So that's a little
+
+404
+00:19:27,380 --> 00:19:30,029
+different from the
+recurrent neural network.
+
+405
+00:19:40,630 --> 00:19:43,084
+Diffusion is not a network,
+
+406
+00:19:43,084 --> 00:19:46,624
+it is us adding random
+Gaussian noise to it.
+
+407
+00:19:46,624 --> 00:19:48,829
+There's no network. We
+know what we're doing.
+
+408
+00:19:48,829 --> 00:19:50,989
+We know that the specific noise
+
+409
+00:19:50,989 --> 00:19:52,459
+that we're adding each time step
+
+410
+00:19:52,459 --> 00:19:54,619
+sampled from distribution is
+
+411
+00:19:54,619 --> 00:19:56,885
+Gaussian distributions
+that we know.
+
+412
+00:19:56,885 --> 00:20:00,050
+So the forward process
+is something we're
+
+413
+00:20:00,050 --> 00:20:01,969
+doing through Gaussians and
+
+414
+00:20:01,969 --> 00:20:03,604
+it's gonna be very
+well understood.
+
+415
+00:20:03,604 --> 00:20:05,135
+We don't have a neural network,
+
+416
+00:20:05,135 --> 00:20:06,500
+will have one
+neural network that
+
+417
+00:20:06,500 --> 00:20:09,659
+estimates the reverse process.
+
+418
+00:20:13,660 --> 00:20:15,770
+Exactly, exactly.
+
+419
+00:20:15,770 --> 00:20:17,600
+And during inference when
+
+420
+00:20:17,600 --> 00:20:18,619
+you want to generate
+you and you,
+
+421
+00:20:18,619 --> 00:20:20,450
+and you don't do the
+forward process.
+
+422
+00:20:20,450 --> 00:20:22,160
+All you have is noise,
+
+423
+00:20:22,160 --> 00:20:23,930
+image and you just run
+
+424
+00:20:23,930 --> 00:20:26,790
+the neural network to
+do the reverse process.
+
+425
+00:20:30,520 --> 00:20:33,034
+So this is going to be, again,
+
+426
+00:20:33,034 --> 00:20:34,700
+we're gonna have a
+forward process.
+
+427
+00:20:34,700 --> 00:20:36,619
+You can think of this
+as kind of encoding
+
+428
+00:20:36,619 --> 00:20:38,990
+except that it's a little
+bit weird encoding.
+
+429
+00:20:38,990 --> 00:20:43,010
+It's kinda, it's
+kinda be this noise
+
+430
+00:20:43,010 --> 00:20:44,674
+with a mean of zero and
+
+431
+00:20:44,674 --> 00:20:47,915
+a variance of identity,
+identity variance.
+
+432
+00:20:47,915 --> 00:20:51,889
+And then we'll have again
+de-noising process,
+
+433
+00:20:51,889 --> 00:20:55,085
+kind of alluding to what
+you were asking about.
+
+434
+00:20:55,085 --> 00:20:57,454
+The forward process
+is very known.
+
+435
+00:20:57,454 --> 00:21:01,189
+We can actually
+define, have lots of,
+
+436
+00:21:01,189 --> 00:21:04,490
+you'll see lots of
+analytic equations that
+
+437
+00:21:04,490 --> 00:21:07,969
+define what is
+this distribution?
+
+438
+00:21:07,969 --> 00:21:09,124
+Why is it known?
+
+439
+00:21:09,124 --> 00:21:10,714
+Because again,
+
+440
+00:21:10,714 --> 00:21:13,580
+Gaussians are awesome like
+there's lots of properties and
+
+441
+00:21:13,580 --> 00:21:15,350
+characteristics of
+Gaussian that allow us
+
+442
+00:21:15,350 --> 00:21:19,310
+to basically have equations,
+
+443
+00:21:19,310 --> 00:21:21,904
+analytic equations for what each
+
+444
+00:21:21,904 --> 00:21:25,384
+outputs it looks like
+at each time-step.
+
+445
+00:21:25,384 --> 00:21:28,025
+So we'll actually see that
+given the initial image,
+
+446
+00:21:28,025 --> 00:21:29,750
+we actually can
+have an equation to
+
+447
+00:21:29,750 --> 00:21:32,614
+understand how the teeth image.
+
+448
+00:21:32,614 --> 00:21:35,030
+Will, what distribution it comes
+
+449
+00:21:35,030 --> 00:21:37,790
+from based on just
+the original image.
+
+450
+00:21:37,790 --> 00:21:40,145
+You don't even have to do
+the iterative process.
+
+451
+00:21:40,145 --> 00:21:43,100
+Again, because Gaussian is
+just combine nicely over
+
+452
+00:21:43,100 --> 00:21:46,519
+timesteps into a new
+Gaussian distribution.
+
+453
+00:21:46,519 --> 00:21:51,214
+What's unknown and what's
+learned is this part, which is,
+
+454
+00:21:51,214 --> 00:21:54,049
+again, we're going
+to particularly,
+
+455
+00:21:54,049 --> 00:21:56,615
+and you can see this
+like a Markov chain.
+
+456
+00:21:56,615 --> 00:21:58,429
+We're going to
+view it as kind of
+
+457
+00:21:58,429 --> 00:22:00,050
+a Markov chain where
+you're applying
+
+458
+00:22:00,050 --> 00:22:03,725
+Gaussians and you're removing
+the noise from Gaussian.
+
+459
+00:22:03,725 --> 00:22:09,500
+And so again, the
+probability of the data is,
+
+460
+00:22:09,500 --> 00:22:12,200
+is this chain rule
+of probability.
+
+461
+00:22:12,200 --> 00:22:13,670
+So again, it's gonna be
+
+462
+00:22:13,670 --> 00:22:16,310
+Markovian in the sense that
+really what we're going
+
+463
+00:22:16,310 --> 00:22:22,849
+to learn is the distribution
+of X t minus one given x t.
+
+464
+00:22:22,849 --> 00:22:25,069
+So again, this is
+flipped because
+
+465
+00:22:25,069 --> 00:22:27,859
+we're going from
+the right side are,
+
+466
+00:22:27,859 --> 00:22:29,765
+well, we're going from x T,
+
+467
+00:22:29,765 --> 00:22:32,494
+capital T, which is
+the noised image.
+
+468
+00:22:32,494 --> 00:22:35,540
+We're going to go
+to x t minus one,
+
+469
+00:22:35,540 --> 00:22:37,490
+and so on backwards.
+
+470
+00:22:37,490 --> 00:22:39,530
+So that's gonna be ultimately
+
+471
+00:22:39,530 --> 00:22:41,554
+the neural network
+that will want.
+
+472
+00:22:41,554 --> 00:22:43,820
+How is this actually
+implemented?
+
+473
+00:22:43,820 --> 00:22:45,679
+I'm not gonna go too much
+into the architectures,
+
+474
+00:22:45,679 --> 00:22:52,944
+but you can think of a unit
+that just takes x t. Again,
+
+475
+00:22:52,944 --> 00:22:55,209
+it's an image to image problem.
+
+476
+00:22:55,209 --> 00:22:58,239
+So it's just a
+neural network that
+
+477
+00:22:58,239 --> 00:23:03,039
+has a bottleneck and then
+outputs the new x t minus one.
+
+478
+00:23:03,039 --> 00:23:06,640
+Again, ideally that
+should be removing
+
+479
+00:23:06,640 --> 00:23:10,674
+the noise that was added
+in the forward process.
+
+480
+00:23:10,674 --> 00:23:13,360
+Because all of this
+is gonna be temporal.
+
+481
+00:23:13,360 --> 00:23:14,770
+The parameters that we will have
+
+482
+00:23:14,770 --> 00:23:16,795
+some like positional encoding
+
+483
+00:23:16,795 --> 00:23:19,059
+here that basically tells
+you that the time-step,
+
+484
+00:23:19,059 --> 00:23:20,200
+what timestep are you on,
+
+485
+00:23:20,200 --> 00:23:21,610
+because we're going to
+use the same neural
+
+486
+00:23:21,610 --> 00:23:23,589
+network for all timesteps.
+
+487
+00:23:23,589 --> 00:23:26,230
+Yet, we'll see that all
+of these parameters
+
+488
+00:23:26,230 --> 00:23:28,974
+of the Gaussian are
+gonna be time-varying.
+
+489
+00:23:28,974 --> 00:23:31,465
+So we'll, we'll do it that way.
+
+490
+00:23:31,465 --> 00:23:35,554
+But the way you
+actually generates the
+
+491
+00:23:35,554 --> 00:23:38,045
+ultimate during inference image
+
+492
+00:23:38,045 --> 00:23:39,784
+is you take a noise image,
+
+493
+00:23:39,784 --> 00:23:41,119
+you feed it through,
+
+494
+00:23:41,119 --> 00:23:43,505
+that gives you
+again t minus one,
+
+495
+00:23:43,505 --> 00:23:45,664
+which is slightly less noise.
+
+496
+00:23:45,664 --> 00:23:47,630
+And then you feed
+it through again.
+
+497
+00:23:47,630 --> 00:23:49,820
+Again, you give it
+information about
+
+498
+00:23:49,820 --> 00:23:52,669
+what timestep you're
+in at each time
+
+499
+00:23:52,669 --> 00:23:54,739
+so that they can condition
+the neural network and
+
+500
+00:23:54,739 --> 00:23:58,459
+condition and based on that,
+those positional encodings.
+
+501
+00:23:58,459 --> 00:24:00,004
+Okay?
+
+502
+00:24:00,004 --> 00:24:01,430
+So that's gonna be how
+
+503
+00:24:01,430 --> 00:24:03,964
+you actually run the
+inference process.
+
+504
+00:24:03,964 --> 00:24:09,080
+You just keep, keep running
+it iteratively through time.
+
+505
+00:24:09,080 --> 00:24:11,510
+And of course, the
+key question is,
+
+506
+00:24:11,510 --> 00:24:13,205
+how do we train this
+neural network?
+
+507
+00:24:13,205 --> 00:24:15,199
+What is the loss function?
+
+508
+00:24:15,199 --> 00:24:17,480
+Again, the forward
+process is super well
+
+509
+00:24:17,480 --> 00:24:19,250
+understood and we
+have everything
+
+510
+00:24:19,250 --> 00:24:22,220
+for it because we're adding
+the noise and we know
+
+511
+00:24:22,220 --> 00:24:24,050
+what parameters of the
+Gaussian that we're
+
+512
+00:24:24,050 --> 00:24:26,179
+sampling from,
+which we will see.
+
+513
+00:24:26,179 --> 00:24:30,350
+The key is, how does it
+learn to undo them nodes?
+
+514
+00:24:30,350 --> 00:24:32,250
+Okay?
+
+515
+00:24:32,860 --> 00:24:36,650
+So let's talk about
+the forward process.
+
+516
+00:24:36,650 --> 00:24:38,825
+The forward process again
+is pretty well understood.
+
+517
+00:24:38,825 --> 00:24:41,179
+And again, I'm not going
+to cover all the math and
+
+518
+00:24:41,179 --> 00:24:43,955
+derivations for everything
+of why everything is true.
+
+519
+00:24:43,955 --> 00:24:46,294
+It just would take way too long.
+
+520
+00:24:46,294 --> 00:24:49,099
+So again, the known
+forward process
+
+521
+00:24:49,099 --> 00:24:52,310
+is this kind of Markov chain
+
+522
+00:24:52,310 --> 00:24:59,480
+where we are progressively
+adding given t,
+
+523
+00:24:59,480 --> 00:25:01,250
+given X, t minus one.
+
+524
+00:25:01,250 --> 00:25:03,830
+We know what X d is
+because we're going to be
+
+525
+00:25:03,830 --> 00:25:07,970
+adding noise of a particular
+Gaussian distribution.
+
+526
+00:25:07,970 --> 00:25:11,180
+Specifically, this
+is going to be
+
+527
+00:25:11,180 --> 00:25:16,685
+the parameters of the Gaussian
+that we do that we use.
+
+528
+00:25:16,685 --> 00:25:20,809
+And so here, the notation here,
+
+529
+00:25:20,809 --> 00:25:21,905
+this isn't like an,
+
+530
+00:25:21,905 --> 00:25:23,899
+a function that takes in XD.
+
+531
+00:25:23,899 --> 00:25:28,429
+It's really the distribution
+for this will be
+
+532
+00:25:28,429 --> 00:25:33,109
+sampled from a normal
+distribution with a mean,
+
+533
+00:25:33,109 --> 00:25:37,160
+this square root of one
+minus Beta t times,
+
+534
+00:25:37,160 --> 00:25:38,764
+again, it's
+conditioned of course,
+
+535
+00:25:38,764 --> 00:25:40,634
+on the previous one.
+
+536
+00:25:40,634 --> 00:25:45,469
+And the variance will be beta t.
+
+537
+00:25:45,870 --> 00:25:49,299
+So the thing to notice is that
+
+538
+00:25:49,299 --> 00:25:52,164
+the parameters of the
+normal distribution,
+
+539
+00:25:52,164 --> 00:25:54,189
+the parameters of the
+noise you're adding at
+
+540
+00:25:54,189 --> 00:25:57,500
+each timestep is
+changing over time.
+
+541
+00:25:57,510 --> 00:26:00,654
+And so what does this look like?
+
+542
+00:26:00,654 --> 00:26:01,974
+Beta t is going to be
+
+543
+00:26:01,974 --> 00:26:04,029
+what's called the
+variance schedule.
+
+544
+00:26:04,029 --> 00:26:06,054
+For a particular timestep.
+
+545
+00:26:06,054 --> 00:26:07,750
+The variance schedule, you can
+
+546
+00:26:07,750 --> 00:26:09,460
+come up with
+different schedules.
+
+547
+00:26:09,460 --> 00:26:11,320
+The very obvious one is you just
+
+548
+00:26:11,320 --> 00:26:13,719
+take a minimum
+range or a minimum.
+
+549
+00:26:13,719 --> 00:26:17,200
+You take a maximum
+and then you take
+
+550
+00:26:17,200 --> 00:26:20,739
+a step size and you just
+keep increasing it.
+
+551
+00:26:20,739 --> 00:26:23,114
+So in this case you start
+at something close to zero,
+
+552
+00:26:23,114 --> 00:26:25,579
+you add 0.02 every time.
+
+553
+00:26:25,579 --> 00:26:30,080
+The thing to note is that
+the variance is going to
+
+554
+00:26:30,080 --> 00:26:34,864
+be increasing over
+the time-steps.
+
+555
+00:26:34,864 --> 00:26:37,249
+So if you actually plot this,
+
+556
+00:26:37,249 --> 00:26:39,830
+what you'll notice
+is that the mean is
+
+557
+00:26:39,830 --> 00:26:42,710
+this square root of
+one minus Beta t.
+
+558
+00:26:42,710 --> 00:26:48,214
+So the mean is reducing and
+the variance is increasing.
+
+559
+00:26:48,214 --> 00:26:49,819
+Again. Why do we do this?
+
+560
+00:26:49,819 --> 00:26:52,234
+This has ties to
+all the physics,
+
+561
+00:26:52,234 --> 00:26:55,189
+like simulated annealing
+theory and all that stuff.
+
+562
+00:26:55,189 --> 00:26:56,795
+So the schedule,
+
+563
+00:26:56,795 --> 00:26:59,555
+why is it a schedule as
+opposed to some constant?
+
+564
+00:26:59,555 --> 00:27:02,194
+Again, has to do with some
+deep theory of like this.
+
+565
+00:27:02,194 --> 00:27:05,225
+This allows us to better
+model the distribution.
+
+566
+00:27:05,225 --> 00:27:07,159
+Um, which I'm not gonna go into,
+
+567
+00:27:07,159 --> 00:27:14,450
+but is why it's just
+in mechanistically.
+
+568
+00:27:14,450 --> 00:27:18,005
+The key point to understand
+is that at every time step,
+
+569
+00:27:18,005 --> 00:27:20,780
+you're not sampling from the
+same normal distribution.
+
+570
+00:27:20,780 --> 00:27:23,120
+You're sampling from a
+different normal distribution
+
+571
+00:27:23,120 --> 00:27:25,279
+that has these parameters.
+
+572
+00:27:25,279 --> 00:27:29,249
+In particular. Does
+that make sense?
+
+573
+00:27:29,770 --> 00:27:32,010
+Okay.
+
+574
+00:27:36,520 --> 00:27:40,264
+There's several nice
+properties that come
+
+575
+00:27:40,264 --> 00:27:43,549
+directly from just the
+fact that it's a Gaussian,
+
+576
+00:27:43,549 --> 00:27:45,784
+then you can do a bunch
+of analytic math.
+
+577
+00:27:45,784 --> 00:27:49,764
+So as an example,
+you can actually,
+
+578
+00:27:49,764 --> 00:27:55,989
+before I showed you this is
+again for computing x of t.
+
+579
+00:27:55,989 --> 00:27:59,214
+You're sampling from
+that distribution.
+
+580
+00:27:59,214 --> 00:28:04,060
+However, that is conditioned
+on X t minus one,
+
+581
+00:28:04,060 --> 00:28:05,964
+which is the previous image.
+
+582
+00:28:05,964 --> 00:28:08,170
+If you run out the math to
+
+583
+00:28:08,170 --> 00:28:10,630
+kinda basically unroll
+it through time,
+
+584
+00:28:10,630 --> 00:28:12,475
+you can actually give
+
+585
+00:28:12,475 --> 00:28:15,399
+an analytic solution
+to not just that,
+
+586
+00:28:15,399 --> 00:28:18,685
+but x of t conditioned
+on X of zero,
+
+587
+00:28:18,685 --> 00:28:20,200
+which is the original image.
+
+588
+00:28:20,200 --> 00:28:22,840
+So now we're basically
+just analytically skipping
+
+589
+00:28:22,840 --> 00:28:25,854
+a times timesteps given
+just accept zero,
+
+590
+00:28:25,854 --> 00:28:30,540
+we can directly compute what
+distribution to sample from
+
+591
+00:28:30,540 --> 00:28:32,750
+to get the image at
+
+592
+00:28:32,750 --> 00:28:34,220
+that particular time step in
+
+593
+00:28:34,220 --> 00:28:37,259
+the forward process
+because we understand it.
+
+594
+00:28:37,270 --> 00:28:40,159
+Here we will have
+several variables in
+
+595
+00:28:40,159 --> 00:28:43,624
+this analytic equation
+that we come up with.
+
+596
+00:28:43,624 --> 00:28:46,700
+In particular, we have a of t,
+
+597
+00:28:46,700 --> 00:28:50,135
+which is just defined as
+this one minus the Beta t.
+
+598
+00:28:50,135 --> 00:28:53,030
+And then we have a bar of t,
+
+599
+00:28:53,030 --> 00:28:56,240
+which is just the
+cumulative product of
+
+600
+00:28:56,240 --> 00:29:00,390
+all the A's thus far are
+alphas, I should say.
+
+601
+00:29:00,520 --> 00:29:05,130
+So if you want to know
+why this is true,
+
+602
+00:29:05,560 --> 00:29:07,579
+if you want to know why this is
+
+603
+00:29:07,579 --> 00:29:08,750
+true, There's a bunch of math,
+
+604
+00:29:08,750 --> 00:29:10,130
+you know, that you can
+
+605
+00:29:10,130 --> 00:29:12,950
+show in the resources
+that I showed.
+
+606
+00:29:12,950 --> 00:29:16,100
+The other thing that
+we will show is that,
+
+607
+00:29:16,100 --> 00:29:18,440
+that we will use is
+the same thing that
+
+608
+00:29:18,440 --> 00:29:21,124
+we did for variational
+autoencoders.
+
+609
+00:29:21,124 --> 00:29:26,224
+If you remember, we wanted
+to separate out the equation
+
+610
+00:29:26,224 --> 00:29:28,924
+for this distribution
+and just have
+
+611
+00:29:28,924 --> 00:29:32,840
+a small epsilon that
+you're sampling from.
+
+612
+00:29:32,840 --> 00:29:36,530
+That's from this standard
+normal distribution
+
+613
+00:29:36,530 --> 00:29:39,830
+with a zero mean and
+identity variants.
+
+614
+00:29:39,830 --> 00:29:46,385
+And so what we can do is we
+can just express it as this.
+
+615
+00:29:46,385 --> 00:29:48,470
+So in particular, again,
+
+616
+00:29:48,470 --> 00:29:51,620
+we have a closed form
+solution for what is
+
+617
+00:29:51,620 --> 00:29:55,039
+x t with respect to x zero.
+
+618
+00:29:55,039 --> 00:29:58,355
+Like how do you get x D
+from, directly from zero?
+
+619
+00:29:58,355 --> 00:30:00,229
+And given that you're sampling
+
+620
+00:30:00,229 --> 00:30:03,035
+from some normal distribution,
+
+621
+00:30:03,035 --> 00:30:04,939
+again, the standard
+normal distribution
+
+622
+00:30:04,939 --> 00:30:07,129
+with a mean of
+zero and identity.
+
+623
+00:30:07,129 --> 00:30:08,870
+Again, if you want
+to look at like
+
+624
+00:30:08,870 --> 00:30:10,969
+why is there a square root
+in particular places?
+
+625
+00:30:10,969 --> 00:30:14,840
+If you remember, this was
+the reparameterization trick
+
+626
+00:30:14,840 --> 00:30:17,299
+that we used for the
+normal distribution.
+
+627
+00:30:17,299 --> 00:30:19,760
+That is specifically if
+you want a sample from
+
+628
+00:30:19,760 --> 00:30:22,759
+a mean and variance,
+
+629
+00:30:22,759 --> 00:30:24,500
+you just do this.
+
+630
+00:30:24,500 --> 00:30:28,445
+You sample from a normal zero,
+
+631
+00:30:28,445 --> 00:30:30,514
+mean and unit variance.
+
+632
+00:30:30,514 --> 00:30:32,960
+You multiply it by the
+standard deviation
+
+633
+00:30:32,960 --> 00:30:36,064
+that you want and you add it
+to the mean that you want.
+
+634
+00:30:36,064 --> 00:30:38,449
+So that, again, that was
+true just because of
+
+635
+00:30:38,449 --> 00:30:41,285
+the property of
+Gaussian distributions.
+
+636
+00:30:41,285 --> 00:30:45,680
+So now we have a closed
+form solution that says,
+
+637
+00:30:45,680 --> 00:30:47,630
+given a particular x is zero
+
+638
+00:30:47,630 --> 00:30:49,550
+and given all these parameters,
+
+639
+00:30:49,550 --> 00:30:51,365
+beta t In particular,
+
+640
+00:30:51,365 --> 00:30:55,084
+what should, which
+distribution does XD?
+
+641
+00:30:55,084 --> 00:30:57,320
+How can we generate X t?
+
+642
+00:30:57,320 --> 00:31:01,715
+Does that make sense? So again,
+
+643
+00:31:01,715 --> 00:31:03,965
+if you want to see
+like how you jump
+
+644
+00:31:03,965 --> 00:31:06,935
+from the particular things,
+
+645
+00:31:06,935 --> 00:31:09,140
+from like this, which
+
+646
+00:31:09,140 --> 00:31:11,810
+is again just the
+idea of adding noise.
+
+647
+00:31:11,810 --> 00:31:14,149
+How do you jump
+from that to this?
+
+648
+00:31:14,149 --> 00:31:16,460
+You know, you can go
+
+649
+00:31:16,460 --> 00:31:18,020
+through all that.
+There's a lot of mass.
+
+650
+00:31:18,020 --> 00:31:20,779
+I mean, but it's all like
+simple math, just again,
+
+651
+00:31:20,779 --> 00:31:22,160
+unrolling things through time,
+
+652
+00:31:22,160 --> 00:31:23,885
+multiplying them and so on.
+
+653
+00:31:23,885 --> 00:31:26,480
+And all of this comes from
+just Gaussians are awesome.
+
+654
+00:31:26,480 --> 00:31:30,439
+They have lots of nice
+mathematical properties. Okay?
+
+655
+00:31:30,439 --> 00:31:32,359
+So this shows you how well
+
+656
+00:31:32,359 --> 00:31:34,670
+understood everything is
+in the forward process.
+
+657
+00:31:34,670 --> 00:31:37,325
+We can literally derive.
+
+658
+00:31:37,325 --> 00:31:40,459
+Or we can basically just
+if we want to generate
+
+659
+00:31:40,459 --> 00:31:43,279
+some random image at
+a random time step.
+
+660
+00:31:43,279 --> 00:31:46,100
+All we're gonna do is sample
+from this distribution,
+
+661
+00:31:46,100 --> 00:31:49,880
+compute this from x,
+conditioned on X.
+
+662
+00:31:49,880 --> 00:31:54,270
+And that's it. So it's
+all well understood.
+
+663
+00:31:54,580 --> 00:31:56,929
+Now the key question
+is, of course,
+
+664
+00:31:56,929 --> 00:31:58,939
+the forward or the
+reverse process,
+
+665
+00:31:58,939 --> 00:32:02,809
+which is going to be trickier.
+
+666
+00:32:02,809 --> 00:32:09,245
+So again, the key idea
+is that, you know,
+
+667
+00:32:09,245 --> 00:32:12,679
+the de-noising process
+again is going from x of
+
+668
+00:32:12,679 --> 00:32:17,849
+t all the way back to zero.
+
+669
+00:32:18,040 --> 00:32:23,824
+And so again, you can think
+of it as this is Markovian.
+
+670
+00:32:23,824 --> 00:32:27,659
+Process Markov chain.
+
+671
+00:32:27,940 --> 00:32:33,050
+And it turns out that
+the reverse process is
+
+672
+00:32:33,050 --> 00:32:37,295
+also going to be a Gaussian.
+Why is this the case?
+
+673
+00:32:37,295 --> 00:32:38,840
+Again, there's lots of like
+
+674
+00:32:38,840 --> 00:32:40,730
+analytical proof of why this is.
+
+675
+00:32:40,730 --> 00:32:42,934
+And again, that's
+why we did certain,
+
+676
+00:32:42,934 --> 00:32:45,679
+you know, certain things
+
+677
+00:32:45,679 --> 00:32:48,455
+into design of the
+forward process.
+
+678
+00:32:48,455 --> 00:32:51,455
+But the key idea is that
+
+679
+00:32:51,455 --> 00:32:53,810
+given this forward process
+
+680
+00:32:53,810 --> 00:32:55,835
+that we defined as
+a Markov chain,
+
+681
+00:32:55,835 --> 00:33:01,670
+we can actually show that
+the reverse process,
+
+682
+00:33:01,670 --> 00:33:03,650
+which is the distribution,
+
+683
+00:33:03,650 --> 00:33:05,929
+the probability of the t minus
+
+684
+00:33:05,929 --> 00:33:08,929
+one given T is also
+
+685
+00:33:08,929 --> 00:33:13,040
+can be sampled from a
+particular normal distribution.
+
+686
+00:33:13,040 --> 00:33:15,245
+And what we're gonna do is,
+
+687
+00:33:15,245 --> 00:33:19,460
+of course, estimate this
+using a neural network.
+
+688
+00:33:19,460 --> 00:33:21,110
+So that is ultimately
+
+689
+00:33:21,110 --> 00:33:23,045
+the neural network
+that we will have,
+
+690
+00:33:23,045 --> 00:33:27,034
+will show that we'll actually
+even make it even simpler.
+
+691
+00:33:27,034 --> 00:33:28,790
+But that's kinda
+what you can think
+
+692
+00:33:28,790 --> 00:33:31,619
+of as the neural
+network estimate.
+
+693
+00:33:31,840 --> 00:33:35,659
+One thing to note is that
+
+694
+00:33:35,659 --> 00:33:37,759
+we're always gonna
+make simplifications
+
+695
+00:33:37,759 --> 00:33:38,990
+that will make things easier.
+
+696
+00:33:38,990 --> 00:33:41,525
+We're going to assume some
+fixed or unknown variance.
+
+697
+00:33:41,525 --> 00:33:45,124
+So we're going to basically
+simplify that out.
+
+698
+00:33:45,124 --> 00:33:47,870
+The only thing that
+will get an estimate is
+
+699
+00:33:47,870 --> 00:33:51,695
+just learning the
+time dependent mean.
+
+700
+00:33:51,695 --> 00:33:54,709
+Again to 2D noise.
+
+701
+00:33:54,709 --> 00:34:01,085
+The input noise basically
+undo the forward process.
+
+702
+00:34:01,085 --> 00:34:04,324
+And so the question is, how
+do we actually do this?
+
+703
+00:34:04,324 --> 00:34:05,690
+What is the learning objective
+
+704
+00:34:05,690 --> 00:34:08,669
+for actually learning this?
+
+705
+00:34:08,890 --> 00:34:10,609
+Okay?
+
+706
+00:34:10,609 --> 00:34:13,084
+So the high level,
+there's a lot of, again,
+
+707
+00:34:13,084 --> 00:34:16,504
+a lot of toner math
+on what this is.
+
+708
+00:34:16,504 --> 00:34:18,365
+What they should be.
+
+709
+00:34:18,365 --> 00:34:19,970
+The key of course,
+
+710
+00:34:19,970 --> 00:34:23,599
+is going to be we need some
+ground truth for this, right?
+
+711
+00:34:23,599 --> 00:34:25,039
+Given the forward.
+
+712
+00:34:25,039 --> 00:34:27,889
+So again, during training
+time, we take the image,
+
+713
+00:34:27,889 --> 00:34:29,480
+we add noise to it with
+
+714
+00:34:29,480 --> 00:34:33,500
+this time-varying
+variants schedule.
+
+715
+00:34:33,500 --> 00:34:35,089
+We can understand it.
+
+716
+00:34:35,089 --> 00:34:37,700
+And so we're going
+to be able to derive
+
+717
+00:34:37,700 --> 00:34:41,014
+some ground truth for
+this particular mean.
+
+718
+00:34:41,014 --> 00:34:42,830
+And then the neural
+network can just
+
+719
+00:34:42,830 --> 00:34:45,979
+regress to that ground
+truth. That's it.
+
+720
+00:34:45,979 --> 00:34:48,200
+So that's gonna be the key idea.
+
+721
+00:34:48,200 --> 00:34:50,074
+We're going to have
+some ground truth
+
+722
+00:34:50,074 --> 00:34:51,589
+de-noising distribution.
+
+723
+00:34:51,589 --> 00:34:53,209
+Again, I told you this was a
+
+724
+00:34:53,209 --> 00:34:56,149
+Gaussian because of
+just the properties
+
+725
+00:34:56,149 --> 00:34:58,384
+of the Gaussian and
+the forward and
+
+726
+00:34:58,384 --> 00:35:01,085
+the diffusion process
+that we decided to do.
+
+727
+00:35:01,085 --> 00:35:03,514
+And we're going to train a
+neural network to match this.
+
+728
+00:35:03,514 --> 00:35:04,129
+That's it.
+
+729
+00:35:04,129 --> 00:35:05,795
+We're going to match the means.
+
+730
+00:35:05,795 --> 00:35:08,459
+That's all we're gonna
+do. Regress to the mean.
+
+731
+00:35:08,830 --> 00:35:12,140
+I will show the
+derivation for this,
+
+732
+00:35:12,140 --> 00:35:15,380
+but the ultimate objective
+is going to be very simple.
+
+733
+00:35:15,380 --> 00:35:18,349
+It will be very similar to
+variational autoencoders are
+
+734
+00:35:18,349 --> 00:35:20,030
+a little bit in that it
+
+735
+00:35:20,030 --> 00:35:23,285
+will devolve into
+a KL divergence.
+
+736
+00:35:23,285 --> 00:35:26,945
+This KL divergence is between
+
+737
+00:35:26,945 --> 00:35:33,170
+the ground-truth
+reverse distribution.
+
+738
+00:35:33,170 --> 00:35:35,960
+So here it's q of t,
+
+739
+00:35:35,960 --> 00:35:39,169
+X t minus one given
+x t and x zero.
+
+740
+00:35:39,169 --> 00:35:41,824
+You notice y is added there.
+
+741
+00:35:41,824 --> 00:35:44,269
+This is actually just
+to make the derivation,
+
+742
+00:35:44,269 --> 00:35:45,319
+like it has to do with
+
+743
+00:35:45,319 --> 00:35:48,050
+the derivation of how
+we're going to do.
+
+744
+00:35:48,050 --> 00:35:51,154
+I'm not going to show you
+why, but that's added there.
+
+745
+00:35:51,154 --> 00:35:54,890
+And then between
+the predicted mean
+
+746
+00:35:54,890 --> 00:35:57,659
+or distribution from
+the neural network.
+
+747
+00:35:58,270 --> 00:36:00,424
+So what does this look like?
+
+748
+00:36:00,424 --> 00:36:03,170
+Again, through a bunch of
+proofs which I'll quickly,
+
+749
+00:36:03,170 --> 00:36:06,934
+I'll kind of give you the
+guidance on in the next slides.
+
+750
+00:36:06,934 --> 00:36:09,200
+But just to give you the answer,
+
+751
+00:36:09,200 --> 00:36:11,569
+right now, we're
+going to be able to
+
+752
+00:36:11,569 --> 00:36:13,775
+show that there
+is a closed form.
+
+753
+00:36:13,775 --> 00:36:16,129
+Again, there's an equation that
+
+754
+00:36:16,129 --> 00:36:19,955
+defines the ground truth
+for the reverse process.
+
+755
+00:36:19,955 --> 00:36:24,349
+So what is this
+ground-truth depend on?
+
+756
+00:36:24,349 --> 00:36:25,460
+It depends on all these
+
+757
+00:36:25,460 --> 00:36:28,145
+Alpha and Beta T's
+which are all known.
+
+758
+00:36:28,145 --> 00:36:29,540
+Again, we determine this,
+
+759
+00:36:29,540 --> 00:36:31,594
+we know the schedule and
+
+760
+00:36:31,594 --> 00:36:35,269
+this particular noise
+that we actually sampled.
+
+761
+00:36:35,269 --> 00:36:37,610
+Again during the
+forward process.
+
+762
+00:36:37,610 --> 00:36:39,770
+We have these distributions
+that we're sampling
+
+763
+00:36:39,770 --> 00:36:44,074
+from as defined by the equations
+in the first few slides.
+
+764
+00:36:44,074 --> 00:36:48,425
+And then we're adding
+noise in particular.
+
+765
+00:36:48,425 --> 00:36:49,969
+And if you remember because of
+
+766
+00:36:49,969 --> 00:36:51,814
+the repack
+parameterization trick,
+
+767
+00:36:51,814 --> 00:36:55,895
+always sample is from
+this for this epsilon,
+
+768
+00:36:55,895 --> 00:37:01,564
+which is the normal with
+zero mean and unit variance.
+
+769
+00:37:01,564 --> 00:37:04,985
+And so this is gonna
+be our ground truth
+
+770
+00:37:04,985 --> 00:37:06,860
+because for each
+time step we know
+
+771
+00:37:06,860 --> 00:37:09,010
+what actual noise we added.
+
+772
+00:37:09,010 --> 00:37:11,464
+There's gonna be an
+analytic solution,
+
+773
+00:37:11,464 --> 00:37:13,639
+the reverse process, that
+
+774
+00:37:13,639 --> 00:37:16,984
+is basically a function of that.
+
+775
+00:37:16,984 --> 00:37:20,330
+And so now we have, again,
+
+776
+00:37:20,330 --> 00:37:21,889
+this is because the
+epsilon comes from
+
+777
+00:37:21,889 --> 00:37:24,199
+the reparameterization
+trick that we talked about.
+
+778
+00:37:24,199 --> 00:37:28,999
+We have a ground truth noise
+distribution that brought,
+
+779
+00:37:28,999 --> 00:37:31,580
+or an actual distribution
+and actual noise
+
+780
+00:37:31,580 --> 00:37:34,640
+that we had that was brought,
+
+781
+00:37:34,640 --> 00:37:36,920
+that brought X t minus one to x
+
+782
+00:37:36,920 --> 00:37:44,270
+t. And we'll show that assuming,
+
+783
+00:37:44,270 --> 00:37:46,159
+if you remember last time I
+
+784
+00:37:46,159 --> 00:37:47,824
+talked about how a KL divergence
+
+785
+00:37:47,824 --> 00:37:51,484
+of Gaussians devolves into
+a mean squared error.
+
+786
+00:37:51,484 --> 00:37:53,569
+So we're going to
+use that again here.
+
+787
+00:37:53,569 --> 00:37:56,344
+So it's going to
+literally go down
+
+788
+00:37:56,344 --> 00:37:59,315
+to a mean squared error
+regression problem,
+
+789
+00:37:59,315 --> 00:38:02,044
+which is the neural
+network predicts
+
+790
+00:38:02,044 --> 00:38:05,629
+some mean for a
+particular timestep.
+
+791
+00:38:05,629 --> 00:38:08,914
+And we know the ground truth
+mean for that timestep.
+
+792
+00:38:08,914 --> 00:38:15,389
+And then we just do a
+subtraction and squared no L2.
+
+793
+00:38:16,630 --> 00:38:19,939
+And then we'll see that
+
+794
+00:38:19,939 --> 00:38:21,950
+this actual minterm can
+
+795
+00:38:21,950 --> 00:38:24,724
+also be decomposed
+into this epsilon.
+
+796
+00:38:24,724 --> 00:38:26,854
+And all the other
+terms don't matter.
+
+797
+00:38:26,854 --> 00:38:29,795
+And we're going to
+actually devolve into
+
+798
+00:38:29,795 --> 00:38:34,325
+just this particular objective.
+
+799
+00:38:34,325 --> 00:38:37,834
+Which is we're going to have
+a neural network that just
+
+800
+00:38:37,834 --> 00:38:42,964
+predicts the noise that we
+added in the forward process.
+
+801
+00:38:42,964 --> 00:38:45,769
+So ultimately, this is
+all we're gonna do.
+
+802
+00:38:45,769 --> 00:38:48,830
+We're going to predict
+the epsilons that we
+
+803
+00:38:48,830 --> 00:38:53,029
+add that we sampled
+for each timestep.
+
+804
+00:38:53,029 --> 00:38:55,459
+And why again, why
+can we do this?
+
+805
+00:38:55,459 --> 00:38:57,319
+We can do this because in
+
+806
+00:38:57,319 --> 00:38:59,840
+the forward process it's
+all well understood.
+
+807
+00:38:59,840 --> 00:39:02,865
+We, because of the way we
+design the forward process,
+
+808
+00:39:02,865 --> 00:39:05,374
+the backwards process
+is this Gaussian.
+
+809
+00:39:05,374 --> 00:39:09,104
+And we can derive the
+parameters of that Gaussian
+
+810
+00:39:09,104 --> 00:39:11,424
+using the closed form solution
+
+811
+00:39:11,424 --> 00:39:14,005
+that is dependent on
+epsilon, and that's it.
+
+812
+00:39:14,005 --> 00:39:18,054
+So that's the overall
+kind of like layout.
+
+813
+00:39:18,054 --> 00:39:21,279
+I will go through
+the step-by-step.
+
+814
+00:39:21,279 --> 00:39:23,290
+I'm not gonna do all
+the derivations,
+
+815
+00:39:23,290 --> 00:39:24,639
+but we'll kind of go through
+
+816
+00:39:24,639 --> 00:39:26,710
+the major parts of
+this derivations.
+
+817
+00:39:26,710 --> 00:39:29,349
+That leads us to that
+very simple thing.
+
+818
+00:39:29,349 --> 00:39:31,779
+But if you just kinda wanna
+know how to implement
+
+819
+00:39:31,779 --> 00:39:34,945
+it, It's really simple.
+
+820
+00:39:34,945 --> 00:39:37,449
+You literally take
+
+821
+00:39:37,449 --> 00:39:41,349
+the image sample from
+this distribution,
+
+822
+00:39:41,349 --> 00:39:45,970
+the 00 Mean identity variance.
+
+823
+00:39:45,970 --> 00:39:53,005
+You compute the next
+timestep image from that,
+
+824
+00:39:53,005 --> 00:39:55,269
+or actually an arbitrary
+timestep image
+
+825
+00:39:55,269 --> 00:39:56,769
+because they're getting
+in the forward process,
+
+826
+00:39:56,769 --> 00:39:58,420
+we can just skip to any of them.
+
+827
+00:39:58,420 --> 00:40:02,019
+And then you just predict
+from the neural net
+
+828
+00:40:02,019 --> 00:40:03,700
+using the neural network
+where the nodes should have
+
+829
+00:40:03,700 --> 00:40:05,814
+been and just regress to that.
+
+830
+00:40:05,814 --> 00:40:07,189
+That's it.
+
+831
+00:40:13,170 --> 00:40:15,619
+This one.
+
+832
+00:40:26,670 --> 00:40:30,519
+Again, this is the property
+that it comes from.
+
+833
+00:40:30,519 --> 00:40:32,739
+Like, you know, I
+didn't derive this,
+
+834
+00:40:32,739 --> 00:40:34,674
+but it's just the way we did.
+
+835
+00:40:34,674 --> 00:40:37,240
+This is why that there's
+a very particular way
+
+836
+00:40:37,240 --> 00:40:39,910
+that we designed the
+forward process to
+
+837
+00:40:39,910 --> 00:40:42,879
+have this Gaussian sample
+
+838
+00:40:42,879 --> 00:40:46,014
+in a particular way with this
+particular Beta schedule.
+
+839
+00:40:46,014 --> 00:40:47,980
+And on there are
+
+840
+00:40:47,980 --> 00:40:49,209
+some assumptions
+
+841
+00:40:49,209 --> 00:40:51,369
+on the Beta schedule
+and things like that.
+
+842
+00:40:51,369 --> 00:40:54,174
+You can show that
+the reverse process
+
+843
+00:40:54,174 --> 00:40:57,924
+devolves into a Gaussian
+distribution. Yeah.
+
+844
+00:40:57,924 --> 00:41:01,299
+I mean, again, I didn't I'm
+
+845
+00:41:01,299 --> 00:41:02,710
+not gonna go through the proof
+
+846
+00:41:02,710 --> 00:41:04,239
+and I don't even know
+it to be honest.
+
+847
+00:41:04,239 --> 00:41:07,780
+Like, I mean, I looked
+at it but it's it's
+
+848
+00:41:07,780 --> 00:41:11,559
+basically just comes from the
+various probability rules.
+
+849
+00:41:11,559 --> 00:41:12,954
+The fact that it's
+a Markov chain
+
+850
+00:41:12,954 --> 00:41:14,500
+and the fact that it's Gaussian,
+
+851
+00:41:14,500 --> 00:41:16,840
+like those three things are
+
+852
+00:41:16,840 --> 00:41:20,299
+really enough to just
+derive why that's the case.
+
+853
+00:41:30,780 --> 00:41:37,090
+Then we use that epsilon and
+
+854
+00:41:37,090 --> 00:41:46,300
+then place well to really,
+
+855
+00:41:46,300 --> 00:41:52,869
+yeah, so here we went
+from x t minus one X t.
+
+856
+00:41:52,869 --> 00:41:54,429
+Alright.
+
+857
+00:41:54,429 --> 00:41:56,799
+So again, this is in
+
+858
+00:41:56,799 --> 00:41:58,599
+the forward process.
+We know what we did.
+
+859
+00:41:58,599 --> 00:42:00,610
+We added, we sampled that
+
+860
+00:42:00,610 --> 00:42:04,614
+epsilon and we know what
+we sampled, we store that.
+
+861
+00:42:04,614 --> 00:42:09,460
+Yes. Then we run,
+
+862
+00:42:09,460 --> 00:42:10,899
+then this part is
+
+863
+00:42:10,899 --> 00:42:14,124
+the neural network which
+is conditioned on X
+
+864
+00:42:14,124 --> 00:42:15,850
+given X t. And
+
+865
+00:42:15,850 --> 00:42:17,530
+of course the
+positional encoding for
+
+866
+00:42:17,530 --> 00:42:19,360
+what timestep we're at it.
+
+867
+00:42:19,360 --> 00:42:21,744
+We'll try to predict the epsilon
+
+868
+00:42:21,744 --> 00:42:24,310
+that basically the noise that
+
+869
+00:42:24,310 --> 00:42:29,964
+we should remove from x t
+to make it x t minus one.
+
+870
+00:42:29,964 --> 00:42:35,389
+And we know what that actually
+is because we added it.
+
+871
+00:42:56,660 --> 00:42:59,340
+Is our model extremely
+
+872
+00:42:59,340 --> 00:43:02,565
+sensitive to how we
+scheduled the beta.
+
+873
+00:43:02,565 --> 00:43:03,989
+So, I mean, yeah,
+
+874
+00:43:03,989 --> 00:43:07,229
+So actually I showed you
+like a linear scheduling.
+
+875
+00:43:07,229 --> 00:43:10,094
+People have basically done what,
+
+876
+00:43:10,094 --> 00:43:11,790
+you know, what you say,
+
+877
+00:43:11,790 --> 00:43:14,294
+which is experiment with
+different schedules.
+
+878
+00:43:14,294 --> 00:43:17,789
+I think the later methods
+use like a cosine schedule.
+
+879
+00:43:17,789 --> 00:43:19,064
+Or something like that.
+
+880
+00:43:19,064 --> 00:43:21,840
+So I don't know if
+it's sensitive,
+
+881
+00:43:21,840 --> 00:43:24,630
+but I think it doesn't matter
+in the sense that like
+
+882
+00:43:24,630 --> 00:43:27,974
+if you're competing for
+the state of the art,
+
+883
+00:43:27,974 --> 00:43:31,470
+you can have
+different schedules.
+
+884
+00:43:31,470 --> 00:43:34,379
+Again, the reason we
+had to schedule it
+
+885
+00:43:34,379 --> 00:43:36,945
+goes back to this
+like physics student.
+
+886
+00:43:36,945 --> 00:43:40,229
+It's called, like I
+
+887
+00:43:40,229 --> 00:43:41,429
+thought that there's something
+
+888
+00:43:41,429 --> 00:43:43,665
+like simulated
+annealing process,
+
+889
+00:43:43,665 --> 00:43:45,720
+which models like distributions
+
+890
+00:43:45,720 --> 00:43:47,910
+and physicists have a
+bunch of theories of
+
+891
+00:43:47,910 --> 00:43:52,635
+like kind of what
+scheduling you want.
+
+892
+00:43:52,635 --> 00:43:55,140
+Or I don't know if it's
+empirical and theoretical,
+
+893
+00:43:55,140 --> 00:43:57,360
+but there's already a large body
+
+894
+00:43:57,360 --> 00:43:59,040
+of work that has explored
+
+895
+00:43:59,040 --> 00:44:01,960
+different scheduling for
+physics types problems
+
+896
+00:44:01,960 --> 00:44:04,060
+like thermodynamics
+and other problems.
+
+897
+00:44:04,060 --> 00:44:06,250
+And I think for deep learning,
+
+898
+00:44:06,250 --> 00:44:09,940
+they just took the linear
+simple things that they use.
+
+899
+00:44:09,940 --> 00:44:12,504
+But then, of course, after that,
+
+900
+00:44:12,504 --> 00:44:14,460
+deep learning practitioners or
+
+901
+00:44:14,460 --> 00:44:16,765
+researchers just
+tried different ones.
+
+902
+00:44:16,765 --> 00:44:18,760
+So I don't know.
+
+903
+00:44:18,760 --> 00:44:21,325
+Yeah, I mean, I think yeah,
+
+904
+00:44:21,325 --> 00:44:23,230
+This is like there are probably
+
+905
+00:44:23,230 --> 00:44:27,580
+degenerate schedules that will
+make it work really badly.
+
+906
+00:44:27,580 --> 00:44:29,515
+Linear, I think
+does pretty well.
+
+907
+00:44:29,515 --> 00:44:31,090
+It's been used for awhile.
+
+908
+00:44:31,090 --> 00:44:32,589
+If you want to eke out
+
+909
+00:44:32,589 --> 00:44:35,095
+a little bit more
+generative performance,
+
+910
+00:44:35,095 --> 00:44:38,659
+you, you try to
+find a better one.
+
+911
+00:44:40,620 --> 00:44:43,160
+Let's say.
+
+912
+00:44:45,960 --> 00:44:48,649
+We know that.
+
+913
+00:44:50,520 --> 00:45:01,104
+Because capital T,
+
+914
+00:45:01,104 --> 00:45:04,765
+we know like there is
+a proof that says,
+
+915
+00:45:04,765 --> 00:45:06,505
+if we run this forward process,
+
+916
+00:45:06,505 --> 00:45:09,340
+X capital T will be zero mean.
+
+917
+00:45:09,340 --> 00:45:11,080
+Like isotropic noise.
+
+918
+00:45:11,080 --> 00:45:13,779
+Yeah. There's a proof
+that says that.
+
+919
+00:45:13,779 --> 00:45:15,849
+Again, this is why
+
+920
+00:45:15,849 --> 00:45:19,519
+the forward process is designed
+in a very particular way.
+
+921
+00:45:24,570 --> 00:45:26,740
+One thing with the kind of
+
+922
+00:45:26,740 --> 00:45:28,119
+related to the
+scheduled question,
+
+923
+00:45:28,119 --> 00:45:29,470
+which is actually
+a good question.
+
+924
+00:45:29,470 --> 00:45:31,660
+You can actually
+visualize this, right?
+
+925
+00:45:31,660 --> 00:45:34,015
+Like to take the
+image visualized,
+
+926
+00:45:34,015 --> 00:45:36,445
+like the progressively
+noised image.
+
+927
+00:45:36,445 --> 00:45:38,454
+And you can actually
+maybe intuitively,
+
+928
+00:45:38,454 --> 00:45:40,210
+I think that's some
+researchers have done this,
+
+929
+00:45:40,210 --> 00:45:41,440
+which is why they
+changed it, which
+
+930
+00:45:41,440 --> 00:45:44,124
+is a linear schedule
+was too aggressive.
+
+931
+00:45:44,124 --> 00:45:46,540
+Like you can see that the image
+
+932
+00:45:46,540 --> 00:45:49,270
+turns to pretty much
+noise is very quickly.
+
+933
+00:45:49,270 --> 00:45:51,190
+See might be able to change it,
+
+934
+00:45:51,190 --> 00:45:54,114
+but I think ultimately
+in the end,
+
+935
+00:45:54,114 --> 00:45:56,319
+after you run it for
+like 1,000 times steps,
+
+936
+00:45:56,319 --> 00:46:01,250
+it's gonna be 00
+mean unit variance.
+
+937
+00:46:14,190 --> 00:46:16,285
+Yes.
+
+938
+00:46:16,285 --> 00:46:19,704
+Yeah, So we'll talk about
+a little bit, the end.
+
+939
+00:46:19,704 --> 00:46:24,385
+But neural networks can
+be conditioned on things.
+
+940
+00:46:24,385 --> 00:46:27,354
+And so you can,
+let's say, you know,
+
+941
+00:46:27,354 --> 00:46:30,069
+you can have like, you know,
+
+942
+00:46:30,069 --> 00:46:33,025
+just the neural network
+taken the noise image,
+
+943
+00:46:33,025 --> 00:46:34,944
+but also the texts.
+
+944
+00:46:34,944 --> 00:46:40,660
+And you can train that
+like in during training.
+
+945
+00:46:40,660 --> 00:46:45,940
+You have a bunch of kind of
+paired images and texts.
+
+946
+00:46:45,940 --> 00:46:48,490
+So you have kinda the datasets
+
+947
+00:46:48,490 --> 00:46:51,399
+that clip and other multimodal
+models were trained on.
+
+948
+00:46:51,399 --> 00:46:55,479
+You have 400 million paired
+image and text peers.
+
+949
+00:46:55,479 --> 00:46:57,865
+Their training, you can do that.
+
+950
+00:46:57,865 --> 00:47:00,699
+And then now it's learning how
+
+951
+00:47:00,699 --> 00:47:03,879
+to undo the noise
+conditioned on texts.
+
+952
+00:47:03,879 --> 00:47:05,995
+And then during inference,
+
+953
+00:47:05,995 --> 00:47:08,290
+all you have is the
+text and the noise.
+
+954
+00:47:08,290 --> 00:47:10,429
+And the fourth process.
+
+955
+00:47:11,580 --> 00:47:14,244
+I mean, there's
+different ways to do it.
+
+956
+00:47:14,244 --> 00:47:16,300
+The conditioning, the simple
+conditioning where u,
+
+957
+00:47:16,300 --> 00:47:18,985
+which is just feed in
+the text as input,
+
+958
+00:47:18,985 --> 00:47:22,255
+doesn't, is not like
+state-of-the-art.
+
+959
+00:47:22,255 --> 00:47:24,834
+There's like more
+sophisticated methods
+
+960
+00:47:24,834 --> 00:47:27,609
+that I'll briefly talk
+about, but not too much.
+
+961
+00:47:27,609 --> 00:47:32,725
+Okay? Okay, So again, this is a,
+
+962
+00:47:32,725 --> 00:47:34,734
+I love deep learning
+because it's,
+
+963
+00:47:34,734 --> 00:47:36,850
+the math is always like crazy,
+
+964
+00:47:36,850 --> 00:47:39,295
+but the end result is simple.
+
+965
+00:47:39,295 --> 00:47:40,809
+You're literally just predicting
+
+966
+00:47:40,809 --> 00:47:42,564
+the noise that was added.
+
+967
+00:47:42,564 --> 00:47:45,340
+So again, you have a
+neural network if you
+
+968
+00:47:45,340 --> 00:47:47,769
+want to think about it as
+the architecture, right?
+
+969
+00:47:47,769 --> 00:47:49,224
+Again, you have a unit,
+
+970
+00:47:49,224 --> 00:47:51,954
+all it does is taken the x t,
+
+971
+00:47:51,954 --> 00:47:54,159
+and it predicts the noise that I
+
+972
+00:47:54,159 --> 00:47:56,259
+should remove to make
+it x t minus one.
+
+973
+00:47:56,259 --> 00:48:01,780
+That's it. And the loss is
+super simple because again,
+
+974
+00:48:01,780 --> 00:48:04,360
+we know the ground truth here.
+
+975
+00:48:04,360 --> 00:48:06,310
+Technically there's a bunch of
+
+976
+00:48:06,310 --> 00:48:08,770
+other constants and things
+in this optimization,
+
+977
+00:48:08,770 --> 00:48:11,260
+but basically there's a
+lot of simplifications
+
+978
+00:48:11,260 --> 00:48:15,534
+made that ends up not
+mattering much empirically.
+
+979
+00:48:15,534 --> 00:48:17,034
+Okay?
+
+980
+00:48:17,034 --> 00:48:20,965
+So the question is, how did
+we arrive at this flow?
+
+981
+00:48:20,965 --> 00:48:23,305
+And the answer is a ton of math.
+
+982
+00:48:23,305 --> 00:48:27,130
+I will walk you through
+the math at a high level,
+
+983
+00:48:27,130 --> 00:48:28,539
+like kinda showing
+you which regions.
+
+984
+00:48:28,539 --> 00:48:30,310
+But I'm not going to
+derive everything
+
+985
+00:48:30,310 --> 00:48:33,430
+because it would take
+probably like 3 h.
+
+986
+00:48:33,430 --> 00:48:35,350
+So here's a quick, whoops,
+
+987
+00:48:35,350 --> 00:48:37,670
+sorry, not what I meant to do.
+
+988
+00:48:38,580 --> 00:48:43,059
+So here's a very
+quick walk through.
+
+989
+00:48:43,059 --> 00:48:44,230
+The derivation.
+
+990
+00:48:44,230 --> 00:48:47,560
+Actually had to add
+a legend on top.
+
+991
+00:48:47,560 --> 00:48:48,790
+You will see that it has like
+
+992
+00:48:48,790 --> 00:48:51,580
+the steps because it
+does get confusing.
+
+993
+00:48:51,580 --> 00:48:53,334
+There's a lot of stuff going on.
+
+994
+00:48:53,334 --> 00:48:56,590
+Again, the key thing
+here we're going to do
+
+995
+00:48:56,590 --> 00:49:01,525
+is we're going to try to
+learn this denoising process.
+
+996
+00:49:01,525 --> 00:49:03,985
+We're actually going to
+
+997
+00:49:03,985 --> 00:49:08,530
+compare it or
+connected with VAEs,
+
+998
+00:49:08,530 --> 00:49:10,224
+which is we're going to do
+
+999
+00:49:10,224 --> 00:49:12,865
+again this variational
+optimization.
+
+1000
+00:49:12,865 --> 00:49:16,434
+That is, we're going
+to have the image,
+
+1001
+00:49:16,434 --> 00:49:18,895
+we're going to have
+some latent variables.
+
+1002
+00:49:18,895 --> 00:49:21,595
+And we want to have
+the, you know,
+
+1003
+00:49:21,595 --> 00:49:25,089
+the log probability a of x
+
+1004
+00:49:25,089 --> 00:49:28,930
+to increase the log probability
+of the data that is zero.
+
+1005
+00:49:28,930 --> 00:49:31,404
+And then we'll see that we can
+
+1006
+00:49:31,404 --> 00:49:33,040
+have the equation that
+
+1007
+00:49:33,040 --> 00:49:35,259
+conditions and on some
+latent variables.
+
+1008
+00:49:35,259 --> 00:49:36,460
+In the VAE case,
+
+1009
+00:49:36,460 --> 00:49:38,335
+the latent variables
+is that vector.
+
+1010
+00:49:38,335 --> 00:49:40,060
+In this case, the
+latent variables
+
+1011
+00:49:40,060 --> 00:49:41,904
+will actually be this, which is,
+
+1012
+00:49:41,904 --> 00:49:44,125
+it's going to be kind of
+
+1013
+00:49:44,125 --> 00:49:50,630
+the images from
+one to capital T.
+
+1014
+00:49:51,180 --> 00:49:56,290
+So this is the tide on top
+that I had to write out.
+
+1015
+00:49:56,290 --> 00:49:58,825
+So we're going to start
+with variational inference.
+
+1016
+00:49:58,825 --> 00:50:00,520
+This is gonna be the
+same thing that we
+
+1017
+00:50:00,520 --> 00:50:02,755
+did with variational
+autoencoders.
+
+1018
+00:50:02,755 --> 00:50:04,554
+We have, if you remember,
+
+1019
+00:50:04,554 --> 00:50:08,349
+some p of x, like a
+joint distribution.
+
+1020
+00:50:08,349 --> 00:50:11,184
+If we have a set of
+latent variables,
+
+1021
+00:50:11,184 --> 00:50:15,745
+then we can write p of
+x like this through,
+
+1022
+00:50:15,745 --> 00:50:21,145
+just like decomposing the
+riffraff factorizing it.
+
+1023
+00:50:21,145 --> 00:50:22,839
+But this is intractable to
+
+1024
+00:50:22,839 --> 00:50:24,805
+estimate because
+of this integral.
+
+1025
+00:50:24,805 --> 00:50:27,504
+If you remember what
+we did last time,
+
+1026
+00:50:27,504 --> 00:50:30,145
+we had this set of math
+
+1027
+00:50:30,145 --> 00:50:33,220
+that basically using
+Bayes rule and
+
+1028
+00:50:33,220 --> 00:50:34,989
+a bunch of other logarithm rules
+
+1029
+00:50:34,989 --> 00:50:37,419
+and kinda relationship to
+
+1030
+00:50:37,419 --> 00:50:39,430
+KL divergence and
+all that stuff.
+
+1031
+00:50:39,430 --> 00:50:41,649
+We had this equation
+that says if we want
+
+1032
+00:50:41,649 --> 00:50:44,170
+to maximize the log probability
+
+1033
+00:50:44,170 --> 00:50:45,955
+of the joint distribution,
+
+1034
+00:50:45,955 --> 00:50:51,580
+we can do that using
+just this part.
+
+1035
+00:50:51,580 --> 00:50:53,529
+And if you remember,
+
+1036
+00:50:53,529 --> 00:50:55,030
+there was another KL here,
+
+1037
+00:50:55,030 --> 00:50:57,954
+there were 32k l's and
+the log probability.
+
+1038
+00:50:57,954 --> 00:51:00,369
+And we can basically
+kill that KL and just
+
+1039
+00:51:00,369 --> 00:51:04,610
+say that's intractable or not
+gonna do anything with it.
+
+1040
+00:51:04,740 --> 00:51:07,735
+So we're going to use
+this notion of, again,
+
+1041
+00:51:07,735 --> 00:51:10,495
+the notion of
+evidence lower-bound.
+
+1042
+00:51:10,495 --> 00:51:12,579
+That is, we're going to ignore
+
+1043
+00:51:12,579 --> 00:51:15,850
+terms that are intractable
+because they're bounded,
+
+1044
+00:51:15,850 --> 00:51:17,320
+they're going to be
+greater or equal to zero.
+
+1045
+00:51:17,320 --> 00:51:20,110
+So if we want to push up the
+log probability of the data,
+
+1046
+00:51:20,110 --> 00:51:21,700
+we can just do that for
+
+1047
+00:51:21,700 --> 00:51:24,550
+the other terms and it's
+fine, it'll work out.
+
+1048
+00:51:24,550 --> 00:51:26,649
+So what we're gonna do
+is we're going to have
+
+1049
+00:51:26,649 --> 00:51:28,165
+that and we're going to again,
+
+1050
+00:51:28,165 --> 00:51:30,250
+related to diffusion models.
+
+1051
+00:51:30,250 --> 00:51:32,454
+As I told you in
+the previous slide.
+
+1052
+00:51:32,454 --> 00:51:34,810
+In the diffusion models are
+
+1053
+00:51:34,810 --> 00:51:38,680
+latent variable is going
+to be x one through t.
+
+1054
+00:51:38,680 --> 00:51:40,689
+And our observable or
+
+1055
+00:51:40,689 --> 00:51:42,879
+the variable we want
+
+1056
+00:51:42,879 --> 00:51:45,340
+to maximize the log
+probability of x.
+
+1057
+00:51:45,340 --> 00:51:47,529
+Again, we want, we always,
+
+1058
+00:51:47,529 --> 00:51:49,450
+that's always the
+objective of maximizing
+
+1059
+00:51:49,450 --> 00:51:51,100
+the log probability of the data
+
+1060
+00:51:51,100 --> 00:51:53,484
+that we have during training.
+
+1061
+00:51:53,484 --> 00:51:55,989
+So I'm not going to show
+you there's a ton of
+
+1062
+00:51:55,989 --> 00:52:01,070
+derivations that take this part,
+
+1063
+00:52:01,560 --> 00:52:04,509
+this part, and through
+
+1064
+00:52:04,509 --> 00:52:06,070
+Bayes rule and a bunch
+of other things,
+
+1065
+00:52:06,070 --> 00:52:07,449
+converts it to this,
+
+1066
+00:52:07,449 --> 00:52:12,700
+which really looks at it's
+always gonna be a few.
+
+1067
+00:52:12,700 --> 00:52:18,220
+Remember, we have log probability
+or probability ratios.
+
+1068
+00:52:18,220 --> 00:52:20,350
+Log probability ratios is
+
+1069
+00:52:20,350 --> 00:52:23,215
+the common thing that ends
+up from these things.
+
+1070
+00:52:23,215 --> 00:52:25,645
+So if you look,
+
+1071
+00:52:25,645 --> 00:52:29,140
+the top part is
+going to be here,
+
+1072
+00:52:29,140 --> 00:52:33,714
+this P theta with x t
+minus one given x t.
+
+1073
+00:52:33,714 --> 00:52:35,319
+That is the reverse
+
+1074
+00:52:35,319 --> 00:52:37,809
+denoising process that
+we want to learn.
+
+1075
+00:52:37,809 --> 00:52:40,224
+The bottom part, which is nice,
+
+1076
+00:52:40,224 --> 00:52:41,799
+is the forward
+diffusion process.
+
+1077
+00:52:41,799 --> 00:52:43,449
+Again, all of that is tractable
+
+1078
+00:52:43,449 --> 00:52:46,704
+because all it is is just,
+
+1079
+00:52:46,704 --> 00:52:49,080
+you know, essentially the,
+
+1080
+00:52:49,080 --> 00:52:52,224
+the well understood forward
+process that we have.
+
+1081
+00:52:52,224 --> 00:52:56,560
+So again, I'm not going to
+show you the derivation,
+
+1082
+00:52:56,560 --> 00:52:59,950
+but we basically again go
+from variational inference,
+
+1083
+00:52:59,950 --> 00:53:02,274
+which has these particular terms
+
+1084
+00:53:02,274 --> 00:53:04,120
+through Bayes rules and a ton of
+
+1085
+00:53:04,120 --> 00:53:06,250
+other derivations we will end up
+
+1086
+00:53:06,250 --> 00:53:07,540
+with these kinds of equations
+
+1087
+00:53:07,540 --> 00:53:08,829
+for variational autoencoders.
+
+1088
+00:53:08,829 --> 00:53:10,854
+I showed you all
+the steps for this.
+
+1089
+00:53:10,854 --> 00:53:11,860
+It's much more steps.
+
+1090
+00:53:11,860 --> 00:53:13,629
+So I'm not going to show you the
+
+1091
+00:53:13,629 --> 00:53:15,444
+end result is going to be this.
+
+1092
+00:53:15,444 --> 00:53:17,920
+And again, you can kinda
+look at each term and
+
+1093
+00:53:17,920 --> 00:53:22,855
+see how do I optimize
+that, are maximize that.
+
+1094
+00:53:22,855 --> 00:53:26,860
+So here, if you
+look at this part,
+
+1095
+00:53:26,860 --> 00:53:30,054
+this is the KL
+divergence between q
+
+1096
+00:53:30,054 --> 00:53:34,734
+of x capital T given x zero.
+
+1097
+00:53:34,734 --> 00:53:37,884
+So again, Q is the
+forward process.
+
+1098
+00:53:37,884 --> 00:53:41,019
+Well understood. We
+know the distribution
+
+1099
+00:53:41,019 --> 00:53:44,665
+for that P of x t,
+
+1100
+00:53:44,665 --> 00:53:46,344
+x capital T. Again,
+
+1101
+00:53:46,344 --> 00:53:48,909
+we have proof that we know
+the distribution of that
+
+1102
+00:53:48,909 --> 00:53:51,834
+is the zero mean,
+
+1103
+00:53:51,834 --> 00:53:54,889
+identity variance,
+normal distribution.
+
+1104
+00:53:54,889 --> 00:53:56,274
+Standard normal.
+
+1105
+00:53:56,274 --> 00:53:59,710
+So this part is
+completely tractable.
+
+1106
+00:53:59,710 --> 00:54:03,204
+We know that the X
+capital T is noise.
+
+1107
+00:54:03,204 --> 00:54:05,200
+We know the parameters
+of that distribution.
+
+1108
+00:54:05,200 --> 00:54:07,435
+We know the parameters
+of this distribution
+
+1109
+00:54:07,435 --> 00:54:08,979
+because we have
+
+1110
+00:54:08,979 --> 00:54:11,665
+this forward diffusion process
+
+1111
+00:54:11,665 --> 00:54:13,494
+understanding and equations.
+
+1112
+00:54:13,494 --> 00:54:16,840
+And so KL divergence between
+those two distributions.
+
+1113
+00:54:16,840 --> 00:54:17,995
+That doesn't matter.
+
+1114
+00:54:17,995 --> 00:54:20,034
+We can, we can compute that.
+
+1115
+00:54:20,034 --> 00:54:23,979
+If you look, this has a weird
+term on the right here.
+
+1116
+00:54:23,979 --> 00:54:28,884
+That's just the log probability
+of only x z given x, x1.
+
+1117
+00:54:28,884 --> 00:54:34,315
+So this is just a one time
+step model log probability.
+
+1118
+00:54:34,315 --> 00:54:36,655
+We're going to just ignore that.
+
+1119
+00:54:36,655 --> 00:54:38,964
+You can actually
+optimize it if you want.
+
+1120
+00:54:38,964 --> 00:54:40,629
+I'm not going to show
+how, but you can have
+
+1121
+00:54:40,629 --> 00:54:42,699
+people also just
+ignore that as well.
+
+1122
+00:54:42,699 --> 00:54:44,379
+So the key component is
+
+1123
+00:54:44,379 --> 00:54:49,120
+this middle part is really
+what we're going to,
+
+1124
+00:54:49,120 --> 00:54:51,009
+how we're going to
+
+1125
+00:54:51,009 --> 00:54:53,605
+maximize the log
+probability of the data.
+
+1126
+00:54:53,605 --> 00:54:55,554
+And in particular,
+if you look, again,
+
+1127
+00:54:55,554 --> 00:54:58,090
+it's a sum over all
+the time-steps.
+
+1128
+00:54:58,090 --> 00:55:01,490
+Again, it's a KL divergence.
+
+1129
+00:55:01,650 --> 00:55:06,684
+So it's a KL divergence
+between what is that?
+
+1130
+00:55:06,684 --> 00:55:10,705
+What is q of t X t
+minus one given x t?
+
+1131
+00:55:10,705 --> 00:55:12,909
+In this case, x zero is thrown N
+
+1132
+00:55:12,909 --> 00:55:15,759
+because just for the derivation.
+
+1133
+00:55:15,759 --> 00:55:18,699
+But what is that signaling are
+
+1134
+00:55:18,699 --> 00:55:24,410
+representing the
+denoising process.
+
+1135
+00:55:24,720 --> 00:55:26,980
+So the KL divergence between
+
+1136
+00:55:26,980 --> 00:55:29,650
+that and this, which is what?
+
+1137
+00:55:29,650 --> 00:55:32,005
+Yeah, that's just the model
+
+1138
+00:55:32,005 --> 00:55:34,495
+the model of the
+de-noising process.
+
+1139
+00:55:34,495 --> 00:55:37,480
+So again, I didn't show you how,
+
+1140
+00:55:37,480 --> 00:55:39,549
+but it comes from variational,
+
+1141
+00:55:39,549 --> 00:55:43,360
+kind of evidence-based
+lower bound
+
+1142
+00:55:43,360 --> 00:55:45,085
+to a bunch of stuff
+
+1143
+00:55:45,085 --> 00:55:47,560
+including Bayes rules
+and all sorts of things.
+
+1144
+00:55:47,560 --> 00:55:50,154
+All the way to this
+very simple term,
+
+1145
+00:55:50,154 --> 00:55:53,184
+which just tells you
+that basically again,
+
+1146
+00:55:53,184 --> 00:55:54,970
+if you want to optimize this,
+
+1147
+00:55:54,970 --> 00:56:02,125
+which is the log probability
+of the particular the data.
+
+1148
+00:56:02,125 --> 00:56:03,624
+That is what you wanna do.
+
+1149
+00:56:03,624 --> 00:56:05,859
+And of course there's a
+minus there because you want
+
+1150
+00:56:05,859 --> 00:56:09,309
+to make the KL,
+
+1151
+00:56:09,309 --> 00:56:10,899
+KL divergence is a distance.
+
+1152
+00:56:10,899 --> 00:56:12,339
+So we want to make it we want to
+
+1153
+00:56:12,339 --> 00:56:14,680
+push those together, not apart.
+
+1154
+00:56:14,680 --> 00:56:15,669
+Okay.
+
+1155
+00:56:15,669 --> 00:56:17,020
+Any questions on that again,
+
+1156
+00:56:17,020 --> 00:56:19,840
+I you know, I flew through that.
+
+1157
+00:56:19,840 --> 00:56:21,340
+But that's really kind
+
+1158
+00:56:21,340 --> 00:56:25,794
+of at least shows you the
+process of where it comes from.
+
+1159
+00:56:25,794 --> 00:56:33,760
+Not all the details. So now
+we're going to remember,
+
+1160
+00:56:33,760 --> 00:56:34,915
+well, what is this?
+
+1161
+00:56:34,915 --> 00:56:35,979
+Can we compute this?
+
+1162
+00:56:35,979 --> 00:56:40,669
+So what is the Q of t
+minus one given x of t?
+
+1163
+00:56:41,550 --> 00:56:45,670
+Again, through a bunch
+of other more math,
+
+1164
+00:56:45,670 --> 00:56:47,440
+you can actually come up with
+
+1165
+00:56:47,440 --> 00:56:50,005
+derivations for what
+it actually is.
+
+1166
+00:56:50,005 --> 00:56:51,774
+And then through even more math,
+
+1167
+00:56:51,774 --> 00:56:54,669
+you can come up with exactly
+what I showed you last time,
+
+1168
+00:56:54,669 --> 00:56:59,245
+which is that again,
+the reverse process.
+
+1169
+00:56:59,245 --> 00:57:03,310
+The ground truth reverse
+process is a normal,
+
+1170
+00:57:03,310 --> 00:57:05,860
+normally distributed comes
+from it's sampling from
+
+1171
+00:57:05,860 --> 00:57:08,709
+a normal distribution with
+those particular parameters.
+
+1172
+00:57:08,709 --> 00:57:11,920
+And this is the parameter
+in particular, again,
+
+1173
+00:57:11,920 --> 00:57:16,135
+for the variance we're
+going to assume is fixed.
+
+1174
+00:57:16,135 --> 00:57:20,064
+But this is going to be
+the particular equation.
+
+1175
+00:57:20,064 --> 00:57:22,719
+And again, what is this
+equation depend on?
+
+1176
+00:57:22,719 --> 00:57:24,414
+It just depends on alpha,
+
+1177
+00:57:24,414 --> 00:57:27,310
+beta, t, and epsilon.
+
+1178
+00:57:27,310 --> 00:57:29,890
+So again, how do you get there?
+
+1179
+00:57:29,890 --> 00:57:31,284
+You get there
+through Bayes rule,
+
+1180
+00:57:31,284 --> 00:57:34,224
+reparameterization
+trick and all like
+
+1181
+00:57:34,224 --> 00:57:36,219
+just different rejigger hang
+
+1182
+00:57:36,219 --> 00:57:38,289
+of all the different
+terms essentially.
+
+1183
+00:57:38,289 --> 00:57:41,979
+So there's a, there's a
+derivation that says that
+
+1184
+00:57:41,979 --> 00:57:46,674
+this part can be
+computed using that.
+
+1185
+00:57:46,674 --> 00:57:51,310
+And what's nice is all it
+depends on is this epsilon.
+
+1186
+00:57:51,310 --> 00:57:54,160
+So now we can do
+a KL divergence.
+
+1187
+00:57:54,160 --> 00:57:59,739
+We can have the neural network
+estimate, just the mean.
+
+1188
+00:57:59,739 --> 00:58:04,030
+And we can then have a
+regression problem to
+
+1189
+00:58:04,030 --> 00:58:06,010
+this exact mean that we can
+
+1190
+00:58:06,010 --> 00:58:09,949
+compute because we did it
+in the forward process.
+
+1191
+00:58:11,760 --> 00:58:15,099
+And again, that's epsilon
+is the ground truth.
+
+1192
+00:58:15,099 --> 00:58:19,029
+Epsilon. So now
+we're going to say,
+
+1193
+00:58:19,029 --> 00:58:20,785
+okay, we will just
+minimize this distance.
+
+1194
+00:58:20,785 --> 00:58:21,730
+Again.
+
+1195
+00:58:21,730 --> 00:58:23,980
+There's a bunch
+of constant terms
+
+1196
+00:58:23,980 --> 00:58:26,740
+there that are not constant.
+
+1197
+00:58:26,740 --> 00:58:28,329
+They are like they're
+
+1198
+00:58:28,329 --> 00:58:31,015
+dependent on the schedule,
+the variance schedule.
+
+1199
+00:58:31,015 --> 00:58:33,819
+People sometimes
+just ignore that and
+
+1200
+00:58:33,819 --> 00:58:37,429
+only optimize inside part.
+
+1201
+00:58:37,770 --> 00:58:41,560
+Now we can say, well this mu in,
+
+1202
+00:58:41,560 --> 00:58:44,140
+why should we have the
+neural network estimate
+
+1203
+00:58:44,140 --> 00:58:47,215
+this, this entire mean?
+
+1204
+00:58:47,215 --> 00:58:50,350
+All of these terms here are
+
+1205
+00:58:50,350 --> 00:58:53,454
+all just like these fixed terms.
+
+1206
+00:58:53,454 --> 00:58:55,630
+Why should we have the
+neural network estimate
+
+1207
+00:58:55,630 --> 00:58:59,335
+the entire output of
+this, of this equation.
+
+1208
+00:58:59,335 --> 00:59:02,155
+So that's why we're
+just going to
+
+1209
+00:59:02,155 --> 00:59:05,379
+instead have the neural
+network estimate only that.
+
+1210
+00:59:05,379 --> 00:59:06,819
+And then we'll feed
+it and we'll plug
+
+1211
+00:59:06,819 --> 00:59:08,139
+it into this equation.
+
+1212
+00:59:08,139 --> 00:59:11,125
+Because we know we have
+all the terms to do that.
+
+1213
+00:59:11,125 --> 00:59:12,744
+Well, why would we
+want to do that?
+
+1214
+00:59:12,744 --> 00:59:14,469
+Again, anytime you can make
+
+1215
+00:59:14,469 --> 00:59:17,674
+the neural network estimate
+something smaller or simpler.
+
+1216
+00:59:17,674 --> 00:59:20,670
+Compare it to something
+that's more complicated.
+
+1217
+00:59:20,670 --> 00:59:22,755
+You should choose
+the simpler option.
+
+1218
+00:59:22,755 --> 00:59:24,539
+And then given that
+
+1219
+00:59:24,539 --> 00:59:27,465
+the complicated part is not
+a function of anything,
+
+1220
+00:59:27,465 --> 00:59:30,105
+it's just a fixed equation.
+
+1221
+00:59:30,105 --> 00:59:32,999
+Just take the neural network's
+output and run it through
+
+1222
+00:59:32,999 --> 00:59:36,824
+that fixed equation. So
+that's what we're gonna do.
+
+1223
+00:59:36,824 --> 00:59:38,685
+We're going to estimate,
+
+1224
+00:59:38,685 --> 00:59:41,984
+again just the noise.
+
+1225
+00:59:41,984 --> 00:59:44,175
+So we're just learned
+
+1226
+00:59:44,175 --> 00:59:49,240
+this neural network that
+estimates the particular nodes.
+
+1227
+00:59:51,020 --> 00:59:54,809
+So again, you can use these
+equations that we had
+
+1228
+00:59:54,809 --> 00:59:58,079
+which relates x t to
+x zero and so on.
+
+1229
+00:59:58,079 --> 01:00:03,189
+And just have this
+estimate here.
+
+1230
+01:00:07,190 --> 01:00:10,439
+So this is what you do
+during training time.
+
+1231
+01:00:10,439 --> 01:00:12,239
+During training time,
+you're literally
+
+1232
+01:00:12,239 --> 01:00:15,825
+just taking the known
+noise that we had.
+
+1233
+01:00:15,825 --> 01:00:18,615
+You're making the neural
+network predicted.
+
+1234
+01:00:18,615 --> 01:00:21,555
+Given the prediction, you
+feed it through all the math.
+
+1235
+01:00:21,555 --> 01:00:24,165
+The fixed functions that
+we had that we knew
+
+1236
+01:00:24,165 --> 01:00:27,149
+from the understanding
+the diffusion processes.
+
+1237
+01:00:27,149 --> 01:00:30,779
+Then do backpropagation with
+
+1238
+01:00:30,779 --> 01:00:32,234
+respect to that objective
+
+1239
+01:00:32,234 --> 01:00:34,604
+during inference
+time, what do you do?
+
+1240
+01:00:34,604 --> 01:00:37,815
+Again, you start with
+the noise image.
+
+1241
+01:00:37,815 --> 01:00:41,410
+So you start with a
+particular noise image.
+
+1242
+01:00:42,030 --> 01:00:48,355
+Now you are given the
+particular that image.
+
+1243
+01:00:48,355 --> 01:00:50,409
+And then what you
+do is you estimate
+
+1244
+01:00:50,409 --> 01:00:56,005
+the noise and so you get this.
+
+1245
+01:00:56,005 --> 01:00:59,724
+I guess I should show
+it the other way.
+
+1246
+01:00:59,724 --> 01:01:03,610
+So you're given X t, you
+estimate this noise,
+
+1247
+01:01:03,610 --> 01:01:06,460
+you feed it through
+this function
+
+1248
+01:01:06,460 --> 01:01:09,850
+that gives you the parameters
+of the distribution.
+
+1249
+01:01:09,850 --> 01:01:12,099
+And then you take
+
+1250
+01:01:12,099 --> 01:01:14,635
+out the noise according to,
+from that distribution.
+
+1251
+01:01:14,635 --> 01:01:17,199
+And then you do it again.
+
+1252
+01:01:17,199 --> 01:01:19,179
+Now you have x t minus one.
+
+1253
+01:01:19,179 --> 01:01:22,120
+You keep doing that
+until you have X zero.
+
+1254
+01:01:22,120 --> 01:01:25,555
+So again, this is a slow
+process. You have to feed.
+
+1255
+01:01:25,555 --> 01:01:27,204
+And again, this
+is something like
+
+1256
+01:01:27,204 --> 01:01:32,949
+a U-Net encoder decoder
+kind of thing that takes
+
+1257
+01:01:32,949 --> 01:01:36,280
+x t minus one X
+
+1258
+01:01:36,280 --> 01:01:42,565
+t. It takes x t and
+estimates this epsilon.
+
+1259
+01:01:42,565 --> 01:01:47,049
+And so you need to keep,
+you feed it through.
+
+1260
+01:01:47,049 --> 01:01:50,139
+Get x t minus one,
+you feed it through,
+
+1261
+01:01:50,139 --> 01:01:51,714
+you get x t minus two,
+
+1262
+01:01:51,714 --> 01:01:53,995
+all the way to zero.
+
+1263
+01:01:53,995 --> 01:01:56,485
+So it's going to be
+a heavy process.
+
+1264
+01:01:56,485 --> 01:01:58,509
+You're feeding images through
+
+1265
+01:01:58,509 --> 01:01:59,985
+this thing and that's why I,
+
+1266
+01:01:59,985 --> 01:02:01,644
+diffusion models
+tend to be slow,
+
+1267
+01:02:01,644 --> 01:02:05,199
+much slower than like Gans
+or variational autoencoders,
+
+1268
+01:02:05,199 --> 01:02:07,509
+which again were a
+one-step shot like
+
+1269
+01:02:07,509 --> 01:02:10,909
+process where given noise,
+you just estimated it.
+
+1270
+01:02:10,909 --> 01:02:12,024
+Okay.
+
+1271
+01:02:12,024 --> 01:02:14,959
+Are there any questions
+on any others?
+
+1272
+01:02:24,030 --> 01:02:26,799
+So again, the epsilon comes from
+
+1273
+01:02:26,799 --> 01:02:30,070
+the fact that we use the
+reparameterization trick.
+
+1274
+01:02:30,070 --> 01:02:32,719
+So let me see.
+
+1275
+01:02:40,530 --> 01:02:44,749
+I'm trying to find where
+I introduced it here.
+
+1276
+01:02:45,450 --> 01:02:48,954
+Again in the forward process.
+
+1277
+01:02:48,954 --> 01:02:52,494
+If you want to get
+
+1278
+01:02:52,494 --> 01:02:56,124
+a particular x t in
+the forward process,
+
+1279
+01:02:56,124 --> 01:02:57,549
+what you're doing is
+
+1280
+01:02:57,549 --> 01:03:01,570
+you actually just
+because, because we had,
+
+1281
+01:03:01,570 --> 01:03:03,910
+It's all about adding Gaussian
+that we can actually have
+
+1282
+01:03:03,910 --> 01:03:07,420
+a closed form equation here
+that says given just zero,
+
+1283
+01:03:07,420 --> 01:03:09,860
+which is the original image.
+
+1284
+01:03:12,330 --> 01:03:14,769
+A bunch of equations
+which has come
+
+1285
+01:03:14,769 --> 01:03:17,574
+from the variance
+schedule that we defined,
+
+1286
+01:03:17,574 --> 01:03:19,629
+and epsilon which is sampled
+
+1287
+01:03:19,629 --> 01:03:21,669
+from this normal distribution,
+
+1288
+01:03:21,669 --> 01:03:24,409
+then that's what x t is.
+
+1289
+01:03:24,450 --> 01:03:27,685
+Basically, I mean, it's
+the noisier adding.
+
+1290
+01:03:27,685 --> 01:03:30,849
+I mean, this is showing
+you conditioned on X zero.
+
+1291
+01:03:30,849 --> 01:03:36,474
+You can also do again X t
+given x1xt minus one, right?
+
+1292
+01:03:36,474 --> 01:03:39,820
+That is going to be again
+a normal distribution.
+
+1293
+01:03:39,820 --> 01:03:42,130
+And the key idea is
+the only thing we're
+
+1294
+01:03:42,130 --> 01:03:45,400
+sampling when determining what
+
+1295
+01:03:45,400 --> 01:03:48,145
+to add noise is this epsilon.
+
+1296
+01:03:48,145 --> 01:03:49,825
+And then we multiply it
+
+1297
+01:03:49,825 --> 01:03:53,739
+with the variance and
+add it to the mean.
+
+1298
+01:03:53,739 --> 01:03:56,259
+The reason we can do that as
+
+1299
+01:03:56,259 --> 01:04:00,589
+the Gaussian re,
+reparameterization trick.
+
+1300
+01:04:00,600 --> 01:04:02,679
+And all we're doing in
+
+1301
+01:04:02,679 --> 01:04:04,390
+the reverse per hour than
+
+1302
+01:04:04,390 --> 01:04:06,850
+neural network is
+just estimating this.
+
+1303
+01:04:06,850 --> 01:04:09,384
+You can think of
+it as given noise.
+
+1304
+01:04:09,384 --> 01:04:11,919
+What noise should I
+remove to get it to
+
+1305
+01:04:11,919 --> 01:04:16,280
+the previous step
+in the process?
+
+1306
+01:04:17,100 --> 01:04:19,870
+It seems a little weird
+because you're just
+
+1307
+01:04:19,870 --> 01:04:22,480
+estimating how to remove noise.
+
+1308
+01:04:22,480 --> 01:04:25,539
+But again, there's lots of
+math that shows that this
+
+1309
+01:04:25,539 --> 01:04:29,485
+will ultimately through this
+reverse diffusion process.
+
+1310
+01:04:29,485 --> 01:04:31,900
+If you can estimate that
+noise appropriately,
+
+1311
+01:04:31,900 --> 01:04:33,609
+it will generate you
+
+1312
+01:04:33,609 --> 01:04:36,470
+something from the
+joint distribution.
+
+1313
+01:04:40,040 --> 01:04:43,034
+Any other question?
+
+1314
+01:04:43,034 --> 01:04:45,149
+Yeah, so I mean, I guess
+
+1315
+01:04:45,149 --> 01:04:46,529
+the short answer is
+the epsilon is just
+
+1316
+01:04:46,529 --> 01:04:49,604
+they're sampled from
+zero mean unit variance.
+
+1317
+01:04:49,604 --> 01:04:52,779
+That's it. Okay?
+
+1318
+01:04:56,150 --> 01:04:59,534
+So this is the very
+simple algorithm that
+
+1319
+01:04:59,534 --> 01:05:03,014
+all that crazy amount of
+math actually lead to.
+
+1320
+01:05:03,014 --> 01:05:04,515
+During training.
+
+1321
+01:05:04,515 --> 01:05:05,489
+What do you do?
+
+1322
+01:05:05,489 --> 01:05:07,019
+So in this case, actually,
+
+1323
+01:05:07,019 --> 01:05:08,970
+if you notice it's
+sampling from T,
+
+1324
+01:05:08,970 --> 01:05:11,685
+It's not actually
+iterating over t.
+
+1325
+01:05:11,685 --> 01:05:14,925
+But what you do is you have
+
+1326
+01:05:14,925 --> 01:05:20,029
+a particular x zero which
+comes from your data.
+
+1327
+01:05:20,029 --> 01:05:23,379
+You choose a
+particular timestep t.
+
+1328
+01:05:23,379 --> 01:05:25,495
+The reason we can
+do this as again,
+
+1329
+01:05:25,495 --> 01:05:28,540
+because we can just
+jump directly to
+
+1330
+01:05:28,540 --> 01:05:32,815
+timestep t with the equations
+because it's Gaussian.
+
+1331
+01:05:32,815 --> 01:05:36,549
+We're going to sample
+this epsilon from,
+
+1332
+01:05:36,549 --> 01:05:39,324
+again, zero mean, unit variance.
+
+1333
+01:05:39,324 --> 01:05:42,504
+Then all we're gonna
+do is we're going to
+
+1334
+01:05:42,504 --> 01:05:45,789
+have the neural
+network predicts this.
+
+1335
+01:05:45,789 --> 01:05:47,170
+And again, this is
+conditioned on X
+
+1336
+01:05:47,170 --> 01:05:48,939
+zero because of all
+the equations that we
+
+1337
+01:05:48,939 --> 01:05:53,064
+had relating a
+particular x t to zero.
+
+1338
+01:05:53,064 --> 01:05:54,580
+But all it does is,
+
+1339
+01:05:54,580 --> 01:05:56,934
+you know, estimate the epsilon.
+
+1340
+01:05:56,934 --> 01:05:59,874
+Then all we're doing
+is subtracting,
+
+1341
+01:05:59,874 --> 01:06:02,679
+doing a mean squared error From
+
+1342
+01:06:02,679 --> 01:06:05,634
+the Ground Truth epsilon
+until convergence.
+
+1343
+01:06:05,634 --> 01:06:08,350
+So this is all it's doing.
+
+1344
+01:06:08,350 --> 01:06:11,769
+It's just sampling
+random timesteps with
+
+1345
+01:06:11,769 --> 01:06:16,105
+random data with
+this known schedule.
+
+1346
+01:06:16,105 --> 01:06:18,129
+And then just having
+
+1347
+01:06:18,129 --> 01:06:20,785
+their own neural network
+predicts this epsilon.
+
+1348
+01:06:20,785 --> 01:06:24,175
+Again during the
+sampling process,
+
+1349
+01:06:24,175 --> 01:06:26,589
+which is when we wanna
+do during inference.
+
+1350
+01:06:26,589 --> 01:06:29,860
+But what are we going to do?
+We're going to sample noise.
+
+1351
+01:06:29,860 --> 01:06:31,630
+This is gonna be our X capital
+
+1352
+01:06:31,630 --> 01:06:34,929
+T is just gonna
+be a noise image.
+
+1353
+01:06:34,929 --> 01:06:37,720
+And we're gonna have
+an iterative process.
+
+1354
+01:06:37,720 --> 01:06:39,369
+So in this case we
+don't have to make
+
+1355
+01:06:39,369 --> 01:06:41,020
+it iterative because again,
+
+1356
+01:06:41,020 --> 01:06:43,119
+we can just jump in
+the forward process
+
+1357
+01:06:43,119 --> 01:06:44,949
+and the reverse process,
+we can't do that.
+
+1358
+01:06:44,949 --> 01:06:48,519
+So we're going to iteratively
+de-noise the image.
+
+1359
+01:06:48,519 --> 01:06:52,015
+So we'll start with the
+noise image will iterate.
+
+1360
+01:06:52,015 --> 01:06:56,244
+And here, of course, we'll,
+
+1361
+01:06:56,244 --> 01:07:00,009
+we'll use will have this
+
+1362
+01:07:00,009 --> 01:07:01,840
+because depending
+on whether it's
+
+1363
+01:07:01,840 --> 01:07:04,824
+the first time step or not.
+
+1364
+01:07:04,824 --> 01:07:07,029
+And then here we're gonna
+do is we're going to
+
+1365
+01:07:07,029 --> 01:07:09,969
+compute x t minus one,
+
+1366
+01:07:09,969 --> 01:07:13,070
+conditioned on X t.
+
+1367
+01:07:13,500 --> 01:07:15,789
+And then we'll just
+
+1368
+01:07:15,789 --> 01:07:19,705
+basically Use the
+estimate of the Epsilon,
+
+1369
+01:07:19,705 --> 01:07:21,609
+again fed through the equations.
+
+1370
+01:07:21,609 --> 01:07:23,830
+That's why, remember,
+we can estimate
+
+1371
+01:07:23,830 --> 01:07:26,350
+the whole equation if we
+want with a neural network,
+
+1372
+01:07:26,350 --> 01:07:28,599
+but it's a harder task
+with a neural network.
+
+1373
+01:07:28,599 --> 01:07:30,534
+We're only going to
+estimate epsilon.
+
+1374
+01:07:30,534 --> 01:07:33,549
+And then we'll just multiply
+it by those equations.
+
+1375
+01:07:33,549 --> 01:07:36,415
+Are there. Then at the end,
+
+1376
+01:07:36,415 --> 01:07:40,000
+we'll return zero, which
+should be some image.
+
+1377
+01:07:40,000 --> 01:07:41,810
+Again, there's, the key ideas
+
+1378
+01:07:41,810 --> 01:07:44,034
+is that degenerated model that
+
+1379
+01:07:44,034 --> 01:07:46,255
+should be a sample from
+
+1380
+01:07:46,255 --> 01:07:50,239
+the joint distribution
+of your data.
+
+1381
+01:07:51,330 --> 01:07:54,159
+So here's some examples.
+
+1382
+01:07:54,159 --> 01:07:56,860
+Again, in the beginning
+we weren't able to
+
+1383
+01:07:56,860 --> 01:08:00,534
+generate these really high
+dimensional pieces of data.
+
+1384
+01:08:00,534 --> 01:08:03,609
+And so what we did is, you know,
+
+1385
+01:08:03,609 --> 01:08:06,730
+these kind of what are called
+the Swiss roll kinda data.
+
+1386
+01:08:06,730 --> 01:08:11,470
+So you can see it doesn't
+have to be images,
+
+1387
+01:08:11,470 --> 01:08:12,939
+it can be any data, right?
+
+1388
+01:08:12,939 --> 01:08:16,989
+So you can progressively add
+noise to the data points.
+
+1389
+01:08:16,989 --> 01:08:19,389
+And you can see here at
+
+1390
+01:08:19,389 --> 01:08:22,239
+the end they kinda
+looks like just noise.
+
+1391
+01:08:22,239 --> 01:08:25,270
+And then the reverse process is
+
+1392
+01:08:25,270 --> 01:08:28,120
+progressively
+applying the neural
+
+1393
+01:08:28,120 --> 01:08:30,535
+learn neural network to remove
+
+1394
+01:08:30,535 --> 01:08:34,974
+the noise from points. Okay.
+
+1395
+01:08:34,974 --> 01:08:37,539
+Are there any questions
+about any of that?
+
+1396
+01:08:37,539 --> 01:08:47,260
+Yeah. Sorry. Discrete.
+
+1397
+01:08:47,300 --> 01:08:51,164
+Well, what do you mean
+by multiple mean?
+
+1398
+01:08:51,164 --> 01:08:53,070
+I mean, the data we're not
+
+1399
+01:08:53,070 --> 01:08:54,524
+assuming anything
+about the data.
+
+1400
+01:08:54,524 --> 01:08:57,255
+We're assuming stuff about
+the noise we're adding.
+
+1401
+01:08:57,255 --> 01:09:00,970
+We're not assuming anything
+about the data itself, right?
+
+1402
+01:09:02,030 --> 01:09:04,395
+So I'm not sure what you mean.
+
+1403
+01:09:04,395 --> 01:09:06,090
+I mean, if it's discrete,
+
+1404
+01:09:06,090 --> 01:09:08,129
+discrete things like language,
+
+1405
+01:09:08,129 --> 01:09:10,695
+I don't know how to
+add noise to, right.
+
+1406
+01:09:10,695 --> 01:09:12,509
+So but it depends.
+
+1407
+01:09:12,509 --> 01:09:13,199
+Yeah.
+
+1408
+01:09:13,199 --> 01:09:17,355
+You have to have
+an ability to add
+
+1409
+01:09:17,355 --> 01:09:19,949
+a noise of a particular
+distribution such
+
+1410
+01:09:19,949 --> 01:09:22,394
+that all these proofs
+come out, right?
+
+1411
+01:09:22,394 --> 01:09:24,584
+And Gaussian is the easy one.
+
+1412
+01:09:24,584 --> 01:09:28,300
+I don't know how to apply
+it to like discrete data.
+
+1413
+01:09:34,100 --> 01:09:41,325
+In the sense that
+
+1414
+01:09:41,325 --> 01:09:45,360
+I can see that there's
+no t minus one.
+
+1415
+01:09:45,360 --> 01:09:49,965
+There. Doesn't mean sorry,
+
+1416
+01:09:49,965 --> 01:09:50,669
+doesn't
+
+1417
+01:09:50,669 --> 01:09:50,880
+mean
+
+1418
+01:09:50,880 --> 01:09:52,090
+that
+
+1419
+01:09:59,750 --> 01:10:00,930
+we
+
+1420
+01:10:00,930 --> 01:10:03,670
+don't need to do.
+
+1421
+01:10:07,950 --> 01:10:11,020
+So this is just
+leveraging the fact that
+
+1422
+01:10:11,020 --> 01:10:14,799
+during training we
+have x is zero.
+
+1423
+01:10:14,799 --> 01:10:17,470
+And again, there's
+an equation that
+
+1424
+01:10:17,470 --> 01:10:21,729
+defines a particular
+X t given X zero.
+
+1425
+01:10:21,729 --> 01:10:27,829
+Assuming we know the epsilon.
+
+1426
+01:10:29,280 --> 01:10:32,440
+So like this, This is
+
+1427
+01:10:32,440 --> 01:10:36,430
+x t is just computing
+x D. Because again,
+
+1428
+01:10:36,430 --> 01:10:39,819
+if you remember, during
+training we know everything,
+
+1429
+01:10:39,819 --> 01:10:41,155
+we know that forward
+
+1430
+01:10:41,155 --> 01:10:43,539
+for everything and the
+epsilons we added.
+
+1431
+01:10:43,539 --> 01:10:44,829
+So given x zero,
+
+1432
+01:10:44,829 --> 01:10:47,440
+we can directly compute
+what x t should
+
+1433
+01:10:47,440 --> 01:10:50,440
+be. That's all it comes from.
+
+1434
+01:10:50,440 --> 01:10:52,389
+So this is x t, This
+is conditioned on
+
+1435
+01:10:52,389 --> 01:10:56,065
+X t because that
+is defining x t.
+
+1436
+01:10:56,065 --> 01:10:58,839
+We're computing x t from
+
+1437
+01:10:58,839 --> 01:11:03,730
+zero because during training
+we know everything. Yeah.
+
+1438
+01:11:03,730 --> 01:11:05,720
+Like the forward process.
+
+1439
+01:11:09,570 --> 01:11:10,795
+Yeah.
+
+1440
+01:11:10,795 --> 01:11:13,599
+I mean, the reason you
+do this is so that you
+
+1441
+01:11:13,599 --> 01:11:16,824
+can just randomly
+sample from T here.
+
+1442
+01:11:16,824 --> 01:11:19,659
+Like we can do it in a
+loop to if you want.
+
+1443
+01:11:19,659 --> 01:11:23,409
+And that way it is
+conditioned on X t minus one.
+
+1444
+01:11:23,409 --> 01:11:25,479
+In this case.
+
+1445
+01:11:25,479 --> 01:11:27,549
+I actually don't
+know the reason.
+
+1446
+01:11:27,549 --> 01:11:29,770
+I assume it's because
+you want to train
+
+1447
+01:11:29,770 --> 01:11:32,259
+it with more IID kind of data.
+
+1448
+01:11:32,259 --> 01:11:36,804
+So you just sample
+the T given a sample,
+
+1449
+01:11:36,804 --> 01:11:38,410
+given a t and you know,
+
+1450
+01:11:38,410 --> 01:11:39,430
+x zero and epsilon,
+
+1451
+01:11:39,430 --> 01:11:44,120
+you can compute via an
+equation what x t should be.
+
+1452
+01:11:45,180 --> 01:11:47,350
+There's a question about
+
+1453
+01:11:47,350 --> 01:11:50,995
+why does this idea work so
+well in generating pipeline?
+
+1454
+01:11:50,995 --> 01:11:53,680
+That is a good question
+and I don't know that
+
+1455
+01:11:53,680 --> 01:11:55,645
+it's I mean, yeah.
+Well understood.
+
+1456
+01:11:55,645 --> 01:11:58,930
+I think at least I don't
+have a good answer for that.
+
+1457
+01:11:58,930 --> 01:12:00,760
+I think, you know, and again,
+
+1458
+01:12:00,760 --> 01:12:03,399
+I don't know that it works
+well compared to Gans in
+
+1459
+01:12:03,399 --> 01:12:06,475
+the sense that since
+diffusion models became hot,
+
+1460
+01:12:06,475 --> 01:12:09,535
+there's like papers that
+say no Gans can also,
+
+1461
+01:12:09,535 --> 01:12:12,250
+people are improving
+on gans as well.
+
+1462
+01:12:12,250 --> 01:12:15,069
+And then now Gans are
+beating diffusion models.
+
+1463
+01:12:15,069 --> 01:12:19,224
+So which one is better is
+kind of different thing.
+
+1464
+01:12:19,224 --> 01:12:23,050
+I think one thing is Gans have,
+
+1465
+01:12:23,050 --> 01:12:24,609
+and I didn't cover gans,
+
+1466
+01:12:24,609 --> 01:12:26,679
+but they have this
+min-max objective.
+
+1467
+01:12:26,679 --> 01:12:28,585
+And that's just hard to train.
+
+1468
+01:12:28,585 --> 01:12:29,859
+It gets super unstable.
+
+1469
+01:12:29,859 --> 01:12:33,069
+There's lots of tricks
+and regularization
+
+1470
+01:12:33,069 --> 01:12:34,570
+and all sorts of
+stuff to try to make
+
+1471
+01:12:34,570 --> 01:12:36,504
+the training much more stable.
+
+1472
+01:12:36,504 --> 01:12:38,439
+This I think is a pretty,
+
+1473
+01:12:38,439 --> 01:12:41,169
+again because everything is
+this really well understood.
+
+1474
+01:12:41,169 --> 01:12:42,955
+The forward Gaussian process.
+
+1475
+01:12:42,955 --> 01:12:46,719
+And all you're doing is
+regression to a noise.
+
+1476
+01:12:46,719 --> 01:12:49,855
+The optimization, I
+think as much nicer.
+
+1477
+01:12:49,855 --> 01:12:51,819
+So that will be my suspicion.
+
+1478
+01:12:51,819 --> 01:12:55,630
+Like I think it's easier to
+make fast progress against
+
+1479
+01:12:55,630 --> 01:12:58,390
+took probably like
+three or four years
+
+1480
+01:12:58,390 --> 01:13:01,120
+to go from initial
+concept to look,
+
+1481
+01:13:01,120 --> 01:13:03,324
+it's generating nice images.
+
+1482
+01:13:03,324 --> 01:13:06,910
+Diffusion models is like
+a little bit faster.
+
+1483
+01:13:06,910 --> 01:13:10,134
+So my suspicion is
+that it's just better,
+
+1484
+01:13:10,134 --> 01:13:12,669
+nicer to train and scale up.
+
+1485
+01:13:12,669 --> 01:13:14,440
+I think scaling is
+also another thing.
+
+1486
+01:13:14,440 --> 01:13:18,070
+And also again, conditioning
+on text is easier.
+
+1487
+01:13:18,070 --> 01:13:20,290
+So those are my suspicions,
+
+1488
+01:13:20,290 --> 01:13:23,470
+but yeah, I don't know that
+I can tell you exactly.
+
+1489
+01:13:23,470 --> 01:13:26,809
+Why is it why does it work
+so well, kind of thing.
+
+1490
+01:13:26,940 --> 01:13:29,360
+I noticed.
+
+1491
+01:13:46,350 --> 01:13:49,195
+I mean, again, so, you know,
+
+1492
+01:13:49,195 --> 01:13:51,790
+I can only conjecture
+like anything I say we'll
+
+1493
+01:13:51,790 --> 01:13:54,324
+kinda you need evidence
+to back it up.
+
+1494
+01:13:54,324 --> 01:13:55,134
+Right.
+
+1495
+01:13:55,134 --> 01:13:56,680
+I think first of all, I
+
+1496
+01:13:56,680 --> 01:13:57,940
+don't that's not
+fully true, right?
+
+1497
+01:13:57,940 --> 01:13:59,920
+Like some complicated
+things like hands,
+
+1498
+01:13:59,920 --> 01:14:01,600
+there are well-known
+stable diffusion
+
+1499
+01:14:01,600 --> 01:14:04,089
+or diffusion models are
+well-known to not do
+
+1500
+01:14:04,089 --> 01:14:08,649
+very well at like hands and
+very particular body parts.
+
+1501
+01:14:08,649 --> 01:14:11,109
+Like they, they do produce
+
+1502
+01:14:11,109 --> 01:14:12,309
+weird things sometimes and
+
+1503
+01:14:12,309 --> 01:14:14,200
+people are working
+on that, right?
+
+1504
+01:14:14,200 --> 01:14:18,790
+One, I mean, one hypothesis
+you can make is e.g.
+
+1505
+01:14:18,790 --> 01:14:21,070
+that just means that
+for some reason
+
+1506
+01:14:21,070 --> 01:14:24,040
+the discriminator is
+better at discerning
+
+1507
+01:14:24,040 --> 01:14:26,530
+these things such that
+the generative model in
+
+1508
+01:14:26,530 --> 01:14:29,920
+Gans is able to do
+that better, right?
+
+1509
+01:14:29,920 --> 01:14:32,109
+In some sense, like degenerate,
+
+1510
+01:14:32,109 --> 01:14:33,594
+degenerate or part
+in generative,
+
+1511
+01:14:33,594 --> 01:14:35,529
+and Gans are as good as
+
+1512
+01:14:35,529 --> 01:14:38,694
+what the discriminator
+can discriminate, right?
+
+1513
+01:14:38,694 --> 01:14:41,739
+So that would be one hypothesis.
+
+1514
+01:14:41,739 --> 01:14:44,199
+Again, that's just a hypothesis.
+
+1515
+01:14:44,199 --> 01:14:46,400
+You kinda have to prove it out.
+
+1516
+01:14:47,370 --> 01:14:50,509
+Any other questions?
+
+1517
+01:15:06,980 --> 01:15:15,359
+Removing noise, right?
+
+1518
+01:15:15,359 --> 01:15:16,649
+Yeah. Yeah.
+
+1519
+01:15:16,649 --> 01:15:17,805
+I mean, essentially
+it's removed.
+
+1520
+01:15:17,805 --> 01:15:21,044
+Learning to remove the
+noise that you added.
+
+1521
+01:15:21,044 --> 01:15:24,600
+Again, devolves into a
+very simple objective.
+
+1522
+01:15:24,600 --> 01:15:26,229
+Okay.
+
+1523
+01:15:26,570 --> 01:15:30,329
+I don't know if there's any
+other questions I can't see.
+
+1524
+01:15:30,329 --> 01:15:32,070
+I guess I'll cover this next
+
+1525
+01:15:32,070 --> 01:15:33,389
+time because I'm out of time.
+
+1526
+01:15:33,389 --> 01:15:35,494
+But as was mentioned,
+
+1527
+01:15:35,494 --> 01:15:38,439
+we didn't talk about how to
+condition this on texts,
+
+1528
+01:15:38,439 --> 01:15:40,374
+so we'll talk about
+that next time.
+
+1529
+01:15:40,374 --> 01:15:42,700
+Since we have some
+time next time.
+
+1530
+01:15:42,700 --> 01:15:47,410
+The easiest thing that you
+can of course do is again,
+
+1531
+01:15:47,410 --> 01:15:51,129
+if you have paired
+data during training,
+
+1532
+01:15:51,129 --> 01:15:54,040
+you know, here's texts
+and here's an image.
+
+1533
+01:15:54,040 --> 01:15:56,004
+Then you can just
+try to train this
+
+1534
+01:15:56,004 --> 01:15:58,540
+joint distributed like
+you can try to have
+
+1535
+01:15:58,540 --> 01:16:01,389
+the prediction of the
+noise we conditioned
+
+1536
+01:16:01,389 --> 01:16:05,234
+on also the text.
+
+1537
+01:16:05,234 --> 01:16:07,524
+You can train this normally.
+
+1538
+01:16:07,524 --> 01:16:09,100
+The downside is this actually
+
+1539
+01:16:09,100 --> 01:16:11,500
+this naive method
+doesn't work very well.
+
+1540
+01:16:11,500 --> 01:16:13,584
+It produces like blurry images.
+
+1541
+01:16:13,584 --> 01:16:17,500
+So we'll talk about more
+fancy methods next time.
+
+1542
+01:16:17,500 --> 01:16:18,489
+Thank you.
+
+1543
+01:16:18,489 --> 01:16:21,099
+And again, if you talk about
+that and then I'll talk
+
+1544
+01:16:21,099 --> 01:16:24,640
+about just the feature of
+deep learning and all that.
+
+1545
+01:16:24,640 --> 01:16:27,159
+But if you have particular
+topics you want to
+
+1546
+01:16:27,159 --> 01:16:30,205
+discuss in the last
+lecture, let me know.
+
+1547
+01:16:30,205 --> 01:16:32,754
+And also by the
+way, CIO S is out.
+
+1548
+01:16:32,754 --> 01:16:34,975
+So please do fill it out.
+
+1549
+01:16:34,975 --> 01:16:37,059
+I will progressively
+bug you more and
+
+1550
+01:16:37,059 --> 01:16:39,370
+more as we get
+
+1551
+01:16:39,370 --> 01:16:41,439
+closer to the deadline,
+so please do fill it out.
+
+1552
+01:16:41,439 --> 01:16:42,830
+Thank you.
