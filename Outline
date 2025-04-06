@@ -1,0 +1,197 @@
+Here are the focus topics: 
+    Definitions of MDPs (states/actions/environment)
+    Dynamic programming methods for solving MDP's
+    Exploration vs. exploitation
+    Challenges of RL
+    DQN/REINFORCE
+    Policy gradients derivation
+    Difference between types of learning (semi-supervised, few-shot, self-supervised) and what type of data (labeled, unlabeled, small/large, etc.) they assume is available
+    Types of self-supervised tasks and inputs/outputs/losses
+    GANs and VAEs: Process of training, objectives/losses, and how they work
+    
+M4L13 Generative Models  (This is described as Lesson 19 Elsewhere)
+    M4L19 Generative Models - Slides v3.pdf 
+        https://static.us.edusercontent.com/files/tfv0swvZ7sadJYZ3HvxSsE7p
+        
+    Readings
+        Tutorial on Variational Autoencoders https://arxiv.org/abs/1606.05908
+        NIPS 2016 Tutorial: Generative Adversarial Networks https://arxiv.org/abs/1701.00160
+
+    Generative Models Introduction  
+        Transcript 
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.1%20Generative%20Models%20Introduction.txt
+        References and Links:
+            Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
+
+    PixelRNN & PixelCNN  
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.2%20PixelRNN%20%26%20PixelCNN.txt
+        References and Links:
+            Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
+            Oord et al., Pixel Recurrent Neural Networks
+            Oord et al., Conditional Image Generation with PixelCNN Decoders
+
+    Generative Adversarial Networks (GANs)
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.3%20Generative%20Adversial%20Networks%20(GANs).txt
+        References and Links:
+            Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
+            CS231n, Fei-Fei Li, Justin Johnson, Serena Yeung
+            Kodali et al., On Convergence and Stability of GANs (also known as How to Train your DRAGAN)
+            Brock et al., Large Scale GAN Training for High Fidelity Natural Image Synthesis
+
+    Variational Autoencoders (VAEs)
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.4%20Variational%20Autoencoders%20(VAEs).txt
+        References and Links:
+            Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
+            Kingma & Welling, Auto-Encoding Variational Bayes
+            CS231n, Fei-Fei Li, Justin Johnson, Serena Yeung
+            http://gokererdogan.github.io/2016/07/01/reparameterization-trick/ (Links to an external site.)
+            Tutorial on Variational Autoencoders https://arxiv.org/abs/1606.05908 (Links to an external site.)
+            Ha & Schmidhuber, World Models, 2018
+
+    Diffusion Part 1
+        Transcript:
+            https://github.com/joshred83/Module4-Transcripts/blob/027504fe4ea7aee5710bfcb043f4e9271471744c/13.5%20-%20Diffusion%20Part%201
+        Video - https://mediaspace.gatech.edu/media/Deep%20Learning%20Lectures/1_txctqio3
+        Slides - https://sites.cc.gatech.edu/classes/AY2023/cs7643_spring/slides/L26_GenerativeModels2.pdf
+    Diffusion Part 2: Recording [Slides] 
+        Transcript:
+https://github.com/joshred83/Module4-Transcripts/tree/20caba59d2b697004e272ccc4e19a73eeaf51412        Video - https://mediaspace.gatech.edu/media/Deep%20Learning%20Lectures/1_nyq8y5ow
+        Slides - https://sites.cc.gatech.edu/classes/AY2023/cs7643_spring/slides/L27_Wrapup.pdf
+
+M4L17 Deep Reinforcement Learning (Modhe) 
+   M4L17 Deep Reinforcement Learning (Modhe) - Slides v2.pdf 
+        https://static.us.edusercontent.com/files/tAU87hvWbMwJ72oBkQ2VkgiL
+   Readings
+        MDP Notes 
+            https://courses.cs.washington.edu/courses/cse579/22au/Lectures/MDP_notes.pdf
+        Notes on Q-learning 
+            https://courses.cs.washington.edu/courses/cse579/22au/Lectures/TD_notes.pdf
+        Policy iteration notes 
+            https://courses.cs.washington.edu/courses/cse579/22au/Lectures/PI_notes.pdf
+        Policy gradient notes 
+            https://courses.cs.washington.edu/courses/cse579/22au/Lectures/PG_notes.pdf
+    Introduction
+        Transcript - https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.1%20Reinforcement%20Learning%20Introduction.txt
+    
+    Markov Decision Processes 
+        Transcript    
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.2%20Markov%20Decision%20Processes.txt
+        References and Links:
+            Pieter Abbeel
+            Byron Boots, CS 7641
+    Algorithms for Solving MDPs
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.3%20Algorithms%20for%20Solving%20MDPs.txt
+        References and Links:
+            None
+    Deep Q-Learning
+        Transcript 
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.4%20Deep%20Q-Learning.txt
+        References and Links:
+            Volodymyr Mnih et al., 2013.
+            https://youtu.be/V1eYniJ0Rnk?t=31
+            Fei-Fei Li, Justin Johnson, Serena Yeung, CS 231n
+            Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning."
+    Policy Gradients, Actor-Critic
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.5%20Policy%20Gradients%2C%20Actor-Critic.txt
+        References and Links:
+            http://karpathy.github.io/2016/05/31/rl/ (Links to an external site.)
+            Sergey Levine
+            Dhruv Batra
+
+
+M4L18 Unsupervised and Semi-Supervised Learning
+    M4L18 Unsupervised and Semi-Supervised Learning - Slides v2.pdf 
+        https://static.us.edusercontent.com/files/FYGe5YQKBpy6gP8gl6xt0RnK
+    Introduction 
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.1%20Introduction.txt
+        References and Links:
+            Sohn et al., FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence
+            Meta-Learning: from Few-Shot Learning to Rapid Reinforcement Learning, ICML 2019 Tutorial
+            Gidaris et al., Unsupervised Representation Learning by Predicting Image Rotations
+    Semi-Supervised Learning
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.2%20Semi-Supervised%20Learning.txt
+        References and Links:
+            Sohn et al., FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence
+            Miyatio et al., Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning
+            Berthelot et al., MixMatch: A Holistic Approach to Semi-Supervised Learning
+            Berthelot et al., ReMixMatch: Semi-Supervised Learning with Distribution Alignment and Augmentation Anchoring
+            Tarveinen et al., Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning
+            Iscen et al., Label Propagation for Deep Semi-supervised Learning
+    Few-Shot Learning
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.3%20Few-Shot%20Learning.txt
+        References and Links:
+            Chen et al., FixMatch: A Closer Look at Few-Shot Learning
+            Dhillon et al., A Baseline for Few-Shot Image Classification
+            Tian et al., Rethinking Few-Shot Image Classification: a Good Embedding Is All You Need?
+            https://en.wikipedia.org/wiki/Cosine_similarity (Links to an external site.)
+            Hugo Larochelle
+            
+    Unsupervised and Self-Supervised Learning
+        Transcript
+            https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.4%20Unsupervised%20and%20Self-Supervised%20Learning.txt
+        References and Links:
+            Caron et al., Deep Clustering for Unsupervised Learning of Visual Features
+            Zhang et al., Colorful Image Colorization
+            Doersch al., Unsupervised Visual Representation Learning by Context Prediction
+            Gidaris et al., Unsupervised Representation Learning by Predicting Image Rotations
+            He et al., Momentum Contrast for Unsupervised Visual Representation Learning
+
+
+    ---Extra Content---    
+M4L14 Embeddings (Wu) 
+    M4L14 Embeddings (Wu) - Slides v3.pdf 
+        https://static.us.edusercontent.com/files/48BnEERQj1f1g3h5aOGhNHkg
+    Readings
+        word2vec tutorial - http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/
+        word2vec paper - https://arxiv.org/pdf/1301.3781.pdf
+        StarSpace paper - https://arxiv.org/pdf/1709.03856.pdf
+    Embeddings
+        References and Links:
+            Yann LeCun
+    Word Embeddings
+        References and Links:
+            Richard Socher, Christopher Manning
+            Danqi Chen
+            Luke Zettlemoyer
+    Graph Embeddings
+        References and Links:
+            Adam Lerer
+            Yann LeCun
+            Alex Peysakhovich
+            https://github.com/facebookresearch/PyTorch-BigGraph
+    Applications, world2vec
+        References and Links:
+            https://github.com/facebookresearch/StarSpace (Links to an external site.)
+            https://github.com/facebookresearch/faiss (Links to an external site.)
+            Alex Peysakhovich
+            Adam Lerer
+    Embeddings, Additional Topics
+        References and Links:
+            https://github.com/facebookresearch/poincare-embeddings (Links to an external site.)
+            Luke Zettlemoyer
+---Extra Content---
+---Extra Content---
+M4L16A Responsible AI (Stefan Hermanek)
+    M4L16A Responsible AI (Stefan Hermanek) - Slides v2.pdf https://static.us.edusercontent.com/files/wBBWwc9hUduFLS7rN6OJZNW6
+    M4L16B Fairness, Accountability, and Transparency (Obeng & Farmer) - Slides v2.pdf https://static.us.edusercontent.com/files/tlbZBZdUiLiHRLJa5uct2G3g
+---Extra Content---
+
+---Extra Content---
+M4L15 Scalable Training (Quenneville-Belair) - Slides v2.pdf
+    M4L15 Scalable Training (Quenneville-Belair) - Slides v2.pdf https://static.us.edusercontent.com/files/6obgiUeoA4MkEpbwh4qkxwtF
+    Readings    
+        Nonehttps://edstem.org/us/courses/69019/lessons/121672/slides/675048
+    Scaling Deep Learning from Experiment to Production
+    Ingest Data
+    Use Multiple GPUs and Machines
+    Distributed Model Paraellel
+    Scalable Learning Conclusion
+---Extra Content---    
