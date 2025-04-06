@@ -1,0 +1,82 @@
+# Answer Key: Generative Models - Deep Dive
+
+### Question 1 (Multi-Select)
+**Correct Answers:** ✅ Estimate probability distribution, ✅ Generate new samples, ✅ Used for density estimation  
+**Explanation:**  
+Generative models do **not require labeled data** and **do more than classification**.
+
+> "Here we take a probabilistic view of unsupervised learning and try to estimate the probability distribution over the input space."  
+> "In this lesson, we'll focus on Density Estimation... we may want to just have the ability to generate samples from this distribution..."&#8203;:contentReference[oaicite:0]{index=0}
+
+---
+
+### Question 2 (Multiple Choice)  
+**Correct Answer:** ✅ Gaussian Mixture Models  
+**Explanation:**  
+GMMs were traditionally used, though they struggle with high-dimensional input spaces.
+
+> "For example, Gaussian mixture models also produce some estimate of the probability distribution over the input space. However, these methods have severe deficiencies when the input is very high dimensional."&#8203;:contentReference[oaicite:1]{index=1}
+
+---
+
+### Question 3 (True/False)  
+**Correct Answer:** ❌ False  
+**Explanation:**  
+Discriminative models model \( P(y|x) \); generative models model \( P(x) \).
+
+> "Discriminative models, model the conditional distribution probability of the label given the input... Generative models, on the other hand, model the distribution over the input space."&#8203;:contentReference[oaicite:2]{index=2}
+
+---
+
+### Question 4 (Multi-Select)  
+**Correct Answers:** ✅ High computational complexity, ✅ Intractability, ✅ Need for simplification  
+**Explanation:**  
+Modeling \( P(x) \) directly is challenging without simplifying assumptions.
+
+> "This is a very intractable and hard thing to do. And so we'll have to make various assumptions or simplifications in order to make this feasible."&#8203;:contentReference[oaicite:3]{index=3}
+
+---
+
+### Question 5 (Concept Application)  
+**Correct Answers:** ✅ Use deep architectures, ✅ Use embeddings  
+**Explanation:**  
+The transcript emphasizes dimensionality reduction using neural networks.
+
+> "Deep learning is very good at learning features that extract meaningful information in a low dimensional embedding from high dimensional data."&#8203;:contentReference[oaicite:4]{index=4}
+
+---
+
+### Question 6 (Multiple Choice)  
+**Correct Answer:** ✅ Discriminative: \( P(y|x) \), Generative: \( P(x) \)  
+**Explanation:**  
+This is a central distinction made in the lesson.
+
+> "Discriminative models, model the conditional distribution probability of the label given the input... Generative models... model the distribution over the input space."&#8203;:contentReference[oaicite:5]{index=5}
+
+---
+
+### Question 7 (Multi-Select)  
+**Correct Answers:** ✅ Low-dim features, ✅ Flexible modeling  
+**Explanation:**  
+Deep learning reduces dimensionality and provides flexibility in modeling.
+
+> "Deep learning is very good at learning features that extract meaningful information in a low dimensional embedding..."  
+> "Just, like discriminative models we can have a parametric approximation of this distribution."&#8203;:contentReference[oaicite:6]{index=6}
+
+---
+
+### Question 8 (True/False)  
+**Correct Answer:** ✅ True  
+**Explanation:**  
+Generating samples is one of the core applications.
+
+> "We may want to just have the ability to generate samples from this distribution, that is actually generate artificial examples..."&#8203;:contentReference[oaicite:7]{index=7}
+
+---
+
+### Question 9 (Multiple Choice)  
+**Correct Answer:** ✅ Maximum likelihood estimation  
+**Explanation:**  
+MLE is the optimization principle used for learning generative models.
+
+> "We can have a set of parameterized models \( p(x, \theta) \)... use the principle of maximum likelihood
