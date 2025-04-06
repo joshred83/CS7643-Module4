@@ -1,0 +1,7277 @@
+1
+00:00:15,410 --> 00:00:26,520
+Alright, welcome to
+the last day of class.
+
+2
+00:00:26,520 --> 00:00:28,810
+So we've made it.
+
+3
+00:00:28,880 --> 00:00:30,180
+Today.
+
+4
+00:00:30,180 --> 00:00:31,949
+I'm going to finish a little bit
+
+5
+00:00:31,949 --> 00:00:34,140
+about generative models and then
+
+6
+00:00:34,140 --> 00:00:39,340
+I will basically just talk
+about various things,
+
+7
+00:00:39,340 --> 00:00:41,989
+including some important issues
+
+8
+00:00:41,989 --> 00:00:43,864
+of bias, fairness,
+and alignment,
+
+9
+00:00:43,864 --> 00:00:45,080
+which I won't talk
+too much about,
+
+10
+00:00:45,080 --> 00:00:48,965
+but everybody should
+at least think about.
+
+11
+00:00:48,965 --> 00:00:52,489
+And then some wrap-up on
+like what the feature is.
+
+12
+00:00:52,489 --> 00:00:54,169
+And hopefully we can
+have a good discussion
+
+13
+00:00:54,169 --> 00:00:56,959
+about especially some
+of these things.
+
+14
+00:00:56,959 --> 00:01:02,120
+Ask questions. So that we
+can have a good discussion.
+
+15
+00:01:02,120 --> 00:01:06,334
+In terms of the
+administrative stuff.
+
+16
+00:01:06,334 --> 00:01:09,719
+Of course, projects are
+the only thing do that.
+
+17
+00:01:09,820 --> 00:01:11,975
+There's no extensions.
+
+18
+00:01:11,975 --> 00:01:13,970
+This is like already
+pushed way to
+
+19
+00:01:13,970 --> 00:01:18,870
+the end that we have just
+enough time to grade.
+
+20
+00:01:19,060 --> 00:01:24,140
+Again. The information
+on Piazza.
+
+21
+00:01:24,140 --> 00:01:28,039
+Please do make sure
+to contribute and
+
+22
+00:01:28,039 --> 00:01:32,375
+we will have an optional peer
+review, team peer review.
+
+23
+00:01:32,375 --> 00:01:34,850
+So we do have,
+
+24
+00:01:34,850 --> 00:01:36,140
+again, very few cases,
+
+25
+00:01:36,140 --> 00:01:39,410
+but sometimes we
+do have a lot of
+
+26
+00:01:39,410 --> 00:01:41,239
+people in the team all
+
+27
+00:01:41,239 --> 00:01:43,640
+saying a particular person
+did not contribute.
+
+28
+00:01:43,640 --> 00:01:46,099
+In that case, we do
+actually take points off
+
+29
+00:01:46,099 --> 00:01:48,560
+and we know students,
+
+30
+00:01:48,560 --> 00:01:49,880
+of course, before
+we do anything,
+
+31
+00:01:49,880 --> 00:01:53,375
+but they can affect
+your grade if you just
+
+32
+00:01:53,375 --> 00:01:55,445
+don't contribute equally and
+
+33
+00:01:55,445 --> 00:01:58,445
+all the team members
+agree, that's the case.
+
+34
+00:01:58,445 --> 00:02:00,290
+So make sure to contribute.
+
+35
+00:02:00,290 --> 00:02:02,060
+And of course, there's
+a contribution table
+
+36
+00:02:02,060 --> 00:02:04,129
+on the report as well.
+
+37
+00:02:04,129 --> 00:02:06,530
+This is the last week
+of office hours.
+
+38
+00:02:06,530 --> 00:02:08,809
+I think some of the
+TAs might do a few.
+
+39
+00:02:08,809 --> 00:02:11,029
+You can, of course,
+
+40
+00:02:11,029 --> 00:02:13,520
+ask questions about your
+project on Piazza and
+
+41
+00:02:13,520 --> 00:02:17,615
+other ways to reach us.
+
+42
+00:02:17,615 --> 00:02:20,449
+I'm willing to discuss
+
+43
+00:02:20,449 --> 00:02:23,194
+with you if you have
+issues for projects.
+
+44
+00:02:23,194 --> 00:02:27,424
+So just let me know. Please
+do fill out this, the iOS.
+
+45
+00:02:27,424 --> 00:02:30,379
+So this is like super important.
+
+46
+00:02:30,379 --> 00:02:32,930
+I read all the comments,
+
+47
+00:02:32,930 --> 00:02:35,570
+try to adapt every year.
+
+48
+00:02:35,570 --> 00:02:37,354
+This is my first time teaching
+
+49
+00:02:37,354 --> 00:02:39,440
+in-person since the
+pandemic ended.
+
+50
+00:02:39,440 --> 00:02:44,614
+So I'm sure that adjustment
+I will need to make.
+
+51
+00:02:44,614 --> 00:02:48,349
+Again, just make
+sure to fill it out.
+
+52
+00:02:48,349 --> 00:02:51,740
+I will progressively bug
+you more and more as we get
+
+53
+00:02:51,740 --> 00:02:54,710
+closer to the deadline
+for filling that out,
+
+54
+00:02:54,710 --> 00:02:56,060
+which I don't
+remember what it is,
+
+55
+00:02:56,060 --> 00:02:59,239
+but I think late April,
+
+56
+00:02:59,239 --> 00:03:01,380
+early May, something like that.
+
+57
+00:03:01,900 --> 00:03:04,459
+Please do fill it out.
+
+58
+00:03:04,459 --> 00:03:09,530
+I definitely take it into
+account. So make sure to do it.
+
+59
+00:03:09,530 --> 00:03:13,040
+Any questions on
+administrative things.
+
+60
+00:03:13,040 --> 00:03:16,580
+Okay, cool.
+
+61
+00:03:16,580 --> 00:03:21,469
+So last time I talked about
+de-noising diffusion models.
+
+62
+00:03:21,469 --> 00:03:23,780
+So this is the cool
+results that we
+
+63
+00:03:23,780 --> 00:03:27,599
+got using these models.
+
+64
+00:03:30,460 --> 00:03:33,170
+If you remember, the process of
+
+65
+00:03:33,170 --> 00:03:35,720
+generating is very
+different than
+
+66
+00:03:35,720 --> 00:03:37,400
+anything we've seen
+before because
+
+67
+00:03:37,400 --> 00:03:40,399
+it's an iterative process.
+
+68
+00:03:40,399 --> 00:03:43,864
+Where are you in the
+forward diffusion process,
+
+69
+00:03:43,864 --> 00:03:46,654
+ad set of noise
+
+70
+00:03:46,654 --> 00:03:52,819
+with the districts that
+are known or well-behaved.
+
+71
+00:03:52,819 --> 00:03:56,120
+So you decide exactly the
+means and variances of
+
+72
+00:03:56,120 --> 00:03:57,320
+a Gaussian that you add
+
+73
+00:03:57,320 --> 00:04:00,199
+every timestep in
+the forward process.
+
+74
+00:04:00,199 --> 00:04:02,900
+This way It's all designed to
+
+75
+00:04:02,900 --> 00:04:04,759
+make everything pretty tractable
+
+76
+00:04:04,759 --> 00:04:05,779
+because it's all Gaussians.
+
+77
+00:04:05,779 --> 00:04:06,934
+We can do lots of maths,
+
+78
+00:04:06,934 --> 00:04:09,334
+nice math and derivation
+with Gaussians.
+
+79
+00:04:09,334 --> 00:04:11,314
+And so we can e.g.
+
+80
+00:04:11,314 --> 00:04:13,774
+even given the first
+image at zero,
+
+81
+00:04:13,774 --> 00:04:16,280
+we can automatically jumped
+to the distribution of
+
+82
+00:04:16,280 --> 00:04:18,529
+any arbitrary timestep with
+
+83
+00:04:18,529 --> 00:04:21,640
+an equation because
+it's well-behaved.
+
+84
+00:04:21,640 --> 00:04:23,599
+Then the key point is how do we
+
+85
+00:04:23,599 --> 00:04:25,775
+learn the reverse process?
+
+86
+00:04:25,775 --> 00:04:27,784
+We talked about, again,
+
+87
+00:04:27,784 --> 00:04:29,600
+the characteristics of
+the forward process,
+
+88
+00:04:29,600 --> 00:04:30,995
+the four processes.
+
+89
+00:04:30,995 --> 00:04:34,205
+This particular, again,
+it's a Markov chain,
+
+90
+00:04:34,205 --> 00:04:35,660
+so it's just a product of
+
+91
+00:04:35,660 --> 00:04:38,090
+the probabilities
+of each timestep
+
+92
+00:04:38,090 --> 00:04:43,169
+given the previous
+timestep pointer.
+
+93
+00:04:43,330 --> 00:04:47,300
+And then we talked
+about how you can prove
+
+94
+00:04:47,300 --> 00:04:52,069
+that the reverse process
+is also Gaussian.
+
+95
+00:04:52,069 --> 00:04:56,869
+So given x, oh sorry,
+
+96
+00:04:56,869 --> 00:04:59,990
+this is the fourth process,
+sorry, this is a Gaussian.
+
+97
+00:04:59,990 --> 00:05:05,090
+What we did is we
+derived from this thing.
+
+98
+00:05:05,090 --> 00:05:08,960
+A bunch of equations
+that showed that again,
+
+99
+00:05:08,960 --> 00:05:11,509
+we can jump to any
+arbitrary time step X t
+
+100
+00:05:11,509 --> 00:05:14,225
+given X zero. So that's nice.
+
+101
+00:05:14,225 --> 00:05:16,550
+We can also do the
+reparameterization trick,
+
+102
+00:05:16,550 --> 00:05:17,989
+which is what you've
+used variational
+
+103
+00:05:17,989 --> 00:05:20,135
+autoencoders in order to get,
+
+104
+00:05:20,135 --> 00:05:24,215
+again this equation
+to just given x.
+
+105
+00:05:24,215 --> 00:05:28,339
+And a bunch of things that
+depend on just the schedule.
+
+106
+00:05:28,339 --> 00:05:31,100
+Beta, which alpha depends on,
+
+107
+00:05:31,100 --> 00:05:32,764
+and the noise we sample.
+
+108
+00:05:32,764 --> 00:05:36,260
+We can jump to any
+particular thing.
+
+109
+00:05:36,260 --> 00:05:42,709
+The reverse process is
+also well understood.
+
+110
+00:05:42,709 --> 00:05:46,445
+And again, here x t
+minus one given x t,
+
+111
+00:05:46,445 --> 00:05:48,050
+which is the reverse process,
+
+112
+00:05:48,050 --> 00:05:49,489
+is also a Gaussian.
+
+113
+00:05:49,489 --> 00:05:50,825
+And again, you can prove this.
+
+114
+00:05:50,825 --> 00:05:52,519
+And so all you're
+doing is learning and
+
+115
+00:05:52,519 --> 00:05:54,575
+neural network to
+match the means.
+
+116
+00:05:54,575 --> 00:05:57,229
+There's a bunch of derivation
+of how we get from
+
+117
+00:05:57,229 --> 00:05:59,930
+that to really just
+this end result,
+
+118
+00:05:59,930 --> 00:06:01,760
+which is we predict
+
+119
+00:06:01,760 --> 00:06:04,999
+the one-step noise that was
+added at every time step.
+
+120
+00:06:04,999 --> 00:06:08,690
+So it turns into a mean
+squared error kind of thing.
+
+121
+00:06:08,690 --> 00:06:11,644
+Similar to variational
+autoencoders.
+
+122
+00:06:11,644 --> 00:06:14,719
+Because it's a KL divergence
+between Gaussians.
+
+123
+00:06:14,719 --> 00:06:16,669
+And you can do
+
+124
+00:06:16,669 --> 00:06:18,485
+the log-likelihood stuff to
+
+125
+00:06:18,485 --> 00:06:20,794
+show that its mean
+squared error.
+
+126
+00:06:20,794 --> 00:06:22,640
+I showed you that derivation
+
+127
+00:06:22,640 --> 00:06:23,974
+again, everything is like law.
+
+128
+00:06:23,974 --> 00:06:27,424
+This whole process where
+you have log-likelihood or
+
+129
+00:06:27,424 --> 00:06:32,149
+variational inference that
+is actually modeling.
+
+130
+00:06:32,149 --> 00:06:38,269
+Or like having the optimizing
+parameters to maximize
+
+131
+00:06:38,269 --> 00:06:40,309
+the log probability of the data
+
+132
+00:06:40,309 --> 00:06:44,599
+is factorizes into a
+bunch of different terms,
+
+133
+00:06:44,599 --> 00:06:46,894
+some of which are tractable,
+some of which are not.
+
+134
+00:06:46,894 --> 00:06:49,010
+We ignore the ones that
+are not tractable.
+
+135
+00:06:49,010 --> 00:06:51,815
+And then we do a bunch of
+derivations all the way to
+
+136
+00:06:51,815 --> 00:06:55,535
+just figuring out the
+ground truth mean,
+
+137
+00:06:55,535 --> 00:06:57,950
+which is what this
+equation says.
+
+138
+00:06:57,950 --> 00:07:03,184
+And we were just regressed
+to it. So that's that.
+
+139
+00:07:03,184 --> 00:07:05,090
+And then again, to
+generate images,
+
+140
+00:07:05,090 --> 00:07:08,090
+all you're doing is you just
+
+141
+00:07:08,090 --> 00:07:12,500
+learn this and then you
+sample given noise.
+
+142
+00:07:12,500 --> 00:07:16,849
+You just sample from
+
+143
+00:07:16,849 --> 00:07:18,890
+the distributions and
+remove the noise.
+
+144
+00:07:18,890 --> 00:07:20,359
+So you're predicting
+the noise that you're
+
+145
+00:07:20,359 --> 00:07:24,064
+removing to get back
+to some x zero.
+
+146
+00:07:24,064 --> 00:07:25,760
+And of course,
+every time you want
+
+147
+00:07:25,760 --> 00:07:27,814
+to generate a new image,
+
+148
+00:07:27,814 --> 00:07:30,199
+randomly produces an image from
+
+149
+00:07:30,199 --> 00:07:32,869
+the full distribution of images,
+
+150
+00:07:32,869 --> 00:07:35,269
+you just temple
+new noise and then
+
+151
+00:07:35,269 --> 00:07:40,955
+doing new generation algorithm.
+
+152
+00:07:40,955 --> 00:07:43,459
+So in the forward error
+in the training process,
+
+153
+00:07:43,459 --> 00:07:44,824
+somebody asked about this.
+
+154
+00:07:44,824 --> 00:07:48,050
+We actually don't do the
+iteration where every time
+
+155
+00:07:48,050 --> 00:07:49,550
+step we just sample
+
+156
+00:07:49,550 --> 00:07:51,559
+the timestep from a
+uniform distribution.
+
+157
+00:07:51,559 --> 00:07:52,910
+Again, this is just
+so that during
+
+158
+00:07:52,910 --> 00:07:55,445
+training things are more IID.
+
+159
+00:07:55,445 --> 00:07:56,929
+Because if you're doing
+
+160
+00:07:56,929 --> 00:07:59,210
+iterative training across
+
+161
+00:07:59,210 --> 00:08:01,909
+the process diffusion
+process, then it's not IID.
+
+162
+00:08:01,909 --> 00:08:05,705
+And because you can again jump
+
+163
+00:08:05,705 --> 00:08:09,484
+directly to x t for a
+particular arbitrary time step,
+
+164
+00:08:09,484 --> 00:08:11,180
+you can just use this equation.
+
+165
+00:08:11,180 --> 00:08:12,904
+And again, somebody
+asked about this.
+
+166
+00:08:12,904 --> 00:08:15,004
+This comes from this, which was
+
+167
+00:08:15,004 --> 00:08:17,599
+derived from the
+forward process.
+
+168
+00:08:17,599 --> 00:08:19,129
+And then during sampling,
+
+169
+00:08:19,129 --> 00:08:21,800
+all we're doing is
+sampling noise.
+
+170
+00:08:21,800 --> 00:08:24,890
+And then we
+progressively compute
+
+171
+00:08:24,890 --> 00:08:28,144
+this by running the neural
+network to estimate,
+
+172
+00:08:28,144 --> 00:08:31,174
+which is the noise
+we need to remove.
+
+173
+00:08:31,174 --> 00:08:34,460
+So we talked about that's
+an unconditional process.
+
+174
+00:08:34,460 --> 00:08:36,260
+That is, it just
+gives me the set of
+
+175
+00:08:36,260 --> 00:08:38,839
+natural images or
+whatever distribution
+
+176
+00:08:38,839 --> 00:08:40,430
+you gave it during training.
+
+177
+00:08:40,430 --> 00:08:42,649
+Data where we
+ultimately wanna do
+
+178
+00:08:42,649 --> 00:08:47,195
+is condition the model on texts.
+
+179
+00:08:47,195 --> 00:08:50,254
+And so the very easy simple idea
+
+180
+00:08:50,254 --> 00:08:53,360
+is just condition the
+noise estimation on tech.
+
+181
+00:08:53,360 --> 00:08:57,589
+So during training,
+this can be by the way,
+
+182
+00:08:57,589 --> 00:08:59,149
+a classifier or sorry,
+
+183
+00:08:59,149 --> 00:09:00,424
+I'll label it can be like,
+
+184
+00:09:00,424 --> 00:09:01,729
+you know, astronaut or whatever.
+
+185
+00:09:01,729 --> 00:09:03,199
+It could be a sentence to be
+
+186
+00:09:03,199 --> 00:09:04,999
+anything that you're
+conditioning on.
+
+187
+00:09:04,999 --> 00:09:07,024
+As long as during training,
+
+188
+00:09:07,024 --> 00:09:10,009
+you have paired things.
+
+189
+00:09:10,009 --> 00:09:12,349
+So you have the
+image that you want,
+
+190
+00:09:12,349 --> 00:09:14,030
+you're trying to get
+it to learn how to
+
+191
+00:09:14,030 --> 00:09:16,999
+generate from the
+forward process.
+
+192
+00:09:16,999 --> 00:09:20,600
+And you have the actual label
+
+193
+00:09:20,600 --> 00:09:23,735
+or caption or text description.
+
+194
+00:09:23,735 --> 00:09:26,314
+So in this case
+there's no difference.
+
+195
+00:09:26,314 --> 00:09:28,850
+We're, all we're
+doing is the same.
+
+196
+00:09:28,850 --> 00:09:32,090
+Again, this is kind of showing
+
+197
+00:09:32,090 --> 00:09:35,809
+the math of the variational
+upper bound that we're doing,
+
+198
+00:09:35,809 --> 00:09:37,564
+which is the estimated
+
+199
+00:09:37,564 --> 00:09:39,634
+or approximate
+optimization that we do.
+
+200
+00:09:39,634 --> 00:09:41,300
+All we're doing is
+we're estimating
+
+201
+00:09:41,300 --> 00:09:43,984
+these things with
+the conditional.
+
+202
+00:09:43,984 --> 00:09:45,709
+See, it could be text,
+
+203
+00:09:45,709 --> 00:09:48,815
+it could be a label,
+whatever you want.
+
+204
+00:09:48,815 --> 00:09:51,530
+So you can condition
+it on a scalar.
+
+205
+00:09:51,530 --> 00:09:52,895
+You can condition on
+
+206
+00:09:52,895 --> 00:09:57,440
+arbitrary embedding that
+comes from images, e.g.
+
+207
+00:09:57,440 --> 00:09:59,659
+you can text condition
+it by taking
+
+208
+00:09:59,659 --> 00:10:02,749
+the single vector
+embedding, e.g.
+
+209
+00:10:02,749 --> 00:10:03,860
+taking the embeddings of
+
+210
+00:10:03,860 --> 00:10:07,384
+all the words and then
+pulling them together.
+
+211
+00:10:07,384 --> 00:10:09,770
+You can actually do sequences of
+
+212
+00:10:09,770 --> 00:10:12,754
+embeddings that are
+somehow combined.
+
+213
+00:10:12,754 --> 00:10:14,960
+So any arbitrary combination of
+
+214
+00:10:14,960 --> 00:10:19,069
+embeddings that are just used
+as the conditional here.
+
+215
+00:10:19,069 --> 00:10:22,880
+Now, the only thing that's
+different now is really just
+
+216
+00:10:22,880 --> 00:10:24,289
+that you're feeding this into
+
+217
+00:10:24,289 --> 00:10:27,119
+the neural network that
+approximates this.
+
+218
+00:10:27,520 --> 00:10:31,220
+So again, there are
+several downsides.
+
+219
+00:10:31,220 --> 00:10:33,904
+Of course, like, you know,
+
+220
+00:10:33,904 --> 00:10:36,814
+you need something,
+you need to pair data,
+
+221
+00:10:36,814 --> 00:10:39,349
+which in this case might
+not be too bad because
+
+222
+00:10:39,349 --> 00:10:42,079
+we have like 400 million up to,
+
+223
+00:10:42,079 --> 00:10:43,970
+I think there's a dataset called
+
+224
+00:10:43,970 --> 00:10:46,444
+rely on something billion.
+
+225
+00:10:46,444 --> 00:10:50,195
+So that has like noisy
+image texts, peers.
+
+226
+00:10:50,195 --> 00:10:52,340
+We have large datasets. But it
+
+227
+00:10:52,340 --> 00:10:54,770
+turns out that if you
+just do this naively,
+
+228
+00:10:54,770 --> 00:10:58,115
+by just feeding it as
+an input to this model,
+
+229
+00:10:58,115 --> 00:11:00,514
+you get very blurry generation.
+
+230
+00:11:00,514 --> 00:11:02,060
+Are there any
+questions on just the
+
+231
+00:11:02,060 --> 00:11:03,725
+simple naive way
+to condition it?
+
+232
+00:11:03,725 --> 00:11:05,374
+Again, all you're
+doing is feeding it in
+
+233
+00:11:05,374 --> 00:11:07,204
+as an additional input
+to the neural network.
+
+234
+00:11:07,204 --> 00:11:11,850
+So, yeah, this works.
+
+235
+00:11:12,460 --> 00:11:16,649
+This works with
+pretty much, yeah.
+
+236
+00:11:16,810 --> 00:11:19,040
+It looks like it's naive,
+
+237
+00:11:19,040 --> 00:11:22,084
+simple approach that you can
+do with anything, right?
+
+238
+00:11:22,084 --> 00:11:22,954
+Yeah.
+
+239
+00:11:22,954 --> 00:11:24,680
+Like VAs, you can
+
+240
+00:11:24,680 --> 00:11:28,160
+basically have to think
+
+241
+00:11:28,160 --> 00:11:29,840
+about where you have
+
+242
+00:11:29,840 --> 00:11:32,690
+to repeat it in the
+additional inputs.
+
+243
+00:11:32,690 --> 00:11:35,360
+I would have to think about,
+I guess you feed it in as
+
+244
+00:11:35,360 --> 00:11:40,050
+an additional input
+paired with the z.
+
+245
+00:11:40,090 --> 00:11:42,619
+So you have to figure
+out where to put it in.
+
+246
+00:11:42,619 --> 00:11:44,719
+But yeah, since it's
+neural network,
+
+247
+00:11:44,719 --> 00:11:47,939
+you can always put
+more inputs, right?
+
+248
+00:11:48,670 --> 00:11:52,024
+Then a nice thing, and this
+is what we will see later,
+
+249
+00:11:52,024 --> 00:11:53,779
+is that, I mean,
+
+250
+00:11:53,779 --> 00:11:55,910
+there's a bunch of math
+that I haven't shown you
+
+251
+00:11:55,910 --> 00:11:58,729
+related to diffusion models.
+
+252
+00:11:58,729 --> 00:12:01,295
+And that math leads to
+
+253
+00:12:01,295 --> 00:12:03,169
+more sophisticated ways to
+
+254
+00:12:03,169 --> 00:12:05,480
+condition the model on the text.
+
+255
+00:12:05,480 --> 00:12:07,639
+And this is different
+than like Andrew via eat.
+
+256
+00:12:07,639 --> 00:12:09,020
+So gambling varies.
+
+257
+00:12:09,020 --> 00:12:12,664
+There are various ways to
+condition them on things,
+
+258
+00:12:12,664 --> 00:12:14,854
+but they're kind of limited.
+
+259
+00:12:14,854 --> 00:12:18,004
+I'm here because
+you're actually,
+
+260
+00:12:18,004 --> 00:12:21,394
+you have this complicated
+iterative diffusion process.
+
+261
+00:12:21,394 --> 00:12:23,690
+And you understand
+the diffusion process
+
+262
+00:12:23,690 --> 00:12:25,459
+and there's a bunch of
+math on that derives
+
+263
+00:12:25,459 --> 00:12:27,290
+what the right thing to do is in
+
+264
+00:12:27,290 --> 00:12:28,250
+terms of what you need to
+
+265
+00:12:28,250 --> 00:12:29,780
+predict what the neural network.
+
+266
+00:12:29,780 --> 00:12:32,599
+There are ways where
+you can actually guide
+
+267
+00:12:32,599 --> 00:12:35,914
+the diffusion process with e.g.
+
+268
+00:12:35,914 --> 00:12:38,569
+a. Classifier or a
+captioning model.
+
+269
+00:12:38,569 --> 00:12:42,349
+So what we're gonna do
+in the non naive ways
+
+270
+00:12:42,349 --> 00:12:45,710
+is actually framed separately.
+
+271
+00:12:45,710 --> 00:12:47,674
+So you can bring
+
+272
+00:12:47,674 --> 00:12:52,234
+separately diffusion model
+that's unconditioned,
+
+273
+00:12:52,234 --> 00:12:54,005
+so same as before.
+
+274
+00:12:54,005 --> 00:12:57,109
+Then you can also have
+a separate classifier
+
+275
+00:12:57,109 --> 00:12:59,029
+or captioning model.
+
+276
+00:12:59,029 --> 00:13:03,349
+And what you can do is then
+all you can do it, take,
+
+277
+00:13:03,349 --> 00:13:07,099
+take the particular label
+
+278
+00:13:07,099 --> 00:13:10,085
+or pieces of texts and have the,
+
+279
+00:13:10,085 --> 00:13:14,449
+have the classifier
+actually guide
+
+280
+00:13:14,449 --> 00:13:17,390
+the process of the noise
+
+281
+00:13:17,390 --> 00:13:20,104
+that you're adding or
+removing from the image.
+
+282
+00:13:20,104 --> 00:13:24,815
+So this is what's called
+classify classifier guided.
+
+283
+00:13:24,815 --> 00:13:28,114
+The way we will do this
+as a little tricky.
+
+284
+00:13:28,114 --> 00:13:30,410
+I'm not going to
+stupid derive this.
+
+285
+00:13:30,410 --> 00:13:31,999
+I will show in the
+next slide some
+
+286
+00:13:31,999 --> 00:13:33,635
+of the math that leads to this.
+
+287
+00:13:33,635 --> 00:13:36,979
+But what we're gonna
+do is rather than do
+
+288
+00:13:36,979 --> 00:13:41,059
+anything during training
+or add the inputs,
+
+289
+00:13:41,059 --> 00:13:44,059
+what we're gonna do is we're
+going to take the noise that
+
+290
+00:13:44,059 --> 00:13:47,629
+the neural network
+learns unconditioned.
+
+291
+00:13:47,629 --> 00:13:52,354
+That is without anything about
+the label that you want.
+
+292
+00:13:52,354 --> 00:13:56,764
+Then given some particular
+label that you want it to do.
+
+293
+00:13:56,764 --> 00:13:59,359
+Either like a class label for
+
+294
+00:13:59,359 --> 00:14:03,439
+ImageNet or like a
+caption for text.
+
+295
+00:14:03,439 --> 00:14:05,465
+What we're gonna do is
+we're going to guide
+
+296
+00:14:05,465 --> 00:14:08,599
+the diffusion
+process by modifying
+
+297
+00:14:08,599 --> 00:14:11,780
+the noise with the gradient of
+
+298
+00:14:11,780 --> 00:14:14,229
+the log of the probabilities
+
+299
+00:14:14,229 --> 00:14:16,389
+that come from that classifier.
+
+300
+00:14:16,389 --> 00:14:18,939
+So again, this is
+a little tricky
+
+301
+00:14:18,939 --> 00:14:21,310
+because you are just
+using the gradient
+
+302
+00:14:21,310 --> 00:14:25,825
+as a signal really to
+change the noise in
+
+303
+00:14:25,825 --> 00:14:28,105
+a direction that makes it more
+
+304
+00:14:28,105 --> 00:14:31,570
+semantic according to
+whatever the label is.
+
+305
+00:14:31,570 --> 00:14:34,270
+Now, again, like there's
+
+306
+00:14:34,270 --> 00:14:36,759
+a bunch of ties of diffusion
+models do something
+
+307
+00:14:36,759 --> 00:14:39,549
+called score based models are
+
+308
+00:14:39,549 --> 00:14:42,040
+generative models that I
+didn't show you and I'm
+
+309
+00:14:42,040 --> 00:14:43,299
+not going to show you
+because that would
+
+310
+00:14:43,299 --> 00:14:45,249
+be like again, several lectures.
+
+311
+00:14:45,249 --> 00:14:47,304
+But you can again, just
+
+312
+00:14:47,304 --> 00:14:49,374
+kind of think about
+it intuitively.
+
+313
+00:14:49,374 --> 00:14:51,789
+We have, what we
+wanna do is this.
+
+314
+00:14:51,789 --> 00:14:53,590
+We want to model
+
+315
+00:14:53,590 --> 00:14:55,850
+the joint distribution
+probability
+
+316
+00:14:55,850 --> 00:14:57,785
+of X conditioned on something,
+
+317
+00:14:57,785 --> 00:15:01,039
+which is the text or the
+label that you give it.
+
+318
+00:15:01,039 --> 00:15:04,114
+Through Bayes rule, we
+can flip this around.
+
+319
+00:15:04,114 --> 00:15:06,635
+And when you do
+
+320
+00:15:06,635 --> 00:15:11,359
+kind of a began a bunch
+of vlogs and change
+
+321
+00:15:11,359 --> 00:15:13,940
+multiplication to
+sums and so on.
+
+322
+00:15:13,940 --> 00:15:16,520
+You get this kind
+of equation here,
+
+323
+00:15:16,520 --> 00:15:20,314
+which says that you
+can basically use
+
+324
+00:15:20,314 --> 00:15:25,730
+the gradient here
+of the Y given Z,
+
+325
+00:15:25,730 --> 00:15:27,994
+or sorry, Y given X,
+
+326
+00:15:27,994 --> 00:15:32,299
+in addition to the log
+probability of the data itself.
+
+327
+00:15:32,299 --> 00:15:34,939
+So what does the saying is that,
+
+328
+00:15:34,939 --> 00:15:37,335
+again, because of Bayes rule,
+
+329
+00:15:37,335 --> 00:15:39,520
+even though we're
+trying to model
+
+330
+00:15:39,520 --> 00:15:42,175
+the distribution of X given Y,
+
+331
+00:15:42,175 --> 00:15:43,809
+that is, we want to generate
+
+332
+00:15:43,809 --> 00:15:46,390
+images conditioned on the text.
+
+333
+00:15:46,390 --> 00:15:48,010
+We're going to flip
+that around and we're
+
+334
+00:15:48,010 --> 00:15:49,869
+going to have termed that say,
+
+335
+00:15:49,869 --> 00:15:51,309
+we want to increase their match
+
+336
+00:15:51,309 --> 00:15:52,645
+the log problem or increased,
+
+337
+00:15:52,645 --> 00:15:54,790
+sorry, log probability
+of the data.
+
+338
+00:15:54,790 --> 00:15:56,680
+But we also want to
+use the gradient of
+
+339
+00:15:56,680 --> 00:16:00,639
+the log probability of
+the label given the data.
+
+340
+00:16:00,639 --> 00:16:03,280
+So again, this is like,
+
+341
+00:16:03,280 --> 00:16:06,145
+there's lots of derivations
+of why this is true.
+
+342
+00:16:06,145 --> 00:16:07,644
+But the nice thing is,
+
+343
+00:16:07,644 --> 00:16:10,029
+there isn't a lot of
+math that shows in
+
+344
+00:16:10,029 --> 00:16:12,159
+a principled way
+how you can flip
+
+345
+00:16:12,159 --> 00:16:14,755
+this and actually use the log,
+
+346
+00:16:14,755 --> 00:16:16,479
+the gradient of the
+log probability of
+
+347
+00:16:16,479 --> 00:16:20,175
+the classifier class
+label given the data.
+
+348
+00:16:20,175 --> 00:16:22,175
+And so that's what
+you're gonna do.
+
+349
+00:16:22,175 --> 00:16:27,515
+So, and then you can have
+often these scales that say,
+
+350
+00:16:27,515 --> 00:16:32,075
+how much do you want the
+class label or the caption
+
+351
+00:16:32,075 --> 00:16:33,679
+to guide the process of
+
+352
+00:16:33,679 --> 00:16:37,684
+diffusion or reverse
+diffusion or generation.
+
+353
+00:16:37,684 --> 00:16:41,900
+In practice, the math leads
+to something very simple,
+
+354
+00:16:41,900 --> 00:16:43,865
+which is you literally
+
+355
+00:16:43,865 --> 00:16:46,969
+train and unconditioned
+diffusion model.
+
+356
+00:16:46,969 --> 00:16:50,254
+You take your favorite
+classifier. So e.g.
+
+357
+00:16:50,254 --> 00:16:51,965
+an ImageNet classifier.
+
+358
+00:16:51,965 --> 00:16:55,715
+What is the ImageNet classifier
+or do you take an image?
+
+359
+00:16:55,715 --> 00:16:57,185
+You run it forward
+
+360
+00:16:57,185 --> 00:17:01,730
+through to get features
+and the scores,
+
+361
+00:17:01,730 --> 00:17:04,729
+and then the probability of
+a particular class, right?
+
+362
+00:17:04,729 --> 00:17:07,024
+But you have the probability
+that a particular class,
+
+363
+00:17:07,024 --> 00:17:10,039
+you can always get
+the gradient of
+
+364
+00:17:10,039 --> 00:17:16,834
+that with respect to
+your input, right?
+
+365
+00:17:16,834 --> 00:17:18,080
+So that's something we
+
+366
+00:17:18,080 --> 00:17:21,350
+showed a long time ago
+with backpropagation.
+
+367
+00:17:21,350 --> 00:17:24,260
+You train an
+unconditional model.
+
+368
+00:17:24,260 --> 00:17:26,990
+You get any classifier
+pre-trained.
+
+369
+00:17:26,990 --> 00:17:29,074
+So again, these are
+not trained together.
+
+370
+00:17:29,074 --> 00:17:31,850
+You have separate
+unconditioned diffusion model.
+
+371
+00:17:31,850 --> 00:17:34,294
+You have a separate
+ImageNet classifier.
+
+372
+00:17:34,294 --> 00:17:38,000
+And now let's say I want
+to it to generate dogs.
+
+373
+00:17:38,000 --> 00:17:41,560
+Then I just sample
+
+374
+00:17:41,560 --> 00:17:44,439
+from the mean that the
+neural network gave me,
+
+375
+00:17:44,439 --> 00:17:45,819
+which is what the
+
+376
+00:17:45,819 --> 00:17:48,009
+normal unconditioned
+diffusion model gives.
+
+377
+00:17:48,009 --> 00:17:50,650
+And just add this gradient
+
+378
+00:17:50,650 --> 00:17:53,530
+of the log probability
+of the classifier.
+
+379
+00:17:53,530 --> 00:17:55,749
+So during inference, again,
+
+380
+00:17:55,749 --> 00:17:57,040
+this is changing the inference.
+
+381
+00:17:57,040 --> 00:17:58,990
+You're mixing the gradient
+
+382
+00:17:58,990 --> 00:18:00,520
+of the classifier
+with the predicted,
+
+383
+00:18:00,520 --> 00:18:05,605
+the predicted mean that the
+neural network outputs.
+
+384
+00:18:05,605 --> 00:18:08,649
+And if you use, if you remember,
+
+385
+00:18:08,649 --> 00:18:10,974
+if you use the
+reparameterization trick,
+
+386
+00:18:10,974 --> 00:18:12,699
+we're not predicting the mean,
+
+387
+00:18:12,699 --> 00:18:16,510
+we're predicting the
+epsilon, the noise.
+
+388
+00:18:16,510 --> 00:18:18,849
+And so there's an equation
+for that which is like you're
+
+389
+00:18:18,849 --> 00:18:21,040
+just subtracting
+from the epsilon,
+
+390
+00:18:21,040 --> 00:18:25,120
+the gradient of the log
+probability of the classifier.
+
+391
+00:18:25,120 --> 00:18:28,674
+So again, this is why this
+is the correct way to do it,
+
+392
+00:18:28,674 --> 00:18:30,430
+is required, it's
+tricky and requires
+
+393
+00:18:30,430 --> 00:18:32,469
+a lot of math, which
+is shown here.
+
+394
+00:18:32,469 --> 00:18:34,450
+And I have a bunch of links.
+
+395
+00:18:34,450 --> 00:18:38,830
+But it's nice because it shows
+you a very principled way,
+
+396
+00:18:38,830 --> 00:18:41,079
+like mathematically
+derive the wind.
+
+397
+00:18:41,079 --> 00:18:42,504
+This is the right thing to do.
+
+398
+00:18:42,504 --> 00:18:45,400
+And it's cool because all
+you need to do is take
+
+399
+00:18:45,400 --> 00:18:47,710
+an unconditioned model so
+you're not even having
+
+400
+00:18:47,710 --> 00:18:50,589
+to train it with any
+classifier information.
+
+401
+00:18:50,589 --> 00:18:55,270
+You're just training and
+unconditioned diffusion model
+
+402
+00:18:55,270 --> 00:18:58,539
+over your whatever space
+of natural images.
+
+403
+00:18:58,539 --> 00:19:00,640
+And then you just have
+a separate classifier
+
+404
+00:19:00,640 --> 00:19:02,035
+or a captioning model.
+
+405
+00:19:02,035 --> 00:19:03,369
+And then you use that to
+
+406
+00:19:03,369 --> 00:19:06,740
+guide during the
+generation process.
+
+407
+00:19:06,740 --> 00:19:08,190
+Yeah.
+
+408
+00:19:13,180 --> 00:19:17,299
+Well, we're not really
+doing optimization here.
+
+409
+00:19:17,299 --> 00:19:21,510
+This is purely just
+during inference.
+
+410
+00:19:21,640 --> 00:19:23,974
+Okay? So I guess like this,
+
+411
+00:19:23,974 --> 00:19:25,279
+this part is right.
+
+412
+00:19:25,279 --> 00:19:27,109
+So come to compute the gradient.
+
+413
+00:19:27,109 --> 00:19:28,430
+Yes, Like, I mean,
+
+414
+00:19:28,430 --> 00:19:29,765
+we're not ascending
+on the gradient.
+
+415
+00:19:29,765 --> 00:19:31,895
+We're just computing
+the gradient.
+
+416
+00:19:31,895 --> 00:19:33,920
+Right? Like we don't,
+
+417
+00:19:33,920 --> 00:19:36,379
+There's no equation
+that says whether
+
+418
+00:19:36,379 --> 00:19:39,245
+we're maximizing
+anything, right?
+
+419
+00:19:39,245 --> 00:19:41,495
+All it says is we're
+computing that gradient,
+
+420
+00:19:41,495 --> 00:19:43,610
+which again is done through
+
+421
+00:19:43,610 --> 00:19:44,975
+the normal outer different
+
+422
+00:19:44,975 --> 00:19:46,955
+automatic
+differentiation process.
+
+423
+00:19:46,955 --> 00:19:49,414
+And we're adding it to the mean.
+
+424
+00:19:49,414 --> 00:19:50,630
+That's not really in a sense
+
+425
+00:19:50,630 --> 00:19:53,250
+because there's not
+an organization.
+
+426
+00:19:53,500 --> 00:19:57,330
+So this is all purely
+during inference.
+
+427
+00:19:57,520 --> 00:20:00,109
+There's no optimization here.
+
+428
+00:20:00,109 --> 00:20:02,060
+And again, I'm not
+gonna go through,
+
+429
+00:20:02,060 --> 00:20:03,395
+I know it seems weird.
+
+430
+00:20:03,395 --> 00:20:04,999
+But the way it kind
+of intuitively,
+
+431
+00:20:04,999 --> 00:20:07,339
+you want to think about it as
+you're getting some signal
+
+432
+00:20:07,339 --> 00:20:13,130
+about the log probability
+of the class, upper class.
+
+433
+00:20:13,130 --> 00:20:16,430
+Given again, it's conditioned
+on the x of t, right?
+
+434
+00:20:16,430 --> 00:20:18,830
+So what's, what's
+interesting is you need to
+
+435
+00:20:18,830 --> 00:20:21,620
+run this classifier
+every time, right?
+
+436
+00:20:21,620 --> 00:20:25,429
+So you're giving it in the
+beginning of noise damage.
+
+437
+00:20:25,429 --> 00:20:28,294
+It says, okay, this
+looks like nothing.
+
+438
+00:20:28,294 --> 00:20:32,344
+So the unconditioned model says,
+
+439
+00:20:32,344 --> 00:20:33,590
+here's noise you should remove
+
+440
+00:20:33,590 --> 00:20:35,300
+to make it look like an image,
+
+441
+00:20:35,300 --> 00:20:38,450
+but that's giving you
+a direction here.
+
+442
+00:20:38,450 --> 00:20:39,679
+Here's a modification of
+
+443
+00:20:39,679 --> 00:20:41,690
+that noise to also
+make it look more like
+
+444
+00:20:41,690 --> 00:20:45,965
+a particular class label
+by n. Then by the end,
+
+445
+00:20:45,965 --> 00:20:48,155
+again, you keep making
+it more and more,
+
+446
+00:20:48,155 --> 00:20:49,324
+both like an image,
+
+447
+00:20:49,324 --> 00:20:51,124
+which is what the
+unconditioned model does,
+
+448
+00:20:51,124 --> 00:20:53,135
+but also it gives you the signal
+
+449
+00:20:53,135 --> 00:20:55,010
+you're trying to
+also make it look
+
+450
+00:20:55,010 --> 00:20:58,129
+semantically relevant
+to the log probability
+
+451
+00:20:58,129 --> 00:21:00,665
+of the class label
+increase given,
+
+452
+00:21:00,665 --> 00:21:03,119
+given the things
+you are generating.
+
+453
+00:21:17,670 --> 00:21:20,380
+So here there's no condition.
+
+454
+00:21:20,380 --> 00:21:22,060
+Conditional training.
+
+455
+00:21:22,060 --> 00:21:27,700
+Again, like training and
+purely unconditional 0.
+
+456
+00:21:27,700 --> 00:21:29,185
+The first model, this,
+
+457
+00:21:29,185 --> 00:21:31,849
+if you just naively do it.
+
+458
+00:21:32,280 --> 00:21:35,829
+If you naively do it, yeah.
+
+459
+00:21:35,829 --> 00:21:43,705
+Then what's the question? Text?
+
+460
+00:21:43,705 --> 00:21:45,610
+It's either an image
+and a label or
+
+461
+00:21:45,610 --> 00:21:48,740
+an image and a piece of
+piano, like a sentence.
+
+462
+00:21:51,610 --> 00:22:00,199
+And again, Yeah, there's no yes,
+
+463
+00:22:00,199 --> 00:22:02,060
+there's no Well, I mean,
+
+464
+00:22:02,060 --> 00:22:04,759
+I think it's maybe
+that's a good point.
+
+465
+00:22:04,759 --> 00:22:06,905
+Like it's, you know,
+
+466
+00:22:06,905 --> 00:22:09,470
+you will see that.
+
+467
+00:22:09,470 --> 00:22:12,680
+It depends on how strongly,
+you know, like I said,
+
+468
+00:22:12,680 --> 00:22:14,660
+there's a parameter that you can
+
+469
+00:22:14,660 --> 00:22:15,829
+increase to make it more and
+
+470
+00:22:15,829 --> 00:22:17,795
+more semantic or
+less than, less.
+
+471
+00:22:17,795 --> 00:22:22,235
+And so if you make it
+more and more semantic,
+
+472
+00:22:22,235 --> 00:22:26,420
+it ends up basically
+doing like an image of
+
+473
+00:22:26,420 --> 00:22:29,494
+the dog or whatever
+with not like
+
+474
+00:22:29,494 --> 00:22:33,329
+no background and nothing
+else around, right?
+
+475
+00:22:33,330 --> 00:22:37,870
+If you have like
+something in-between,
+
+476
+00:22:37,870 --> 00:22:41,424
+then it's kinda doing both
+bits basically saying,
+
+477
+00:22:41,424 --> 00:22:42,520
+I want to look like
+
+478
+00:22:42,520 --> 00:22:44,919
+natural imagery and
+the natural imagery in
+
+479
+00:22:44,919 --> 00:22:46,510
+my dataset doesn't have like
+
+480
+00:22:46,510 --> 00:22:48,744
+these blank background, right?
+
+481
+00:22:48,744 --> 00:22:53,425
+And so that's why like
+populates it the other pixels.
+
+482
+00:22:53,425 --> 00:22:55,990
+But it still needs to change
+the pixels that relate to
+
+483
+00:22:55,990 --> 00:22:58,509
+the object to
+optimize that thing,
+
+484
+00:22:58,509 --> 00:23:00,294
+right, But the class label,
+
+485
+00:23:00,294 --> 00:23:03,174
+so this trade-off between
+
+486
+00:23:03,174 --> 00:23:05,829
+just the unconditioned
+diffusion model
+
+487
+00:23:05,829 --> 00:23:07,705
+and the regular diffusion model?
+
+488
+00:23:07,705 --> 00:23:08,455
+Yeah.
+
+489
+00:23:08,455 --> 00:23:10,030
+I don't know. Yeah. Like when
+
+490
+00:23:10,030 --> 00:23:11,334
+you're combining it like this
+
+491
+00:23:11,334 --> 00:23:14,929
+without the unconditioned
+and the other thing.
+
+492
+00:23:15,030 --> 00:23:19,090
+Like when it's, when it's
+the Afghan, just like this.
+
+493
+00:23:19,090 --> 00:23:21,759
+It does tend to somehow
+
+494
+00:23:21,759 --> 00:23:24,009
+differentiate
+between objects and
+
+495
+00:23:24,009 --> 00:23:26,394
+backgrounds and just
+generate the right thing.
+
+496
+00:23:26,394 --> 00:23:28,779
+But it doesn't generate
+like blurry stuff.
+
+497
+00:23:28,779 --> 00:23:32,769
+So probably something has to
+do with what you're saying,
+
+498
+00:23:32,769 --> 00:23:34,809
+which is it doesn't
+have to like precisely
+
+499
+00:23:34,809 --> 00:23:36,309
+localized like
+what is object and
+
+500
+00:23:36,309 --> 00:23:38,870
+what is not and things
+like that, right?
+
+501
+00:23:39,390 --> 00:23:41,470
+Yeah, But you know, I mean,
+
+502
+00:23:41,470 --> 00:23:44,019
+we do know that neural networks
+are trained on ImageNet,
+
+503
+00:23:44,019 --> 00:23:46,239
+do have localization and
+
+504
+00:23:46,239 --> 00:23:47,680
+I think we showed
+that earlier, right?
+
+505
+00:23:47,680 --> 00:23:49,405
+So yeah, I mean,
+
+506
+00:23:49,405 --> 00:23:50,770
+you could probably
+make it better
+
+507
+00:23:50,770 --> 00:23:53,779
+by adding some stronger
+local lesions.
+
+508
+00:24:09,870 --> 00:24:13,059
+So what is it a unit?
+
+509
+00:24:13,059 --> 00:24:16,855
+So it's always going
+to be a one size.
+
+510
+00:24:16,855 --> 00:24:20,620
+There are the usual thing
+computer vision people
+
+511
+00:24:20,620 --> 00:24:23,949
+do all the time is like
+a hierarchical thing.
+
+512
+00:24:23,949 --> 00:24:31,220
+So you can generate multiple
+levels and combine them.
+
+513
+00:24:32,190 --> 00:24:35,050
+So that's usually for like
+
+514
+00:24:35,050 --> 00:24:37,330
+once you get like
+super high resolution,
+
+515
+00:24:37,330 --> 00:24:39,340
+usually it's generated
+in sunlight,
+
+516
+00:24:39,340 --> 00:24:41,914
+hierarchical way,
+compositional way.
+
+517
+00:24:41,914 --> 00:24:43,850
+The other way you
+can do it as kind
+
+518
+00:24:43,850 --> 00:24:45,890
+of alluded to her what she said,
+
+519
+00:24:45,890 --> 00:24:48,410
+which is you could try
+
+520
+00:24:48,410 --> 00:24:51,050
+to maybe like generate
+multiple things
+
+521
+00:24:51,050 --> 00:24:53,420
+like object level
+generation and then
+
+522
+00:24:53,420 --> 00:24:57,085
+like a scene level of generation
+and combat components.
+
+523
+00:24:57,085 --> 00:24:59,570
+Generally like really
+high resolution stuff.
+
+524
+00:24:59,570 --> 00:25:02,135
+There's a bunch of tricks
+that are always needed.
+
+525
+00:25:02,135 --> 00:25:03,665
+To do that.
+
+526
+00:25:03,665 --> 00:25:09,540
+I'm just showing some
+irregular unit fixed size.
+
+527
+00:25:14,080 --> 00:25:17,010
+Pacifier tried it.
+
+528
+00:25:19,630 --> 00:25:28,420
+Yeah, That's again. Yeah, which
+
+529
+00:25:28,420 --> 00:25:30,414
+is the gradients come
+from the semantics.
+
+530
+00:25:30,414 --> 00:25:34,119
+So the conditioning, so how
+much should you listen to
+
+531
+00:25:34,119 --> 00:25:36,340
+the conditioning versus
+how much should you just
+
+532
+00:25:36,340 --> 00:25:39,620
+generate from the space
+of natural images?
+
+533
+00:25:45,510 --> 00:25:47,605
+You mean whatever.
+
+534
+00:25:47,605 --> 00:25:49,630
+I don't know what
+practical values
+
+535
+00:25:49,630 --> 00:25:51,265
+are used in some sense.
+
+536
+00:25:51,265 --> 00:25:52,989
+Again, for all these
+generative models,
+
+537
+00:25:52,989 --> 00:25:55,975
+you will often want to give
+the user controllability.
+
+538
+00:25:55,975 --> 00:25:57,715
+And so this is, yeah,
+
+539
+00:25:57,715 --> 00:25:59,694
+I don't know what the range is.
+
+540
+00:25:59,694 --> 00:26:04,420
+Obviously 0-1, you're
+really scaling
+
+541
+00:26:04,420 --> 00:26:09,200
+down the Semantics.
+I'm not I'm not sure.
+
+542
+00:26:09,200 --> 00:26:11,825
+Yeah, to be honest,
+what the usual ranges.
+
+543
+00:26:11,825 --> 00:26:14,930
+I would suspect that somewhere
+like 0-10 or something.
+
+544
+00:26:14,930 --> 00:26:20,780
+That's actually I
+think let's see.
+
+545
+00:26:20,780 --> 00:26:24,935
+I think there was here.
+
+546
+00:26:24,935 --> 00:26:26,764
+Yeah, so here there's
+
+547
+00:26:26,764 --> 00:26:31,320
+a guidance scale that says
+it looks like, yeah, 0-3.
+
+548
+00:26:32,140 --> 00:26:34,220
+Obviously, if you do zero,
+
+549
+00:26:34,220 --> 00:26:36,155
+then it's not guided.
+
+550
+00:26:36,155 --> 00:26:37,864
+Looks like a special case.
+
+551
+00:26:37,864 --> 00:26:39,305
+Yeah. Okay.
+
+552
+00:26:39,305 --> 00:26:40,925
+Any other question?
+
+553
+00:26:40,925 --> 00:26:42,514
+Okay.
+
+554
+00:26:42,514 --> 00:26:45,289
+This is cool because again,
+
+555
+00:26:45,289 --> 00:26:48,665
+you don't need to train a
+conditional generation model.
+
+556
+00:26:48,665 --> 00:26:51,290
+And again, all of
+this comes from math.
+
+557
+00:26:51,290 --> 00:26:54,050
+So there's a principled
+way to condition
+
+558
+00:26:54,050 --> 00:26:56,750
+the actual reverse process
+
+559
+00:26:56,750 --> 00:26:59,105
+of the diffusion,
+which is kinda cool.
+
+560
+00:26:59,105 --> 00:27:02,435
+So this isn't what you can see.
+
+561
+00:27:02,435 --> 00:27:05,090
+This is samples from
+unconditioned model
+
+562
+00:27:05,090 --> 00:27:08,010
+and this is samples
+from a condition model.
+
+563
+00:27:08,500 --> 00:27:14,644
+So let's see.
+
+564
+00:27:14,644 --> 00:27:16,940
+This is one, this is ten.
+
+565
+00:27:16,940 --> 00:27:18,515
+So as you can see,
+
+566
+00:27:18,515 --> 00:27:21,034
+when you add like
+very strong guidance,
+
+567
+00:27:21,034 --> 00:27:22,549
+like I mentioned before,
+
+568
+00:27:22,549 --> 00:27:24,649
+it tends to remove everything
+
+569
+00:27:24,649 --> 00:27:26,900
+about the background
+because it makes sense.
+
+570
+00:27:26,900 --> 00:27:28,490
+That's like what, what maximizes
+
+571
+00:27:28,490 --> 00:27:30,440
+the probability that
+it's a dog, right?
+
+572
+00:27:30,440 --> 00:27:34,279
+Because all of the background
+clutter off and it adds
+
+573
+00:27:34,279 --> 00:27:36,139
+weird patterns that might
+
+574
+00:27:36,139 --> 00:27:39,450
+spike up the scores
+for other classes.
+
+575
+00:27:40,060 --> 00:27:42,245
+Okay.
+
+576
+00:27:42,245 --> 00:27:45,349
+So that's a constant
+prior guidance.
+
+577
+00:27:45,349 --> 00:27:48,034
+There's obviously
+a downside, right?
+
+578
+00:27:48,034 --> 00:27:51,664
+One thing to note is that
+again, we're adding,
+
+579
+00:27:51,664 --> 00:27:56,269
+we're running a classifier
+on X t. And what is x t?
+
+580
+00:27:56,269 --> 00:27:58,745
+It starts off from like noise,
+
+581
+00:27:58,745 --> 00:28:01,460
+and then it progressively
+gets less and less noisy.
+
+582
+00:28:01,460 --> 00:28:03,589
+So your classifier
+actually can't be
+
+583
+00:28:03,589 --> 00:28:05,630
+a normal classifier that
+
+584
+00:28:05,630 --> 00:28:07,159
+you've trained on ImageNet
+
+585
+00:28:07,159 --> 00:28:09,800
+without additional
+robustness measures.
+
+586
+00:28:09,800 --> 00:28:12,575
+Because what does
+it mean to run?
+
+587
+00:28:12,575 --> 00:28:14,120
+It's not gonna be. We know
+
+588
+00:28:14,120 --> 00:28:17,150
+that distribution shifts in
+bad for neural networks.
+
+589
+00:28:17,150 --> 00:28:20,599
+And so if you don't
+like run on the train,
+
+590
+00:28:20,599 --> 00:28:22,535
+the classifier on
+anything noise,
+
+591
+00:28:22,535 --> 00:28:24,454
+and then you add noise later,
+
+592
+00:28:24,454 --> 00:28:27,350
+the signal is going
+to be not great.
+
+593
+00:28:27,350 --> 00:28:30,815
+So that's a downside.
+Often you can like,
+
+594
+00:28:30,815 --> 00:28:34,939
+you know, train, retrain
+on noisy images.
+
+595
+00:28:34,939 --> 00:28:37,279
+Like you take ImageNet and you
+
+596
+00:28:37,279 --> 00:28:39,215
+add various levels of noise,
+
+597
+00:28:39,215 --> 00:28:41,479
+then you retrain that
+entire classifier,
+
+598
+00:28:41,479 --> 00:28:44,100
+which of course
+takes a long time.
+
+599
+00:28:44,530 --> 00:28:46,639
+And also, I think
+
+600
+00:28:46,639 --> 00:28:52,414
+the gradient signal can be a
+little bit arbitrary, right?
+
+601
+00:28:52,414 --> 00:28:54,199
+So it's a signal, but it's,
+
+602
+00:28:54,199 --> 00:28:55,610
+you know, it can,
+
+603
+00:28:55,610 --> 00:28:57,455
+it can yield, as we know,
+
+604
+00:28:57,455 --> 00:29:00,559
+you probably saw when you
+backpropagate to the images,
+
+605
+00:29:00,559 --> 00:29:02,584
+that you can have weird effects
+
+606
+00:29:02,584 --> 00:29:05,280
+when you maximize some score.
+
+607
+00:29:06,040 --> 00:29:08,390
+And so there are
+several ways to do
+
+608
+00:29:08,390 --> 00:29:09,925
+this to get around this.
+
+609
+00:29:09,925 --> 00:29:11,900
+One is so dolly to,
+
+610
+00:29:11,900 --> 00:29:15,694
+instead of using an ImageNet
+classifier, uses clip.
+
+611
+00:29:15,694 --> 00:29:19,655
+Clip is I don't remember
+if I covered it.
+
+612
+00:29:19,655 --> 00:29:21,740
+It's a multi-modal
+model where you
+
+613
+00:29:21,740 --> 00:29:28,250
+have a piece of texts and
+again, text image pairs.
+
+614
+00:29:28,250 --> 00:29:31,789
+And what you do is you
+take the image or sorry,
+
+615
+00:29:31,789 --> 00:29:33,710
+the text and you
+
+616
+00:29:33,710 --> 00:29:35,479
+extract like an embedding
+from that text.
+
+617
+00:29:35,479 --> 00:29:36,679
+You take an image, you
+
+618
+00:29:36,679 --> 00:29:38,480
+extract embeddings
+from that image.
+
+619
+00:29:38,480 --> 00:29:41,465
+And then you push, you
+do a contrastive loss
+
+620
+00:29:41,465 --> 00:29:45,095
+where paired pieces of texts
+that are positive examples,
+
+621
+00:29:45,095 --> 00:29:47,134
+unpaired or negative examples.
+
+622
+00:29:47,134 --> 00:29:48,665
+And so you're pushing apart
+
+623
+00:29:48,665 --> 00:29:54,469
+the unpaired image
+taxpayer or image texts.
+
+624
+00:29:54,469 --> 00:29:56,900
+And then pushing
+together the features
+
+625
+00:29:56,900 --> 00:29:59,584
+of the paired image texts.
+
+626
+00:29:59,584 --> 00:30:01,790
+So that's one way to do it.
+
+627
+00:30:01,790 --> 00:30:03,590
+There's another way to do it,
+
+628
+00:30:03,590 --> 00:30:06,334
+which is something called
+classifier free guidance,
+
+629
+00:30:06,334 --> 00:30:08,209
+which is a cool idea.
+
+630
+00:30:08,209 --> 00:30:12,845
+The idea is I'm going to
+learn one generation model,
+
+631
+00:30:12,845 --> 00:30:15,800
+but I'm going to learn a
+generative model that's
+
+632
+00:30:15,800 --> 00:30:19,019
+both conditions and not
+conditioned on stuff.
+
+633
+00:30:19,019 --> 00:30:20,829
+How do I, how do I make it both
+
+634
+00:30:20,829 --> 00:30:22,794
+condition and not conditioned?
+
+635
+00:30:22,794 --> 00:30:27,320
+Or can you think of some ways
+to, you know, the answer?
+
+636
+00:30:27,480 --> 00:30:30,560
+0 is the answer on there.
+
+637
+00:30:31,230 --> 00:30:34,255
+No, You can use the
+same model though.
+
+638
+00:30:34,255 --> 00:30:36,520
+How would you use the
+same model to make it
+
+639
+00:30:36,520 --> 00:30:40,309
+both consider the inputs are
+not considered the inputs.
+
+640
+00:30:41,520 --> 00:30:45,529
+Regularization method
+that's relevant here.
+
+641
+00:30:47,250 --> 00:30:49,434
+If you remember, the
+
+642
+00:30:49,434 --> 00:30:51,010
+particular regularization
+method where
+
+643
+00:30:51,010 --> 00:30:56,539
+we use things or not use
+things at each iteration,
+
+644
+00:30:57,420 --> 00:31:03,035
+which is dropout as
+implemented by masking.
+
+645
+00:31:03,035 --> 00:31:04,625
+Yeah, so basically drop out.
+
+646
+00:31:04,625 --> 00:31:07,265
+So you can basically
+drop out the conditions
+
+647
+00:31:07,265 --> 00:31:10,459
+thing then now you
+can, how do you do it?
+
+648
+00:31:10,459 --> 00:31:14,134
+You can, again just feed in
+like some arbitrary token,
+
+649
+00:31:14,134 --> 00:31:17,135
+like a fixed token or
+embedding or whatever.
+
+650
+00:31:17,135 --> 00:31:20,164
+The rather than the actual
+conditioning embedding.
+
+651
+00:31:20,164 --> 00:31:22,535
+You feed in a fixed embedding
+
+652
+00:31:22,535 --> 00:31:25,325
+or zero embedding
+whatever you want.
+
+653
+00:31:25,325 --> 00:31:27,499
+And so that's what
+we're gonna do.
+
+654
+00:31:27,499 --> 00:31:29,645
+And again, there's
+some math that shows
+
+655
+00:31:29,645 --> 00:31:31,580
+that you can really,
+
+656
+00:31:31,580 --> 00:31:33,920
+you can see this as
+really an interpolation
+
+657
+00:31:33,920 --> 00:31:36,680
+between the conditioned
+unconditioned model.
+
+658
+00:31:36,680 --> 00:31:39,619
+So you're kind of doing
+something and you're
+
+659
+00:31:39,619 --> 00:31:42,065
+combining the condition and
+
+660
+00:31:42,065 --> 00:31:45,260
+unconditioned model to
+generate the noise.
+
+661
+00:31:45,260 --> 00:31:48,019
+And so again,
+
+662
+00:31:48,019 --> 00:31:50,540
+this has a relationship
+to score based models.
+
+663
+00:31:50,540 --> 00:31:52,355
+Let me see the way we,
+
+664
+00:31:52,355 --> 00:31:54,245
+the way we actually do this.
+
+665
+00:31:54,245 --> 00:31:56,224
+Just to take one model.
+
+666
+00:31:56,224 --> 00:31:58,834
+We train it with
+conditioning dropout.
+
+667
+00:31:58,834 --> 00:32:01,654
+That is sometimes we condition
+it, sometimes we don't.
+
+668
+00:32:01,654 --> 00:32:06,155
+I think 10% to 20%
+dropout as to what works.
+
+669
+00:32:06,155 --> 00:32:08,869
+And then you just run it
+with, with conditioning.
+
+670
+00:32:08,869 --> 00:32:10,520
+You run it without conditioning.
+
+671
+00:32:10,520 --> 00:32:15,500
+And again, you can view
+it as means or noise.
+
+672
+00:32:15,500 --> 00:32:16,534
+If you view it as noise,
+
+673
+00:32:16,534 --> 00:32:18,484
+all you do is subtract,
+
+674
+00:32:18,484 --> 00:32:20,119
+like mathematically
+it works out for
+
+675
+00:32:20,119 --> 00:32:22,294
+subtracting one from the other.
+
+676
+00:32:22,294 --> 00:32:26,254
+So you take the
+condition version
+
+677
+00:32:26,254 --> 00:32:28,295
+of the estimating of the noise
+
+678
+00:32:28,295 --> 00:32:30,034
+and the unconditioned version.
+
+679
+00:32:30,034 --> 00:32:33,485
+And of course,
+
+680
+00:32:33,485 --> 00:32:36,049
+you can interpolate again
+with some weighting.
+
+681
+00:32:36,049 --> 00:32:38,030
+And that is what's
+giving you the strength
+
+682
+00:32:38,030 --> 00:32:40,565
+between conditioning
+and not condition.
+
+683
+00:32:40,565 --> 00:32:42,425
+Again, why does this work?
+
+684
+00:32:42,425 --> 00:32:45,184
+Comes from like some
+deep math versus
+
+685
+00:32:45,184 --> 00:32:48,395
+core based models we're trying
+to talk to you about, but
+
+686
+00:32:48,395 --> 00:32:52,460
+Again, the intuitive way
+to view it as you're
+
+687
+00:32:52,460 --> 00:32:57,169
+really learning the conditions,
+kinda diffusion process.
+
+688
+00:32:57,169 --> 00:33:00,470
+Rather than actually calculating
+
+689
+00:33:00,470 --> 00:33:02,179
+that gradient of the
+classifier score,
+
+690
+00:33:02,179 --> 00:33:05,030
+you can view it as like
+somehow estimating it.
+
+691
+00:33:05,030 --> 00:33:07,099
+So you kinda estimating
+that through
+
+692
+00:33:07,099 --> 00:33:10,260
+the learning of this noise.
+
+693
+00:33:11,290 --> 00:33:13,820
+So this is how it's
+done in practice.
+
+694
+00:33:13,820 --> 00:33:15,650
+So you train a conditional model
+
+695
+00:33:15,650 --> 00:33:17,169
+with conditioning dropouts.
+
+696
+00:33:17,169 --> 00:33:19,939
+So some percentage
+of the time you
+
+697
+00:33:19,939 --> 00:33:23,599
+remove the conditioning
+information, e.g.
+
+698
+00:33:23,599 --> 00:33:26,550
+you replace it with
+some special values.
+
+699
+00:33:26,650 --> 00:33:31,805
+Now, you can run it with
+or without conditioning.
+
+700
+00:33:31,805 --> 00:33:33,560
+And during inference
+with sampling,
+
+701
+00:33:33,560 --> 00:33:38,520
+you simply mix the function,
+the output of the NOR.
+
+702
+00:33:39,070 --> 00:33:42,980
+Any questions on that. I
+think you had questions
+
+703
+00:33:42,980 --> 00:33:47,570
+about this later on,
+
+704
+00:33:47,570 --> 00:33:54,379
+kind of like that difference
+between condition and
+
+705
+00:33:54,379 --> 00:34:02,675
+whatever statement
+there is. Exactly.
+
+706
+00:34:02,675 --> 00:34:04,670
+Yeah, yeah, you can see
+that like estimating
+
+707
+00:34:04,670 --> 00:34:07,249
+the gradient of the log
+probability of the class.
+
+708
+00:34:07,249 --> 00:34:08,580
+Yeah.
+
+709
+00:34:08,590 --> 00:34:11,459
+What it's like.
+
+710
+00:34:12,520 --> 00:34:19,020
+That's the comparison
+that it seems like.
+
+711
+00:34:22,480 --> 00:34:24,799
+Yeah, I'm not sure.
+
+712
+00:34:24,799 --> 00:34:26,239
+I don't know about the results.
+
+713
+00:34:26,239 --> 00:34:27,620
+I think one thing
+people just don't
+
+714
+00:34:27,620 --> 00:34:31,099
+like having a separate model.
+
+715
+00:34:31,099 --> 00:34:33,110
+Usually deep learning people
+
+716
+00:34:33,110 --> 00:34:34,940
+like one model that
+you can do everything
+
+717
+00:34:34,940 --> 00:34:37,070
+which rather than have
+
+718
+00:34:37,070 --> 00:34:40,130
+a separate classifier,
+a separate generation.
+
+719
+00:34:40,130 --> 00:34:41,179
+And then you need to store
+
+720
+00:34:41,179 --> 00:34:43,505
+both models and you
+need to, you know,
+
+721
+00:34:43,505 --> 00:34:45,110
+you have to decide
+which model to
+
+722
+00:34:45,110 --> 00:34:46,864
+use for the other model,
+
+723
+00:34:46,864 --> 00:34:49,130
+the classifier, all
+sorts of stuff.
+
+724
+00:34:49,130 --> 00:34:51,319
+So I to be honest,
+
+725
+00:34:51,319 --> 00:34:53,524
+I don't know how well, yeah,
+
+726
+00:34:53,524 --> 00:34:55,865
+the comparison, you know,
+
+727
+00:34:55,865 --> 00:34:57,469
+most things these days tend
+
+728
+00:34:57,469 --> 00:35:00,929
+to use the classifier free one.
+
+729
+00:35:01,420 --> 00:35:04,505
+I assume that it doesn't matter
+
+730
+00:35:04,505 --> 00:35:07,829
+much or you don't lose
+that much performance.
+
+731
+00:35:08,380 --> 00:35:10,415
+One thing to note is that,
+
+732
+00:35:10,415 --> 00:35:15,034
+I mean, I don't know
+if it matters, right?
+
+733
+00:35:15,034 --> 00:35:17,629
+I mean, maybe it's
+a stronger signal,
+
+734
+00:35:17,629 --> 00:35:21,244
+but probably the capacity is
+large enough to learn this.
+
+735
+00:35:21,244 --> 00:35:23,660
+And the amount of
+data we run these on,
+
+736
+00:35:23,660 --> 00:35:26,135
+which is like hundreds
+of millions or billions,
+
+737
+00:35:26,135 --> 00:35:29,780
+is just like the
+combination of those allow
+
+738
+00:35:29,780 --> 00:35:33,649
+you to accurately enough
+estimate the gradient signal.
+
+739
+00:35:33,649 --> 00:35:35,099
+Alright?
+
+740
+00:35:35,260 --> 00:35:37,699
+The other thing is, I think
+
+741
+00:35:37,699 --> 00:35:39,319
+usually a little bit of
+
+742
+00:35:39,319 --> 00:35:42,119
+a self-supervised
+way to do it, right.
+
+743
+00:35:42,310 --> 00:35:48,214
+So like kind of an
+approximation and I don't know,
+
+744
+00:35:48,214 --> 00:35:51,679
+I think like if you
+use a classifier,
+
+745
+00:35:51,679 --> 00:35:54,559
+it's very specific to
+that classifier, right?
+
+746
+00:35:54,559 --> 00:35:56,839
+Usually again,
+that's why the log,
+
+747
+00:35:56,839 --> 00:35:58,520
+when you do the maximization of
+
+748
+00:35:58,520 --> 00:36:01,429
+that and back propagate
+to the input.
+
+749
+00:36:01,429 --> 00:36:03,350
+That's why you get
+all sorts of weird,
+
+750
+00:36:03,350 --> 00:36:05,689
+funky bias kind of things.
+
+751
+00:36:05,689 --> 00:36:08,569
+So I think maybe again,
+
+752
+00:36:08,569 --> 00:36:11,360
+because the classifier
+that we learned are
+
+753
+00:36:11,360 --> 00:36:14,359
+often trained on a
+much smaller dataset,
+
+754
+00:36:14,359 --> 00:36:16,309
+like million or, you know,
+
+755
+00:36:16,309 --> 00:36:18,109
+10 million or whatever.
+
+756
+00:36:18,109 --> 00:36:19,955
+I feel like that's my,
+
+757
+00:36:19,955 --> 00:36:21,710
+Again, this is a hypothesis.
+
+758
+00:36:21,710 --> 00:36:25,609
+You would have to actually
+try this to validate that.
+
+759
+00:36:25,609 --> 00:36:28,609
+But my hypothesis would be
+that it's just too biased of
+
+760
+00:36:28,609 --> 00:36:30,950
+a model and probably training it
+
+761
+00:36:30,950 --> 00:36:34,055
+on this gigantic paired
+data that we have.
+
+762
+00:36:34,055 --> 00:36:36,509
+Works fine enough.
+
+763
+00:36:36,790 --> 00:36:40,969
+Or you probably even works
+better than if you chose
+
+764
+00:36:40,969 --> 00:36:44,524
+some random classifier
+that was trained on that.
+
+765
+00:36:44,524 --> 00:36:46,459
+That's why I clip
+works well, right?
+
+766
+00:36:46,459 --> 00:36:50,600
+Again, clip is actually
+not like ImageNet.
+
+767
+00:36:50,600 --> 00:36:51,679
+It's not trained on 1 million,
+
+768
+00:36:51,679 --> 00:36:54,989
+that's trained on 400
+million image texts parents.
+
+769
+00:36:55,930 --> 00:37:01,729
+I think it gives you it
+gives you a better thing.
+
+770
+00:37:01,729 --> 00:37:03,410
+Yeah. Like signal.
+
+771
+00:37:03,410 --> 00:37:04,880
+I think maybe like
+you have to if you
+
+772
+00:37:04,880 --> 00:37:06,289
+train like a captioning model,
+
+773
+00:37:06,289 --> 00:37:08,345
+maybe on the 400 million,
+
+774
+00:37:08,345 --> 00:37:10,370
+maybe that would be equivalent,
+
+775
+00:37:10,370 --> 00:37:13,429
+but I don't know what that
+people really do that.
+
+776
+00:37:13,429 --> 00:37:18,770
+Yeah. It's also in some
+cases you'd think that the
+
+777
+00:37:18,770 --> 00:37:28,050
+classifier you're trying to
+classify something, right?
+
+778
+00:37:28,690 --> 00:37:30,649
+Right.
+
+779
+00:37:30,649 --> 00:37:40,549
+Right. Right. Yeah. Yeah.
+
+780
+00:37:40,549 --> 00:37:43,149
+Another way to yeah. I guess so.
+
+781
+00:37:43,149 --> 00:37:45,619
+I mean, all and all of
+that is I think again,
+
+782
+00:37:45,619 --> 00:37:47,675
+the classifier is not trained on
+
+783
+00:37:47,675 --> 00:37:49,790
+like noise robust things.
+
+784
+00:37:49,790 --> 00:37:52,130
+And so how you add
+noise robustness is
+
+785
+00:37:52,130 --> 00:37:54,799
+very specific and
+you may not know,
+
+786
+00:37:54,799 --> 00:37:56,359
+we may not know
+how to best do it.
+
+787
+00:37:56,359 --> 00:37:59,660
+So yeah, just having a
+separate thing is like, yeah,
+
+788
+00:37:59,660 --> 00:38:02,209
+I think there's a lot
+of design decisions and
+
+789
+00:38:02,209 --> 00:38:04,970
+things that will probably
+limit your performance.
+
+790
+00:38:04,970 --> 00:38:07,670
+Compare to, why not
+just use the data we're
+
+791
+00:38:07,670 --> 00:38:11,570
+already using for the learning,
+the reverse diffusion.
+
+792
+00:38:11,570 --> 00:38:21,900
+That's my sense,
+their mechanism.
+
+793
+00:38:32,110 --> 00:38:36,889
+So clip does not have
+a cross attention like
+
+794
+00:38:36,889 --> 00:38:40,019
+cross image texts potentially.
+
+795
+00:38:48,640 --> 00:38:50,104
+Yeah.
+
+796
+00:38:50,104 --> 00:38:52,894
+I mean, I think I get well
+first of all, I mean,
+
+797
+00:38:52,894 --> 00:38:54,424
+these do have transformed
+
+798
+00:38:54,424 --> 00:38:57,349
+the text embedding and I
+mean you can use resonate,
+
+799
+00:38:57,349 --> 00:39:00,705
+but division setting is
+usually the transformer.
+
+800
+00:39:00,705 --> 00:39:02,340
+So that does have
+a tension that's
+
+801
+00:39:02,340 --> 00:39:03,779
+still within the image though.
+
+802
+00:39:03,779 --> 00:39:08,790
+So I think part of that is
+maybe the bias of the dataset,
+
+803
+00:39:08,790 --> 00:39:10,470
+which is like within
+
+804
+00:39:10,470 --> 00:39:13,500
+modality attention is
+probably enough to
+
+805
+00:39:13,500 --> 00:39:15,809
+do rather than having to figure
+
+806
+00:39:15,809 --> 00:39:19,109
+out what you're referring to,
+
+807
+00:39:19,109 --> 00:39:21,570
+which is like grounding
+the association
+
+808
+00:39:21,570 --> 00:39:25,199
+between the texts pieces
+and the image pieces.
+
+809
+00:39:25,199 --> 00:39:26,609
+People do work on that.
+
+810
+00:39:26,609 --> 00:39:29,144
+But to be honest, like,
+
+811
+00:39:29,144 --> 00:39:30,569
+I'm actually surprised by this,
+
+812
+00:39:30,569 --> 00:39:32,069
+but a lot of models are very,
+
+813
+00:39:32,069 --> 00:39:34,650
+they don't explicitly
+do grounding.
+
+814
+00:39:34,650 --> 00:39:36,570
+The best. Usually that they do
+
+815
+00:39:36,570 --> 00:39:38,440
+is like some cross attention.
+
+816
+00:39:38,440 --> 00:39:40,789
+Um, but that's not
+used in clinic.
+
+817
+00:39:40,789 --> 00:39:44,580
+Yeah. Okay.
+
+818
+00:39:45,100 --> 00:39:47,179
+So again, this is like yeah,
+
+819
+00:39:47,179 --> 00:39:53,135
+as you give the user a tunable
+parameter to say how much.
+
+820
+00:39:53,135 --> 00:39:55,550
+One thing is denoted like as
+
+821
+00:39:55,550 --> 00:39:57,604
+you make it more
+and more semantic,
+
+822
+00:39:57,604 --> 00:40:02,435
+you notice that there's also
+a decrease in diversity.
+
+823
+00:40:02,435 --> 00:40:05,360
+So again, like
+generation is hard to
+
+824
+00:40:05,360 --> 00:40:09,395
+measure or evaluate because
+it's not just about,
+
+825
+00:40:09,395 --> 00:40:12,920
+am I giving you an image from
+the distribution because
+
+826
+00:40:12,920 --> 00:40:15,305
+I can just memorize
+the training data
+
+827
+00:40:15,305 --> 00:40:17,029
+with 400 million examples.
+
+828
+00:40:17,029 --> 00:40:21,480
+I can give you some random
+example and that'll do it.
+
+829
+00:40:21,480 --> 00:40:24,460
+It's really how diverse and off
+
+830
+00:40:24,460 --> 00:40:29,290
+the the training manifold
+are you generating.
+
+831
+00:40:29,290 --> 00:40:33,010
+Okay. So that's
+classified D3 guidance.
+
+832
+00:40:33,010 --> 00:40:36,685
+There's also what's called
+latent space diffusion.
+
+833
+00:40:36,685 --> 00:40:39,489
+The idea is when you
+do diffusion models,
+
+834
+00:40:39,489 --> 00:40:40,870
+you're given the image, you're
+
+835
+00:40:40,870 --> 00:40:42,924
+estimating the noise
+for the image.
+
+836
+00:40:42,924 --> 00:40:47,305
+All events is very high
+resolution flow processes.
+
+837
+00:40:47,305 --> 00:40:52,689
+And so people have done
+all sorts of ways to just
+
+838
+00:40:52,689 --> 00:40:55,495
+first learn a latent
+space or images
+
+839
+00:40:55,495 --> 00:40:56,995
+and then do diffusion process
+
+840
+00:40:56,995 --> 00:40:59,455
+on that latent space itself.
+
+841
+00:40:59,455 --> 00:41:05,314
+Like stable diffusion stuff
+does, uses like this.
+
+842
+00:41:05,314 --> 00:41:11,270
+This V-Q kinda VQ GAN,
+
+843
+00:41:11,270 --> 00:41:17,675
+kind of vector quantized
+generative model to,
+
+844
+00:41:17,675 --> 00:41:21,544
+again through a
+reconstruction loss,
+
+845
+00:41:21,544 --> 00:41:29,640
+learn like latent space and
+usually it's a sorry, 1 s.
+
+846
+00:41:30,130 --> 00:41:39,209
+I lost my internet. Okay.
+
+847
+00:41:39,760 --> 00:41:43,250
+So it learns first learns
+that latent space.
+
+848
+00:41:43,250 --> 00:41:45,870
+I'm not gonna go into how I
+learned the latent space.
+
+849
+00:41:45,870 --> 00:41:49,404
+It's again like an
+auto-encoder kinda process
+
+850
+00:41:49,404 --> 00:41:51,639
+where it learns these
+like this codebook
+
+851
+00:41:51,639 --> 00:41:53,920
+which is like a basically
+
+852
+00:41:53,920 --> 00:41:57,535
+quantized or like a
+fixed number of vectors,
+
+853
+00:41:57,535 --> 00:41:58,930
+kind of like prototypes.
+
+854
+00:41:58,930 --> 00:42:02,559
+And then you can kind
+of given a new image,
+
+855
+00:42:02,559 --> 00:42:04,810
+you can extract like
+
+856
+00:42:04,810 --> 00:42:07,720
+the composition of
+those prototypes
+
+857
+00:42:07,720 --> 00:42:10,225
+or pick the best closest one.
+
+858
+00:42:10,225 --> 00:42:13,300
+Basically learning some
+kind of latent embedding.
+
+859
+00:42:13,300 --> 00:42:14,710
+This uses a transformer.
+
+860
+00:42:14,710 --> 00:42:16,495
+So like all of this is like
+
+861
+00:42:16,495 --> 00:42:19,090
+separate field that was
+
+862
+00:42:19,090 --> 00:42:22,644
+developed just to learn good
+latent representations.
+
+863
+00:42:22,644 --> 00:42:27,054
+Then once you have the
+latent representations,
+
+864
+00:42:27,054 --> 00:42:29,929
+now you're doing,
+Given an image,
+
+865
+00:42:29,929 --> 00:42:31,820
+you're encoding the image
+
+866
+00:42:31,820 --> 00:42:33,619
+using those latent
+representations
+
+867
+00:42:33,619 --> 00:42:35,330
+and then you're doing
+a diffusion process
+
+868
+00:42:35,330 --> 00:42:38,179
+on the latent
+representations themselves.
+
+869
+00:42:38,179 --> 00:42:42,304
+This is kinda cool that
+you can even do this.
+
+870
+00:42:42,304 --> 00:42:44,359
+One thing to note is it's
+
+871
+00:42:44,359 --> 00:42:46,640
+maybe a little bit weird
+because you're adding
+
+872
+00:42:46,640 --> 00:42:51,229
+like Gaussian stuff
+to latent features,
+
+873
+00:42:51,229 --> 00:42:52,640
+which may, may make sense,
+
+874
+00:42:52,640 --> 00:42:54,290
+I guess we assume
+Garcia and stuff for
+
+875
+00:42:54,290 --> 00:42:57,320
+latent features and
+variational autoencoders.
+
+876
+00:42:57,320 --> 00:43:00,019
+So it's fine. But yeah,
+
+877
+00:43:00,019 --> 00:43:03,059
+kind of interesting
+that you can do this.
+
+878
+00:43:04,690 --> 00:43:06,935
+And so what's nice
+is that again,
+
+879
+00:43:06,935 --> 00:43:08,720
+you can condition it on
+pretty much anything.
+
+880
+00:43:08,720 --> 00:43:11,794
+So people are doing
+conditioning on layout.
+
+881
+00:43:11,794 --> 00:43:15,229
+You can put different boxes
+of different categories
+
+882
+00:43:15,229 --> 00:43:19,280
+and you can condition on
+the segmentation mask.
+
+883
+00:43:19,280 --> 00:43:23,900
+So conditioning does
+not have to be a tax.
+
+884
+00:43:23,900 --> 00:43:27,724
+They can also be some
+other image input
+
+885
+00:43:27,724 --> 00:43:29,824
+that you can control.
+
+886
+00:43:29,824 --> 00:43:33,440
+What it generates. You
+can do in painting,
+
+887
+00:43:33,440 --> 00:43:35,374
+which means you can remove
+
+888
+00:43:35,374 --> 00:43:39,215
+particular objects and
+fill in what's there.
+
+889
+00:43:39,215 --> 00:43:41,630
+Of course, just the
+generative model.
+
+890
+00:43:41,630 --> 00:43:43,130
+It doesn't know what back there.
+
+891
+00:43:43,130 --> 00:43:44,524
+So all it's doing is
+
+892
+00:43:44,524 --> 00:43:48,904
+recreating a joint distribution
+over the missing pixels.
+
+893
+00:43:48,904 --> 00:43:51,359
+That makes sense, right?
+
+894
+00:43:51,930 --> 00:43:54,970
+You can do generation
+of 3D objects.
+
+895
+00:43:54,970 --> 00:43:58,210
+So people have really
+move forward with that.
+
+896
+00:43:58,210 --> 00:44:02,230
+Like kind of even
+sometimes given labeled or
+
+897
+00:44:02,230 --> 00:44:07,280
+given text that
+describes the 3D shape.
+
+898
+00:44:07,500 --> 00:44:09,849
+And people have done videos.
+
+899
+00:44:09,849 --> 00:44:11,589
+So this is an older
+one and this one
+
+900
+00:44:11,589 --> 00:44:13,840
+came out actually not yesterday,
+
+901
+00:44:13,840 --> 00:44:15,880
+but I think on Tuesday.
+
+902
+00:44:15,880 --> 00:44:20,515
+So people are starting to
+do like video generation,
+
+903
+00:44:20,515 --> 00:44:22,419
+which is really cool,
+
+904
+00:44:22,419 --> 00:44:27,204
+much harder problem and
+I think still not like,
+
+905
+00:44:27,204 --> 00:44:28,900
+I think even with
+respect to Ganz,
+
+906
+00:44:28,900 --> 00:44:30,460
+that was always difficult.
+
+907
+00:44:30,460 --> 00:44:32,289
+I don't know how
+far they'll get,
+
+908
+00:44:32,289 --> 00:44:34,950
+but people are definitely
+working on it.
+
+909
+00:44:34,950 --> 00:44:37,325
+There's a lot of issues, right?
+
+910
+00:44:37,325 --> 00:44:40,550
+These are much more
+complex distributions
+
+911
+00:44:40,550 --> 00:44:43,339
+that have space and time.
+
+912
+00:44:43,339 --> 00:44:46,130
+And even though it's
+just another dimension,
+
+913
+00:44:46,130 --> 00:44:48,649
+actually pretty complicated.
+
+914
+00:44:48,649 --> 00:44:51,350
+You can generate like gates,
+
+915
+00:44:51,350 --> 00:44:56,119
+the different movements through
+
+916
+00:44:56,119 --> 00:44:58,339
+diffusion models and so on.
+
+917
+00:44:58,339 --> 00:45:00,649
+That's all I have
+on diffusion model.
+
+918
+00:45:00,649 --> 00:45:03,379
+And again, I think one thing is
+
+919
+00:45:03,379 --> 00:45:04,879
+like one of the few things
+
+920
+00:45:04,879 --> 00:45:06,889
+that are intensely mathematical.
+
+921
+00:45:06,889 --> 00:45:08,900
+So I added e.g.
+
+922
+00:45:08,900 --> 00:45:10,100
+if you want to understand where
+
+923
+00:45:10,100 --> 00:45:12,199
+the conditioning
+stuff came from,
+
+924
+00:45:12,199 --> 00:45:14,390
+in terms of adding
+
+925
+00:45:14,390 --> 00:45:17,555
+the gradient of the
+log of the classifier.
+
+926
+00:45:17,555 --> 00:45:19,895
+You can look at these like
+
+927
+00:45:19,895 --> 00:45:22,609
+the mapping or combination
+
+928
+00:45:22,609 --> 00:45:25,175
+of diffusion models
+and dislike score,
+
+929
+00:45:25,175 --> 00:45:29,160
+score based generative models.
+
+930
+00:45:31,570 --> 00:45:36,619
+To understand what do
+you, what does it,
+
+931
+00:45:36,619 --> 00:45:40,909
+what a score based models
+are basically, again,
+
+932
+00:45:40,909 --> 00:45:43,415
+like, these are like
+
+933
+00:45:43,415 --> 00:45:44,539
+a way to think about
+
+934
+00:45:44,539 --> 00:45:46,879
+generative processes,
+are generative models.
+
+935
+00:45:46,879 --> 00:45:50,299
+Again, everything is
+usually about, you know,
+
+936
+00:45:50,299 --> 00:45:52,670
+there's always like the
+normal Bayes rule and
+
+937
+00:45:52,670 --> 00:45:55,640
+there's the bottom which
+has the, you know,
+
+938
+00:45:55,640 --> 00:45:57,965
+like you need to estimate that,
+
+939
+00:45:57,965 --> 00:46:00,409
+which like the full support
+of the distribution,
+
+940
+00:46:00,409 --> 00:46:02,720
+right? It has an integral.
+
+941
+00:46:02,720 --> 00:46:04,669
+And so, I mean,
+
+942
+00:46:04,669 --> 00:46:06,110
+that's why we
+showed in the past.
+
+943
+00:46:06,110 --> 00:46:10,025
+And what score based model
+do basically is remove.
+
+944
+00:46:10,025 --> 00:46:13,520
+All they do is through
+basically matching of
+
+945
+00:46:13,520 --> 00:46:16,880
+these gradient of the
+log of the probability.
+
+946
+00:46:16,880 --> 00:46:20,270
+So rather than optimizing
+the log probability,
+
+947
+00:46:20,270 --> 00:46:21,919
+you're optimizing the gradient
+
+948
+00:46:21,919 --> 00:46:23,389
+or matching the gradient of
+
+949
+00:46:23,389 --> 00:46:27,690
+the log probabilities
+of the distribution.
+
+950
+00:46:28,360 --> 00:46:31,459
+Well, then having a model like
+
+951
+00:46:31,459 --> 00:46:34,800
+a neural network to match that.
+
+952
+00:46:34,900 --> 00:46:38,555
+So rather than the
+distribution itself,
+
+953
+00:46:38,555 --> 00:46:42,350
+you're taking the gradient of
+the PDF of the distribution
+
+954
+00:46:42,350 --> 00:46:44,345
+or log of the distribution
+
+955
+00:46:44,345 --> 00:46:47,164
+and estimate approximating desk.
+
+956
+00:46:47,164 --> 00:46:49,549
+There's like a yeah,
+
+957
+00:46:49,549 --> 00:46:51,455
+I think this was
+actually pretty recent,
+
+958
+00:46:51,455 --> 00:46:53,629
+maybe 2010 or
+something like that.
+
+959
+00:46:53,629 --> 00:46:56,330
+It's like super, just
+pure machine learning
+
+960
+00:46:56,330 --> 00:46:57,800
+and generative models like
+
+961
+00:46:57,800 --> 00:46:59,914
+independent of what data it is.
+
+962
+00:46:59,914 --> 00:47:02,119
+That shows that,
+like surprisingly,
+
+963
+00:47:02,119 --> 00:47:05,705
+you can learn generative
+model that do that.
+
+964
+00:47:05,705 --> 00:47:08,570
+And it gets over the
+intractability problem
+
+965
+00:47:08,570 --> 00:47:12,119
+of having requiring
+that those integrals.
+
+966
+00:47:14,410 --> 00:47:17,015
+To be honest, like, you know,
+
+967
+00:47:17,015 --> 00:47:18,425
+a lot of this is new to me too.
+
+968
+00:47:18,425 --> 00:47:19,700
+I haven't.
+
+969
+00:47:19,700 --> 00:47:21,950
+Like these were not on my radar
+
+970
+00:47:21,950 --> 00:47:24,420
+until diffusion models basic.
+
+971
+00:47:28,510 --> 00:47:30,034
+Okay.
+
+972
+00:47:30,034 --> 00:47:33,860
+So in summary, there is like,
+
+973
+00:47:33,860 --> 00:47:35,179
+there's a really nice blog
+
+974
+00:47:35,179 --> 00:47:39,574
+here which talks about like
+the score based thing,
+
+975
+00:47:39,574 --> 00:47:41,059
+like with like Gaussians,
+
+976
+00:47:41,059 --> 00:47:42,710
+like something very
+simple and goes
+
+977
+00:47:42,710 --> 00:47:44,990
+through like what
+does this even mean?
+
+978
+00:47:44,990 --> 00:47:47,539
+How do you? Again, like
+
+979
+00:47:47,539 --> 00:47:49,985
+the ultimate thing you
+always want to do is
+
+980
+00:47:49,985 --> 00:47:51,290
+learn a model for
+
+981
+00:47:51,290 --> 00:47:55,550
+the distribution, the
+joint distribution.
+
+982
+00:47:55,550 --> 00:47:58,039
+And it shows you how
+the scoring function
+
+983
+00:47:58,039 --> 00:48:00,454
+is and how you can
+estimate these,
+
+984
+00:48:00,454 --> 00:48:02,615
+approximate them using
+neural networks.
+
+985
+00:48:02,615 --> 00:48:05,165
+And it uses very simple
+like Gaussian example.
+
+986
+00:48:05,165 --> 00:48:08,179
+So it's more understandable.
+
+987
+00:48:08,179 --> 00:48:10,259
+Okay?
+
+988
+00:48:11,860 --> 00:48:14,524
+Okay, so yeah, this is,
+
+989
+00:48:14,524 --> 00:48:16,610
+the last thing I wanted
+to talk about is
+
+990
+00:48:16,610 --> 00:48:18,679
+bias and fairness though.
+
+991
+00:48:18,679 --> 00:48:21,049
+I think suffice it to say,
+
+992
+00:48:21,049 --> 00:48:23,510
+and by the way, these slides
+are not from this semester.
+
+993
+00:48:23,510 --> 00:48:25,249
+I did not create them again.
+
+994
+00:48:25,249 --> 00:48:28,789
+But actually, all of
+these are even more true.
+
+995
+00:48:28,789 --> 00:48:31,324
+Now, I guess this semester
+has been admittedly like
+
+996
+00:48:31,324 --> 00:48:32,810
+a weird semester
+because things have
+
+997
+00:48:32,810 --> 00:48:35,404
+just blown up after IGBT.
+
+998
+00:48:35,404 --> 00:48:38,930
+Ai is becoming widespread.
+
+999
+00:48:38,930 --> 00:48:42,155
+If you're on Twitter, you know
+that everybody, you know,
+
+1000
+00:48:42,155 --> 00:48:44,690
+discussing and
+societal implications,
+
+1001
+00:48:44,690 --> 00:48:48,260
+safety implications, bias,
+fairness implications,
+
+1002
+00:48:48,260 --> 00:48:50,419
+all sorts of different
+things, right?
+
+1003
+00:48:50,419 --> 00:48:53,434
+And so there's not really
+answers for any other stuff,
+
+1004
+00:48:53,434 --> 00:48:56,930
+but I think one thing is just
+you should think about it.
+
+1005
+00:48:56,930 --> 00:48:59,570
+So when you're deploying models,
+
+1006
+00:48:59,570 --> 00:49:01,610
+there's always kinda the notion
+
+1007
+00:49:01,610 --> 00:49:04,760
+of thinking about
+what are the impacts,
+
+1008
+00:49:04,760 --> 00:49:07,820
+how will it impact
+not just everyone,
+
+1009
+00:49:07,820 --> 00:49:09,500
+but like disadvantaged groups,
+
+1010
+00:49:09,500 --> 00:49:11,029
+all sorts of different things.
+
+1011
+00:49:11,029 --> 00:49:13,580
+There's already even
+before Chad GPT,
+
+1012
+00:49:13,580 --> 00:49:15,140
+there were examples
+where people use
+
+1013
+00:49:15,140 --> 00:49:17,254
+things like, you know.
+
+1014
+00:49:17,254 --> 00:49:24,514
+Using deep neural networks
+to predict who will,
+
+1015
+00:49:24,514 --> 00:49:26,450
+who will be a good employee,
+
+1016
+00:49:26,450 --> 00:49:28,530
+so who we should hire?
+
+1017
+00:49:29,080 --> 00:49:33,664
+Because the training set is
+biased and has lots of man.
+
+1018
+00:49:33,664 --> 00:49:35,765
+It will be, again,
+
+1019
+00:49:35,765 --> 00:49:38,645
+it will have favoritism
+
+1020
+00:49:38,645 --> 00:49:40,339
+towards the data distribution
+
+1021
+00:49:40,339 --> 00:49:42,034
+that it sees during training.
+
+1022
+00:49:42,034 --> 00:49:45,349
+Similarly for gender
+or race and so on.
+
+1023
+00:49:45,349 --> 00:49:49,055
+There's lots of examples
+where people have used e.g.
+
+1024
+00:49:49,055 --> 00:49:50,749
+and people are
+actually doing this or
+
+1025
+00:49:50,749 --> 00:49:52,429
+governments are thinking
+about doing this,
+
+1026
+00:49:52,429 --> 00:49:54,109
+sometimes actually doing it,
+
+1027
+00:49:54,109 --> 00:49:58,070
+deciding or
+predicting recidivism
+
+1028
+00:49:58,070 --> 00:50:01,655
+and using that to determine
+whether 23 people or not.
+
+1029
+00:50:01,655 --> 00:50:05,059
+Again, the key problem
+is that all of
+
+1030
+00:50:05,059 --> 00:50:09,260
+this subject to
+distribution shifts,
+
+1031
+00:50:09,260 --> 00:50:12,380
+subject to imbalance
+where you have
+
+1032
+00:50:12,380 --> 00:50:16,250
+a small amount of data for
+a particular subpopulation.
+
+1033
+00:50:16,250 --> 00:50:19,039
+And so the bottles will
+
+1034
+00:50:19,039 --> 00:50:24,989
+have much worse
+incorrect labels, right?
+
+1035
+00:50:25,600 --> 00:50:28,069
+So there's lots
+of ways to define
+
+1036
+00:50:28,069 --> 00:50:30,779
+this, like defining fairness.
+
+1037
+00:50:30,940 --> 00:50:33,950
+You can do like
+demographic parody,
+
+1038
+00:50:33,950 --> 00:50:36,440
+like given all of
+this depends on
+
+1039
+00:50:36,440 --> 00:50:40,340
+splintering your data into
+sub distributions, e.g.
+
+1040
+00:50:40,340 --> 00:50:42,935
+under-represented
+minorities and,
+
+1041
+00:50:42,935 --> 00:50:45,500
+or demographic based
+on demographics.
+
+1042
+00:50:45,500 --> 00:50:47,765
+And then you want
+to match stuff.
+
+1043
+00:50:47,765 --> 00:50:49,879
+So either if you want to match
+
+1044
+00:50:49,879 --> 00:50:53,104
+the actual default
+distribution, e.g.
+
+1045
+00:50:53,104 --> 00:50:55,115
+Y, given X, which is
+
+1046
+00:50:55,115 --> 00:50:57,334
+the probability of
+giving someone a loan,
+
+1047
+00:50:57,334 --> 00:50:59,345
+given the input data.
+
+1048
+00:50:59,345 --> 00:51:01,834
+If you just want to
+match that probability
+
+1049
+00:51:01,834 --> 00:51:03,605
+across the different groups.
+
+1050
+00:51:03,605 --> 00:51:06,124
+Or better yet, if you
+
+1051
+00:51:06,124 --> 00:51:08,629
+actually take into account
+the errors through
+
+1052
+00:51:08,629 --> 00:51:11,240
+your conditioning and on
+this where you want to do
+
+1053
+00:51:11,240 --> 00:51:15,694
+the probability of
+loan given no repay.
+
+1054
+00:51:15,694 --> 00:51:19,459
+A particular demographic
+is equal to the phi alone
+
+1055
+00:51:19,459 --> 00:51:23,165
+given no repay a
+different demographic.
+
+1056
+00:51:23,165 --> 00:51:25,939
+One thing is you can't
+just take away like
+
+1057
+00:51:25,939 --> 00:51:28,550
+demographic data or metadata
+
+1058
+00:51:28,550 --> 00:51:30,919
+because the neural network
+will automatically
+
+1059
+00:51:30,919 --> 00:51:34,220
+learn correlated features
+to that demographic data.
+
+1060
+00:51:34,220 --> 00:51:36,694
+So there's a lot of
+different issues
+
+1061
+00:51:36,694 --> 00:51:41,540
+are definitions of what
+it means to be fair.
+
+1062
+00:51:41,540 --> 00:51:42,890
+Again, there's no answers.
+
+1063
+00:51:42,890 --> 00:51:46,010
+I think like literally if
+you look at this literature,
+
+1064
+00:51:46,010 --> 00:51:47,029
+I think there's literally like
+
+1065
+00:51:47,029 --> 00:51:50,300
+30 definitions of what
+fairness and bias means.
+
+1066
+00:51:50,300 --> 00:51:51,710
+There is no real answer,
+
+1067
+00:51:51,710 --> 00:51:54,890
+but you should at least
+be aware of These.
+
+1068
+00:51:54,890 --> 00:51:57,664
+Are all the big companies
+like Meta and so on,
+
+1069
+00:51:57,664 --> 00:51:58,760
+actually do, do this.
+
+1070
+00:51:58,760 --> 00:52:03,440
+They take the models and make
+sure that the predictions
+
+1071
+00:52:03,440 --> 00:52:05,810
+across the different
+demographics
+
+1072
+00:52:05,810 --> 00:52:08,569
+actually are more similar.
+
+1073
+00:52:08,569 --> 00:52:10,579
+If not, then they gather
+
+1074
+00:52:10,579 --> 00:52:13,370
+more data for those
+demographics,
+
+1075
+00:52:13,370 --> 00:52:15,664
+put it in things like that.
+
+1076
+00:52:15,664 --> 00:52:18,800
+There's also recently
+the notion of alignment,
+
+1077
+00:52:18,800 --> 00:52:24,169
+which we saw already
+for language models.
+
+1078
+00:52:24,169 --> 00:52:29,090
+So we mentioned how we're using
+reinforcement learning to
+
+1079
+00:52:29,090 --> 00:52:34,444
+basically have the human
+rank, different outputs.
+
+1080
+00:52:34,444 --> 00:52:36,439
+And if you think about it,
+
+1081
+00:52:36,439 --> 00:52:38,689
+the things we use
+in our heads of
+
+1082
+00:52:38,689 --> 00:52:41,959
+ranking will be not just
+how good the answer is,
+
+1083
+00:52:41,959 --> 00:52:43,399
+but is it appropriate?
+
+1084
+00:52:43,399 --> 00:52:45,050
+All sorts of different
+things, right?
+
+1085
+00:52:45,050 --> 00:52:48,499
+So that is one way to get
+
+1086
+00:52:48,499 --> 00:52:52,369
+these language models to
+give you outputs that are in
+
+1087
+00:52:52,369 --> 00:52:54,380
+some sense conforming to
+
+1088
+00:52:54,380 --> 00:52:56,120
+the social norms
+because humans are
+
+1089
+00:52:56,120 --> 00:53:00,739
+ranking them and presumably
+using these kinds of things.
+
+1090
+00:53:00,739 --> 00:53:02,210
+But the overall
+problem is how to
+
+1091
+00:53:02,210 --> 00:53:04,910
+create agents are models
+
+1092
+00:53:04,910 --> 00:53:07,174
+that behave according
+to what we want.
+
+1093
+00:53:07,174 --> 00:53:09,710
+I guess, what are, what
+are some complexities?
+
+1094
+00:53:09,710 --> 00:53:11,120
+I think I wrote
+some on the bottom,
+
+1095
+00:53:11,120 --> 00:53:12,710
+but what are some complexities
+
+1096
+00:53:12,710 --> 00:53:14,600
+with getting models to behave?
+
+1097
+00:53:14,600 --> 00:53:17,069
+How we want them to behave.
+
+1098
+00:53:20,670 --> 00:53:23,089
+Good job.
+
+1099
+00:53:23,700 --> 00:53:27,549
+Okay? Can we define it,
+
+1100
+00:53:27,549 --> 00:53:30,409
+what we want them to do?
+
+1101
+00:53:34,440 --> 00:53:36,799
+I don't know
+
+1102
+00:53:46,080 --> 00:53:53,755
+what you mean.
+
+1103
+00:53:53,755 --> 00:53:57,399
+Given that objective, it
+can game that objective.
+
+1104
+00:53:57,399 --> 00:54:00,979
+Data that I didn't
+like video game.
+
+1105
+00:54:04,710 --> 00:54:06,920
+Alright.
+
+1106
+00:54:11,520 --> 00:54:13,789
+That
+
+1107
+00:54:22,170 --> 00:54:23,380
+looks
+
+1108
+00:54:23,380 --> 00:54:27,950
+like yeah.
+
+1109
+00:54:27,950 --> 00:54:28,255
+Okay.
+
+1110
+00:54:28,255 --> 00:54:29,830
+Yeah, I think obviously,
+
+1111
+00:54:29,830 --> 00:54:31,944
+you know, there's a
+lot of your examples.
+
+1112
+00:54:31,944 --> 00:54:34,329
+You can achieve objectives
+and all sorts of ways,
+
+1113
+00:54:34,329 --> 00:54:36,835
+including random
+ways that we don't
+
+1114
+00:54:36,835 --> 00:54:39,624
+actually want those
+objectives achieved, right?
+
+1115
+00:54:39,624 --> 00:54:41,689
+Yeah, You had a question.
+
+1116
+00:54:56,440 --> 00:54:58,459
+Alright.
+
+1117
+00:54:58,459 --> 00:55:01,609
+So yeah, the reward objective
+functions don't really
+
+1118
+00:55:01,609 --> 00:55:04,010
+specify how you want
+them to achieve it.
+
+1119
+00:55:04,010 --> 00:55:06,410
+And if you're not like
+
+1120
+00:55:06,410 --> 00:55:08,360
+constraining it in some way to
+
+1121
+00:55:08,360 --> 00:55:10,309
+achieve it in ways that
+you want it to them.
+
+1122
+00:55:10,309 --> 00:55:11,104
+It's not going to.
+
+1123
+00:55:11,104 --> 00:55:12,590
+But there's also yeah.
+There's a question
+
+1124
+00:55:12,590 --> 00:55:13,880
+of who the targeted.
+
+1125
+00:55:13,880 --> 00:55:15,440
+I don't like you mentioned,
+
+1126
+00:55:15,440 --> 00:55:20,089
+I don't know that we can all
+agree on anything really,
+
+1127
+00:55:20,089 --> 00:55:24,980
+but especially these kinds
+of very large questions.
+
+1128
+00:55:24,980 --> 00:55:26,690
+You know, when you have
+a model that's gonna
+
+1129
+00:55:26,690 --> 00:55:28,040
+be used by millions of people,
+
+1130
+00:55:28,040 --> 00:55:31,174
+That's actually really
+problematic, right?
+
+1131
+00:55:31,174 --> 00:55:33,049
+So here's an example.
+
+1132
+00:55:33,049 --> 00:55:38,270
+There are now datasets that
+are trying to target this.
+
+1133
+00:55:38,270 --> 00:55:40,100
+So one example is truthful qa,
+
+1134
+00:55:40,100 --> 00:55:45,649
+which tries to actually
+have different, I guess,
+
+1135
+00:55:45,649 --> 00:55:50,270
+somehow evaluate how good
+is this model with respect
+
+1136
+00:55:50,270 --> 00:55:53,074
+to not giving
+conspiracy theories
+
+1137
+00:55:53,074 --> 00:55:56,399
+or other types of
+different things.
+
+1138
+00:55:56,470 --> 00:55:59,149
+Of course, this is all limited
+
+1139
+00:55:59,149 --> 00:56:01,670
+because somebody defined
+a lot of these things.
+
+1140
+00:56:01,670 --> 00:56:03,200
+What might be conspiracy to
+
+1141
+00:56:03,200 --> 00:56:05,704
+one person might be
+truth to another.
+
+1142
+00:56:05,704 --> 00:56:08,644
+These are all, I think,
+really hard questions.
+
+1143
+00:56:08,644 --> 00:56:10,729
+This is something we
+talked about already.
+
+1144
+00:56:10,729 --> 00:56:13,114
+And by the way, these are
+all slides by other people.
+
+1145
+00:56:13,114 --> 00:56:15,809
+This is someone at Princeton
+
+1146
+00:56:16,030 --> 00:56:19,864
+defining what the humans
+want in terms of like,
+
+1147
+00:56:19,864 --> 00:56:22,039
+what are the
+explicit objectives?
+
+1148
+00:56:22,039 --> 00:56:25,684
+Often we, again, have
+very implicit objective
+
+1149
+00:56:25,684 --> 00:56:30,274
+that we don't really remember
+or know how to encode.
+
+1150
+00:56:30,274 --> 00:56:32,540
+So you want to both optimize
+further right thing and,
+
+1151
+00:56:32,540 --> 00:56:34,550
+but also figure out how to
+
+1152
+00:56:34,550 --> 00:56:38,600
+actually generalize that
+across all of the conditions.
+
+1153
+00:56:38,600 --> 00:56:41,480
+And these are like
+super hard problems.
+
+1154
+00:56:41,480 --> 00:56:43,099
+Again, this is like very
+
+1155
+00:56:43,099 --> 00:56:44,839
+early language model
+that just blew
+
+1156
+00:56:44,839 --> 00:56:49,775
+up in terms of being
+used in society.
+
+1157
+00:56:49,775 --> 00:56:51,919
+There's a lot of
+things that we have
+
+1158
+00:56:51,919 --> 00:56:54,230
+talked about that
+can help with this.
+
+1159
+00:56:54,230 --> 00:56:55,339
+So we talked a little bit about
+
+1160
+00:56:55,339 --> 00:56:59,300
+interpretability or
+visualization early on.
+
+1161
+00:56:59,300 --> 00:57:02,059
+There's obviously
+just using more data.
+
+1162
+00:57:02,059 --> 00:57:03,740
+Maybe it'll become more aligned.
+
+1163
+00:57:03,740 --> 00:57:05,179
+And that's some people that are
+
+1164
+00:57:05,179 --> 00:57:06,514
+something that people argue.
+
+1165
+00:57:06,514 --> 00:57:09,559
+Sometimes you can try
+to de-bias the data.
+
+1166
+00:57:09,559 --> 00:57:11,930
+You can again get
+human feedback.
+
+1167
+00:57:11,930 --> 00:57:15,665
+And again, at least open
+AI claims that as we get
+
+1168
+00:57:15,665 --> 00:57:18,499
+more reinforcement learning
+feedback according to
+
+1169
+00:57:18,499 --> 00:57:21,815
+their measures of alignments,
+wherever they are.
+
+1170
+00:57:21,815 --> 00:57:26,239
+It's actually improving
+how to prompt.
+
+1171
+00:57:26,239 --> 00:57:28,189
+It's like sometimes you
+can actually modify
+
+1172
+00:57:28,189 --> 00:57:30,605
+the behavior based on the input.
+
+1173
+00:57:30,605 --> 00:57:33,739
+As we mentioned, these
+things are pretty sensitive.
+
+1174
+00:57:33,739 --> 00:57:35,599
+Thought I know so yeah, there's
+
+1175
+00:57:35,599 --> 00:57:37,010
+not really a lot of answers,
+
+1176
+00:57:37,010 --> 00:57:39,559
+but I think again,
+the only thing I want
+
+1177
+00:57:39,559 --> 00:57:42,380
+to say is definitely,
+
+1178
+00:57:42,380 --> 00:57:45,154
+I think it's important to
+follow this literature and
+
+1179
+00:57:45,154 --> 00:57:48,770
+understand that when you
+are deploying things,
+
+1180
+00:57:48,770 --> 00:57:50,300
+especially in the
+real-world too,
+
+1181
+00:57:50,300 --> 00:57:51,604
+like millions of people.
+
+1182
+00:57:51,604 --> 00:57:54,124
+He should consider
+all of these things.
+
+1183
+00:57:54,124 --> 00:57:58,980
+Because we want to deploy
+these things responsibly.
+
+1184
+00:57:59,200 --> 00:58:01,025
+Just not.
+
+1185
+00:58:01,025 --> 00:58:04,490
+I think there's a lot of
+scientists or engineers who
+
+1186
+00:58:04,490 --> 00:58:08,690
+have the attitude of I'm just
+doing the technical stuff.
+
+1187
+00:58:08,690 --> 00:58:10,339
+It's not my job, but I think
+
+1188
+00:58:10,339 --> 00:58:14,870
+ultimately we should think
+about this even as the,
+
+1189
+00:58:14,870 --> 00:58:16,939
+as the technical people
+that are developing
+
+1190
+00:58:16,939 --> 00:58:19,024
+it because the way we
+might have solutions.
+
+1191
+00:58:19,024 --> 00:58:22,760
+But B, we understand
+these systems the most,
+
+1192
+00:58:22,760 --> 00:58:25,189
+even though our understanding
+is still limited in
+
+1193
+00:58:25,189 --> 00:58:27,395
+terms of language models anyway.
+
+1194
+00:58:27,395 --> 00:58:34,430
+So any questions or
+discussion you want to yeah,
+
+1195
+00:58:34,430 --> 00:58:36,545
+I, I don't know. Let's see.
+
+1196
+00:58:36,545 --> 00:58:38,630
+I mean, to be honest, again, I
+
+1197
+00:58:38,630 --> 00:58:41,219
+pulled these slides
+so I don't know.
+
+1198
+00:58:43,000 --> 00:58:45,485
+Let's see.
+
+1199
+00:58:45,485 --> 00:58:46,909
+Actually don't know.
+
+1200
+00:58:46,909 --> 00:58:51,170
+But this one I mean, but again,
+
+1201
+00:58:51,170 --> 00:58:55,159
+I think there are some
+like each company
+
+1202
+00:58:55,159 --> 00:59:00,154
+has their own like benchmarks
+for what alignment means?
+
+1203
+00:59:00,154 --> 00:59:03,599
+Yeah, I think
+usually lower, Yeah.
+
+1204
+00:59:05,140 --> 00:59:09,150
+Well, I don't know.
+
+1205
+00:59:10,690 --> 00:59:14,254
+Well, no, actually the opposite.
+
+1206
+00:59:14,254 --> 00:59:16,429
+Because these are
+these are repeated
+
+1207
+00:59:16,429 --> 00:59:19,219
+without instruction
+tuning. Yeah.
+
+1208
+00:59:19,219 --> 00:59:21,679
+So usually, I think I mean,
+
+1209
+00:59:21,679 --> 00:59:22,999
+does this drawing again, sorry,
+
+1210
+00:59:22,999 --> 00:59:25,230
+I mean, I pulled the slides.
+
+1211
+00:59:25,540 --> 00:59:26,929
+Yeah.
+
+1212
+00:59:26,929 --> 00:59:29,689
+Usually like as you add
+reinforcement learning,
+
+1213
+00:59:29,689 --> 00:59:31,850
+which is PPO, You
+
+1214
+00:59:31,850 --> 00:59:34,610
+kinda get more and more or
+less, which makes sense.
+
+1215
+00:59:34,610 --> 00:59:36,860
+I think one thing
+again that you find is
+
+1216
+00:59:36,860 --> 00:59:39,740
+that alignment to whom I think,
+
+1217
+00:59:39,740 --> 00:59:42,109
+like OpenAI, I think initially
+
+1218
+00:59:42,109 --> 00:59:45,365
+the initial model they released
+were more liberal bias.
+
+1219
+00:59:45,365 --> 00:59:47,720
+Probably because
+they were tuning it
+
+1220
+00:59:47,720 --> 00:59:52,459
+to people on the
+West India Company,
+
+1221
+00:59:52,459 --> 00:59:55,019
+which is gonna be
+a biased sample.
+
+1222
+01:00:10,410 --> 01:00:14,080
+Yeah. I mean, it's
+a good question.
+
+1223
+01:00:14,080 --> 01:00:16,810
+I think there's two sides to
+
+1224
+01:00:16,810 --> 01:00:19,029
+anything and I'm
+not a policymaker.
+
+1225
+01:00:19,029 --> 01:00:20,665
+I think there's two sides
+to any policy rate.
+
+1226
+01:00:20,665 --> 01:00:24,129
+Like will it be effective?
+
+1227
+01:00:24,129 --> 01:00:26,679
+It actually doable, right?
+
+1228
+01:00:26,679 --> 01:00:28,150
+Even if it's a good idea,
+
+1229
+01:00:28,150 --> 01:00:30,639
+it may not be
+feasible with respect
+
+1230
+01:00:30,639 --> 01:00:34,105
+to actually achieving and
+society and humans, right?
+
+1231
+01:00:34,105 --> 01:00:37,555
+So the example of a pause,
+
+1232
+01:00:37,555 --> 01:00:39,714
+I think it's unlikely everybody,
+
+1233
+01:00:39,714 --> 01:00:41,649
+you can get everybody to pass.
+
+1234
+01:00:41,649 --> 01:00:43,855
+Maybe it's hard to say because
+
+1235
+01:00:43,855 --> 01:00:45,685
+right now, maybe there's only,
+
+1236
+01:00:45,685 --> 01:00:46,809
+you can argue, there's
+
+1237
+01:00:46,809 --> 01:00:50,630
+only a few companies that
+have this capabilities.
+
+1238
+01:00:50,630 --> 01:00:53,179
+So maybe they can
+decide to pause.
+
+1239
+01:00:53,179 --> 01:00:54,829
+I think in reality though you
+
+1240
+01:00:54,829 --> 01:00:58,309
+see dozens and dozens of
+language model is coming out.
+
+1241
+01:00:58,309 --> 01:01:02,089
+So I don't think it's
+even if it is true now,
+
+1242
+01:01:02,089 --> 01:01:04,219
+it's not gonna be true
+in like a year that
+
+1243
+01:01:04,219 --> 01:01:07,849
+only OpenAI and others
+can train these models.
+
+1244
+01:01:07,849 --> 01:01:09,470
+So I don't know
+what a pause mean.
+
+1245
+01:01:09,470 --> 01:01:10,714
+On the other hand, I think,
+
+1246
+01:01:10,714 --> 01:01:12,739
+you know, it isn't a weird time,
+
+1247
+01:01:12,739 --> 01:01:16,909
+I think in society and that
+for sure these are like
+
+1248
+01:01:16,909 --> 01:01:18,710
+the capability of
+these algorithms has
+
+1249
+01:01:18,710 --> 01:01:22,370
+like as you saw from
+since December,
+
+1250
+01:01:22,370 --> 01:01:25,279
+just like really like balloon.
+
+1251
+01:01:25,279 --> 01:01:28,055
+And I think that's rare.
+
+1252
+01:01:28,055 --> 01:01:31,774
+That only happened once
+or twice in a lifetime.
+
+1253
+01:01:31,774 --> 01:01:34,910
+So you do want to I mean,
+
+1254
+01:01:34,910 --> 01:01:36,619
+yeah, they're the
+ultimate question
+
+1255
+01:01:36,619 --> 01:01:38,554
+of how does the
+regulation catch up?
+
+1256
+01:01:38,554 --> 01:01:42,439
+I mean, you already see
+governments actually putting out,
+
+1257
+01:01:42,439 --> 01:01:44,420
+starting to think
+about policies.
+
+1258
+01:01:44,420 --> 01:01:46,654
+I think, you know,
+even if not a pause,
+
+1259
+01:01:46,654 --> 01:01:49,384
+certainly most companies
+I think agree that
+
+1260
+01:01:49,384 --> 01:01:52,339
+it should be regulated to
+some degree in the beginning.
+
+1261
+01:01:52,339 --> 01:01:53,809
+Yeah.
+
+1262
+01:01:53,809 --> 01:01:57,179
+I think there was a
+question in the back.
+
+1263
+01:02:25,050 --> 01:02:34,734
+And you rely on when I got
+alignment injury there.
+
+1264
+01:02:34,734 --> 01:02:38,329
+What's the example of
+more probabilistic?
+
+1265
+01:03:08,860 --> 01:03:11,070
+Yeah.
+
+1266
+01:03:18,430 --> 01:03:21,260
+Yeah. I mean, I'll be honest,
+
+1267
+01:03:21,260 --> 01:03:22,685
+I don't have any answers.
+
+1268
+01:03:22,685 --> 01:03:28,190
+I think ultimately, it's
+so early that I mean,
+
+1269
+01:03:28,190 --> 01:03:30,739
+I usually I'm a
+fan of like pursue
+
+1270
+01:03:30,739 --> 01:03:32,749
+all options because you never
+
+1271
+01:03:32,749 --> 01:03:34,969
+know which ones
+might end up, right?
+
+1272
+01:03:34,969 --> 01:03:37,999
+Like e.g. lots of people
+were not accepting
+
+1273
+01:03:37,999 --> 01:03:40,039
+deep learning papers before
+
+1274
+01:03:40,039 --> 01:03:41,930
+deep-learning
+exploded on ImageNet.
+
+1275
+01:03:41,930 --> 01:03:45,410
+So It's hard to know what will
+
+1276
+01:03:45,410 --> 01:03:46,820
+succeed without like just
+
+1277
+01:03:46,820 --> 01:03:49,264
+exploring lots of
+different options.
+
+1278
+01:03:49,264 --> 01:03:51,079
+I think ultimately you both.
+
+1279
+01:03:51,079 --> 01:03:52,549
+I mean, I'm not sure.
+
+1280
+01:03:52,549 --> 01:03:54,185
+I wasn't sure on the
+probability stuff.
+
+1281
+01:03:54,185 --> 01:03:56,479
+I think maybe what you're
+asking is algorithm
+
+1282
+01:03:56,479 --> 01:03:59,120
+versus data. In some sense.
+
+1283
+01:03:59,120 --> 01:04:05,149
+And this data is for
+sure really important.
+
+1284
+01:04:05,149 --> 01:04:07,640
+I think probably data is maybe
+
+1285
+01:04:07,640 --> 01:04:09,199
+the lower hanging fruit of like
+
+1286
+01:04:09,199 --> 01:04:11,104
+getting the most
+bang for the buck.
+
+1287
+01:04:11,104 --> 01:04:15,050
+Because people have
+noticed like even training
+
+1288
+01:04:15,050 --> 01:04:16,729
+GPT for like there's
+
+1289
+01:04:16,729 --> 01:04:19,685
+a lot of data stuff that
+goes in the background.
+
+1290
+01:04:19,685 --> 01:04:23,690
+Like curating the data
+is super important.
+
+1291
+01:04:23,690 --> 01:04:25,999
+And same with the
+reinforcement learning stuff.
+
+1292
+01:04:25,999 --> 01:04:29,360
+So that's always easy
+or easier because you
+
+1293
+01:04:29,360 --> 01:04:31,010
+don't need to come up with
+
+1294
+01:04:31,010 --> 01:04:33,200
+research and new algorithms
+and stuff like that.
+
+1295
+01:04:33,200 --> 01:04:34,820
+So I'm having data is for
+
+1296
+01:04:34,820 --> 01:04:38,780
+sure like something
+you should pursue.
+
+1297
+01:04:38,780 --> 01:04:40,909
+Or like especially now when we
+
+1298
+01:04:40,909 --> 01:04:43,535
+don't have a lot of
+algorithmic ways to do it.
+
+1299
+01:04:43,535 --> 01:04:47,970
+But ultimately I think both
+will have to be the answer.
+
+1300
+01:04:49,010 --> 01:04:52,110
+Yeah, It's hard to answer.
+
+1301
+01:04:52,180 --> 01:04:56,030
+I have no alignment answers
+and I think neither does
+
+1302
+01:04:56,030 --> 01:05:00,720
+anybody else honestly
+about argument.
+
+1303
+01:05:05,140 --> 01:05:08,359
+I knew that was going
+to having to be honest.
+
+1304
+01:05:08,359 --> 01:05:12,169
+Like I think I think
+the problems we have
+
+1305
+01:05:12,169 --> 01:05:16,099
+now are like different
+than more immediate.
+
+1306
+01:05:16,099 --> 01:05:17,989
+So I'm not really worried
+
+1307
+01:05:17,989 --> 01:05:21,815
+about them taking over
+the world right now.
+
+1308
+01:05:21,815 --> 01:05:23,329
+If you look at it,
+they actually have
+
+1309
+01:05:23,329 --> 01:05:24,919
+these agents that talk to
+
+1310
+01:05:24,919 --> 01:05:28,040
+each other or plan and try
+to execute different things.
+
+1311
+01:05:28,040 --> 01:05:30,605
+And these things are
+horrible at planning.
+
+1312
+01:05:30,605 --> 01:05:34,205
+So taking over the role
+requires planning.
+
+1313
+01:05:34,205 --> 01:05:37,400
+And in fact, it was so easy
+to take over the world.
+
+1314
+01:05:37,400 --> 01:05:40,879
+I think random groups of
+people would already, right?
+
+1315
+01:05:40,879 --> 01:05:43,879
+So I think I'm not so much
+worried about that right now.
+
+1316
+01:05:43,879 --> 01:05:46,250
+I think that's super beyond
+
+1317
+01:05:46,250 --> 01:05:47,989
+the capabilities
+of current models.
+
+1318
+01:05:47,989 --> 01:05:49,370
+I am worried about all sorts of
+
+1319
+01:05:49,370 --> 01:05:51,425
+other stuff like misinformation.
+
+1320
+01:05:51,425 --> 01:05:54,920
+Like basically
+whenever technology
+
+1321
+01:05:54,920 --> 01:05:56,180
+like scales, things, right?
+
+1322
+01:05:56,180 --> 01:05:58,420
+So that's why privacy
+is always an issue.
+
+1323
+01:05:58,420 --> 01:06:02,420
+Like maybe when there
+was no Internet, yes,
+
+1324
+01:06:02,420 --> 01:06:03,679
+there were lots of data in
+
+1325
+01:06:03,679 --> 01:06:05,929
+separate stores everywhere,
+but once you like,
+
+1326
+01:06:05,929 --> 01:06:08,929
+centralized it on the
+internet and scaled it,
+
+1327
+01:06:08,929 --> 01:06:10,879
+that's what caused the issues.
+
+1328
+01:06:10,879 --> 01:06:12,799
+And similarly here like if you
+
+1329
+01:06:12,799 --> 01:06:15,905
+scale misinformation
+scale cybersecurity,
+
+1330
+01:06:15,905 --> 01:06:18,049
+like these models
+can actually find
+
+1331
+01:06:18,049 --> 01:06:21,095
+a lot of bugs in code.
+
+1332
+01:06:21,095 --> 01:06:24,244
+They can automate all
+this fishing stuff.
+
+1333
+01:06:24,244 --> 01:06:26,915
+They can do all sorts of
+different bad stuff already.
+
+1334
+01:06:26,915 --> 01:06:28,459
+And usually it's
+with humans, right?
+
+1335
+01:06:28,459 --> 01:06:31,449
+So I didn't really
+
+1336
+01:06:31,449 --> 01:06:33,309
+their ability to augment humans
+
+1337
+01:06:33,309 --> 01:06:35,845
+that want to do bad stuff
+is what I'm worried about.
+
+1338
+01:06:35,845 --> 01:06:38,109
+And what we should address.
+
+1339
+01:06:38,109 --> 01:06:40,854
+I think regulation and
+other things there.
+
+1340
+01:06:40,854 --> 01:06:43,839
+I'm not worried about
+self-replication going to stop.
+
+1341
+01:06:43,839 --> 01:06:45,670
+The other thing is
+robotics with part.
+
+1342
+01:06:45,670 --> 01:06:47,799
+So if they don't have humans,
+
+1343
+01:06:47,799 --> 01:06:51,879
+there's nobody to run the
+data centers and stuff.
+
+1344
+01:06:51,879 --> 01:06:53,379
+So until there's robots.
+
+1345
+01:06:53,379 --> 01:06:55,900
+So I do robotics and I
+know that's like way far
+
+1346
+01:06:55,900 --> 01:06:59,034
+out because robots
+robotics is super hard.
+
+1347
+01:06:59,034 --> 01:07:01,209
+Yeah. I don't I don't I
+
+1348
+01:07:01,209 --> 01:07:04,149
+don't I think I'm not saying
+it will never happen,
+
+1349
+01:07:04,149 --> 01:07:07,494
+but I think that
+is not in my yeah.
+
+1350
+01:07:07,494 --> 01:07:10,640
+Not not not in my
+radar right now.
+
+1351
+01:07:12,720 --> 01:07:16,014
+I was wondering, Yeah, I
+think you have it a lot.
+
+1352
+01:07:16,014 --> 01:07:17,650
+I think I'm on I figured
+
+1353
+01:07:17,650 --> 01:07:22,959
+out exactly what you
+want, like distribution.
+
+1354
+01:07:22,959 --> 01:07:26,390
+Yeah, and that's a
+sampling bias there.
+
+1355
+01:07:27,630 --> 01:07:32,020
+So I'm wondering what
+the current status
+
+1356
+01:07:32,020 --> 01:07:38,120
+for understanding what they
+are in a competent physician.
+
+1357
+01:07:38,370 --> 01:07:41,019
+So he comes up short
+
+1358
+01:07:41,019 --> 01:07:44,109
+or false answers or
+something like that.
+
+1359
+01:07:44,109 --> 01:07:48,865
+I kind of encourage
+current stated,
+
+1360
+01:07:48,865 --> 01:07:55,710
+like predicting, differ
+in different modalities.
+
+1361
+01:07:55,710 --> 01:07:57,979
+A distribution detection
+is a field we have,
+
+1362
+01:07:57,979 --> 01:08:00,575
+I've actually published
+in papers in that area.
+
+1363
+01:08:00,575 --> 01:08:03,409
+It is super hard. I'm like,
+
+1364
+01:08:03,409 --> 01:08:05,975
+yeah, it's just hard
+to make progress.
+
+1365
+01:08:05,975 --> 01:08:08,810
+I mean, people do push out
+
+1366
+01:08:08,810 --> 01:08:10,520
+paper that progressively get
+
+1367
+01:08:10,520 --> 01:08:12,409
+better at particular metrics.
+
+1368
+01:08:12,409 --> 01:08:14,299
+But it's a really hard problem
+
+1369
+01:08:14,299 --> 01:08:15,365
+because basically everything
+
+1370
+01:08:15,365 --> 01:08:18,709
+changes like the feature
+space, the classifier space,
+
+1371
+01:08:18,709 --> 01:08:23,419
+and there's all
+sorts of like the,
+
+1372
+01:08:23,419 --> 01:08:26,644
+all the tenants of machine-learning
+or this IID thing.
+
+1373
+01:08:26,644 --> 01:08:29,300
+So it's super hard,
+
+1374
+01:08:29,300 --> 01:08:30,379
+but I mean, there is a field of
+
+1375
+01:08:30,379 --> 01:08:32,735
+our distribution
+detection calibration.
+
+1376
+01:08:32,735 --> 01:08:34,219
+Like how do you get
+the neural network
+
+1377
+01:08:34,219 --> 01:08:35,825
+to be more calibrated?
+
+1378
+01:08:35,825 --> 01:08:37,849
+So I would say it's an early,
+
+1379
+01:08:37,849 --> 01:08:43,339
+an area of research not
+quite ready for prime time.
+
+1380
+01:08:43,339 --> 01:08:44,779
+You give it all, you know,
+
+1381
+01:08:44,779 --> 01:08:46,415
+random out of
+distribution stuff.
+
+1382
+01:08:46,415 --> 01:08:47,855
+And it works.
+
+1383
+01:08:47,855 --> 01:08:49,519
+So people who are working on it,
+
+1384
+01:08:49,519 --> 01:08:50,600
+but it's really hard.
+
+1385
+01:08:50,600 --> 01:08:51,919
+I think one of the
+other things, I mean,
+
+1386
+01:08:51,919 --> 01:08:54,410
+you mentioned like
+giving bad outputs,
+
+1387
+01:08:54,410 --> 01:08:56,314
+like I think one
+thing is language.
+
+1388
+01:08:56,314 --> 01:08:58,039
+It's not just about out of
+
+1389
+01:08:58,039 --> 01:09:00,439
+distribution
+detection like since
+
+1390
+01:09:00,439 --> 01:09:02,480
+language is encoding
+something about
+
+1391
+01:09:02,480 --> 01:09:05,420
+a reasoning line of
+reasoning, things like that.
+
+1392
+01:09:05,420 --> 01:09:07,309
+I think you can do
+other things besides
+
+1393
+01:09:07,309 --> 01:09:09,110
+just the tech side of
+distribution data, right?
+
+1394
+01:09:09,110 --> 01:09:11,254
+So people are showing e.g.
+
+1395
+01:09:11,254 --> 01:09:13,129
+of course, like
+citations, you know,
+
+1396
+01:09:13,129 --> 01:09:17,434
+can you have the neural
+network actually cite
+
+1397
+01:09:17,434 --> 01:09:19,339
+particular sources and retrieve
+
+1398
+01:09:19,339 --> 01:09:21,730
+information site where it
+
+1399
+01:09:21,730 --> 01:09:23,724
+came from and then
+you can validate.
+
+1400
+01:09:23,724 --> 01:09:25,674
+It's actually not a great,
+
+1401
+01:09:25,674 --> 01:09:28,015
+I mean, right now
+it doesn't do well.
+
+1402
+01:09:28,015 --> 01:09:30,294
+There's also logical reasoning,
+
+1403
+01:09:30,294 --> 01:09:32,079
+like if it's more
+
+1404
+01:09:32,079 --> 01:09:34,704
+logic-based or fact-based
+or math based,
+
+1405
+01:09:34,704 --> 01:09:36,430
+then you can always
+take the outputs
+
+1406
+01:09:36,430 --> 01:09:38,799
+and have some logical methods,
+
+1407
+01:09:38,799 --> 01:09:41,200
+logic based methods to
+validate and things like that.
+
+1408
+01:09:41,200 --> 01:09:43,374
+So I think there's a lot of
+different ways to validate.
+
+1409
+01:09:43,374 --> 01:09:45,565
+Like either. It doesn't
+have to be just
+
+1410
+01:09:45,565 --> 01:09:46,959
+making it real more robust
+
+1411
+01:09:46,959 --> 01:09:49,285
+to our distribution data, right?
+
+1412
+01:09:49,285 --> 01:09:53,904
+It is true that scale helps
+with that significantly even
+
+1413
+01:09:53,904 --> 01:09:56,319
+envision like
+vision transformers
+
+1414
+01:09:56,319 --> 01:09:58,854
+that are trained on
+lots of data or like,
+
+1415
+01:09:58,854 --> 01:10:01,314
+there's a lot of papers
+showing that they have much,
+
+1416
+01:10:01,314 --> 01:10:04,644
+much better out of
+distribution robustness.
+
+1417
+01:10:04,644 --> 01:10:06,325
+And that's actually part of why
+
+1418
+01:10:06,325 --> 01:10:10,315
+the more algorithmic routes
+are not working very well.
+
+1419
+01:10:10,315 --> 01:10:12,889
+Because like scale
+just works better.
+
+1420
+01:10:13,830 --> 01:10:17,949
+But it's a little different
+than like fact duality and
+
+1421
+01:10:17,949 --> 01:10:19,840
+correctness because it's not
+
+1422
+01:10:19,840 --> 01:10:22,550
+clear that scale
+will lead to that.
+
+1423
+01:10:22,800 --> 01:10:25,100
+Sorry.
+
+1424
+01:10:25,320 --> 01:10:29,170
+That's a lot of people
+including me are thinking about
+
+1425
+01:10:29,170 --> 01:10:30,880
+how do you have scaling robotics
+
+1426
+01:10:30,880 --> 01:10:32,290
+either through simulation,
+
+1427
+01:10:32,290 --> 01:10:33,939
+by learning from videos,
+
+1428
+01:10:33,939 --> 01:10:35,845
+all sorts of different things.
+
+1429
+01:10:35,845 --> 01:10:38,979
+But I mean, you can
+even forget Robotics.
+
+1430
+01:10:38,979 --> 01:10:40,689
+These things are just
+not good at planning
+
+1431
+01:10:40,689 --> 01:10:42,999
+multi-step reasoning.
+
+1432
+01:10:42,999 --> 01:10:44,229
+That's not what
+they're designed to
+
+1433
+01:10:44,229 --> 01:10:48,259
+do. Somebody had a question.
+
+1434
+01:10:48,259 --> 01:10:53,254
+Back on transparency in set
+a or some other company,
+
+1435
+01:10:53,254 --> 01:10:55,340
+you'd actually giving
+rise to more and more,
+
+1436
+01:10:55,340 --> 01:10:58,415
+like we said, at
+least one example.
+
+1437
+01:10:58,415 --> 01:11:01,594
+Because this works
+something like this.
+
+1438
+01:11:01,594 --> 01:11:06,530
+Just try to make it more by
+doing something like e.g.
+
+1439
+01:11:06,530 --> 01:11:09,560
+even ligand binding site
+
+1440
+01:11:09,560 --> 01:11:12,050
+without instruction ramping
+likelihood we don't
+
+1441
+01:11:12,050 --> 01:11:14,179
+expect to find is
+just generating
+
+1442
+01:11:14,179 --> 01:11:18,335
+an offer by new data
+inside of an animal.
+
+1443
+01:11:18,335 --> 01:11:20,450
+This lack of times,
+but it's just giving
+
+1444
+01:11:20,450 --> 01:11:22,894
+rise to more of this. I hope.
+
+1445
+01:11:22,894 --> 01:11:24,755
+I mean, I don't know.
+
+1446
+01:11:24,755 --> 01:11:28,039
+I mean, like if open-air
+exists or doesn't exist.
+
+1447
+01:11:28,039 --> 01:11:30,469
+Academia will still,
+everybody will
+
+1448
+01:11:30,469 --> 01:11:36,120
+still try to make that
+more methodical, right?
+
+1449
+01:11:38,290 --> 01:11:42,755
+Yeah, yeah. It certainly
+slowing down science for sure.
+
+1450
+01:11:42,755 --> 01:11:44,974
+Yeah. I mean, if
+you saw like e.g.
+
+1451
+01:11:44,974 --> 01:11:48,589
+like some other older and
+older models are in like,
+
+1452
+01:11:48,589 --> 01:11:51,590
+you know, several hundred
+publications and then they the,
+
+1453
+01:11:51,590 --> 01:11:53,449
+they decommissioned that model.
+
+1454
+01:11:53,449 --> 01:11:55,399
+And then like No, all
+of a sudden nobody can
+
+1455
+01:11:55,399 --> 01:11:57,229
+do controlled
+experiments against it
+
+1456
+01:11:57,229 --> 01:11:59,630
+because all those
+publications using
+
+1457
+01:11:59,630 --> 01:12:00,710
+the model that doesn't exist
+
+1458
+01:12:00,710 --> 01:12:03,395
+anymore because it's
+only through API.
+
+1459
+01:12:03,395 --> 01:12:08,309
+So I think it definitely
+slows down science for sure.
+
+1460
+01:12:10,840 --> 01:12:13,400
+I mean, I think
+everything gets used.
+
+1461
+01:12:13,400 --> 01:12:16,804
+I mean, you saw the
+talk for Meta training,
+
+1462
+01:12:16,804 --> 01:12:18,499
+language models, the temperature
+
+1463
+01:12:18,499 --> 01:12:20,705
+in Phoenix matters kinda thing.
+
+1464
+01:12:20,705 --> 01:12:23,525
+Like I think basically,
+
+1465
+01:12:23,525 --> 01:12:26,029
+I mean, you know, it's really
+people, I think opening.
+
+1466
+01:12:26,029 --> 01:12:29,570
+I had a ton of people that
+have worked over many years.
+
+1467
+01:12:29,570 --> 01:12:31,310
+And they have like
+
+1468
+01:12:31,310 --> 01:12:34,564
+very deep expertise in how
+to train these things.
+
+1469
+01:12:34,564 --> 01:12:37,430
+Other other organizations
+are redoing that
+
+1470
+01:12:37,430 --> 01:12:40,145
+basically gathering
+their own expertise.
+
+1471
+01:12:40,145 --> 01:12:43,055
+Yeah, for sure It slows
+things down, right?
+
+1472
+01:12:43,055 --> 01:12:45,200
+Maybe someone might argue
+
+1473
+01:12:45,200 --> 01:12:46,925
+that's a good thing.
+I don't know.
+
+1474
+01:12:46,925 --> 01:12:49,969
+Yeah, it's hard to say.
+I completely agree.
+
+1475
+01:12:49,969 --> 01:12:51,439
+I mean, in academia
+we always want
+
+1476
+01:12:51,439 --> 01:12:53,944
+to be as open as possible.
+
+1477
+01:12:53,944 --> 01:12:57,920
+I think. Yeah. I
+typically like open,
+
+1478
+01:12:57,920 --> 01:13:01,025
+more openness because that
+allows you like you say,
+
+1479
+01:13:01,025 --> 01:13:02,689
+you know, even just e.g.
+
+1480
+01:13:02,689 --> 01:13:05,360
+studying alignments
+and all these ethics
+
+1481
+01:13:05,360 --> 01:13:08,299
+scan things are much easier
+if you have the model,
+
+1482
+01:13:08,299 --> 01:13:12,214
+right? So it's not clear.
+
+1483
+01:13:12,214 --> 01:13:16,025
+They consider alignment
+a lot in their reports.
+
+1484
+01:13:16,025 --> 01:13:17,839
+But like, you know, if
+
+1485
+01:13:17,839 --> 01:13:20,210
+if like thousands of
+
+1486
+01:13:20,210 --> 01:13:22,475
+people worked on it
+rather than just them,
+
+1487
+01:13:22,475 --> 01:13:25,259
+progress might be made faster.
+
+1488
+01:13:33,450 --> 01:13:35,649
+Simulate line in robotics
+
+1489
+01:13:35,649 --> 01:13:37,059
+simulation is
+already acceptable.
+
+1490
+01:13:37,059 --> 01:13:39,550
+It goes up and down.
+But at this point,
+
+1491
+01:13:39,550 --> 01:13:41,530
+like as of a few
+years ago, yeah,
+
+1492
+01:13:41,530 --> 01:13:43,809
+It's like we've
+published stimulation
+
+1493
+01:13:43,809 --> 01:13:46,420
+only data or experiments
+all the time.
+
+1494
+01:13:46,420 --> 01:13:47,709
+So yeah, for sure.
+
+1495
+01:13:47,709 --> 01:13:49,269
+I mean, because
+it's photorealistic
+
+1496
+01:13:49,269 --> 01:13:50,290
+enough and things like that.
+
+1497
+01:13:50,290 --> 01:13:51,849
+But I think one
+of the key things
+
+1498
+01:13:51,849 --> 01:13:54,580
+is transferring that to
+the real-world, right?
+
+1499
+01:13:54,580 --> 01:13:57,969
+So and again,
+
+1500
+01:13:57,969 --> 01:13:59,544
+like there's a lot of faculty
+
+1501
+01:13:59,544 --> 01:14:00,970
+like Drew Paltrow and others.
+
+1502
+01:14:00,970 --> 01:14:02,769
+We have some code advise
+students that are
+
+1503
+01:14:02,769 --> 01:14:05,605
+working a lot on this link.
+
+1504
+01:14:05,605 --> 01:14:07,540
+There are some
+surprising results,
+
+1505
+01:14:07,540 --> 01:14:11,509
+including ones that show that
+you can actually stimulate
+
+1506
+01:14:11,509 --> 01:14:13,729
+things to various
+degrees of fidelity
+
+1507
+01:14:13,729 --> 01:14:16,655
+and still have it work
+in the real-world.
+
+1508
+01:14:16,655 --> 01:14:18,829
+So yeah, I mean,
+the simulation is
+
+1509
+01:14:18,829 --> 01:14:21,019
+totally accepted these days.
+
+1510
+01:14:21,019 --> 01:14:23,419
+Still providing
+the variability of
+
+1511
+01:14:23,419 --> 01:14:25,849
+the real-world is hard, right?
+
+1512
+01:14:25,849 --> 01:14:29,809
+So yes, if you had like a
+full world simulator of
+
+1513
+01:14:29,809 --> 01:14:32,479
+all the variability
+such that everything is
+
+1514
+01:14:32,479 --> 01:14:35,329
+in distribution now than
+that would be cool.
+
+1515
+01:14:35,329 --> 01:14:38,029
+But as someone who
+
+1516
+01:14:38,029 --> 01:14:41,300
+sees how much effort matter
+
+1517
+01:14:41,300 --> 01:14:44,285
+and others put into
+generating these simulators.
+
+1518
+01:14:44,285 --> 01:14:46,970
+This is like, you know,
+doesn't the people
+
+1519
+01:14:46,970 --> 01:14:50,179
+over years to even
+generate the simulators.
+
+1520
+01:14:50,179 --> 01:14:53,509
+So it's not an easy task
+and that's only within
+
+1521
+01:14:53,509 --> 01:14:59,989
+a confined amount of objects
+or scenes and so on.
+
+1522
+01:14:59,989 --> 01:15:03,514
+I think, I don t think it's
+like the solution, right?
+
+1523
+01:15:03,514 --> 01:15:05,929
+So the thing that
+solves everything,
+
+1524
+01:15:05,929 --> 01:15:09,780
+but it is a contribution
+towards the solution.
+
+1525
+01:15:10,420 --> 01:15:13,669
+Cool. Any other questions?
+
+1526
+01:15:13,669 --> 01:15:18,749
+So I guess I knew the
+discussion would be,
+
+1527
+01:15:18,749 --> 01:15:22,340
+I get the question
+about self-replicating.
+
+1528
+01:15:22,340 --> 01:15:25,354
+So yeah, I think one
+thing to consider again,
+
+1529
+01:15:25,354 --> 01:15:27,529
+we're in special times.
+
+1530
+01:15:27,529 --> 01:15:29,959
+I think this only
+
+1531
+01:15:29,959 --> 01:15:32,359
+happens like once in a
+lifetime kind of thing,
+
+1532
+01:15:32,359 --> 01:15:34,369
+like just the speed of progress.
+
+1533
+01:15:34,369 --> 01:15:36,245
+So I encourage you,
+
+1534
+01:15:36,245 --> 01:15:39,170
+since you're all now experts
+at how these things work
+
+1535
+01:15:39,170 --> 01:15:42,935
+or will become even more as
+you use it more and more.
+
+1536
+01:15:42,935 --> 01:15:43,910
+Definitely.
+
+1537
+01:15:43,910 --> 01:15:47,600
+There's a lot of stuff to
+do, including in industry,
+
+1538
+01:15:47,600 --> 01:15:49,399
+they're doing both
+scaling up and
+
+1539
+01:15:49,399 --> 01:15:52,325
+making smaller models
+that you can run fast.
+
+1540
+01:15:52,325 --> 01:15:55,100
+I think there's this notion
+
+1541
+01:15:55,100 --> 01:15:57,500
+of prompt engineers these days.
+
+1542
+01:15:57,500 --> 01:16:00,140
+But even science, I
+
+1543
+01:16:00,140 --> 01:16:02,299
+think there's a lot of
+people freaking out.
+
+1544
+01:16:02,299 --> 01:16:05,930
+Is there anything else
+like to do that GPT solved
+
+1545
+01:16:05,930 --> 01:16:09,109
+anything and that's not
+really a scientific mindset.
+
+1546
+01:16:09,109 --> 01:16:13,235
+There's really always new
+problems. We should look at.
+
+1547
+01:16:13,235 --> 01:16:15,379
+What are the remaining
+problem, right?
+
+1548
+01:16:15,379 --> 01:16:16,804
+And I list some here.
+
+1549
+01:16:16,804 --> 01:16:19,205
+We've talked about it
+like fact, morality,
+
+1550
+01:16:19,205 --> 01:16:20,180
+hallucination,
+
+1551
+01:16:20,180 --> 01:16:23,030
+safety distribution
+shifts, continue learning.
+
+1552
+01:16:23,030 --> 01:16:25,490
+How do we not just
+
+1553
+01:16:25,490 --> 01:16:29,315
+have these models trained
+from 20 up to 2021?
+
+1554
+01:16:29,315 --> 01:16:31,819
+How do we continuously
+update them?
+
+1555
+01:16:31,819 --> 01:16:35,765
+Again, reasoning,
+planning, decision-making.
+
+1556
+01:16:35,765 --> 01:16:38,045
+I think all of those
+are pretty unsolved
+
+1557
+01:16:38,045 --> 01:16:40,249
+in under a sufficiently
+complex settings.
+
+1558
+01:16:40,249 --> 01:16:42,620
+So there's still a lot of
+
+1559
+01:16:42,620 --> 01:16:45,679
+things to do. So
+I encourage you.
+
+1560
+01:16:45,679 --> 01:16:48,335
+There's a lot of opportunity
+to Georgia Tech.
+
+1561
+01:16:48,335 --> 01:16:51,305
+If you want to get
+involved in research.
+
+1562
+01:16:51,305 --> 01:16:54,200
+I do that blended always
+do so responsibly
+
+1563
+01:16:54,200 --> 01:16:56,779
+because I think that's
+definitely important.
+
+1564
+01:16:56,779 --> 01:16:57,859
+And again, there's no answers,
+
+1565
+01:16:57,859 --> 01:17:00,425
+but you should think about
+
+1566
+01:17:00,425 --> 01:17:05,629
+any last minute
+questions. Cool, Awesome.
+
+1567
+01:17:05,629 --> 01:17:07,429
+Well, I really enjoyed
+this semester,
+
+1568
+01:17:07,429 --> 01:17:10,835
+so thanks for all those
+that stuck around.
+
+1569
+01:17:10,835 --> 01:17:12,859
+It was really great.
+This semester
+
+1570
+01:17:12,859 --> 01:17:14,465
+was actually very unusual,
+
+1571
+01:17:14,465 --> 01:17:16,429
+which ACT UP te and all
+these other things.
+
+1572
+01:17:16,429 --> 01:17:18,889
+But I tried to update some of
+
+1573
+01:17:18,889 --> 01:17:22,190
+the lectures to make it
+more modern as well.
+
+1574
+01:17:22,190 --> 01:17:24,620
+So again, if you
+have any feedback
+
+1575
+01:17:24,620 --> 01:17:26,360
+at all, you can come to me,
+
+1576
+01:17:26,360 --> 01:17:28,189
+you can email me,
+you can fill out
+
+1577
+01:17:28,189 --> 01:17:32,179
+this iOS anonymously,
+Say whatever.
+
+1578
+01:17:32,179 --> 01:17:35,300
+We will look at those
+comments and do that.
+
+1579
+01:17:35,300 --> 01:17:36,920
+So cool, good luck in the future
+
+1580
+01:17:36,920 --> 01:17:39,394
+and thanks for a great class.
+
+1581
+01:17:39,394 --> 01:17:41,519
+Thank you.
+
+1582
+01:17:42,940 --> 01:17:45,210
+Thank you.
