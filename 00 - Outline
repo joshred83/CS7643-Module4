@@ -20,12 +20,14 @@ M4L13 Generative Models  (This is described as Lesson 19 Elsewhere)
     Generative Models Introduction  
         Transcript 
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.1%20Generative%20Models%20Introduction.txt
+            raw: https://shorturl.at/9wwFQ
         References and Links:
             Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
 
     PixelRNN & PixelCNN  
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.2%20PixelRNN%20%26%20PixelCNN.txt
+            raw: https://shorturl.at/ZMIl2
         References and Links:
             Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
             Oord et al., Pixel Recurrent Neural Networks
@@ -34,6 +36,7 @@ M4L13 Generative Models  (This is described as Lesson 19 Elsewhere)
     Generative Adversarial Networks (GANs)
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.3%20Generative%20Adversial%20Networks%20(GANs).txt
+            raw: https://shorturl.at/Okx93
         References and Links:
             Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
             CS231n, Fei-Fei Li, Justin Johnson, Serena Yeung
@@ -43,6 +46,7 @@ M4L13 Generative Models  (This is described as Lesson 19 Elsewhere)
     Variational Autoencoders (VAEs)
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/13.4%20Variational%20Autoencoders%20(VAEs).txt
+            raw: https://shorturl.at/xhkSK
         References and Links:
             Goodfellow, NeurIPS 2016 Tutorial: Generative Adversarial Networks
             Kingma & Welling, Auto-Encoding Variational Bayes
@@ -79,17 +83,20 @@ M4L17 Deep Reinforcement Learning (Modhe)
     Markov Decision Processes 
         Transcript    
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.2%20Markov%20Decision%20Processes.txt
+            raw: https://tinyurl.com/2vwaw7ya
         References and Links:
             Pieter Abbeel
             Byron Boots, CS 7641
     Algorithms for Solving MDPs
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.3%20Algorithms%20for%20Solving%20MDPs.txt
+            https://tinyurl.com/3a8jxj94
         References and Links:
             None
     Deep Q-Learning
         Transcript 
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.4%20Deep%20Q-Learning.txt
+            https://tinyurl.com/3wr5kv9t
         References and Links:
             Volodymyr Mnih et al., 2013.
             https://youtu.be/V1eYniJ0Rnk?t=31
@@ -98,6 +105,7 @@ M4L17 Deep Reinforcement Learning (Modhe)
     Policy Gradients, Actor-Critic
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/17.5%20Policy%20Gradients%2C%20Actor-Critic.txt
+            raw: https://tinyurl.com/yc75u5vm
         References and Links:
             http://karpathy.github.io/2016/05/31/rl/ (Links to an external site.)
             Sergey Levine
@@ -110,6 +118,7 @@ M4L18 Unsupervised and Semi-Supervised Learning
     Introduction 
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.1%20Introduction.txt
+            raw: https://tinyurl.com/54h3y2s7
         References and Links:
             Sohn et al., FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence
             Meta-Learning: from Few-Shot Learning to Rapid Reinforcement Learning, ICML 2019 Tutorial
@@ -117,6 +126,7 @@ M4L18 Unsupervised and Semi-Supervised Learning
     Semi-Supervised Learning
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.2%20Semi-Supervised%20Learning.txt
+            raw: https://tinyurl.com/ur2a8tvp
         References and Links:
             Sohn et al., FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence
             Miyatio et al., Virtual Adversarial Training: A Regularization Method for Supervised and Semi-Supervised Learning
@@ -127,6 +137,7 @@ M4L18 Unsupervised and Semi-Supervised Learning
     Few-Shot Learning
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.3%20Few-Shot%20Learning.txt
+            raw: https://tinyurl.com/4cm2zbxe
         References and Links:
             Chen et al., FixMatch: A Closer Look at Few-Shot Learning
             Dhillon et al., A Baseline for Few-Shot Image Classification
@@ -137,6 +148,7 @@ M4L18 Unsupervised and Semi-Supervised Learning
     Unsupervised and Self-Supervised Learning
         Transcript
             https://github.com/joshred83/Module4-Transcripts/blob/47a4c6f0af004af39cf91bec7b3087f7b6177557/18.4%20Unsupervised%20and%20Self-Supervised%20Learning.txt
+            raw: https://tinyurl.com/3pbptd4j
         References and Links:
             Caron et al., Deep Clustering for Unsupervised Learning of Visual Features
             Zhang et al., Colorful Image Colorization
