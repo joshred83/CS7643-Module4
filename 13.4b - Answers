@@ -1,0 +1,64 @@
+# Answer Key: Variational Autoencoders (VAEs)
+
+---
+
+### Question 1  
+**Correct Answer:** True  
+**Explanation:**  
+VAEs explicitly model the density function \( p(x) \), unlike GANs.  
+> "Variational autoencoders, which again are explicit density models, but that which have approximate densities."&#8203;:contentReference[oaicite:0]{index=0}
+
+---
+
+### Question 2  
+**Correct Answer:** Intractability of the marginal likelihood  
+**Explanation:**  
+The ELBO is used because computing the marginal likelihood directly is intractable.  
+> "Now, if we could directly maximize this, then we're essentially maximizing the likelihood... But we can't really do this. The integral doesn't allow us because it's intractable. Instead, what we're going to do is maximize what's called a variational lower bound..."&#8203;:contentReference[oaicite:1]{index=1}
+
+---
+
+### Question 3  
+**Correct Answers:** Encoder, Decoder, Variational objective  
+**Explanation:**  
+VAEs consist of an encoder and decoder, trained using a variational lower bound (ELBO).  
+> "We'll have an encoder... a decoder... and a variational lower bound that we can compute."&#8203;:contentReference[oaicite:2]{index=2}
+
+---
+
+### Question 4  
+**Correct Answer:** Penalize deviation from the prior  
+**Explanation:**  
+The KL term ensures that the learned latent distribution does not deviate too far from the prior (typically Gaussian).  
+> "The second part of the term here, is a KL divergence between Q of z given x and p of z... And so we're taking the KL divergence between the Z's that our encoder network outputs and the prior..."&#8203;:contentReference[oaicite:3]{index=3}
+
+---
+
+### Question 5  
+**Correct Answer:** True  
+**Explanation:**  
+The reparameterization trick allows the model to be differentiable despite sampling.  
+> "The problem is you can't actually back propagate through sampling... So there's something called a reparameterization trick... which allows you to do the sampling."&#8203;:contentReference[oaicite:4]{index=4}
+
+---
+
+### Question 6  
+**Correct Answer:** Parameters of a Gaussian distribution  
+**Explanation:**  
+The decoder outputs the mean and (diagonal) covariance of a Gaussian from which samples are drawn.  
+> "This decoder models p of x given z... it will be a Gaussian distribution parameter. Here specifically, it will be mu and Sigma."&#8203;:contentReference[oaicite:5]{index=5}
+
+---
+
+### Question 7  
+**Correct Answer:** The posterior cannot be computed directly  
+**Explanation:**  
+The true posterior is intractable; thus, an approximate posterior is introduced.  
+> "The right hand side is actually intractable. We can't compute this term. And so what we're going to do is... ignore it."&#8203;:contentReference[oaicite:6]{index=6}
+
+---
+
+### Question 8  
+**Correct Answers:** Smooth interpolation between data points, Disentanglement of semantic attributes, Use in downstream tasks  
+**Explanation:**  
+Latent space in VAEs supports interpolation and often learns disentangled, useful representations.
