@@ -1,0 +1,45 @@
+[00:00:00]
+>> Hello, my name is Nirbyhay Modhe and I'm a PhD student in school of Interactive Computing at Georgia Tech. In this series of lectures, I will be introducing reinforcement learning and some topics at the intersection of reinforcement learning and deep learning. Let's start by defining what we mean by reinforcement learning.
+
+[00:00:17]
+In this course, we have seen several examples of what we call supervised learning, where we have a data set of inputs X paired with labels Y, and the task is to make predictions of these labels given inputs. For example, the task of image classification. We've also seen examples of unsupervised learning, they will typically have a large set of unlabeled data and the task is to learn some representation of this data, which can help in downstream tasks.
+
+[00:00:40]
+In this series of lectures, we will introduce reinforcement learning where the task is to make a sequence of decisions or predictions similar to what you're seeing in sequence models. However, we will not receive supervision in the form of the correct decision or a prediction which should have been made and instead, we will only receive evaluative feedback in the form of reward for the decision or our prediction which was made.
+
+[00:01:02]
+Reinforcement learning can be defined in one sentence as a sequential decision making in an environment with evaluative feedback. Let's break this definition down by first talking about what we mean by an environment. For that, let's imagine we have an agent who can take actions in an environment and the environment produces a state which the agent can persist.
+
+[00:01:23]
+In addition to giving a reward to the agent for the actions it did take. Now this environment may be unknown, it can be non-linear, stochastic and very complex. Think of the worst case as a real robot being deployed in the world, in which case the environment is the real world.
+
+[00:01:39]
+The task of this agent is to learn a policy to map states of the environment to actions that it can play to affect the environment. The objective of this agent is to maximize the reward it will get from the environment in the long run. Now let's talk about the other two aspects of this definition which is sequential decisions and evaluative feedback.
+
+[00:01:59]
+Evaluative feedback means that the agent is supposed to pick actions and receive rewards which can be positive or negative only for the actions that it did take and not for the actions that did not take. This means that the agent will never know or have supervision for the correct or best action that it should have taken at a particular state.
+
+[00:02:16]
+Unlike supervised learning, and sequential decisions just means that the agent needs to make a sequence of actions or a sequence of states in order to complete the task. And with this what can happen is that the reward may be delayed and it can only happen at the end of the task, which means that the agent needs to optimize in the long term for rewards it may get at a very very later stage.
+
+[00:02:37]
+With this definition, let us look at the signature challenges in order to evaluate a feedback implies that the best action can only be found through trial and error, requiring the agent to try all possible actions at all states. In order to be 100% certain about the best action, the agent may not receive reward for every action it takes, requiring long term planning in order to eventually get high rewards in the future.
+
+[00:03:01]
+Any updates made to the policy during learning will lead to changes in the actions that are picked by the policy and hence will change the data distribution of states and rewards that the policy absorbs making this distribution non stationary. Further, if the task involves streaming data, the agent will see certain states only once and never again in his lifetime, making it difficult to learn from past mistakes.
+
+[00:03:23]
+Here's the protocol for how the agent interacts with the environment. At every time step t the agent will receive an observation ot it will execute an action at In the environment at time step t will receive this action at and produce a new observation or t plus one, as well as a reward r t plus one.
+
+[00:03:41]
+Let's now take a look at some tasks in which reinforcement learning has been applied. And successfully in recent years. Here is an instance of a robotic control task in a virtual simulator. The objective is to make the robot move forward. The state of the environment is the angle and position of the joints of this robot.
+
+[00:03:58]
+The action is a torque applied on the joints of each robot to make the joints move. And the reward is plus one for each time step that the robot is upright and that the robot is moving forward. Here is an instance of RL applied to learn how to play Atari video games, where the objective is to simply complete the game with the highest score.
+
+[00:04:17]
+The state of the environment is the RGB image of the game screen as seen on the right. The actions are the controls that each individual game defines. And the reward is the increase or decrease in the game score at each time step. RL has also been applied to games like go where the objective is to defeat the opponent.
+
+[00:04:35]
+The state of the environment is the location of the pieces on the board. The action is where to put down the next piece and the reward in this case is quite sparse. It is plus one for winning the game or zero otherwise, making it an exceptionally challenging long term planning task.
+

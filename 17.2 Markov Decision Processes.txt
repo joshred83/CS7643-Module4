@@ -1,0 +1,69 @@
+[00:00:00]
+>> Now, before we can understand the algorithms that we'll use to solve these challenging tasks. We must introduce some definitions, and theory on Markov decision processes or MDPs. That will form the foundation of RL. MDPs can be thought of as a theoretical framework underlying RL. An MDP is defined as a tuple of five items.
+
+[00:00:20]
+S is the set of all possible states of the environment. A is the set of all possible actions that can be taken at every step. R is the reward distribution given a state S, action a, and next state S- prime. T is the transition probability distribution, of the next state S-prime.
+
+[00:00:36]
+Given that action a is performed at the current state s. Gamma is a discount factor, which will be defined later in this lecture. As we have seen earlier, a trajectory is now a sequence of states, actions, and rewards. Over multiple time steps indexed by t. MDPs are characterized by the Markov property, which as seen by the definition of the transition probability.
+
+[00:00:58]
+Implies that the distribution of possible next states given state s, and action a. Does not depend on any of the previous states or actions in the trajectory. The problem set up of reinforcement learning, carries with it the assumption that the transition distribution. And the reward distribution are both not known.
+
+[00:01:14]
+Instead, only samples from these distributions are observed by the agent interacting with the environment. The reason for evaluative feedback being a characteristic of RL, is a lack of knowledge of this divert distribution. However, before studying RL, we will see that studying MDPs with known reward and transition functions.
+
+[00:01:35]
+Will provide us with algorithms, and tools that will inspire our solutions for RL. So, for this part of the lecture series on RL, we will assume that the true reward and transition distributions are known. And we will look at how to solve an MDP. Or in other words how to find the best policy for an MDP.
+
+[00:01:50]
+Let's take a look at a simple environment, where we can intuitively figure out what is the best policy. The 2D environment on the right is a grid world, where there's an agent indicated by a blue triangle. Where the state of the environment is the 2D coordinates of this agent.
+
+[00:02:05]
+In which case the agent right now is a 2 comma 3. The actions that the agent can take is either move one cell north, east, south, or west. And the rewards are either +1 or -1 at the absorbing states shown in the figure on the right. With this setup, it is easy to see that the optimal policy is to head east twice, in order to reach the +1 absorbing state.
+
+[00:02:26]
+However, let's assume that there is some noise in how the agent transitions to next state. This noise is in the form of a 20% chance, of the agent drifting once a left or right of the direction of motion. Now, things get a bit complicated. The policy will now have to prescribe an action, for the states that the agent could land up in.
+
+[00:02:44]
+As it is not guaranteed to always move in the direction of east. One way to describe such a policy, would be in the form of a 2D matrix, of the same shape as this 2D grid. But each matrix element is prescribing an action to take, if the agent is at that cell.
+
+[00:02:59]
+This leads us to the formal definition of a policy, that we will use for solving MDPs. Formally, a deterministic policy is defined as a mapping from states to actions. In which case a single action is prescribed at each state. A stochastic policy is defined as a probability distribution, of actions given a state as input.
+
+[00:03:17]
+If we have a finite set of n states, and a finite set of m actions. Our deterministic policy can be specified by an n dimensional tensor. Whereas a stochastic policy can be specified by an n, by m dimensional tensor. Where each row stores the probability values, but all in actions.
+
+[00:03:32]
+With this definition, one can ask the question, what is a good policy? Should the best policy maximize current reward, or should it maximize future rewards? And the answer to that is going to be that we're going to maximize a discounted sum of future rewards. We're going to use the discounting factor gamma, which we introduced at the start off the definition of MDPs.
+
+[00:03:51]
+We can now define the optimal policy as the policy that maximizes this expectation, of sum of discounted future rewards. There are three random variables involved in the sector rotation. The distribution over initialization states, the policies distribution over actions. And the transition distribution over next states. The discount factor gamma lies between 0 and 1, and is raised to the power t.
+
+[00:04:13]
+Implying that the rewards at earlier timestamps, are given more weight than the rewards attained at later time steps. Let's now look at how the optimal policy is sensitive to changes in the MDP. The three figures shown here are for the same 2D grid world environment, with stochastic transitions as earlier.
+
+[00:04:29]
+But with a small modification, there is now a constant to reward value at all non absorbing states. And this constant is set to three different values, corresponding to the three different figures shown here. We can see that as this constant reward decreases to -0.4, going from the left to the middle figure.
+
+[00:04:45]
+The optimal policy starting from the bottom right corner of the grid ,stops taking the longer route to get to the +1 absorbing state. And instead it's a riskier shorter path. Further, decreasing this constraint to -2 in the rightmost figure, the optimal policy now prefers the -1 absorbing state.
+
+[00:05:01]
+Starting from the bottom right corner. In this example, we will see how the value of the discount factor gamma, affects the optimal policy. Consider a one-dimensional grid environment, where the start state is shown here. And the opposite ends being absorbing states. The right endpoint provides a +1 reward, and is closer to the start state.
+
+[00:05:20]
+Whereas the left endpoint has a higher reward but is farther away. One can plug in the following two values of gamma, into the discounted reward definition of optimal policy. And see that the higher value of gamma, promotes reaching the higher rewarding state to the left endpoint. Whereas a lower value of gamma, prioritizes the lower rewarding state at the right endpoint.
+
+[00:05:40]
+Now that we have looked at how to map state to actions with the policy. Let's introduce a new quantity that will help measure the performance of a policy, at various states. A value function can be intuitively thought of as a prediction of discounted sum of future rewards. First, we will introduce a state value function or a V-function as a mapping from states to real values.
+
+[00:06:01]
+That will provide information about how good a state is, in terms of future rewards. Similarly, a state action value function or a Q-function, is a mapping from state and action pairs to real values. Which will inform us of how good is taking a particular action at a state.
+
+[00:06:16]
+Formally, the value function of a policy pie, is defined as the expected sum of the discounted rewards. That will be ordained by policy pie, when starting from state s. Similarly, the Q-function for a policy pie is defined as the expected sum of discounted rewards. That will be ordained by policy pie after taking action a at state s.
+
+[00:06:36]
+In this lecture, we'll defined MDPs policies and value functions. In the next lecture, we will use these quantities to build our first algorithm for solving MDPs called value iteration.
+

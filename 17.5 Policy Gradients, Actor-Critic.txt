@@ -1,0 +1,69 @@
+[00:00:00]
+>> In this lecture, we will study a family of policy based RL algorithms, which are based on graded updates of parametrized policies. Among the types of methods using RL value based methods learn q functions, while model based methods learn the transition and reward function. In the end, both these methods provide an optimal policy that is used to perform a task with high reward.
+
+[00:00:20]
+Policy based methods on the other hand directly parameterize a policy and optimize it to maximize returns. For example, a parameterize policy used for solving Atari game called Pong employed a convolutional neural network to process the RGB image of the game window as input and produces output, the log probabilities of all actions.
+
+[00:00:38]
+In this case, the two actions were for moving the paddle up and down. Our class of policies will be parametrized functions that map states to actions. The objective function J measures the performance of an input policy pi as the sum of rewards over a finite time horizon T.
+
+[00:00:53]
+For this lecture, we will assume that the discounting factor of gamma is one, and excluded from the objective function due to the episodic or finite nature of our trajectories. Now we can translate the original definition of optimal policy which involve this abstract maximization over all possible policies into a maximization over all parameter values theta.
+
+[00:01:12]
+We will also write our objective as J of theta, instead of J of pi, as the parameters theta fully described the policy. Let's first look at an intuitive explanation of how an RL algorithm will define the gradient update step. But such a policy. Recall that in supervised learning specifically, image classification.
+
+[00:01:30]
+A neural network comprised of differentiable blocks used to process an image in the backward pass and produce log probability of classes. The backward pass then proper its gradients of the loss with respect to the parameters for each parameter in the differentiable block. Due to the presence of supervision in the form of the correct label, or let's say the correct action, the loss can be used to maximize the log probability of the correct action.
+
+[00:01:54]
+In reinforcement learning, a parameterized policy will have a similar neural network that takes as input the RGB image of the environment state and computes log probabilities of every action. Further, an action must be selected by sampling from this categorical distribution, and due to the fact that the reward is only provided as feedback for the selected action.
+
+[00:02:13]
+A simple strategy can be to increase or decrease the log probability of the chosen action depending on the sin and magnitude of the reward obtained for selecting that action. With this intuition at hand, we will soon derive the formal policy gradient update step. But before we get to that, let us first look at the data gathering phase of such policy based algorithms.
+
+[00:02:33]
+First, let us define a finite trajectory tau are the sequence of state and actions from time steps zero to t. The probability of tau given a policy pi theta, which is also written as p theta of tau, is simply the probability of the sequence of state and actions and this probability can be broken down into the probability of each state or action given previous states or actions resulting in this expression.
+
+[00:02:56]
+Further, we will write our objective as finding the parameters theta that maximizes the expected sum of rewards over trajectories tau. Now, our strategy for gathering data is going to be simple in comparison to what we saw in dq learning. We simply need to collect a small batch of trajectories using the current pi theta, which can be used as a sample based approximation of our reward objective.
+
+[00:03:17]
+In the next few slides, when we formally derive our policy gradient expression, we will see a similar expectation that will again use the same batch of trajectories to estimate the gradient update. So far, we have seen how to gather data with the current policy parameters theta, and an intuitive explanation for what the policy update step will look like.
+
+[00:03:35]
+What we have described so far are the components of a policy gradient algorithm, known as reinforce. This algorithm performs three tasks at each iteration, gathering data with the current policy, computing the policy gradient update and taking a gradient step to obtain the policy parameters for the next iteration.
+
+[00:03:52]
+Let us now fill in the missing piece of this algorithm. It is the exact expression for the policy gradient. Our goal is now to derive the gradient of our objective j with respect to the policy parameters theta. We will write first, the definition of our objective as the expected sum of rewards over trajectories tau, then we can write the expectation as an integral of probability density pi of tau and exchange the gradient and integral operator.
+
+[00:04:18]
+Now, we will multiply and divide the probability density pi of tau in order to apply a relation known as the log derivative trick, which simply uses the fact that the derivative of a log of a function is the ratio shown on the right, which now appears in our current expression.
+
+[00:04:33]
+Substituting this ratio, we now obtain an integral of a probability density pi and some other terms. This integral can now be written as an expectation over the probability density pi with the remaining terms kept the same. With this derivation, we started out in the second line with the gradient of an integral, but we cannot compute because we do not know the integral expression in closed form.
+
+[00:04:53]
+However, what we have in the last line is an expectation of some function, which can be approximated with finite samples of trajectories gathered using policy pi. Now, we must compute the expression inside the expectation and recall that with our definition of trajectory Tao, we can expand it again into a sequence of state and actions.
+
+[00:05:11]
+Resulting in three types of terms that depend on the initial state distribution, the actual distribution of pi, and the transition distribution. We can discard the first and the last terms as they do not depend on theta when taking the gradient shown outside. The final expression now involves the gradient of log probabilities of individual actions, which we can obtain with a simple forward pass for policy neural network at each state.
+
+[00:05:35]
+The sum of these gradients is now greater with the total reward of the trajectory on the right, implying that the gradient update will push the probability of the chosen actions to be either higher or lower depending on the sign and magnitude of the total reward for the trajectory.
+
+[00:05:49]
+This is the true essence of trial and error. Only after attempting a sequence of actions will the policy know the payoff of those actions. The gradient update expression of this algorithm either increases or decreases the likelihood of a sequence of actions depending on the reward outcome for the entire trajectory.
+
+[00:06:06]
+This means that we cannot assign credit to any particular set of actions that were good or bad. Instead, we are left with a coarse level feedback for the entire sequence of actions taken. With this challenge of credit assignment. New variants of this algorithm have been proposed that aim to reduce the variance of policy gradient updates.
+
+[00:06:22]
+The key idea behind these variations is that subtracting some baseline b shown in red, that does not depend on actions will preserve the mean of the gradient expectation while possibly reducing the variance for specific choices of B. The proof of why the mean is not affected by such a baseline.
+
+[00:06:37]
+And what is the best choice of such a baseline is left as an exercise. The different choices of this baseline have resulted in two important variants of the policy gradient algorithm. The first is known as the actor-critic algorithm that replaces rewards with the Q function of the policy that is learned from data.
+
+[00:06:55]
+The second algorithm is known as advantage actor-critic that substitutes the reward with the advantage of the policy. It is defined as the Q function minus the V function. In summary, we defined parametrized policies, the components of the reinforce algorithm and variants of this algorithm that helped reduce the variance of policy gradients.
+
