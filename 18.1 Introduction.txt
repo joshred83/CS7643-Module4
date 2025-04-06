@@ -1,0 +1,99 @@
+[00:00:00]
+>> In this lesson, we'll go beyond supervised learning and talk about various other machine learning settings. For example, we'll look at low labeled machine learning settings where we have only a few labeled examples, possibly with a larger amount of unlabeled example. We'll also talk about pure unsupervised or self-supervised learning where we'll try to learn effective feature representations using unlabeled data only.
+
+[00:00:28]
+Thus far, we've really looked at supervised learning where we have a large labeled data set X and associated labels Y, typically coming from human annotation. In deep learning, we wanna learn a function that maps from X to Y, typically as a conditional probability, the probability of the label given the data.
+
+[00:00:47]
+However, annotation of data is costly, both in terms of time as well as monetary cost. This is because you have to pay people in order to annotate manually each example and this can really add up if you have hundreds of thousands, or millions of examples. So we may want to consider machine learning settings where we assume that we have much less labeled data.
+
+[00:01:10]
+We'll look at a few common settings. In semi-supervised learning, we have some reasonable amount of labels per category, let's say ten or more. However, we also have a large set of unlabeled data. This is, again, under the assumption that obtaining unlabeled data is much easier. For example, by just scraping the Internet without having to pay the cost of annotation.
+
+[00:01:34]
+In few-shot learning, this is taken to extreme. Specifically, we have only 1 to 5 examples per category. In the vanilla setting, we also don't have any unlabeled data, but it is assumed that we have some larger labelled auxiliary set. For example, if we have some image net data set, we can separate only, let's say, 500 of those categories, and assume that we have a lot of labels for those 500 categories.
+
+[00:02:02]
+And what we wanna do is learn models and feature representations that will generalize or transfer to a new set of categories where we only have 1 to 5 examples per category. In self-supervised learning, which is a form of unsupervised learning, we assume we have no labels. All we have our unlabeled examples and we wanna learn effective feature representation.
+
+[00:02:26]
+Note that in traditional machine learning, and to some degree in deep learning, there's also purely unsupervised learning where we can perform tasks, such as clustering or density estimation. We'll talk about the distinction between self-supervised and unsupervised learning later. It's important to note that these are just common settings that exists.
+
+[00:02:46]
+Recently, there's a lot of research that combines a lot of these different settings. For example, in few-shot learning, you can assume that you can also have unlabeled data as well, and that's, again, a different setting. It's important when you perform some work to understand what are the assumptions in terms of what data is available, both labeled and unlabeled.
+
+[00:03:07]
+So that you can understand what setting you're in and leverage whatever state of the art exists in that setting. There are many traditional unsupervised learning methods that you may have learned about in your machine learning classes. For example, there are methods for density estimation that is somehow modeling the probability distribution over the input space.
+
+[00:03:27]
+Again, we don't have labels, so it's not the conditional probability of the label given the data, it's just the probability over the data itself. So it's a joint distribution of the different dimensions in your data set. For example, for images, it's the joint distribution over pixel values that, for example, are drawn from when you have natural images.
+
+[00:03:49]
+You can also have a clustering or grouping problem where you try to take your unlabeled data and group things that are similar and put things that are dissimilar in different groups. This is typically used either with a hand coded similarity metric, such as Euclidean distance, for example. Or there are methods to do what's called metric learning where you try to learn a distance metric as well.
+
+[00:04:14]
+If you think about it, there are other methods, such as principal component analysis, which actually do some form of feature learning. That is, in PCA, you have some basis set of vectors that you're learning and you can remove some of the basis that don't explain a lot of the variance in the data.
+
+[00:04:32]
+And you're ending up with some reduced data sets that is lower dimensional feature space. And this feature space, somehow, is a transformation of the input. And so it's some form of feature learning. There are other examples, such as sparse coding, for example, that you may look at. So we can try to categorize some of the unsupervised learning methods that exists.
+
+[00:04:54]
+For example, modeling the joint distribution, the P(x), comparing or grouping things together, and representation learning. In the deep learning world, there's actually similar techniques for all of these different categories, but typically from a different perspective. Often, we really focus on feature learning, that is learning an encoder. Or for example, a convolutional neural network that takes the input, for example, an image, and outputs a set of features for them.
+
+[00:05:23]
+And so for modeling the P(x), there are deep generative models. For comparing and grouping, there are metric learning, or clustering approaches. And obviously, representation learning is pretty much what deep learning is. In these lessons, we'll really focus on the feature representation part. Although we may talk about other unsupervised tasks, such as clustering, given labeled data, we know how to do this.
+
+[00:05:49]
+We can design a neural network, for example, a convolutional neural network, for images with some fully connected layers at the end. And we use the cross entropy loss in order to drive backpropagation and optimization of the weights. So we have a forward pass here that makes predictions and these predictions are compared to a one hot encoding of the annotations.
+
+[00:06:11]
+When do we only have unlabeled data though, it's not clear what to do. There are several different considerations that we might have. For example, what loss functions should we use? Clearly, cross entropy or mean squared error in the form of regression, or loss functions that we've already developed.
+
+[00:06:30]
+But it's not clear what to use here to drive the optimization of the features if we only have unlabeled data. We can also have maybe specialized optimization or training procedures that are better suited for unlabeled data. We can also have specialized architecture. For example, again, that drive some feature representation or dimensionality reduction.
+
+[00:06:51]
+Finally, we're typically interested in transfer learning here. Why learn feature representations if you're not gonna use it in some way at the end? What we typically wanna do is learn really effective feature representations from very large corpuses of unlabeled data. And then maybe finetune either just the convolutional neural neural network or maybe just the fully connected layers that we add at the end for a new task when we have maybe a small amount of labeled data.
+
+[00:07:19]
+And so there are a lot of different methods, architectures, loss functions, and training, or optimization procedures to deal with unlabeled data. However, there are a lot of recurrent common key ideas that reoccur across the literature. As a result, we'll focus on some of those. For example, in the semi-supervised learning case where you have a small amount of labelled data and a larger amount of unlabeled data.
+
+[00:07:44]
+There's a very simple idea that has been used for a long time, both in the deep and non-deep learning context. Specifically, you could take the training data that is labeled and learn a model through it. Again, using just normal deep learning and cross entropy optimization. We can then take that model, which won't be that great, and feed all the unlabeled examples through it.
+
+[00:08:08]
+The result of this is a set of predictions across all the unlabeled examples. We can then take only the most confident ones. That is the ones that have a probability for a particular class that reaches above some threshold. We can then take that and convert it into a pseudo label.
+
+[00:08:25]
+That is a one hop distribution that looks very much like a label, but it's not actually human annotation. So that's why it's called a pseudo label. We can take these confident pseudo labels and put them into the training set and retrain. Now, we've added additional labeled data into our data set.
+
+[00:08:44]
+And so hopefully, we can learn a better model. Of course, these pseudo labels will be much more noisy than humans. But hopefully, this threshold will allow us to call out at least most of the noise. Because of the noise though, there's actually an interesting idea that you could do a cross-views or data augmentations.
+
+[00:09:03]
+For example, we could take unlabeled examples and perform augmentation of two types. We can have a weak form of augmentation, for example, color jitter, and feed it through the model to obtain pseudo labels. We can then have much more aggressive augmentation, such as cut-out that we've learned about before.
+
+[00:09:23]
+And again, feed it through the model and obtain some prediction. Now here, instead of obtaining pseudo labels for these strongly augmented examples, what we'll do is actually just take those predictions and use cross-entropy to train them. Or train them through labels obtained from the weekly augmented data. That is, the idea is that we'll take weakly augmented data, obtain some pseudo labels from them, and use it to actually train the predictions from strongly augmented data.
+
+[00:09:53]
+The idea here is that the weak augmentation isn't so severe that the model won't have a good confidence or a set of good pseudo labels. But you're using strong augmentation to really make the neural network learn better. That is you're using much more difficult examples to try to drive the features to be much more effective in the neural network as well as the classifier.
+
+[00:10:17]
+There are several different loss functions that we can use here, both cross-entropy if you're using a hard pseudo label. Or you can actually use what we've learned about before in the form of knowledge distillation where you have a teacher network that's providing soft distribution pseudo labels. And use it to train the predictions or the strongly augmented data in this case using, for example, KL divergence loss.
+
+[00:10:42]
+In the case of few-shot learning where you only have a small amount of data, there's actually an interesting set of methods called meta-learning. It's called meta-learning because we're essentially learning to learn. What we're going to do is learn some neural network initialization that after it performs some stochastic gradient descent steps on a very small amount of labeled data, let's say, five examples, so you won't perform that many SGD steps.
+
+[00:11:07]
+Your learning an initialization that after you go through such process will be effective. And we'll talk more about this in the few-shot learning case. In the self-supervised or unsupervised case, there's what's called surrogate tasks. We'll actually come up with loss functions that come from weird tasks that we actually don't care about, but that hopefully drive the neural network to learn effective feature representation.
+
+[00:11:32]
+For example, we'll rotate an image, again, an unlabeled image, and try to make the neural network predict which rotations we applied. Because we're the ones applying these rotations, we actually know the answer. So we essentially get the labels here for free. Now, this is a strange task because we don't actually care about it.
+
+[00:11:50]
+We know what rotations we applied, but we're trying to force the neural network to learn some effective feature representation. And so we'll try to come up with a set of surrogate tasks that hopefully aren't too easy. That is the neural network can't cheat in some way to do really well at this tasks and aren't too hard.
+
+[00:12:07]
+That is the neural network is able to learn something using the task itself.
+
