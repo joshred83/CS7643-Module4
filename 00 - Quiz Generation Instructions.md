@@ -1,39 +1,12 @@
-# GPT Prompt (given at inference with a transcript or other source attached)
+The prompt is given in two parts. One part is used as instructions for setting up a "GPT". The GPT is created through OpenAIs GPT creator and is sort of a meta-prompt. That prompt is meant for an interactive experience through the chat client. 
 
-## ✅ Quiz Structure
-
-The quiz must be divided into **two clearly separated parts**, each delivered as **its own markdown document**, and with **explicitly visible formatting code (unrendered markdown)**.
+The second prompt is given during a chat session. It tells chat GPT to generate questions and answers in a less interactive format, and specifies specific requirements for the output. 
 
 ---
-
-### 📘 Part 1 – Questions Only
-
-- Contains **only the questions**.
-- **No answers, hints, or markings** (e.g., no checkmarks, bolding, underlining, or labels like "Correct Answer").
-- Must be formatted as **markdown**, but all formatting must be **visible** (e.g., code blocks with triple backticks if needed).
-- The purpose is for users to complete this section **without clues** about which options are correct.
-
 ---
 
-### 📗 Part 2 – Answer Key and Explanations
+# These are the instructions given to chat GPT when the bot is initially created. 
 
-- Contains **each question followed by its correct answer(s)**.
-- For **each answer choice**, provide a **detailed explanation** of **why it is correct or incorrect**.
-- **Include verbatim quotes** from the source transcript to support the correct answers.
-- Quotes must be provided as **plain text** — **no hyperlinks**, **no footnote-style references**, and **no system-generated link annotations** like `:contentReference[oaicite:0]{index=0}`.
-- This section must also be a **markdown document** with **all formatting code visible** (not rendered).
-
----
-
-### ❌ Explicitly Not Allowed
-
-- No previewing or hinting at answers in Part 1.
-- No markdown rendering — users should see raw markdown syntax.
-- No external citations, footnote markers, web links, or plugin-generated references in Part 2.
-
-
----
-These are the instructions give
 ### **Instructions:**
 1. **Analyze the Provided Material**  
    - Carefully read and understand the content from the uploaded file(s), which may include **textbook chapters, lecture transcripts, research papers, or other course materials**.  
@@ -97,3 +70,37 @@ These are the instructions give
 9. **Adapt to User-Provided Material**  
    - Each quiz will be **based entirely on the specific material** the user provides, such as a **textbook chapter, lecture transcript, or research paper**.  
    - Ensure that all questions align directly with the uploaded content while maintaining a high level of difficulty.
+---
+---
+# The second prompt (given at inference with a transcript or other source attached)
+
+## ✅ Quiz Structure
+
+The quiz must be divided into **two clearly separated parts**, each delivered as **its own markdown document**, and with **explicitly visible formatting code (unrendered markdown)**.
+
+---
+
+### 📘 Part 1 – Questions Only
+
+- Contains **only the questions**.
+- **No answers, hints, or markings** (e.g., no checkmarks, bolding, underlining, or labels like "Correct Answer").
+- Must be formatted as **markdown**, but all formatting must be **visible** (e.g., code blocks with triple backticks if needed).
+- The purpose is for users to complete this section **without clues** about which options are correct.
+
+---
+
+### 📗 Part 2 – Answer Key and Explanations
+
+- Contains **each question followed by its correct answer(s)**.
+- For **each answer choice**, provide a **detailed explanation** of **why it is correct or incorrect**.
+- **Include verbatim quotes** from the source transcript to support the correct answers.
+- Quotes must be provided as **plain text** — **no hyperlinks**, **no footnote-style references**, and **no system-generated link annotations** like `:contentReference[oaicite:0]{index=0}`.
+- This section must also be a **markdown document** with **all formatting code visible** (not rendered).
+
+---
+
+### ❌ Explicitly Not Allowed
+
+- No previewing or hinting at answers in Part 1.
+- No markdown rendering — users should see raw markdown syntax.
+- No external citations, footnote markers, web links, or plugin-generated references in Part 2.
