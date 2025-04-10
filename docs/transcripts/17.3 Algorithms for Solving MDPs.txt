@@ -1,0 +1,42 @@
+[00:00:00]
+>> In this lecture, we will look at algorithms for solving MDPs. In the previous lecture, we defined P pi and Q pi for a particular policy pi. Now, we can also define the V and Q functions corresponding to the special policy or the optimal policy pi star as V star and Q star, in which case we have just replaced pi with pi star in the definitions.
+
+[00:00:21]
+With these definitions in mind, here are some identities relating the optimal quantities introduced so far. The first says that the optimal value at a state is the same as the max Q value over possible actions at that state. The second relation says that the optimal policy at state s will choose the action that maximizes the optimal Q function at that state.
+
+[00:00:41]
+Taking a closer look at the definition of the optimal Q function, we will now try to rewrite it recursively in terms of the optimal value function at future states. Let's define the term return as the sum of discounted future rewards. This expression can now be seen as the expected return starting from state s and action a.
+
+[00:00:59]
+If we were to separate this summation into the first time step plus the remaining time steps, we will get the reward at the first time step, plus gamma times the return from the expected state at t equal to 1. With this expansion, we can now identify the second term as, by definition, the optimal value function in the next state.
+
+[00:01:18]
+With this recursive relation, we can now use the identity we saw earlier to replace V star with max over actions of Q star, while also converting the expectation to a summation. Similarly, we can derive a recursive relation for V star as follows, where the expression on the right now has a max over actions outside the summation.
+
+[00:01:36]
+The recursive Bellman equation derived so far will form the basis for dynamic programming algorithm for solving MDPs called value iteration. This algorithm starts with an n dimensional vector of zeros, where n is the number of states. This vector will hold the value estimates for each state at the current iteration of the algorithm.
+
+[00:01:54]
+The central idea is to update this vector at each iteration by repeatedly applying this recursive Bellman equation until convergence. Intuitively, each application of this recursive equation can be thought of as propagating the information of the return at a state s to the return values of its neighboring states under the transition probability.
+
+[00:02:14]
+This update will produce a sequence of vectors V0, V1, and so on, until we get V star upon convergence. Given the nature of the upgrade step, each iteration of this algorithm will have a time complexity of order of n square m, where n is the cardinality of the state space and m is the cardinality of the action space.
+
+[00:02:33]
+Similar to the value iteration update rule, we can derive an update rule for Q functions, which will form the basis of the Q iteration algorithm. This algorithm is very similar to value iteration, but with an extra loop over actions. Now that we have seen algorithms for estimating the optimal Q and V functions, let's briefly take a look at an algorithm that iteratively refines a policy.
+
+[00:02:53]
+The policy iteration algorithm involves two parts for each policy update step. The first part computes V pi, or the value of the current policy at all states. And the second part uses this value vector to greedily update the policy. This greedy step involves picking the action that maximizes the value obtained at all states, as shown in this expression.
+
+[00:03:13]
+This results in a sequence of policies and values that eventually converge to pi star and V of pi star. This algorithm may seem less efficient due to the policy evaluation step, but in practice, the policy converges to pi star much sooner than the value converges to V of pi star, thus requiring fewer iterations.
+
+[00:03:30]
+The three algorithms seen so far rely on for loops over all actions and states, as can be seen from the time complexity of one iteration update. Moving towards MDPs, which will have a very large action or state space, this is going to prevent us from naively applying such dynamic programming approaches.
+
+[00:03:47]
+For example, a 2D grid world that we saw in the previous lecture had just 12 states. For games like chess, the number of states is much larger, our lower bound being 10 to the power 420 states. And for Atari Games, where the state of the environment is the RGB image pixels, the number of such images is also exponentially large.
+
+[00:04:06]
+As we move towards reinforcement learning and deep RL, we will try to adapt to these algorithms to work with very large state spaces. To summarize this lecture, we derived the recursive Bellman optimality equations that form the backbone of the three dynamic programming algorithms for solving MDPs, that are value iteration, Q iteration, and policy iteration.
+

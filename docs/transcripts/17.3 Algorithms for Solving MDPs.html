@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17.3 Algorithms for Solving MDPs - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      
+        <h2 class="section-title">17.3 Algorithms for Solving MDPs</h2>
+        <div class="transcript-container">
+          <div class="transcript">
+            <p><span class="timestamp">[00:00:00]</span>
+>> In this lecture, we will look at algorithms for solving MDPs. In the previous lecture, we defined P pi and Q pi for a particular policy pi. Now, we can also define the V and Q functions corresponding to the special policy or the optimal policy pi star as V star and Q star, in which case we have just replaced pi with pi star in the definitions.</p><p><span class="timestamp">[00:00:21]</span>
+With these definitions in mind, here are some identities relating the optimal quantities introduced so far. The first says that the optimal value at a state is the same as the max Q value over possible actions at that state. The second relation says that the optimal policy at state s will choose the action that maximizes the optimal Q function at that state.</p><p><span class="timestamp">[00:00:41]</span>
+Taking a closer look at the definition of the optimal Q function, we will now try to rewrite it recursively in terms of the optimal value function at future states. Let's define the term return as the sum of discounted future rewards. This expression can now be seen as the expected return starting from state s and action a.</p><p><span class="timestamp">[00:00:59]</span>
+If we were to separate this summation into the first time step plus the remaining time steps, we will get the reward at the first time step, plus gamma times the return from the expected state at t equal to 1. With this expansion, we can now identify the second term as, by definition, the optimal value function in the next state.</p><p><span class="timestamp">[00:01:18]</span>
+With this recursive relation, we can now use the identity we saw earlier to replace V star with max over actions of Q star, while also converting the expectation to a summation. Similarly, we can derive a recursive relation for V star as follows, where the expression on the right now has a max over actions outside the summation.</p><p><span class="timestamp">[00:01:36]</span>
+The recursive Bellman equation derived so far will form the basis for dynamic programming algorithm for solving MDPs called value iteration. This algorithm starts with an n dimensional vector of zeros, where n is the number of states. This vector will hold the value estimates for each state at the current iteration of the algorithm.</p><p><span class="timestamp">[00:01:54]</span>
+The central idea is to update this vector at each iteration by repeatedly applying this recursive Bellman equation until convergence. Intuitively, each application of this recursive equation can be thought of as propagating the information of the return at a state s to the return values of its neighboring states under the transition probability.</p><p><span class="timestamp">[00:02:14]</span>
+This update will produce a sequence of vectors V0, V1, and so on, until we get V star upon convergence. Given the nature of the upgrade step, each iteration of this algorithm will have a time complexity of order of n square m, where n is the cardinality of the state space and m is the cardinality of the action space.</p><p><span class="timestamp">[00:02:33]</span>
+Similar to the value iteration update rule, we can derive an update rule for Q functions, which will form the basis of the Q iteration algorithm. This algorithm is very similar to value iteration, but with an extra loop over actions. Now that we have seen algorithms for estimating the optimal Q and V functions, let's briefly take a look at an algorithm that iteratively refines a policy.</p><p><span class="timestamp">[00:02:53]</span>
+The policy iteration algorithm involves two parts for each policy update step. The first part computes V pi, or the value of the current policy at all states. And the second part uses this value vector to greedily update the policy. This greedy step involves picking the action that maximizes the value obtained at all states, as shown in this expression.</p><p><span class="timestamp">[00:03:13]</span>
+This results in a sequence of policies and values that eventually converge to pi star and V of pi star. This algorithm may seem less efficient due to the policy evaluation step, but in practice, the policy converges to pi star much sooner than the value converges to V of pi star, thus requiring fewer iterations.</p><p><span class="timestamp">[00:03:30]</span>
+The three algorithms seen so far rely on for loops over all actions and states, as can be seen from the time complexity of one iteration update. Moving towards MDPs, which will have a very large action or state space, this is going to prevent us from naively applying such dynamic programming approaches.</p><p><span class="timestamp">[00:03:47]</span>
+For example, a 2D grid world that we saw in the previous lecture had just 12 states. For games like chess, the number of states is much larger, our lower bound being 10 to the power 420 states. And for Atari Games, where the state of the environment is the RGB image pixels, the number of such images is also exponentially large.</p><p><span class="timestamp">[00:04:06]</span>
+As we move towards reinforcement learning and deep RL, we will try to adapt to these algorithms to work with very large state spaces. To summarize this lecture, we derived the recursive Bellman optimality equations that form the backbone of the three dynamic programming algorithms for solving MDPs, that are value iteration, Q iteration, and policy iteration.</p><p></p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

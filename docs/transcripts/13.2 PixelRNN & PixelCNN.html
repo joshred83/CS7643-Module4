@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13.2 PixelRNN & PixelCNN - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      
+        <h2 class="section-title">13.2 PixelRNN & PixelCNN</h2>
+        <div class="transcript-container">
+          <div class="transcript">
+            <p><span class="timestamp">[00:00:00]</span>
+>> In this lesson, we'll talk about generative models that perform explicit tractable density estimation, that is still reduce or factorize the joint distribution into something that's much more manageable that we can then approximate or learn using a recurrent neural network or CNN. The first set of models that we'll talk about represent the joint distribution as an explicit tractable density.</p><p><span class="timestamp">[00:00:26]</span>
+This is going to be similar to methods such as language model, where we model the distribution over sentences as just the product of the likelihoods over the work. We'll do something similar, for example, for pixels in images. In order to simplify matters, we can use the chain rule to decompose the joint distribution.</p><p><span class="timestamp">[00:00:47]</span>
+This is essentially factorizing the joint distribution into a product of conditional distribution. If you've taken a machine learning class, you may have heard about this when you covered Bayesian networks where we can hand design a graph that represents the conditional distribution, and we can model the entire joint this distribution as a factorize distribution.</p><p><span class="timestamp">[00:01:08]</span>
+It's also similar to language models, where we factorize the probability of the entire sentence as being the individual product of the probabilities for work. In this case, the key thing is that it requires some ordering of the variable. Here in the Bayesian network, this represents edges in a probabilistic graphical model.</p><p><span class="timestamp">[00:01:28]</span>
+We can then estimate this conditional distribution as a neural network. That is, we'll approximate the probability of a particular element, a word or pixel given some other elements that came before it as a neural network. In the context of language modeling, this should be familiar. Rather than modeling the joint distribution over all words in a sentence, we can just factorize it, and here we have a natural sequence or ordering because the words come in a word at a time.</p><p><span class="timestamp">[00:01:56]</span>
+And so we can model the probability of the sentence as the product of the conditionals, the probability of the first word, the probability of the second word given the first word and so on. And we can just take the product of these likelihoods in order to model the probability of the sentence.</p><p><span class="timestamp">[00:02:13]</span>
+We've also seen that this conditional distribution can be modeled as a recurrent neural network. That is, we have a weight share network that goes across the sequence and estimates this probability. We can do something similar with images, here rather than the basic unit being words, the basic units are pixels.</p><p><span class="timestamp">[00:02:34]</span>
+We can factorize the joint distribution as the product of conditionals, where we define some ordering over the pixels. For example, we could start with just the upper left pixel, and have some prior probability distribution over that pixel value. We can then move to the subsequent pixels from left to right and top to bottom, we can then model the probability of x as equal to the probability of x1, the upper left pixel times the probability of x2 given x1 times the probability of x3 given x1 times the rest of the product.</p><p><span class="timestamp">[00:03:07]</span>
+Again, we're defining an explicit ordering of pixels here and then we can move to the next pixels and so on across the entire image. We can train this using similar methods as the language models, for example, a recurrent neural network. And the only difference is that rather than move from left to right in a linear sequence across a sentence, we're moving across a two dimensional image.</p><p><span class="timestamp">[00:03:33]</span>
+And again, we're defining some explicit way to order the pixels across that image. When we train this, we could use teacher forcing where we have the actual images, and we make the model predict those pixel values. We could discretize the pixels into zero to 255 and use cross entropy, for example.</p><p><span class="timestamp">[00:03:52]</span>
+We can also do student forcing, where the model predicts some distribution over the pixel values for this current pixel, and then we use the conditional as that value for the next pixels. Over time, we can then train this across the entire image and we're updating our model to be better and better at modeling this conditional distribution p(xi) given the prior pixels.</p><p><span class="timestamp">[00:04:19]</span>
+Once we have the model trained, we can actually generate new images, just sample from p(x1) that is the prediction of the model for the first pixel and then use that as input to predict the next pixels and sample from that. There's a lot of downsides to this, however, if we want to generate an image, we have to do it sequentially in the particular order that we came up with across the entire image.</p><p><span class="timestamp">[00:04:42]</span>
+This can be really slow, unlike convolution layers it's not paralyzed. Also, we're only considering a few context pixels, that is given one particular pixel, we're considering a few adjacent pixels that are connected to it. However, clearly, this is not how images are truly generated. So it's an approximation.</p><p><span class="timestamp">[00:05:02]</span>
+One idea is to represent the conditional distribution as a convolution, that is rather than conditional on just the adjacent pixels, we have a receptive field or a window and then we have a learnable convolution filter that output this distribution. The downside is that there's some future pixels that is part of the convolution window that we may not know.</p><p><span class="timestamp">[00:05:24]</span>
+And so we have to use things like masking in order to mask out the future pixel and only consider the previous pixels in whatever ordering that we defined here. Now this leads to faster training but generation is still slow. We're limited to small images because we have to generate everything sequentially, one by one.</p><p><span class="timestamp">[00:05:42]</span>
+What's cool though, is that we can use this for various application. For example, we can have part of an image that has some occlusion, and then we can sample from possible other values that the rest of the image might have. Again, this is not just one particular feature part of the image, we can actually sample from the distribution and generate a whole set of possibilities.</p><p><span class="timestamp">[00:06:06]</span>
+Just like in a language model, we can generate a set of possible output sentences. We could use similar methods such as beam search to ensure that the outputs are more realistic, that is their probability over the sequence is higher. Here you'll see some examples where you can see that it's close to the original.</p><p><span class="timestamp">[00:06:24]</span>
+But in some cases where there's ambiguity, there's a lot of different things that could explain the top part of the image. We can also generate images from scratch. Here we're limited to smaller images because of the length of time training and inference it takes. If you look on the whole, these images look quite realistic.</p><p><span class="timestamp">[00:06:43]</span>
+And by the way, we can also condition the generator model on labels so that we can see for each label what it produces. On the whole it looks good, if you look at defining details, however, a lot of them are not great because of this assumption that we made in order to make the density tractable.</p><p><span class="timestamp">[00:07:01]</span>
+We made an assumption on the ordering of the pixels, and clearly that's not how actual images are generated. And so there's a limit to how much context and how much information a particular pixel can take in when it samples from the actual pixel value. So on the whole, these pixels or images might actually be somewhat realistic, but in the finer details, they're not</p><p></p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

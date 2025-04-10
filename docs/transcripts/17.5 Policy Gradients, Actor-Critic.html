@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>17.5 Policy Gradients, Actor-Critic - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      
+        <h2 class="section-title">17.5 Policy Gradients, Actor-Critic</h2>
+        <div class="transcript-container">
+          <div class="transcript">
+            <p><span class="timestamp">[00:00:00]</span>
+>> In this lecture, we will study a family of policy based RL algorithms, which are based on graded updates of parametrized policies. Among the types of methods using RL value based methods learn q functions, while model based methods learn the transition and reward function. In the end, both these methods provide an optimal policy that is used to perform a task with high reward.</p><p><span class="timestamp">[00:00:20]</span>
+Policy based methods on the other hand directly parameterize a policy and optimize it to maximize returns. For example, a parameterize policy used for solving Atari game called Pong employed a convolutional neural network to process the RGB image of the game window as input and produces output, the log probabilities of all actions.</p><p><span class="timestamp">[00:00:38]</span>
+In this case, the two actions were for moving the paddle up and down. Our class of policies will be parametrized functions that map states to actions. The objective function J measures the performance of an input policy pi as the sum of rewards over a finite time horizon T.</p><p><span class="timestamp">[00:00:53]</span>
+For this lecture, we will assume that the discounting factor of gamma is one, and excluded from the objective function due to the episodic or finite nature of our trajectories. Now we can translate the original definition of optimal policy which involve this abstract maximization over all possible policies into a maximization over all parameter values theta.</p><p><span class="timestamp">[00:01:12]</span>
+We will also write our objective as J of theta, instead of J of pi, as the parameters theta fully described the policy. Let's first look at an intuitive explanation of how an RL algorithm will define the gradient update step. But such a policy. Recall that in supervised learning specifically, image classification.</p><p><span class="timestamp">[00:01:30]</span>
+A neural network comprised of differentiable blocks used to process an image in the backward pass and produce log probability of classes. The backward pass then proper its gradients of the loss with respect to the parameters for each parameter in the differentiable block. Due to the presence of supervision in the form of the correct label, or let's say the correct action, the loss can be used to maximize the log probability of the correct action.</p><p><span class="timestamp">[00:01:54]</span>
+In reinforcement learning, a parameterized policy will have a similar neural network that takes as input the RGB image of the environment state and computes log probabilities of every action. Further, an action must be selected by sampling from this categorical distribution, and due to the fact that the reward is only provided as feedback for the selected action.</p><p><span class="timestamp">[00:02:13]</span>
+A simple strategy can be to increase or decrease the log probability of the chosen action depending on the sin and magnitude of the reward obtained for selecting that action. With this intuition at hand, we will soon derive the formal policy gradient update step. But before we get to that, let us first look at the data gathering phase of such policy based algorithms.</p><p><span class="timestamp">[00:02:33]</span>
+First, let us define a finite trajectory tau are the sequence of state and actions from time steps zero to t. The probability of tau given a policy pi theta, which is also written as p theta of tau, is simply the probability of the sequence of state and actions and this probability can be broken down into the probability of each state or action given previous states or actions resulting in this expression.</p><p><span class="timestamp">[00:02:56]</span>
+Further, we will write our objective as finding the parameters theta that maximizes the expected sum of rewards over trajectories tau. Now, our strategy for gathering data is going to be simple in comparison to what we saw in dq learning. We simply need to collect a small batch of trajectories using the current pi theta, which can be used as a sample based approximation of our reward objective.</p><p><span class="timestamp">[00:03:17]</span>
+In the next few slides, when we formally derive our policy gradient expression, we will see a similar expectation that will again use the same batch of trajectories to estimate the gradient update. So far, we have seen how to gather data with the current policy parameters theta, and an intuitive explanation for what the policy update step will look like.</p><p><span class="timestamp">[00:03:35]</span>
+What we have described so far are the components of a policy gradient algorithm, known as reinforce. This algorithm performs three tasks at each iteration, gathering data with the current policy, computing the policy gradient update and taking a gradient step to obtain the policy parameters for the next iteration.</p><p><span class="timestamp">[00:03:52]</span>
+Let us now fill in the missing piece of this algorithm. It is the exact expression for the policy gradient. Our goal is now to derive the gradient of our objective j with respect to the policy parameters theta. We will write first, the definition of our objective as the expected sum of rewards over trajectories tau, then we can write the expectation as an integral of probability density pi of tau and exchange the gradient and integral operator.</p><p><span class="timestamp">[00:04:18]</span>
+Now, we will multiply and divide the probability density pi of tau in order to apply a relation known as the log derivative trick, which simply uses the fact that the derivative of a log of a function is the ratio shown on the right, which now appears in our current expression.</p><p><span class="timestamp">[00:04:33]</span>
+Substituting this ratio, we now obtain an integral of a probability density pi and some other terms. This integral can now be written as an expectation over the probability density pi with the remaining terms kept the same. With this derivation, we started out in the second line with the gradient of an integral, but we cannot compute because we do not know the integral expression in closed form.</p><p><span class="timestamp">[00:04:53]</span>
+However, what we have in the last line is an expectation of some function, which can be approximated with finite samples of trajectories gathered using policy pi. Now, we must compute the expression inside the expectation and recall that with our definition of trajectory Tao, we can expand it again into a sequence of state and actions.</p><p><span class="timestamp">[00:05:11]</span>
+Resulting in three types of terms that depend on the initial state distribution, the actual distribution of pi, and the transition distribution. We can discard the first and the last terms as they do not depend on theta when taking the gradient shown outside. The final expression now involves the gradient of log probabilities of individual actions, which we can obtain with a simple forward pass for policy neural network at each state.</p><p><span class="timestamp">[00:05:35]</span>
+The sum of these gradients is now greater with the total reward of the trajectory on the right, implying that the gradient update will push the probability of the chosen actions to be either higher or lower depending on the sign and magnitude of the total reward for the trajectory.</p><p><span class="timestamp">[00:05:49]</span>
+This is the true essence of trial and error. Only after attempting a sequence of actions will the policy know the payoff of those actions. The gradient update expression of this algorithm either increases or decreases the likelihood of a sequence of actions depending on the reward outcome for the entire trajectory.</p><p><span class="timestamp">[00:06:06]</span>
+This means that we cannot assign credit to any particular set of actions that were good or bad. Instead, we are left with a coarse level feedback for the entire sequence of actions taken. With this challenge of credit assignment. New variants of this algorithm have been proposed that aim to reduce the variance of policy gradient updates.</p><p><span class="timestamp">[00:06:22]</span>
+The key idea behind these variations is that subtracting some baseline b shown in red, that does not depend on actions will preserve the mean of the gradient expectation while possibly reducing the variance for specific choices of B. The proof of why the mean is not affected by such a baseline.</p><p><span class="timestamp">[00:06:37]</span>
+And what is the best choice of such a baseline is left as an exercise. The different choices of this baseline have resulted in two important variants of the policy gradient algorithm. The first is known as the actor-critic algorithm that replaces rewards with the Q function of the policy that is learned from data.</p><p><span class="timestamp">[00:06:55]</span>
+The second algorithm is known as advantage actor-critic that substitutes the reward with the advantage of the policy. It is defined as the Q function minus the V function. In summary, we defined parametrized policies, the components of the reinforce algorithm and variants of this algorithm that helped reduce the variance of policy gradients.</p><p></p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

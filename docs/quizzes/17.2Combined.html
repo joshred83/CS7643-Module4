@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Markov Decision Processes (MDPs) - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2 class="section-title">Quiz: Markov Decision Processes (MDPs)</h2>
+  <div class="quiz-container">
+    <div class="question" data-question-index="0">
+      <h3>Question 1 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q0-o0" name="q0" value="0" data-correct="true">
+          <label for="q0-o0">To serve as the foundational mathematical model for reinforcement learning</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o1" name="q0" value="1" data-correct="true">
+          <label for="q0-o1">To formalize sequential decision making under uncertainty</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o2" name="q0" value="2" data-correct="true">
+          <label for="q0-o2">To provide a framework for defining optimal policies</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o3" name="q0" value="3" data-correct="false">
+          <label for="q0-o3">To directly implement a robotic control algorithm</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o4" name="q0" value="4" data-correct="false">
+          <label for="q0-o4">To enable modeling of state transitions and rewards</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o5" name="q0" value="5" data-correct="false">
+          <label for="q0-o5">To quantify the long-term value of actions and states</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Foundational mathematical model, ✅ Formalize sequential decision making, ✅ Framework for defining optimal policies, ✅ Enable modeling of transitions and rewards, ✅ Quantify long-term value  
+<strong>Explanation:</strong>  
+MDPs serve multiple important purposes in reinforcement learning beyond just being a theoretical framework.  
+<blockquote>"MDPs can be thought of as a theoretical framework underlying RL."</blockquote>
+<blockquote>"MDPs are a mathematical formulation of the sequential decision making problem that capture all the essential elements of the RL problem."</blockquote>
+<blockquote>"The MDP framework enables us to quantify the value of different states and actions in terms of expected future rewards."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="1">
+      <h3>Question 2 (Multiple Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="true">
+          <label for="q1-o0">A reward function</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
+          <label for="q1-o1">A value function</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="true">
+          <label for="q1-o2">A discount factor</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="true">
+          <label for="q1-o3">A transition probability distribution</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
+          <label for="q1-o4">A Q-function</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> A reward function, A discount factor, A transition probability distribution  
+<strong>Explanation:</strong>  
+The MDP tuple includes states, actions, rewards, transitions, and a discount factor.  
+<blockquote>"An MDP is defined as a tuple of five items. S... A... R is the reward distribution... T is the transition probability distribution... Gamma is a discount factor..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="2">
+      <h3>Question 3 (True/False)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q2-o1" name="q2" value="1" data-correct="true">
+          <label for="q2-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> False  
+<strong>Explanation:</strong>  
+The Markov property asserts dependence only on the current state and action, not the full history.  
+<blockquote>"The distribution of possible next states given state s, and action a. Does not depend on any of the previous states or actions..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="3">
+      <h3>Question 4 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">Samples from the reward and transition distributions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="true">
+          <label for="q3-o1">Observations of states after taking actions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">Reward signals after actions are taken</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">Full knowledge of the underlying transition probabilities</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
+          <label for="q3-o4">Complete reward tables for all state-action pairs</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
+          <label for="q3-o5">Information about all possible outcomes before choosing an action</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Samples from distributions, ✅ Observations of states, ✅ Reward signals  
+<strong>Explanation:</strong>  
+Agents observe samples of transitions and rewards, but typically do not have full knowledge of the underlying MDP dynamics.  
+<blockquote>"The transition distribution and the reward distribution are both not known. Instead, only samples from these distributions are observed by the agent..."</blockquote>
+<blockquote>"The agent observes states and rewards after taking actions, building up experience rather than being given complete information about the environment."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="4">
+      <h3>Question 5 (Multiple Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
+          <label for="q4-o0">A deterministic policy maps states to actions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">A stochastic policy maps actions to states</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="true">
+          <label for="q4-o2">A stochastic policy defines a probability distribution over actions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="true">
+          <label for="q4-o3">A deterministic policy stores one action per state</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> A deterministic policy maps states to actions, A stochastic policy defines a probability distribution over actions, A deterministic policy stores one action per state  
+<strong>Explanation:</strong>  
+Deterministic and stochastic policies differ by how they assign actions: one fixed action vs. a distribution.  
+<blockquote>"A deterministic policy is defined as a mapping from states to actions... A stochastic policy is defined as a probability distribution of actions given a state..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="5">
+      <h3>Question 6 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">How much weight is given to future rewards</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">The effective planning horizon of the agent</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="false">
+          <label for="q5-o2">The stability of value function calculations</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
+          <label for="q5-o3">The convergence rate of value-based algorithms</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o4" name="q5" value="4" data-correct="false">
+          <label for="q5-o4">The number of available actions per state</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o5" name="q5" value="5" data-correct="false">
+          <label for="q5-o5">Whether immediate rewards are valued more than distant ones</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Weight given to future rewards, ✅ Effective planning horizon, ✅ Stability of value calculations, ✅ Whether immediate rewards are valued more  
+<strong>Explanation:</strong>  
+The discount factor has several important effects on MDP behavior and solutions.  
+<blockquote>"The discount factor gamma lies between 0 and 1... implying that the rewards at earlier timestamps, are given more weight..."</blockquote>
+<blockquote>"A discount factor close to 0 makes the agent myopic (focused on immediate rewards), while a value close to 1 makes it consider the long-term future rewards."</blockquote>
+<blockquote>"The discount factor also ensures mathematical convergence of infinite sums in continuing tasks."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="6">
+      <h3>Question 7 (True/False)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q6-o0" name="q6" value="0" data-correct="true">
+          <label for="q6-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> True  
+<strong>Explanation:</strong>  
+Low gamma places more emphasis on near-term rewards.  
+<blockquote>"...a lower value of gamma, prioritizes the lower rewarding state at the right endpoint."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="7">
+      <h3>Question 8 (Multiple Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
+          <label for="q7-o0">State-value function (V-function)</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <label for="q7-o1">Reward matrix</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="true">
+          <label for="q7-o2">State-action value function (Q-function)</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="false">
+          <label for="q7-o3">Advantage function</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> State-value function (V-function), State-action value function (Q-function)  
+<strong>Explanation:</strong>  
+Both value functions are introduced explicitly to evaluate policies.  
+<blockquote>"A value function... is a prediction of discounted sum of future rewards."</blockquote>  
+<blockquote>"A state action value function or a Q-function... informs us of how good is taking a particular action at a state."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="8">
+      <h3>Question 9 (Multiple Choice)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">The agent becomes more cautious and avoids all rewards</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">The optimal policy becomes independent of the environment</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q8-o2" name="q8" value="2" data-correct="true">
+          <label for="q8-o2">The agent tends to prefer shorter or riskier paths to reach absorbing states</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q8-o3" name="q8" value="3" data-correct="false">
+          <label for="q8-o3">The discount factor becomes irrelevant</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> The agent tends to prefer shorter or riskier paths to reach absorbing states  
+<strong>Explanation:</strong>  
+As negative rewards increase, the policy changes to prefer quicker or alternative outcomes.  
+<blockquote>"...as this constant reward decreases to -0.4... the optimal policy... takes the riskier shorter path..."</blockquote>  
+<blockquote>"Further, decreasing this constant to -2... the optimal policy now prefers the -1 absorbing state..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="9">
+      <h3>Question 10 (True/False)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="true">
+          <label for="q9-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="false">
+          <label for="q9-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> True  
+<strong>Explanation:</strong>  
+The Q-function assesses the expected future reward for an action-state pair.  
+<blockquote>"The Q-function for a policy... is the expected sum of discounted rewards... after taking action a at state s."</blockquote></div>
+    </div></div>
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

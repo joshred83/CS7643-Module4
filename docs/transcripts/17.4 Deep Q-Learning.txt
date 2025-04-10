@@ -1,0 +1,72 @@
+[00:00:00]
+>> In this lecture, we will discuss one popular value based RL method called deep Q-Learning. Let's start by looking at a demo of a deep Q-Learning agent learning to play Atari games. Recall that for Atari games, the state of the environment is the RGB image of the game window and the reward at each time step is the increase or decrease in the game score.
+
+[00:00:19]
+In the video on the left, we will look at the learning stages of a deep Q-learning agent, playing the Atari game called break out. Behind the scenes, there are two parallel tasks that this algorithm is performing. But you see on the screen is a data gathering step where the agent is interacting with the environment.
+
+[00:00:37]
+Initially with randomly initialized Q-network, the policy associated with this network is also performing randomly. But will eventually realize that keeping the ball in play is a good strategy. The second task that this algorithm is performing in the background, is using the collected data to update the deep Q-network and improve its strategy.
+
+[00:00:56]
+The deep Q policy in this video is seemed to improve as training progresses, and after a while, it's going to uncover a better strategy. Now, it has discovered a strategy to break a vertical column of bricks, in order to trap the ball in the upper row of the game window and get an extremely high score.
+
+[00:01:26]
+Let's now dig deeper to understand the two tasks for this algorithm. First, we will investigate how the deep Q-network is updated with some collected data. Deep Q-learning assumes a parametrized Q-function that is optimised to match the optimal Q-function, from a defined data set of state, action, next state and reward tuples as shown on the right.
+
+[00:01:45]
+The simplest example of such a parameters network, is a linear Q-network with one weight vector and a bias. Alternatively, the Q-network can also be a deep neural network. For example, for the game we just saw in the demo, a CNN as follows was used to play Atari with deep Q-learning.
+
+[00:02:00]
+The input to this network is a concatenation of the last four states at RGB images, and the output is a set of key values for each possible action. Given that we have collected N data points, the update for our Q-network will again be inspired, by the recursive bellman optimality equation.
+
+[00:02:15]
+As we had seen in Q-iteration, the Q-function appears recursively on the right hand side. During training, we can use a single Q-network to predict the Q-values for the current state and action shown on the left, and the next state and next actions shown in blue on the right.
+
+[00:02:29]
+Instead of having a four loop over all states to update the Q-network, as was done in Q-iteration, we introduced a regression objective that will minimize this mean squared error. Intuitively, this will attempt to make the predicted Q-values in red, match the target Q-values on the right. However, in practice, it has been observed that using a single Q-network, makes the loss minimization unstable.
+
+[00:02:51]
+Instead, two copies of the Q-network are maintained at all times during training. One is called Qold and the other is called Qnew, which start with the same parameters, with every gradient update step to minimize the MSE loss. The Qnew parameters are updated while preventing any update to the Qold parameters.
+
+[00:03:08]
+Then, at regular intervals, the Qold network receives a fresh copy of the parameters from the Qnew network. In practice, we will compute the loss for a minibatch of size B, instead of the entire data set. The forward pass will feed in the current state to the Q-network, giving us output a batch of Q-values of size B cross, the number of actions.
+
+[00:03:27]
+The last that we computed as an average of the MSE loss for the current batch, where the predictions are obtained by a forward pass on the Qnew network and a forward pass on the Qold network. The backward pass of gradients, will compute the derivative of this loss, with respect to the new parameters, as a wish to only update these parameters in the last function.
+
+[00:03:47]
+We now know how to update a deep Q-network to convergence, given a fixed data set. Note that there exists an algorithm called fitted Q-iteration, whose purpose is to learn a Q-function given a fixed data set, by simply minimizing the MSE loss seen earlier. However, for our current deep Q-learning algorithm, we still haven't answered the question, of how the deep Q and N agent is interacting with the environment to gather experience or data.
+
+[00:04:10]
+We will see that answering this question, will reveal the most challenging aspects of reinforcement learning. Let's imagine that we start with a random data gathering policy called pi gather. We will let it interact with the environment, similar to the demo we saw earlier. Initially, the data collected will be random and a few data points will inform the agent, that keeping the ball in play is rewarding.
+
+[00:04:32]
+We can then use the dqn update seen earlier, to update our Q-network and obtain a greedy policy with respect to this Q-network, and we can call it policy pi trained. Now, that we have a better policy than the one we started with, it is natural to also start collecting data with these better policy.
+
+[00:04:48]
+So let's now update our pi gather policy, by setting it to the pi train policy. With this thought experiment, we have come up with our first naive strategy for interacting with the environment to collect data. Let's discuss some challenges that we will face with this strategy. Firstly, since we are always updating the pi gather policy with the greedy pi trained policy, it will not have incentive to explore other less rewarding states, that may eventually lead to an overall higher reward.
+
+[00:05:13]
+For example, in the demo we saw, it took quite a long time for the agent to discover the best possible strategy to play the game. And this strategy was discovered by random chance, because it had an element of exploration built in with the algorithm. Secondly, If we are setting a policy with data, and then, gathering data with this new policy.
+
+[00:05:30]
+The data naturally will be biased by the policy, creating a feedback loop that the data will consist of, only states that the policy currently believes to be rewarded. This means that the data set will not be highly anymore, but instead, will be highly correlated with similar states, actions and rewards.
+
+[00:05:46]
+Now, that we know that setting the data gathering policy to be the same as the greedy train policies, is a bad idea. Let's look at how the deep Q-learning algorithm solves this first challenge. In order to always have some probability of exploration, the following at some greedy strategy is used for data gathering, where a random action is chosen with a typically small epsilon probability.
+
+[00:06:07]
+And the greedy action is selected otherwise. For the second challenge, we know that if we let our data be highly correlated, the gradients we will obtain will have higher variance and lead to inefficient training. To further elaborate on this issue, consider the one D environment that we saw in previous lectures, with a discount factor of gamma equal to 1.
+
+[00:06:27]
+If the best strategy started off by going to the right endpoint, achieving the plus one reward, the data gathering policy will then be dominated by trajectories going to the right. And even if by random chance the policy ends up reaching, the left endpoint due to exploration, the amount of data collected for the right endpoint, will dominate the gradient update step.
+
+[00:06:45]
+And will prevent any changes to this sub optimal strategy. In order to address this, deep Q-learning employs an experienced replay buffer, which is a queue of past experiences from which a minibatch is randomly sampled. The buffer is a finite size and older samples are discarded in favor of newer ones.
+
+[00:07:02]
+In practice, increasing the size of this buffer, will lower the correlation between data points sampled in a minibatch. Now, we have all the tools at hand to understand the original deep Q-learning algorithm, as it appeared in this paper titled playing Atari games with deep RL, the algorithm boils down to three key mechanisms.
+
+[00:07:21]
+The epsilon greedy data gathering policy in green, the experience replay buffer to store transitions in blue, and the Q-network update step in orange. In summary, we looked at the assumptions and challenges for reinforcement learning and deep RL, and studied in depth, all the components of the deep Q-learning algorithm.
+

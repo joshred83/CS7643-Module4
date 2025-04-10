@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13.1 Generative Models Introduction - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      
+        <h2 class="section-title">13.1 Generative Models Introduction</h2>
+        <div class="transcript-container">
+          <div class="transcript">
+            <p><span class="timestamp">[00:00:00]</span>
+>> In this lesson, we'll talk about a different class of unsupervised learning methods called generative modeling. Here we take a probabilistic view of unsupervised learning and try to estimate the probability distribution over the input space. Now, this is a hard task and so we'll make several assumptions and simplifications and we'll talk about the most popular methods in this lesson.</p><p><span class="timestamp">[00:00:22]</span>
+A large part of deep learning success has come from Supervised Learning. That is we have a large data set full of examples with answers, for each example, we know what the correct answer is. We would like to also support Unsupervised Learning, where we take only unlabeled data and understand something about it.</p><p><span class="timestamp">[00:00:40]</span>
+At the heart of it, we can view this as a probabilistic model, that is we wanna represent the joint distribution over the input dimension. This is a very intractable and hard thing to do. And so we'll have to make various assumptions or simplifications in order to make this feasible.</p><p><span class="timestamp">[00:00:57]</span>
+In Supervised Learning, we can categorize the different tasks we may want to do. For example, into bins such as classification and regression, based on the inputs and outputs. Similarly, in Unsupervised Learning, there's a whole host of different tasks we may want to do. In this lesson, we'll focus on Density Estimation, that is producing a model of the probability distribution over the input space.</p><p><span class="timestamp">[00:01:18]</span>
+Or in some cases, we may want to just have the ability to generate samples from this distribution, that is actually generate artificial examples that come from this distribution. This has a rich history in traditional unsupervised learning methods that existed before the deep learning resurgence. For example, Gaussian mixture models also produce some estimate of the probability distribution over the input space.</p><p><span class="timestamp">[00:01:42]</span>
+However, these methods have severe deficiencies when the input is very high dimensional. And since deep learning is very good at learning features that extract meaningful information in a low dimensional embedding from high dimensional data. The question becomes, can we apply similar ideas to neural network-based learning methods? It's important to understand the distinction between Discriminative and Generative models.</p><p><span class="timestamp">[00:02:07]</span>
+You may have learned about this in your machine learning class, discriminative models, model the conditional distribution probability of the label given the input. Examples of this include neural networks, support vector machines, random forests and so on. You may not have known that this is actually what we're doing, because really we just approximate this probability distribution using a blackbox neural network.</p><p><span class="timestamp">[00:02:31]</span>
+We haven't done any additional probabilistic reasoning. However, if you've taken a machine learning course, you may have learned that there's an entire probabilistic and statistical view of machine learning. Where we can actually write out these probability distributions and reason about them. For example, to derive what loss functions we may want to use.</p><p><span class="timestamp">[00:02:49]</span>
+Generative models, on the other hand, models the distribution over the input space. Now, this is a very complex distribution, and so there's a question of how we can actually model it. Just, like discriminative models we can have a parametric approximation of this distribution. That is we can have a set of parameterized models p(x,theta).</p><p><span class="timestamp">[00:03:09]</span>
+And use the principle of maximum likelihood to optimize the parameters given the unlabeled data set. Here p(x,theta) is our likelihood and we wanna maximize it or are real theta, that is we want our model to output high probabilities for the real deta. We can use this as the optimal set of parameters, data star, being the argmax data of the product of the likelihood of each example.</p><p><span class="timestamp">[00:03:36]</span>
+This is because the examples are drawn independently and identically, that is we're just sampling independently from this distribution. And so the likelihoods of all of the data can be decomposed as the product of the likelihood of each piece of data. We can then take the log of this because we're maximizing it, and this turns out into a sum of log likelihoods.</p><p><span class="timestamp">[00:03:57]</span>
+These are called generative models because they can often generate samples. Once, we have some parameters data, we can also generate examples from this distribution that we're approximating. Some examples include multi-variate Gaussian model, where we have mu and sigma, that is the mean and co-variants. And what we wanna do is estimate these values from the data, and then given these estimates, we can just sample from the multi-variate Gaussian to actually produce example.</p><p><span class="timestamp">[00:04:27]</span>
+Now, of course, this is very difficult, especially for high dimensional data. Because generative modeling is so difficult, there's been a whole host of different methods that have been developed. These can be categorized in various ways, for example, whether they use the maximum likelihood principle in order to optimize their parameters.</p><p><span class="timestamp">[00:04:44]</span>
+There are methods that perform explicit tractable density estimation. That is, they simplify the joint distribution into some factorized model consisting of simpler components and then learn parameters for those. There are methods that perform approximations of various kinds, that is, they learn distributions that approximate the true joint distribution.</p><p><span class="timestamp">[00:05:08]</span>
+And then there are implicit density models, where we don't actually model the density itself. Rather, we're just able to perform tasks such as sampling from the density. That is we can generate samples from the probability distribution, but we can't really have an explicit model for it that we learned.</p><p><span class="timestamp">[00:05:26]</span>
+We'll cover the three most popular methods across the spectrum, in order to give you a flavor of all the different methods that exist.</p><p></p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

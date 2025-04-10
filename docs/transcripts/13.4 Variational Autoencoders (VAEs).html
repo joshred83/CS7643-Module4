@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13.4 Variational Autoencoders (VAEs) - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      
+        <h2 class="section-title">13.4 Variational Autoencoders (VAEs)</h2>
+        <div class="transcript-container">
+          <div class="transcript">
+            <p><span class="timestamp">[00:00:00]</span>
+>> In this lesson we'll talk about variational autoencoders. Another type of generative model that actually maintain explicit density models, but actually have some approximation that allow us to actually train them in a tractable manner. In this lesson, we'll talk about variational autoencoders, which again are explicit density models, but that which have approximate densities.</p><p><span class="timestamp">[00:00:23]</span>
+And in this case the optimization itself is approximate. As a reminder, autoencoders are architectures where the input is fed through an encoder, in order to generate a low-dimensional embedding. And this low dimensional embedding or bottleneck is then used in the decoder in order to reconstruct the image. A lost function such as mean squared error can be used in order to minimize the difference between the input and the reconstruction.</p><p><span class="timestamp">[00:00:52]</span>
+The actual bottleneck features are hidden or latent variables. What we'd like them to be is disentangled factors of variation that produce an image. For example, in the case of handwritten digits, it can be what digit it is. The orientation, the scale and so on. Again, the key idea is that there exists some low dimensional set of factors that determine how the image is generated.</p><p><span class="timestamp">[00:01:16]</span>
+We can actually write down an equation for the likelihood that involves these latent variables which we call z, specifically, we can marginalize out the Z. So P of x can be just the integral of p of x given z here, also including theta, since it's the parametric model that we'll use times P(z), that is the prior over z times dz.</p><p><span class="timestamp">[00:01:41]</span>
+Now, if we could directly maximize this, then we're essentially maximizing the likelihood and optimizing the parameters. But we can't really do this. The integral doesn't allow us because it's intractable. Instead, what we're going to do is maximize what's called a variational lower bound that we can compute. Will show what this means in the next few slides.</p><p><span class="timestamp">[00:02:02]</span>
+The notion of variational autoencoders combines a set of ideas, including the probabilistic view of generative models where we have p of x, in this case p of x given z, some latent variables, and we try to use maximum likelihood to optimize the parameters, the notion of sampling where we'll actually sample z from a random distribution.</p><p><span class="timestamp">[00:02:25]</span>
+The notion of auto encoders rather than having just the decoder, which we'll have in other models will also have an encoder that actually takes an image and estimate the Z. And then we'll also have approximate optimization, which we'll talk about. Just as before, we'll start with a Z vector, where we sample from a random z in this case and then feed it through a decoder.</p><p><span class="timestamp">[00:02:48]</span>
+And again this decoder models are p of x given z with some parameters. And here the output rather than being just the image for example, it will be a Gaussian distribution parameter. Here specifically, it will be mu and Sigma. That is the mean and covariance matrix of the distribution.</p><p><span class="timestamp">[00:03:09]</span>
+We show them as vectors here, but they can just as well be images. And we know that for multi-variate Gaussian outputs, we're not actually going to output a complex, large covariance matrix. We're just going to output the diagonal covariance. We're going to assume that the different dimensions are independent.</p><p><span class="timestamp">[00:03:26]</span>
+So, this is essentially nothing but a decoder that rather than outputting deterministic thing, it outputs a set of parameters for a simpler distribution that we know how to sample from, for example, a Gaussian. So given a Z vector, we can feed it through the decoder, it gives us some mu and sigma.</p><p><span class="timestamp">[00:03:44]</span>
+And if we actually want to generate samples, we just sample from this Gaussian instead. The problem still remains. How can we maximize the likelihood for this model? And it turns out that if we also have an encoder, then actually we'll be able to derive some gradients that actually do quite well.</p><p><span class="timestamp">[00:04:01]</span>
+In this case, we'll have an encoder, where given an image will have Q of z given x with again, some new parameters fee. So this is a different model than the decoder. And again given x, it'll output not a particular z but it will output the parameters of a Gaussian distribution mu and sigma.</p><p><span class="timestamp">[00:04:22]</span>
+And if we wanna generate an actual z, we again just sample from this simpler Gaussian. So now we have both an encoder and a decoder. We can put the encoder and decoder together that is given real data. Again, the whole idea of all of these generative models is that we have samples from the distribution and we want a model p of x.</p><p><span class="timestamp">[00:04:43]</span>
+In this case, P of X given z because we'll estimate some latent variable, just like an autoencoder. So given a piece of data X or a mini batch of data, we'll estimate mu and sigma and then sample from that normal distribution to generate Z. Given Z's, we can then feed it through the decoder.</p><p><span class="timestamp">[00:05:02]</span>
+And then we can again estimate mu and sigma for x and then sample from that to generate samples. Again, if we want to use a standard straightforward autoencoder loss, we can just compare the reconstructed x with the original x, but in this case, we'll have a more sophisticated derivation of a loss function.</p><p><span class="timestamp">[00:05:21]</span>
+And so the question remains, How can we optimize the parameters of the two network, the encoder and the decoder? Again, we're going to use the principle of maximum likelihood just write out the term for log of probability of xi where xi is a sample. What's interesting here is that, since we have an encoder that can take a particular xi produce mu z and sigma z and actually sample from that Gaussian in order to produce z samples.</p><p><span class="timestamp">[00:05:51]</span>
+We can actually write this out as an expectation over q of z given x of the log probability of xi. One thing to note here is that the probability of xi doesn't actually depend on z. But we will see using Bayes rule, we can have terms that depend both on z and x.</p><p><span class="timestamp">[00:06:10]</span>
+Specifically, we can apply Bayes rule to get this term expectation over Q of z given x. That is, we are sampling many Z's from the encoder which takes an X and produces mu z and sigma z and then samples from it to produce different Z's. And then computing log of p of x given z, times P of the z divided by P of z given x.</p><p><span class="timestamp">[00:06:34]</span>
+Again, all we did here is apply Bayes' rule. We can multiply this by a constant, which is q of z given x divided by q of z given x, which is just one, so it doesn't change anything. And then we can apply a bunch of different manipulations just using the laws of logarithms.</p><p><span class="timestamp">[00:06:50]</span>
+Specifically, we take the top numerator log p of x given z and put it down here, we perform a minus and then log of Q of z given x divided by P of z. Because it's a minus, we flip the terms so that the terms that were on the numerator are now denominator and vice versa.</p><p><span class="timestamp">[00:07:13]</span>
+And then we take the rest of the terms here. Now what's interesting to note is that the expectations that we get on the right side, the two terms on the right are actually equivalent to a similarity measure called KL divergence. As an aside, KL divergence is a distance measure between probability distributions.</p><p><span class="timestamp">[00:07:34]</span>
+And we saw this being used. For example, to derive why we use the cross entropy loss. One thing to note is that it's always greater or equal to 0. So if two probability distributions are exactly the same, we'll have a KL divergence of 0, whereas if they're different than it can be unbounded.</p><p><span class="timestamp">[00:07:51]</span>
+The KL divergence is of P and Q is specifically defined as the cross entropy, H of p gamma q minus the entropy of P. And that can be written out estimations based on the definition of entropy. Now, if you remember, the definition of expectation is also defined as the summation where we're taking samples of F of X and we're weighting them by Q.</p><p><span class="timestamp">[00:08:16]</span>
+And so really what we can do is express KL-divergence as an expectation of log Q of Z minus expectation of log of P of Z given X. And we can also combine this to just say expectation of log of Q of Z divided by P of Z given X.</p><p><span class="timestamp">[00:08:33]</span>
+And so what you'll notice is that the terms that we ended up with are actually the definition of KL divergence. So what we're doing here when we're defining the log likelihood is first of all taking the expectation over Q that is samples Z of log of p of xi given z.</p><p><span class="timestamp">[00:08:54]</span>
+That is the log probability of the data given that particular latent variable minus the KL divergence between Q of z given x. That is our encoder and the prior probability distribution over z, p of z. And so this makes sense. We're trying to align the distribution of the outputs from our encoder and the prior distribution over z plus the KL divergence between q of z given x and P of z given x.</p><p><span class="timestamp">[00:09:27]</span>
+Now some of these terms are computable and some are not. The first term here, the expectation of log of p of x given z is actually just taking a bunch of z samples and then running them through our decoder network. If you remember the decoder network takes a Z vector and then outputs a mu x and sigma x and then we can sample from that to produce different x's.</p><p><span class="timestamp">[00:09:51]</span>
+The second part of the term here, is a KL divergence between Q of z given x and p of z. Both of these are Gaussian. If you remember Q of z given x is actually just our encoder network. That is it takes in an X and produces mu Z and sigma Z.</p><p><span class="timestamp">[00:10:08]</span>
+And then we can sample from that. But actually those parameters define a Gaussian. And so we're taking the KL divergence between a Gaussian with those parameters and P of Z, which we said is a prior over the Z. Which again, we assumed to be a Gaussian. And so all we're doing here is taking the KL divergence between the Z's that our encoder network outputs and the prior that we assume already over the Z's.</p><p><span class="timestamp">[00:10:34]</span>
+So we can compute this. The right hand side is actually intractable. We can't compute this term. And so what we're going to do is do basically just ignore it. We know that KL divergence is always greater or equal to zero. And so if we just maximize the first two terms here, we know that we'll still be making progress.</p><p><span class="timestamp">[00:10:54]</span>
+This is something called the variational lower bound or elbow. And it's actually a powerful technique that's used in many different places. The key idea is that if you are able to compute parts of your objective, that is a lower bound where the terms that you're ignoring are greater or equal to zero.</p><p><span class="timestamp">[00:11:12]</span>
+Then you can just maximize those terms and still make progress towards this objective. And so let's summarize how we can train our variational autoencoder. We'll have a mini batch of unlabeled data x, and we'll run it through our encoder. Q of z given x with parameters feed, this will be used to output parameters of a Gaussian distribution.</p><p><span class="timestamp">[00:11:34]</span>
+Again, this is an assumption we make mu z and sigma z. And so we're going to make the approximate Posterior distribution close to the prior. That is we're going to take the KL divergence between Q of z given x, which is what we're computing here, and P of z.</p><p><span class="timestamp">[00:11:51]</span>
+Again this can be assumed to be a normal distribution, let's say with a mean of zero and standard deviation of one for example, and this is a KL divergence between two Gaussian distributions which actually can be computed in closed form. We can then sample from this and generate a bunch of Z.</p><p><span class="timestamp">[00:12:09]</span>
+And then we feed it through our decoder, which feeds it through P of X given Z with parameters theta and generates mu X and sigma X. And now we can essentially maximize the likelihood of the original data being reconstructed. That is we're going to maximize the log p of x given z, which is what our decoder is computing here.</p><p><span class="timestamp">[00:12:35]</span>
+And so again, this is what we want to optimize or maximize in this case. We want to maximize the likelihood and we computer the likelihood to be these terms again. There's an extra term that we ignored because we're performing the lower bound optimization. We showed the forward propagation, but one problem is that we are trying to back propagate through a sampling function.</p><p><span class="timestamp">[00:12:59]</span>
+Again, when we take the z given X and try to sample from the mu z and sigma Z, we're performing some sampling operation, and then we try to feed it through the decoder and then we want to generate some exes or parameters for exes. And then we have a loss function that we compute from there.</p><p><span class="timestamp">[00:13:17]</span>
+But then we wanna back propagate through this entire thing all the way back to the original encoder. The problem is you can't actually back propagate through sampling. It's non differentiable. So there's something called a reparameterization trick, which allows you to do the sampling. Specifically we need to differentiate through sampling process with respect to fee our encoder, which is probabilistic.</p><p><span class="timestamp">[00:13:43]</span>
+The way we solve this is by moving the sampling part out of the part of the computation graph that has to go all the way back to the encoder. Specifically, we're going to make the random this independent of the encoder output. We'll sample from a normal distribution with a mean of zero and identity covariance matrix.</p><p><span class="timestamp">[00:14:01]</span>
+And then we'll essentially take that output which we call epsilon here and multiply it by the sigma and then add it to the mu, the mean. And so rather than sampling from an of N of mu gamma sigma, we're sampling from N of zero gamma identity and then we're also taking that output that we sample and multiplying it with the sigma that the encoder output.</p><p><span class="timestamp">[00:14:28]</span>
+Then we add it back to the mean. The reason this works has some mathematical derivations and specifically for the normal distribution, you can try to prove it for some other distributions as well, but not all distributions have this trick enabled. But the key idea is that using this trick allows us to have a computation graph where if we back propagate all the way back to the encoder, it doesn't go through the sampling process.</p><p><span class="timestamp">[00:14:51]</span>
+The sampling process, as you can see here is actually out of the way of the path that we actually need. And so you can actually use variational autoencoders in order to again generate samples. And what you can do is you can actually at the end, take the decoder and then try to feed it in different random Z's, again sampled from a normal distribution with a zero mean and unit variance for example.</p><p><span class="timestamp">[00:15:16]</span>
+And then try to actually sample multiple Z and try to see how well these samples look. You can also do what's called walking the latent space, that is you can take a Z1 that is one dimension of your latent space Z2, which is another dimension, and then you can actually interpolate between them.</p><p><span class="timestamp">[00:15:35]</span>
+So rather than sample the Z's, you could just take for example, for z one, all values from zero to one via some interpolation in between and similarly to Z2, and then take those values and generate the samples for each of those. And what you can see is some smoothness in the dimensionality of the Z.</p><p><span class="timestamp">[00:15:54]</span>
+That is, if you take 21, it seems to correspond something to do with smiles. For example, if 21 is at the top, you have a frown face, whereas if 21 is at the bottom value, a low value for 21 then you have smiling. For Z2 you can see perhaps something different being encoded such as orientation of the face.</p><p><span class="timestamp">[00:16:16]</span>
+You can see that the left of the x axis tends to be the one orientation, whereas the right side of the space for Z2 is a different orientation. And you see a nice smooth interpolation between these. And you can see some similar things for training in this ten written digit data set.</p><p><span class="timestamp">[00:16:35]</span>
+And so it is actually learning some disentangled space where each dimension of your latent space is representing some sort of attribute independently. And we can actually generate samples for what that means. In summary variational autoencoders provide a principled way to perform approximate, maximum likelihood optimization. We have a bunch of assumptions, for example, that the prior distribution over Z is normally distributed with some hand-coded mean and standard deviation.</p><p><span class="timestamp">[00:17:05]</span>
+And we also assume that the encoder and decoder both output parameters of Gaussian distribution. However, given those assumptions, we can then derive what the log likelihood terms can be. And we can actually perform a maximization of that log likelihood. Albeit it's an approximation because there are some terms that we can't compute and so we ignore.</p><p><span class="timestamp">[00:17:25]</span>
+The samples from VAEs are actually not that competitive with GANs, they tend to be blurry. However, the latent space that it tends to learn in an unsupervised way are actually pretty effective for downstream tasks. One example, is this cool reference on world models that is learning latent features, given some input from a game, for example, images of a game, and we can then learn the dynamics of that latent space.</p><p><span class="timestamp">[00:17:50]</span>
+For example, how the latent space evolves over time as you play the game. And this is essentially a simulator that you learned, also known as a world model. And you can actually perform reinforcement learning within the simulator that you learned rather than actually having to gather real world experience in the game.</p><p><span class="timestamp">[00:18:08]</span>
+This is just one example. There's lots of other examples of downstream tasks that use the latent features which are nicely disentangled in many cases and pretty effective.</p><p></p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Policy Gradients and Actor-Critic Methods - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2 class="section-title">Quiz: Policy Gradients and Actor-Critic Methods</h2>
+  <div class="quiz-container">
+    <div class="question" data-question-index="0">
+      <h3>Question 1 (True/False)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="true">
+          <label for="q0-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="false">
+          <label for="q0-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> True  
+<strong>Explanation:</strong>  
+Policy-based methods directly parameterize and optimize a policy.  
+<blockquote>"Policy based methods on the other hand directly parameterize a policy and optimize it to maximize returns."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="1">
+      <h3>Question 2 (Multi-Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
+          <label for="q1-o0">Value-based methods optimize value functions, while policy-based methods optimize policies directly</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
+          <label for="q1-o1">Policy-based methods can naturally handle continuous action spaces, unlike basic value-based methods</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="false">
+          <label for="q1-o2">Value-based methods typically use epsilon-greedy exploration, while policy-based methods can learn stochastic policies</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="false">
+          <label for="q1-o3">Policy-based methods learn a Q-function before training a policy</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
+          <label for="q1-o4">Value-based methods indirectly derive policies (e.g., greedy with respect to Q), while policy-based methods represent policies explicitly</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o5" name="q1" value="5" data-correct="false">
+          <label for="q1-o5">Value-based methods require discretization of continuous action spaces</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Optimize different targets (values vs policies), ✅ Different handling of continuous actions, ✅ Different exploration approaches, ✅ Indirect vs explicit policy representation, ✅ Different discretization requirements  
+<strong>Explanation:</strong>  
+Value-based and policy-based methods differ in several fundamental ways.  
+<blockquote>"Among the types of methods using RL value based methods learn q functions... Policy based methods... directly parameterize a policy..."</blockquote>
+<blockquote>"Policy-based methods have some advantages... they can naturally handle continuous action spaces."</blockquote>
+<blockquote>"Value-based methods derive policies indirectly, typically by being greedy with respect to the learned value function."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="2">
+      <h3>Question 3 (Multiple Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
+          <label for="q2-o0">Sampling trajectories using the current policy</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">Computing gradients with respect to a value function</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="true">
+          <label for="q2-o2">Applying the log-derivative trick to compute the gradient</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">Using a fixed reward function for supervised updates</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> Sampling trajectories using the current policy, Applying the log-derivative trick to compute the gradient  
+<strong>Explanation:</strong>  
+REINFORCE involves sampling data and using the log-derivative trick to compute gradients.  
+<blockquote>"We simply need to collect a small batch of trajectories using the current pi theta..."</blockquote>  
+<blockquote>"...in order to apply a relation known as the log derivative trick..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="3">
+      <h3>Question 4 (Multi-Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">To simplify the integral of the gradient of a probability density</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">To convert a complex gradient computation into an expectation that can be sampled</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">To avoid computing derivatives of transition dynamics</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">To enable gradient estimation without knowing the environment model</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
+          <label for="q3-o4">To facilitate policy optimization via stochastic gradient ascent</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
+          <label for="q3-o5">To ensure the Q-function remains differentiable</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Simplify integral of gradient, ✅ Convert to expectation for sampling, ✅ Avoid derivatives of dynamics, ✅ Enable model-free gradient estimation, ✅ Facilitate stochastic gradient ascent  
+<strong>Explanation:</strong>  
+The log-derivative trick has several important benefits in policy gradient algorithms.  
+<blockquote>"...we can write the expectation as an integral... and apply a relation known as the log derivative trick..."</blockquote>
+<blockquote>"This allows us to express the gradient in terms of an expectation, which we can then estimate by sampling."</blockquote>
+<blockquote>"The policy gradient theorem provides a way to compute policy gradients without knowing the dynamics of the environment."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="4">
+      <h3>Question 5 (True/False)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="true">
+          <label for="q4-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> True  
+<strong>Explanation:</strong>  
+Gradient updates push the probability of successful actions higher.  
+<blockquote>"...the gradient update will push the probability of the chosen actions to be either higher or lower depending on the sign and magnitude of the total reward..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="5">
+      <h3>Question 6 (Multiple Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">It cannot compute gradients for deterministic policies</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">It suffers from high variance in gradient estimates</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="false">
+          <label for="q5-o2">It requires knowledge of transition probabilities</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="true">
+          <label for="q5-o3">It does not assign credit to individual actions within a trajectory</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> It suffers from high variance in gradient estimates, It does not assign credit to individual actions within a trajectory  
+<strong>Explanation:</strong>  
+REINFORCE suffers from variance and lacks fine-grained credit assignment.  
+<blockquote>"...we are left with a coarse level feedback for the entire sequence..."</blockquote>  
+<blockquote>"...New variants of this algorithm have been proposed that aim to reduce the variance..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="6">
+      <h3>Question 7 (Multi-Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
+          <label for="q6-o0">They reduce variance in gradient estimation</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">They preserve the expected value of the gradient</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="true">
+          <label for="q6-o2">They can be state-dependent functions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">They are often implemented as value function approximations</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
+          <label for="q6-o4">They ensure deterministic transitions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
+          <label for="q6-o5">They help address the credit assignment problem in long trajectories</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Reduce variance, ✅ Preserve expected gradient, ✅ Can be state-dependent, ✅ Often implemented as value functions, ✅ Help with credit assignment  
+<strong>Explanation:</strong>  
+Baselines serve several important purposes in policy gradient methods.  
+<blockquote>"...subtracting some baseline... will preserve the mean... while possibly reducing the variance..."</blockquote>
+<blockquote>"We can use a state-dependent baseline such as a value function approximation."</blockquote>
+<blockquote>"A good baseline helps distinguish which actions were actually better than average, addressing the credit assignment problem."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="7">
+      <h3>Question 8 (True/False)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="true">
+          <label for="q7-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> False  
+<strong>Explanation:</strong>  
+Subtracting a baseline that does not depend on action preserves the mean.  
+<blockquote>"...subtracting some baseline... will preserve the mean of the gradient expectation..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="8">
+      <h3>Question 9 (Multi-Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="true">
+          <label for="q8-o0">The advantage function (Q minus V) is used in Advantage Actor-Critic</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">TD error can be used as an unbiased estimate of the advantage</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
+          <label for="q8-o2">State-value functions serve as baselines for variance reduction</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
+          <label for="q8-o3">A combination of n-step returns and value estimates can be used</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="false">
+          <label for="q8-o4">Importance sampling weights are applied when using off-policy data</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o5" name="q8" value="5" data-correct="false">
+          <label for="q8-o5">Raw rewards without any baseline are optimal for stable training</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Advantage function (Q minus V), ✅ TD error as advantage estimate, ✅ State-value functions as baselines, ✅ Combination of n-step returns and values, ✅ Importance sampling for off-policy  
+<strong>Explanation:</strong>  
+Actor-critic methods use various signals and scaling factors to improve performance.  
+<blockquote>"...advantage actor-critic that substitutes the reward with the advantage... defined as the Q function minus the V function."</blockquote>
+<blockquote>"TD error can be used as an unbiased sample of the advantage function."</blockquote>
+<blockquote>"State-value functions provide effective baselines that reduce variance while preserving the expected gradient."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="9">
+      <h3>Question 10 (Multiple Select)  </h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
+          <label for="q9-o0">A learned Q-function</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="true">
+          <label for="q9-o1">Policy gradient updates</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="true">
+          <label for="q9-o2">Advantage estimates</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="true">
+          <label for="q9-o3">A reward baseline derived from the policy’s V-function</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> A learned Q-function, Policy gradient updates, Advantage estimates, A reward baseline derived from the policy’s V-function  
+<strong>Explanation:</strong>  
+Actor-Critic methods include all of these elements as discussed.  
+<blockquote>"...actor-critic algorithm that replaces rewards with the Q function..."</blockquote>  
+<blockquote>"...advantage actor-critic... defined as the Q function minus the V function."</blockquote></div>
+    </div></div>
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

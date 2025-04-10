@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18.2 Semi-Supervised Learning - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      
+        <h2 class="section-title">18.2 Semi-Supervised Learning</h2>
+        <div class="transcript-container">
+          <div class="transcript">
+            <p><span class="timestamp">[00:00:00]</span>
+>> In this lesson, we'll talk about Semi-Supervised Learning. Here, we have a set of labeled data, again, a small amount of labeled data, typically, for example, 10 to 20 per category. And then we have a much larger, unlabeled data. And so we'll try to understand what we can possibly do in order to learn both effective feature representation, as well as classifiers.</p><p><span class="timestamp">[00:00:22]</span>
+In Semi-Supervised Learning, we have a smaller amount of labelled data and a much larger amount of unlabeled data. Again, this is because it's often much cheaper to get data, for example by scraping from the web rather than getting annotations, which requires human effort. So the key question is, can we overcome the small amount of labeled data that we have using the larger amount of unlabeled data?</p><p><span class="timestamp">[00:00:48]</span>
+Specifically, this is what we might want the Semi-Supervised Learning algorithms to look like. On the x-axis, we show amount of labeled data increasing from left to right. And on the y-axis, we see the performance. Now traditional Semi-Supervised Learning methods look like the curves on the left. We had a particular performance obtained by Supervised Learning, just training on whatever data is available and not actually using unlabeled data.</p><p><span class="timestamp">[00:01:16]</span>
+Semi-Supervised Learning algorithms on the other hand, leverage unlabeled data and so they can get some performance gains, especially when there's a small amount of labeled data. But they really plateaued out and started to underperform the baseline of just training on the labeled data that you have. On the right side, we see how we would like Semi-Supervised Learning methods to perform, and to some degree and on some datasets currently do.</p><p><span class="timestamp">[00:01:42]</span>
+What we have is the Semi-Supervised Learning methods outperform the supervised even as we have lots of labeled data. This is because we have the additional unlabeled data. You might think that you might be able to get some additional signal from that unlabeled data, to eke out a little bit of extra performance, even beyond the Supervised Learning algorithm when you have lots of data.</p><p><span class="timestamp">[00:02:05]</span>
+Of course, this gain won't be as large as in the low-labeled regime. Because in the low-labeled regime you can make much more effective use of an unlabeled data. There are several simple ideas that actually work decently in the Semi-Supervised Learning context. For example, we can learn the model on just the labeled data.</p><p><span class="timestamp">[00:02:26]</span>
+Of course, this model won't be very good, but it might be good enough, especially in the Semi-Supervised Learning context where we have at least 10 examples per category. We can then use that model to make predictions on the unlabeled data. And we can add the ones that are confident into the training set.</p><p><span class="timestamp">[00:02:43]</span>
+And then repeat this procedure where we then retrain the original model on the new training set. And then make new predictions on the unlabeled data. You can combine this idea in order to make it much more effective with what's called co-training. That is prediction across multiple views. This is actually a very old paper from 1998 that applied this, of course not to neural networks but other machine learning methods.</p><p><span class="timestamp">[00:03:08]</span>
+In the deep-learning context, we can just train as normal on the labeled data using losses such as cross entropy. And then we can perform the pseudo-labeling approach across multiple views of an image. We can take an unlabeled example and perform augmentation on it, specifically two types of augmentation, a weak type and a strong type.</p><p><span class="timestamp">[00:03:31]</span>
+On the weak type, we just apply the model, get predictions and then threshold the examples by confidence. We'll throw out the unlabeled examples from the pseudo-labeling set if they're not very confident. Once we have the confident ones, we can obtain the actual pseudo-label rather than actually use the soft distribution.</p><p><span class="timestamp">[00:03:52]</span>
+We'll convert it into a one-hot vector using argmax. There's other types of sharpening methods as well if we want. Now that we have a pseudo-label for this image, we'll also augment it again, using a strong augmentation, such as CutOut. We'll again, apply it through the model. Get some predictions.</p><p><span class="timestamp">[00:04:10]</span>
+And here, we'll use cross-entropy, where we use the pseudo-label as the quote unquote ground truth, even though it's not really human annotation, and it could be noisy. Again, the reason we have two branches here is because we can use weak augmentation in order to make predictions that are pretty decent.</p><p><span class="timestamp">[00:04:29]</span>
+Because we're not augmenting the image too much, we're not gonna destroy the predictions too much. On the other hand, the strong augmentations on the bottom, will make it much more challenging for the model. So that's actually what we're going to use for the backpropagation. We'll have hopefully, much more certain and much more accurate pseudo-labels because we use weak augmentation.</p><p><span class="timestamp">[00:04:53]</span>
+And we'll use those as the answer or the ground truth to train the bottom branch. This is an algorithm called FixMatch. That's pretty recent. And has proven extremely effective in the Semi-Supervised Learning context. In deep-learning, there are several ways to instantiate this idea. In the previous slides, I hinted that there would be two stages where we train the supervised model on the label data.</p><p><span class="timestamp">[00:05:16]</span>
+And then we apply that model on unlabeled data. Obtain pseudo-labels for those predictions that are confident. And feed those back into the training set. Again, we'll retrain the supervised model. The beauty of deep-learning is that we don't actually have to do this in multiple stages. We can have this entire pipeline trained in an end to end manner.</p><p><span class="timestamp">[00:05:40]</span>
+Specifically, we can have the mini batch consist of both labeled and unlabeled examples. For the labeled part of the mini batch, it goes through the traditional pipeline. We'll extract features, make predictions and then use cross-entropy loss because we have ground truth labels annotated by humans. For the unlabeled examples, we'll apply two types of augmentations.</p><p><span class="timestamp">[00:06:03]</span>
+Again do feature extraction and prediction. And then use the predictions obtained on the weakly augmented labeled data, not in its own loss functions, but really as ground truth for the loss from the strongly augmented data. Specifically, this is what the loss function looks for the unlabeled part. We'll have a batch size B, for example, 64 examples for the labelled part.</p><p><span class="timestamp">[00:06:29]</span>
+And then we'll have a multiplication factor here, for example 7. So our unlabeled mini batch size will actually be much larger than the labeled part. And here we just sum up the loss function and averages. And our specific loss function will include the cross-entropy loss H, between the pseudo-label Q hat B and our predictions from the strongly augmented data QB.</p><p><span class="timestamp">[00:06:57]</span>
+And then we'll also have this indicator function, which looks like a 1, that only applies this to the predictions that have some greater than a threshold prediction. Even though this algorithm is extremely simple, it took a while for researchers to arrive at it as an effective Semi-Supervised Learning algorithm.</p><p><span class="timestamp">[00:07:18]</span>
+This is probably due to various reasons. One example is that pseudo labeling in its vanilla form without performing data augmentation, that is multi-view pseudo-labeling, is actually not as effective. And this means also that we needed good data augmentation algorithms, which also took a while to independently be derived.</p><p><span class="timestamp">[00:07:40]</span>
+Finally, doing this in multiple stages is also not as effective as doing it end to end. However, there's always tuning and hyper-parameters that are required to optimize this type of system. For example, the batch sizes used for most of the datasets were 64 for the labeled set, and 448 for the unlabeled set.</p><p><span class="timestamp">[00:08:02]</span>
+This actually turns out to be quite key that is large, unlabeled batch sizes are actually required for this algorithm to perform very well. The confidence threshold for pseudo-labeling is also very important. If this threshold is incorrect, then the pseudo-labels will be very noisy. And so that means that the training may in some sense be corrupted.</p><p><span class="timestamp">[00:08:24]</span>
+That is your weights will be optimized using incorrect labels. On the flip side, if this threshold is too strict, then we won't have many pseudo-labels that are added. And so essentially, you're not doing much with the unlabeled data. Other tricks, such as specialized learning rate, such as cosine learning rate scheduler, were also key to effectiveness.</p><p><span class="timestamp">[00:08:47]</span>
+Note that the hyper-parameters differ for larger datasets, such as ImageNet. For example, here, the batch sizes were quite huge in order to get this to work well on ImageNet. In fact, these batch sizes don't really fit in single or even a few GPUs. You really need a cluster across many different systems in order to train such a model with such a large batch size.</p><p><span class="timestamp">[00:09:11]</span>
+The confidence threshold is also varied, probably because the dataset is much more difficult. And again, if you're too strict on a difficult dataset, then you won't have many pseudo-labels. And so nothing will really change beyond Supervised Learning. Finally, inference is actually done with exponential moving average of weights.</p><p><span class="timestamp">[00:09:31]</span>
+Specifically, the weights at time t, or some combination where you have a hyper-parameter alpha, times the weights at time t, minus one, plus one, minus alpha, times the weights of time t. Specifically, this can be seen as an exponential moving average if you work out the math. And so what you're doing is averaging or ensembling the parameters across the iterations.</p><p><span class="timestamp">[00:09:58]</span>
+This turns out to make the training much more smooth or stable, as well as increases performance. If you look at the performance on datasets such as CIFAR-10, CIFAR-100, or SVHN, it's extremely strong. In fact, if you have 4,000 labels rather than 25,000 labels, you get a pretty small error rate, which is what these tables show on these datasets.</p><p><span class="timestamp">[00:10:25]</span>
+Even on 40 labels, which again for CIFAR-10 is 4 labels per category, the performance degradation is actually not that bad compared to 4,000 labels. Similarly, for larger datasets, such as CIFAR-100, you get a pretty gentle degradation. It still doesn't work very well for very few shots settings where you have, let's say, 4 labeled examples, but it's still much better than the current state of the art at the time.</p><p><span class="timestamp">[00:10:53]</span>
+One of the nice things about pseudo-labeling based approaches is that they can be scaled up, again because it's easy to obtain unlabeled data. We can actually get some datasets with hundreds of millions or billions of examples. And we can perform the pseudo-labeling again using this teacher/student type idea where we have the teacher model be trained on the labeled data.</p><p><span class="timestamp">[00:11:17]</span>
+We then make predictions on a very gigantic unlabeled dataset. We use that to train a student model. And then we finally, fine tune it on some dataset in order to test performance. Again, here we have a Semi-Supervised Learning setting where your labeled dataset is actually pretty small in terms of the number of labeled data that it has.</p><p><span class="timestamp">[00:11:42]</span>
+And so, what you can see is that as you increase the dataset, specifically the unlabeled data into hundreds of millions or even billions, the performance continues to improve. And in fact, in some cases, we still haven't hit the plateau. There's a whole number of other methods that were developed before this FixMatch algorithm, and since then.</p><p><span class="timestamp">[00:12:03]</span>
+FixMatch itself was derived from a number of iterations called MixMatch and ReMixMatch, which were much more complex variations of the same idea. You use things like temperature scaling or entropy minimization losses in order to make the training more stable. And rather than perform this strong and weak augmentation, it actually used an ensembling, that is it performed multiple types of augmentations on the same image.</p><p><span class="timestamp">[00:12:30]</span>
+And then in order to improve the pseudo-labels, combined the predictions from each of those together. There's also interesting ideas called Virtual Adversarial Training, which rather than performing hand-coded augmentations, actually learns adversarial examples through backpropagation, which we've learned about, in order to generate the augmentations. And then these are used through a pseudo-labeling type of approach.</p><p><span class="timestamp">[00:12:55]</span>
+Note that there are other methods besides pseudo-labeling or Semi-Supervised Learning, although recently they haven't been as effective as algorithms such as FixMatch. For example, there's a class of algorithms called Label Propagation, which allow you to essentially learn, again, feature extractors. And then you can take those feature extractors and apply it on the unlabeled data.</p><p><span class="timestamp">[00:13:19]</span>
+And actually propagate information between the unlabeled and labeled data in a manner that respects for example, the similarity in a clustering sense across the data. That is, we want the unlabeled examples to be labeled similarly to the labeled examples based on how close the features are to such labeled examples.</p><p><span class="timestamp">[00:13:39]</span>
+This is somewhat akin to pseudo-labeling, except we actually leverage this clustering assumption, the fact that nearby elements should be labeled similarly. This is something that's akin to k-nearest neighbor, for example. But there's other optimization methods that can do similar things, but in a more sophisticated manner. Again, this is another way to perform pseudo-labeling except maybe in a way that's more than just learning a model on the labeled data and applying it to the unlabeled data.</p><p><span class="timestamp">[00:14:09]</span>
+You're actually using things like k-nearest neighbor type optimizations in order to propagate labels from the labeled data to the unlabeled data. In summary, we can now use unlabeled data to successfully improve supervised learning. This is quite a big deal because unlabeled data is very common these days. What's really nice is that the methods have actually gotten simpler.</p><p><span class="timestamp">[00:14:32]</span>
+And now all they use are very simple ideas, such as data augmentation and pseudo-labeling. And less necessary, label propagation, although who knows what the future holds for more sophisticated ways to get better pseudo-labels. What's really nice is that the methods also scale to very large unlabeled data sets.</p><p><span class="timestamp">[00:14:53]</span>
+Although it's not really clear how many labels each unlabeled data is worth. That is if we have a particular set or number of labels, let's say a large number of labels, how much unlabeled data do we need if we only have a fraction of those labels? It's intuitive to think that you probably need much more unlabeled data because you're getting a weaker signal, but it's not quite clear.</p><p><span class="timestamp">[00:15:18]</span>
+It's also important to note that, this area is not a solved problem yet, although we can get very strong performance on academic data sets such as CIFAR-10 or 100. If you apply these methods to real-world datasets, which for example might have much larger amount of label noise. Or much more difficult input data, such as satellite imagery.</p><p><span class="timestamp">[00:15:39]</span>
+Then these methods perform much better than normal supervised learning, but may not perform as well as some of the academic datasets. Then these methods perform much better than normal supervised learning, but may not perform as well as some of the academic datasets.</p><p></p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>
