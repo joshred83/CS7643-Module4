@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Answer Key: Algorithms for Solving MDPs - CS7643 Module 4</title>
+  <title>Quiz:  - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -47,135 +49,119 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Answer Key: Algorithms for Solving MDPs</h2>
+      <h2 class="section-title">Quiz: </h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
-      <h3>Question 1  </h3>
+    <div class="question" data-question-index="1">
+      <h3>Question 1 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Deep Q-Learning avoids full for-loops and instead uses function approximation and minibatches.  
 <blockquote>"Instead of having a for loop over all states to update the Q-network, as was done in Q-iteration, we introduced a regression objective..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="1">
-      <h3>Question 2  </h3>
+    <div class="question" data-question-index="2">
+      <h3>Question 2 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> It provides a recursive objective for value prediction  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The Bellman equation is used to generate Q-value targets recursively.  
 <blockquote>"The update for our Q-network will again be inspired, by the recursive bellman optimality equation."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
-      <h3>Question 3  </h3>
+    <div class="question" data-question-index="3">
+      <h3>Question 3 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Gradient descent updates, A fixed replay buffer for data sampling, A target Q-network updated periodically  
+      <div class="explanation">-network updated periodically  
 <strong>Explanation:</strong>  
 Training involves minibatch gradient descent, a replay buffer, and two networks (Qnew and Qold).  
 <blockquote>"We introduced a regression objective..."</blockquote>  
 <blockquote>"Two copies of the Q-network are maintained... Qold and Qnew..."</blockquote>  
 <blockquote>"Deep Q-learning employs an experience replay buffer..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="3">
-      <h3>Question 4  </h3>
+    <div class="question" data-question-index="4">
+      <h3>Question 4 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> To stabilize training by decoupling target predictions  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Using a separate Qold network helps reduce instability in loss updates.  
 <blockquote>"Using a single Q-network, makes the loss minimization unstable... Instead, two copies... are maintained..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
-      <h3>Question 5  </h3>
+    <div class="question" data-question-index="5">
+      <h3>Question 5 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Two Q-networks are maintained: one for predictions (Qnew) and one as a fixed target (Qold).  
 <blockquote>"Qnew parameters are updated while preventing any update to the Qold parameters."</blockquote></div>
     </div>
-    <div class="question" data-question-index="5">
-      <h3>Question 6  </h3>
+    <div class="question" data-question-index="6">
+      <h3>Question 6 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> It can prevent exploration of better strategies, It causes training data to be highly correlated  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Using a greedy data collection policy limits exploration and causes data bias.  
 <blockquote>"...it will not have incentive to explore other less rewarding states..."</blockquote>  
 <blockquote>"The data... will be highly correlated with similar states, actions and rewards."</blockquote></div>
     </div>
-    <div class="question" data-question-index="6">
-      <h3>Question 7  </h3>
+    <div class="question" data-question-index="7">
+      <h3>Question 7 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> It balances exploration and exploitation during data gathering  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Epsilon-greedy selects random actions occasionally to encourage exploration.  
 <blockquote>"...a random action is chosen with a typically small epsilon probability, and the greedy action is selected otherwise."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
-      <h3>Question 8  </h3>
+    <div class="question" data-question-index="8">
+      <h3>Question 8 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Replay buffers store a range of past experiences, not just recent ones, to reduce correlation.  
 <blockquote>"The buffer is a finite size and older samples are discarded in favor of newer ones... to lower the correlation..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="8">
-      <h3>Question 9  </h3>
+    <div class="question" data-question-index="9">
+      <h3>Question 9 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Using two separate Q-networks, Sampling random minibatches from past experiences  
+      <div class="explanation">-networks, Sampling random minibatches from past experiences  
 <strong>Explanation</strong></div>
     </div>
-    <div class="question" data-question-index="9">
-      <h3>Question 10  </h3>
+    <div class="question" data-question-index="10">
+      <h3>Question 10 (Multiple Choice)</h3>
       <p></p>
       <div class="options">
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation">Answer not found</div>
+      <div class="explanation">[Need to manually determine]
+Answer not found</div>
     </div></div>
     </div>
   </div>

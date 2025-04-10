@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz: Variational Autoencoders (VAEs) - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -49,318 +51,301 @@
     <div class="content">
       <h2 class="section-title">Quiz: Variational Autoencoders (VAEs)</h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
+    <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)</h3>
-      <p></p>
+      <p>VAEs are generative models that maintain an explicit density model of the data.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="true">
-          <label for="q0-o0">True</label>
+          <input type="radio" id="q1-o0" name="q1" value="0" data-correct="true">
+          <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="false">
-          <label for="q0-o1">False</label>
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="false">
+          <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> True  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 VAEs explicitly model the density function \( p(x) \), unlike GANs.  
 <blockquote>"Variational autoencoders, which again are explicit density models, but that which have approximate densities."</blockquote></div>
     </div>
-    <div class="question" data-question-index="1">
+    <div class="question" data-question-index="2">
       <h3>Question 2 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the role and properties of the Variational Lower Bound (ELBO) in VAEs? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
-          <label for="q1-o0">It addresses the intractability of the marginal likelihood</label>
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
+          <label for="q2-o0">A. It addresses the intractability of the marginal likelihood</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
-          <label for="q1-o1">It allows for an indirect optimization of the log-likelihood</label>
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
+          <label for="q2-o1">B. It allows for an indirect optimization of the log-likelihood</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="false">
-          <label for="q1-o2">It imposes a regularization effect on the latent space</label>
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="true">
+          <label for="q2-o2">C. It imposes a regularization effect on the latent space</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="false">
-          <label for="q1-o3">It enables direct sampling from the true posterior</label>
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. It enables direct sampling from the true posterior</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
-          <label for="q1-o4">It provides a tractable objective function for optimization</label>
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="true">
+          <label for="q2-o4">E. It provides a tractable objective function for optimization</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o5" name="q1" value="5" data-correct="false">
-          <label for="q1-o5">It completely eliminates the need for approximating the posterior</label>
+          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
+          <label for="q2-o5">F. It completely eliminates the need for approximating the posterior</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Addresses intractability of marginal likelihood, ✅ Allows indirect optimization of log-likelihood, ✅ Imposes regularization effect, ✅ Provides tractable objective function  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The ELBO is used because computing the marginal likelihood directly is intractable, and it provides a lower bound that can be optimized.  
 <blockquote>"Now, if we could directly maximize this, then we're essentially maximizing the likelihood... But we can't really do this. The integral doesn't allow us because it's intractable. Instead, what we're going to do is maximize what's called a variational lower bound..."</blockquote>
 <blockquote>"The KL divergence term in the ELBO acts as a regularizer that constrains the approximate posterior to be close to the prior."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
-      <h3>Question 3 (Multiple Select)</h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
-          <label for="q2-o0">Encoder</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
-          <label for="q2-o1">Discriminator</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="true">
-          <label for="q2-o2">Decoder</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="true">
-          <label for="q2-o3">Variational objective</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
-          <label for="q2-o4">Contrastive loss</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Encoder, Decoder, Variational objective  
-<strong>Explanation:</strong>  
-VAEs consist of an encoder and decoder, trained using a variational lower bound (ELBO).  
-<blockquote>"We'll have an encoder... a decoder... and a variational lower bound that we can compute."</blockquote></div>
-    </div>
     <div class="question" data-question-index="3">
-      <h3>Question 4 (Multi-Select)</h3>
-      <p></p>
+      <h3>Question 3 (Multiple Select)</h3>
+      <p>Which components are part of the VAE architecture?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
-          <label for="q3-o0">It penalizes deviation of the learned distribution from the prior</label>
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
+          <label for="q3-o0">A. Encoder</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="true">
-          <label for="q3-o1">It acts as a regularizer on the latent space</label>
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">B. Discriminator</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
-          <label for="q3-o2">It ensures the latent space has a well-defined probability density</label>
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="true">
+          <label for="q3-o2">C. Decoder</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
-          <label for="q3-o3">It measures how well images are reconstructed</label>
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="true">
+          <label for="q3-o3">D. Variational objective</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
-          <label for="q3-o4">It encourages a smooth, continuous latent space</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
-          <label for="q3-o5">It forces the encoder to learn a specific fixed mapping</label>
+          <label for="q3-o4">E. Contrastive loss</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Penalizes deviation from the prior, ✅ Acts as a regularizer, ✅ Ensures well-defined probability density, ✅ Encourages smooth continuous latent space  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
+VAEs consist of an encoder and decoder, trained using a variational lower bound (ELBO).  
+<blockquote>"We'll have an encoder... a decoder... and a variational lower bound that we can compute."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="4">
+      <h3>Question 4 (Multi-Select)</h3>
+      <p>Which of the following accurately describe the purpose and effects of the KL divergence term in the VAE loss function? (Select all that apply)</p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
+          <label for="q4-o0">A. It penalizes deviation of the learned distribution from the prior</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
+          <label for="q4-o1">B. It acts as a regularizer on the latent space</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="true">
+          <label for="q4-o2">C. It ensures the latent space has a well-defined probability density</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. It measures how well images are reconstructed</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="true">
+          <label for="q4-o4">E. It encourages a smooth, continuous latent space</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o5" name="q4" value="5" data-correct="false">
+          <label for="q4-o5">F. It forces the encoder to learn a specific fixed mapping</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation"><strong>Explanation:</strong>  
 The KL term ensures that the learned latent distribution does not deviate too far from the prior (typically Gaussian), which regularizes the latent space.  
 <blockquote>"The second part of the term here, is a KL divergence between Q of z given x and p of z... And so we're taking the KL divergence between the Z's that our encoder network outputs and the prior..."</blockquote>
 <blockquote>"This regularization ensures that the latent space has meaningful properties that allow for sampling and interpolation."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
+    <div class="question" data-question-index="5">
       <h3>Question 5 (True/False)</h3>
-      <p></p>
+      <p>The reparameterization trick enables backpropagation through the sampling process in VAEs.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="true">
-          <label for="q4-o0">True</label>
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="true">
+          <label for="q5-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="false">
-          <label for="q4-o1">False</label>
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="false">
+          <label for="q5-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> True  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The reparameterization trick allows the model to be differentiable despite sampling.  
 <blockquote>"The problem is you can't actually back propagate through sampling... So there's something called a reparameterization trick... which allows you to do the sampling."</blockquote></div>
     </div>
-    <div class="question" data-question-index="5">
+    <div class="question" data-question-index="6">
       <h3>Question 6 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the properties and outputs of the decoder in a VAE? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="true">
-          <label for="q5-o0">The decoder outputs parameters of a Gaussian distribution</label>
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
+          <label for="q6-o0">A. The decoder outputs parameters of a Gaussian distribution</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="false">
-          <label for="q5-o1">The decoder maps from latent space back to data space</label>
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="true">
+          <label for="q6-o1">B. The decoder maps from latent space back to data space</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="false">
-          <label for="q5-o2">The decoder models the conditional probability p(x|z)</label>
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="true">
+          <label for="q6-o2">C. The decoder models the conditional probability p(x|z)</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
-          <label for="q5-o3">The decoder uses a one-hot encoding for all outputs</label>
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">D. The decoder uses a one-hot encoding for all outputs</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o4" name="q5" value="4" data-correct="true">
-          <label for="q5-o4">The decoder typically includes mean and variance parameters</label>
+          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="true">
+          <label for="q6-o4">E. The decoder typically includes mean and variance parameters</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o5" name="q5" value="5" data-correct="false">
-          <label for="q5-o5">The decoder's parameters are learned through gradient descent</label>
+          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="true">
+          <label for="q6-o5">F. The decoder's parameters are learned through gradient descent</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Outputs parameters of a Gaussian distribution, ✅ Maps from latent to data space, ✅ Models conditional probability p(x|z), ✅ Includes mean and variance parameters, ✅ Parameters learned through gradient descent  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The decoder outputs the mean and (diagonal) covariance of a Gaussian from which samples are drawn, mapping from latent to data space.  
 <blockquote>"This decoder models p of x given z... it will be a Gaussian distribution parameter. Here specifically, it will be mu and Sigma."</blockquote>
 <blockquote>"The decoder network transforms the latent representation back into the original data space and learns the parameters of the output distribution."</blockquote></div>
     </div>
-    <div class="question" data-question-index="6">
+    <div class="question" data-question-index="7">
       <h3>Question 7 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following are accurate statements about the relationship between the true posterior p(z|x) and the approximate posterior q(z|x) in VAEs? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
-          <label for="q6-o0">The true posterior p(z|x) cannot be computed directly due to intractability</label>
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
+          <label for="q7-o0">A. The true posterior p(z|x) cannot be computed directly due to intractability</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
-          <label for="q6-o1">The approximate posterior q(z|x) is typically modeled as a Gaussian distribution</label>
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
+          <label for="q7-o1">B. The approximate posterior q(z|x) is typically modeled as a Gaussian distribution</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
-          <label for="q6-o2">The encoder network directly outputs parameters for q(z|x)</label>
+          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="true">
+          <label for="q7-o2">C. The encoder network directly outputs parameters for q(z|x)</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
-          <label for="q6-o3">The KL divergence term minimizes the difference between q(z|x) and p(z)</label>
+          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="true">
+          <label for="q7-o3">D. The KL divergence term minimizes the difference between q(z|x) and p(z)</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
-          <label for="q6-o4">The true posterior would require marginalization over all possible data points</label>
+          <input type="checkbox" id="q7-o4" name="q7" value="4" data-correct="true">
+          <label for="q7-o4">E. The true posterior would require marginalization over all possible data points</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
-          <label for="q6-o5">The approximation error between q(z|x) and p(z|x) can be quantified</label>
+          <input type="checkbox" id="q7-o5" name="q7" value="5" data-correct="false">
+          <label for="q7-o5">F. The approximation error between q(z|x) and p(z|x) can be quantified</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ True posterior cannot be computed directly, ✅ Approximate posterior typically modeled as Gaussian, ✅ Encoder outputs parameters for q(z|x), ✅ KL term minimizes difference with prior, ✅ True posterior requires marginalization  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The true posterior is intractable, requiring an approximate posterior that is typically modeled as a Gaussian.  
 <blockquote>"The right hand side is actually intractable. We can't compute this term. And so what we're going to do is... ignore it."</blockquote>
 <blockquote>"What we're doing is using Q of z given x to approximate P of z given x."</blockquote>
 <blockquote>"The encoder network produces parameters for the approximate posterior, typically modeled as a diagonal Gaussian."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
+    <div class="question" data-question-index="8">
       <h3>Question 8 (Multiple Select)</h3>
-      <p></p>
+      <p>Which benefits or capabilities are associated with the latent space of a trained VAE?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
-          <label for="q7-o0">Smooth interpolation between data points</label>
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="true">
+          <label for="q8-o0">A. Smooth interpolation between data points</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
-          <label for="q7-o1">High-resolution image generation</label>
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">B. High-resolution image generation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="true">
-          <label for="q7-o2">Disentanglement of semantic attributes</label>
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="true">
+          <label for="q8-o2">C. Disentanglement of semantic attributes</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="true">
-          <label for="q7-o3">Use in downstream tasks</label>
+          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="true">
+          <label for="q8-o3">D. Use in downstream tasks</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o4" name="q7" value="4" data-correct="false">
-          <label for="q7-o4">Fully deterministic reconstruction</label>
+          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="false">
+          <label for="q8-o4">E. Fully deterministic reconstruction</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Smooth interpolation between data points, Disentanglement of semantic attributes, Use in downstream tasks  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Latent space in VAEs supports interpolation and often learns disentangled, useful representations.</div>
     </div>
-    <div class="question" data-question-index="8">
-      <h3>Question 9 (True/False)</h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="false">
-          <label for="q8-o0">True</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="false">
-          <label for="q8-o1">False</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation">Answer not found</div>
-    </div>
     <div class="question" data-question-index="9">
-      <h3>Question 10 (Multi-Select)</h3>
-      <p></p>
+      <h3>Question 9 (True/False)</h3>
+      <p>The decoder in a VAE directly generates the reconstructed image without involving any probability distribution.</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
-          <label for="q9-o0">VAE samples tend to be blurrier than GAN samples</label>
+          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="false">
+          <label for="q9-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
-          <label for="q9-o1">VAEs can struggle with complex, high-dimensional data</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
-          <label for="q9-o2">The Gaussian assumption in the latent space can be limiting</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="true">
-          <label for="q9-o3">VAEs prioritize reconstruction over sample quality</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
-          <label for="q9-o4">VAEs cannot generate samples at all</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
-          <label for="q9-o5">The KL divergence term can lead to posterior collapse</label>
+          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="true">
+          <label for="q9-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Samples tend to be blurrier, ✅ Can struggle with complex data, ✅ Gaussian assumption can be limiting, ✅ Prioritize reconstruction over sample quality, ✅ KL divergence can lead to posterior collapse  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
+The decoder actually outputs parameters of a probability distribution (typically Gaussian) from which the reconstruction is sampled.
+<blockquote>"This decoder models p of x given z... it will be a Gaussian distribution parameter. Here specifically, it will be mu and Sigma."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="10">
+      <h3>Question 10 (Multi-Select)</h3>
+      <p>Which of the following accurately describe limitations or challenges associated with VAEs, particularly when compared to other generative models? (Select all that apply)</p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
+          <label for="q10-o0">A. VAE samples tend to be blurrier than GAN samples</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="true">
+          <label for="q10-o1">B. VAEs can struggle with complex, high-dimensional data</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="true">
+          <label for="q10-o2">C. The Gaussian assumption in the latent space can be limiting</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="true">
+          <label for="q10-o3">D. VAEs prioritize reconstruction over sample quality</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o4" name="q10" value="4" data-correct="false">
+          <label for="q10-o4">E. VAEs cannot generate samples at all</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o5" name="q10" value="5" data-correct="true">
+          <label for="q10-o5">F. The KL divergence term can lead to posterior collapse</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation"><strong>Explanation:</strong>  
 VAEs often produce blurrier outputs due to the probabilistic nature of their objective function and struggle with various limitations.  
 <blockquote>"VAEs can suffer from blurry outputs."</blockquote>
 <blockquote>"The Gaussian assumption in both the prior and approximate posterior can limit the expressivity of the model."</blockquote>

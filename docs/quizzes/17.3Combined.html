@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz: Algorithms for Solving MDPs - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -49,319 +51,310 @@
     <div class="content">
       <h2 class="section-title">Quiz: Algorithms for Solving MDPs</h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
+    <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)</h3>
-      <p></p>
+      <p>The optimal value function \( V^</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="true">
-          <label for="q0-o0">True</label>
+          <input type="radio" id="q1-o0" name="q1" value="0" data-correct="true">
+          <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="false">
-          <label for="q0-o1">False</label>
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="false">
+          <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> True  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The optimal value function is defined as the max over all Q-values at that state.  
 <blockquote>"The first says that the optimal value at a state is the same as the max Q value over possible actions at that state."</blockquote></div>
     </div>
-    <div class="question" data-question-index="1">
+    <div class="question" data-question-index="2">
       <h3>Question 2 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the properties and role of the Bellman equation in MDPs? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
-          <label for="q1-o0">It provides a recursive definition of the optimal value function</label>
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">A. It provides a recursive definition of the optimal value function</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
-          <label for="q1-o1">It expresses the relationship between current and future state values</label>
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">B. It expresses the relationship between current and future state values</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="false">
-          <label for="q1-o2">It is the foundation for value iteration and policy iteration algorithms</label>
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
+          <label for="q2-o2">C. It is the foundation for value iteration and policy iteration algorithms</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="true">
-          <label for="q1-o3">It enables efficient computation of optimal policies</label>
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. It enables efficient computation of optimal policies</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
-          <label for="q1-o4">It replaces stochastic policies in reinforcement learning</label>
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
+          <label for="q2-o4">E. It replaces stochastic policies in reinforcement learning</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o5" name="q1" value="5" data-correct="false">
-          <label for="q1-o5">It defines value in terms of immediate rewards plus discounted future rewards</label>
+          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
+          <label for="q2-o5">F. It defines value in terms of immediate rewards plus discounted future rewards</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Recursive definition of optimal value, ✅ Relationship between current and future values, ✅ Foundation for algorithms, ✅ Enables efficient computation, ✅ Defines value in terms of rewards  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Recursive definition of optimal value, ✅ Relationship between current and future values, ✅ Foundation for algorithms, ✅ Enables efficient computation, ✅ Defines value in terms of rewards  
 <strong>Explanation:</strong>  
 The Bellman equation has several key properties and roles in MDP solution methods.  
 <blockquote>"Taking a closer look at the definition of the optimal Q function, we will now try to rewrite it recursively..."</blockquote>  
 <blockquote>"The recursive Bellman equation derived so far will form the basis for... value iteration."</blockquote>
 <blockquote>"This recursive structure allows us to break down the complex problem of finding optimal policies into a series of simpler calculations."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
+    <div class="question" data-question-index="3">
       <h3>Question 3 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the characteristics, goals, and properties of the value iteration algorithm? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
-          <label for="q2-o0">It iteratively converges on the optimal value function</label>
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">A. It iteratively converges on the optimal value function</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
-          <label for="q2-o1">It applies the Bellman equation recursively until convergence</label>
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">B. It applies the Bellman equation recursively until convergence</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
-          <label for="q2-o2">It has time complexity related to the number of states and actions</label>
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">C. It has time complexity related to the number of states and actions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
-          <label for="q2-o3">It requires a fully known MDP model with transition probabilities</label>
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">D. It requires a fully known MDP model with transition probabilities</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
-          <label for="q2-o4">It generates visualizations of the policy graph</label>
+          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
+          <label for="q3-o4">E. It generates visualizations of the policy graph</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
-          <label for="q2-o5">It maintains a sequence of improving value function estimates</label>
+          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
+          <label for="q3-o5">F. It maintains a sequence of improving value function estimates</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Iteratively converges on optimal value, ✅ Applies Bellman equation recursively, ✅ Time complexity related to states/actions, ✅ Requires known MDP model, ✅ Maintains sequence of improving estimates  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Iteratively converges on optimal value, ✅ Applies Bellman equation recursively, ✅ Time complexity related to states/actions, ✅ Requires known MDP model, ✅ Maintains sequence of improving estimates  
 <strong>Explanation:</strong>  
 Value iteration has several key properties beyond just its primary goal.  
 <blockquote>"The central idea is to update this vector at each iteration by repeatedly applying this recursive Bellman equation until convergence."</blockquote>
 <blockquote>"Each iteration of this algorithm will have a time complexity of order of n square m..."</blockquote>
 <blockquote>"This update will produce a sequence of vectors V0, V1, and so on..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="3">
+    <div class="question" data-question-index="4">
       <h3>Question 4 (Multiple Select)</h3>
-      <p></p>
+      <p>Which of the following are components or results of value iteration?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
-          <label for="q3-o0">A series of value vectors \( V_0, V_1, \ldots \)</label>
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
+          <label for="q4-o0">A. A series of value vectors \( V_0, V_1, \ldots \)</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="true">
-          <label for="q3-o1">Updates using the recursive Bellman equation</label>
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">B. Updates using the recursive Bellman equation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
-          <label for="q3-o2">Convergence to the optimal Q-function directly</label>
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">C. Convergence to the optimal Q-function directly</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="true">
-          <label for="q3-o3">Time complexity that scales with the product of number of states and actions</label>
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. Time complexity that scales with the product of number of states and actions</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> A series of value vectors \( V_0, V_1, \ldots \), Updates using the recursive Bellman equation, Time complexity that scales with the product of number of states and actions  
+      <div class="explanation">\( V_0, V_1, \ldots \), Updates using the recursive Bellman equation, Time complexity that scales with the product of number of states and actions  
 <strong>Explanation:</strong>  
 The algorithm builds up sequences of value vectors, applies Bellman updates, and has quadratic time complexity.  
 <blockquote>"This update will produce a sequence of vectors V0, V1, and so on..."</blockquote>  
 <blockquote>"...by repeatedly applying this recursive Bellman equation..."</blockquote>  
 <blockquote>"Each iteration of this algorithm will have a time complexity of order of n square m..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
+    <div class="question" data-question-index="5">
       <h3>Question 5 (True/False)</h3>
-      <p></p>
+      <p>Policy iteration always requires more iterations than value iteration to converge.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="false">
-          <label for="q4-o0">True</label>
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="true">
-          <label for="q4-o1">False</label>
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Although policy iteration involves a policy evaluation step, it often converges faster.  
 <blockquote>"...the policy converges to pi star much sooner than the value converges to V of pi star, thus requiring fewer iterations."</blockquote></div>
     </div>
-    <div class="question" data-question-index="5">
+    <div class="question" data-question-index="6">
       <h3>Question 6 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe differences between value iteration and Q iteration algorithms? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="false">
-          <label for="q5-o0">Q iteration operates directly on the Q-function while value iteration works with value functions</label>
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <label for="q6-o0">A. Q iteration operates directly on the Q-function while value iteration works with value functions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="true">
-          <label for="q5-o1">Q iteration provides action values directly without needing additional computation</label>
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">B. Q iteration provides action values directly without needing additional computation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="false">
-          <label for="q5-o2">Q iteration requires more memory but can make action selection more efficient</label>
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">C. Q iteration requires more memory but can make action selection more efficient</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
-          <label for="q5-o3">Q iteration avoids any dependence on transition probabilities</label>
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">D. Q iteration avoids any dependence on transition probabilities</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o4" name="q5" value="4" data-correct="false">
-          <label for="q5-o4">Value iteration cannot be used with function approximation</label>
+          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
+          <label for="q6-o4">E. Value iteration cannot be used with function approximation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o5" name="q5" value="5" data-correct="false">
-          <label for="q5-o5">Q iteration operates on state-action pairs while value iteration operates on states</label>
+          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
+          <label for="q6-o5">F. Q iteration operates on state-action pairs while value iteration operates on states</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Q iteration operates directly on Q-function, ✅ Provides action values directly, ✅ Requires more memory but more efficient selection, ✅ Operates on state-action pairs vs states  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Q iteration operates directly on Q-function, ✅ Provides action values directly, ✅ Requires more memory but more efficient selection, ✅ Operates on state-action pairs vs states  
 <strong>Explanation:</strong>  
 There are several key differences between these algorithms beyond just the primary distinction.  
 <blockquote>"We can derive an update rule for Q functions, which will form the basis of the Q iteration algorithm."</blockquote>
 <blockquote>"While value iteration computes V(s), Q iteration computes Q(s,a) directly, which requires more memory but makes action selection more straightforward."</blockquote>
 <blockquote>"Q iteration operates on the larger space of state-action pairs rather than just states."</blockquote></div>
     </div>
-    <div class="question" data-question-index="6">
+    <div class="question" data-question-index="7">
       <h3>Question 7 (True/False)</h3>
-      <p></p>
+      <p>Policy iteration alternates between evaluating the current policy and greedily updating it.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q6-o0" name="q6" value="0" data-correct="true">
-          <label for="q6-o0">True</label>
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="true">
+          <label for="q7-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q6-o1" name="q6" value="1" data-correct="false">
-          <label for="q6-o1">False</label>
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="false">
+          <label for="q7-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> True  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Policy iteration alternates between computing value estimates and performing greedy updates.  
 <blockquote>"The policy iteration algorithm involves two parts... compute V pi... then greedily update the policy."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
+    <div class="question" data-question-index="8">
       <h3>Question 8 (Multiple Select)</h3>
-      <p></p>
+      <p>Why are dynamic programming approaches to solving MDPs often impractical for large environments?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
-          <label for="q7-o0">They assume continuous action spaces</label>
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">A. They assume continuous action spaces</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
-          <label for="q7-o1">They require summing over all states and actions</label>
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">B. They require summing over all states and actions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="false">
-          <label for="q7-o2">They don’t converge for stochastic transitions</label>
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
+          <label for="q8-o2">C. They don’t converge for stochastic transitions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="true">
-          <label for="q7-o3">The number of states in environments like Atari or chess is extremely large</label>
+          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
+          <label for="q8-o3">D. The number of states in environments like Atari or chess is extremely large</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> They require summing over all states and actions, The number of states in environments like Atari or chess is extremely large  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Dynamic programming is computationally expensive and not feasible for large state/action spaces.  
 <blockquote>"...time complexity of one iteration update..."</blockquote>  
 <blockquote>"...chess... our lower bound being 10 to the power 420 states. And for Atari Games... the number of such images is also exponentially large."</blockquote></div>
     </div>
-    <div class="question" data-question-index="8">
+    <div class="question" data-question-index="9">
       <h3>Question 9 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the purpose and characteristics of the policy improvement step in policy iteration? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
-          <label for="q8-o0">It chooses the action that maximizes the expected value at each state</label>
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <label for="q9-o0">A. It chooses the action that maximizes the expected value at each state</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
-          <label for="q8-o1">It applies a greedy strategy with respect to the current value function</label>
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <label for="q9-o1">B. It applies a greedy strategy with respect to the current value function</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="true">
-          <label for="q8-o2">It guarantees monotonic improvement of the policy</label>
+          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
+          <label for="q9-o2">C. It guarantees monotonic improvement of the policy</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
-          <label for="q8-o3">It eventually leads to the optimal policy when combined with policy evaluation</label>
+          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
+          <label for="q9-o3">D. It eventually leads to the optimal policy when combined with policy evaluation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="false">
-          <label for="q8-o4">It samples new actions from a uniform distribution</label>
+          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
+          <label for="q9-o4">E. It samples new actions from a uniform distribution</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o5" name="q8" value="5" data-correct="false">
-          <label for="q8-o5">It can sometimes cause policy oscillation in stochastic environments</label>
+          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
+          <label for="q9-o5">F. It can sometimes cause policy oscillation in stochastic environments</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Chooses action maximizing expected value, ✅ Applies greedy strategy, ✅ Guarantees monotonic improvement, ✅ Eventually leads to optimal policy  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Chooses action maximizing expected value, ✅ Applies greedy strategy, ✅ Guarantees monotonic improvement, ✅ Eventually leads to optimal policy  
 <strong>Explanation:</strong>  
 Policy improvement has several important properties beyond just the basic greedy selection.  
 <blockquote>"This greedy step involves picking the action that maximizes the value obtained at all states..."</blockquote>
 <blockquote>"Policy improvement guarantees that each new policy will be at least as good as the previous one."</blockquote>
 <blockquote>"The combination of policy evaluation and policy improvement will eventually converge to the optimal policy."</blockquote></div>
     </div>
-    <div class="question" data-question-index="9">
+    <div class="question" data-question-index="10">
       <h3>Question 10 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the role and applications of Bellman equations in reinforcement learning algorithms? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
-          <label for="q9-o0">They form the theoretical foundation for value iteration, Q iteration, and policy iteration</label>
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <label for="q10-o0">A. They form the theoretical foundation for value iteration, Q iteration, and policy iteration</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
-          <label for="q9-o1">They provide a recursive formulation that enables dynamic programming approaches</label>
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <label for="q10-o1">B. They provide a recursive formulation that enables dynamic programming approaches</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
-          <label for="q9-o2">They allow breaking down a complex long-term planning problem into simpler subproblems</label>
+          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="false">
+          <label for="q10-o2">C. They allow breaking down a complex long-term planning problem into simpler subproblems</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
-          <label for="q9-o3">They are only applicable to deterministic environments</label>
+          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="false">
+          <label for="q10-o3">D. They are only applicable to deterministic environments</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
-          <label for="q9-o4">They enable calculation of optimal policies without knowledge of transition probabilities</label>
+          <input type="checkbox" id="q10-o4" name="q10" value="4" data-correct="false">
+          <label for="q10-o4">E. They enable calculation of optimal policies without knowledge of transition probabilities</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
-          <label for="q9-o5">They define the relationship between current and future expected rewards</label>
+          <input type="checkbox" id="q10-o5" name="q10" value="5" data-correct="false">
+          <label for="q10-o5">F. They define the relationship between current and future expected rewards</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Form foundation for algorithms, ✅ Provide recursive formulation, ✅ Break down complex problems, ✅ Define relationship between rewards  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Form foundation for algorithms, ✅ Provide recursive formulation, ✅ Break down complex problems, ✅ Define relationship between rewards  
 <strong>Explanation:</strong>  
 Bellman equations have multiple important roles and applications in RL algorithms.  
 <blockquote>"We derived the recursive Bellman optimality equations that form the backbone of the three dynamic programming algorithms..."</blockquote>

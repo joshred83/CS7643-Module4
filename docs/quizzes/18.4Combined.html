@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz: Unsupervised and Self-Supervised Learning - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -49,408 +51,382 @@
     <div class="content">
       <h2 class="section-title">Quiz: Unsupervised and Self-Supervised Learning</h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
-      <h3>Question 1 (True/False)  </h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="false">
-          <label for="q0-o0">True</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="true">
-          <label for="q0-o1">False</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
-Unsupervised learning does not rely on labels; it uses patterns in the data.  
-<blockquote>"We assume we have no labels, all we have are unlabeled examples..."</blockquote></div>
-    </div>
     <div class="question" data-question-index="1">
-      <h3>Question 2 (Multiple Choice)  </h3>
-      <p></p>
+      <h3>Question 1 (True/False)  </h3>
+      <p>Unsupervised learning requires labels to compute the loss functions used for training.</p>
       <div class="options">
         <div class="option">
           <input type="radio" id="q1-o0" name="q1" value="0" data-correct="false">
-          <label for="q1-o0">To classify input data using pseudo-labels</label>
+          <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="false">
-          <label for="q1-o1">To reconstruct labeled outputs from input data</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q1-o2" name="q1" value="2" data-correct="true">
-          <label for="q1-o2">To extract low-dimensional representations that capture important features</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q1-o3" name="q1" value="3" data-correct="false">
-          <label for="q1-o3">To optimize for high-resolution image synthesis</label>
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="true">
+          <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> To extract low-dimensional representations that capture important features  
+      <div class="explanation"><strong>Explanation:</strong>  
+Unsupervised learning does not rely on labels; it uses patterns in the data.  
+<blockquote>"We assume we have no labels, all we have are unlabeled examples..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="2">
+      <h3>Question 2 (Multiple Choice)  </h3>
+      <p>What is the primary purpose of autoencoders in unsupervised learning?</p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">A. To classify input data using pseudo-labels</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">B. To reconstruct labeled outputs from input data</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q2-o2" name="q2" value="2" data-correct="false">
+          <label for="q2-o2">C. To extract low-dimensional representations that capture important features</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. To optimize for high-resolution image synthesis</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation">-dimensional representations that capture important features  
 <strong>Explanation:</strong>  
 Autoencoders compress data into lower-dimensional representations for reconstruction.  
 <blockquote>"...we're trying to compress the image or any other data through some bottleneck..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
+    <div class="question" data-question-index="3">
       <h3>Question 3 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which of the following are traditional tasks associated with unsupervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
-          <label for="q2-o0">Clustering</label>
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">A. Clustering</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
-          <label for="q2-o1">Dimensionality reduction</label>
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">B. Dimensionality reduction</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
-          <label for="q2-o2">Reinforcement signal propagation</label>
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">C. Reinforcement signal propagation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="true">
-          <label for="q2-o3">Density estimation</label>
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">D. Density estimation</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Clustering, Dimensionality reduction, Density estimation  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 These are core classical tasks under unsupervised learning.  
 <blockquote>"...tasks such as clustering or density estimation..."</blockquote>  
 <blockquote>"...use an autoencoder to perform dimensionality reduction..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="3">
+    <div class="question" data-question-index="4">
       <h3>Question 4 (Multiple Choice)  </h3>
-      <p></p>
+      <p>What does the “bottleneck” in an autoencoder architecture encourage?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q3-o0" name="q3" value="0" data-correct="false">
-          <label for="q3-o0">Overfitting to high-dimensional features</label>
+          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="false">
+          <label for="q4-o0">A. Overfitting to high-dimensional features</label>
         </div>
         <div class="option">
-          <input type="radio" id="q3-o1" name="q3" value="1" data-correct="false">
-          <label for="q3-o1">Learning trivial identity functions</label>
+          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">B. Learning trivial identity functions</label>
         </div>
         <div class="option">
-          <input type="radio" id="q3-o2" name="q3" value="2" data-correct="true">
-          <label for="q3-o2">Compression of inputs into meaningful low-dimensional embeddings</label>
+          <input type="radio" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">C. Compression of inputs into meaningful low-dimensional embeddings</label>
         </div>
         <div class="option">
-          <input type="radio" id="q3-o3" name="q3" value="3" data-correct="false">
-          <label for="q3-o3">Increased accuracy through deep convolutional filters</label>
+          <input type="radio" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. Increased accuracy through deep convolutional filters</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> Compression of inputs into meaningful low-dimensional embeddings  
+      <div class="explanation">-dimensional embeddings  
 <strong>Explanation:</strong>  
 The bottleneck enforces feature learning through constrained representation.  
 <blockquote>"...compress the image... and then decompress it again..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
+    <div class="question" data-question-index="5">
       <h3>Question 5 (True/False)  </h3>
-      <p></p>
+      <p>Autoencoders can be trained without any labels, using only the input data.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="true">
-          <label for="q4-o0">True</label>
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="true">
+          <label for="q5-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="false">
-          <label for="q4-o1">False</label>
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="false">
+          <label for="q5-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> True  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Autoencoders learn from reconstruction loss, not labels.  
 <blockquote>"...we train the autoencoder to reconstruct the original image..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="5">
+    <div class="question" data-question-index="6">
       <h3>Question 6 (Multiple Select)  </h3>
-      <p></p>
+      <p>What are characteristics of an effective feature space learned via unsupervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="true">
-          <label for="q5-o0">High density clusters for semantically similar inputs</label>
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <label for="q6-o0">A. High density clusters for semantically similar inputs</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="false">
-          <label for="q5-o1">Widely dispersed examples regardless of semantic meaning</label>
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">B. Widely dispersed examples regardless of semantic meaning</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="true">
-          <label for="q5-o2">Low-density regions separating conceptually distinct inputs</label>
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">C. Low-density regions separating conceptually distinct inputs</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
-          <label for="q5-o3">Spatial locality preserved through convolutional filters</label>
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">D. Spatial locality preserved through convolutional filters</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> High density clusters for semantically similar inputs, Low-density regions separating conceptually distinct inputs  
+      <div class="explanation">-density regions separating conceptually distinct inputs  
 <strong>Explanation:</strong>  
 Effective representations cluster similar inputs and separate dissimilar ones.  
 <blockquote>"...samples that are semantically similar are close together..."</blockquote>  
 <blockquote>"...semantically dissimilar examples are far apart..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="6">
+    <div class="question" data-question-index="7">
       <h3>Question 7 (Multiple Choice)  </h3>
-      <p></p>
+      <p>In clustering-based unsupervised learning pipelines, what are pseudo-labels?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q6-o0" name="q6" value="0" data-correct="false">
-          <label for="q6-o0">Randomly assigned labels for evaluation</label>
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">A. Randomly assigned labels for evaluation</label>
         </div>
         <div class="option">
-          <input type="radio" id="q6-o1" name="q6" value="1" data-correct="false">
-          <label for="q6-o1">Labels assigned by a pretrained supervised classifier</label>
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="false">
+          <label for="q7-o1">B. Labels assigned by a pretrained supervised classifier</label>
         </div>
         <div class="option">
-          <input type="radio" id="q6-o2" name="q6" value="2" data-correct="true">
-          <label for="q6-o2">Cluster assignments used as training targets for backpropagation</label>
+          <input type="radio" id="q7-o2" name="q7" value="2" data-correct="false">
+          <label for="q7-o2">C. Cluster assignments used as training targets for backpropagation</label>
         </div>
         <div class="option">
-          <input type="radio" id="q6-o3" name="q6" value="3" data-correct="false">
-          <label for="q6-o3">Binary indicators for supervised similarity</label>
+          <input type="radio" id="q7-o3" name="q7" value="3" data-correct="false">
+          <label for="q7-o3">D. Binary indicators for supervised similarity</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> Cluster assignments used as training targets for backpropagation  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Clustering assigns pseudo-labels which are then used as targets.  
 <blockquote>"...use clustering algorithms to generate pseudo-labels for the unlabeled data..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
+    <div class="question" data-question-index="8">
       <h3>Question 8 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which are potential issues when clustering is used to generate pseudo-labels?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
-          <label for="q7-o0">Empty clusters</label>
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">A. Empty clusters</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
-          <label for="q7-o1">Trivial solutions where all items are grouped into one cluster</label>
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">B. Trivial solutions where all items are grouped into one cluster</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="false">
-          <label for="q7-o2">Perfectly balanced partitions that prevent overfitting</label>
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
+          <label for="q8-o2">C. Perfectly balanced partitions that prevent overfitting</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="false">
-          <label for="q7-o3">Inability to use backpropagation through clustering</label>
+          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
+          <label for="q8-o3">D. Inability to use backpropagation through clustering</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Empty clusters, Trivial solutions where all items are grouped into one cluster  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 These are known risks in clustering-based training.  
 <blockquote>"...there may be empty clusters or trivial solutions where all data collapse to one cluster..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="8">
+    <div class="question" data-question-index="9">
       <h3>Question 9 (True/False)  </h3>
-      <p></p>
+      <p>Surrogate tasks are designed to train models using freely available labels from data transformations.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="true">
-          <label for="q8-o0">True</label>
+          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="true">
+          <label for="q9-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="false">
-          <label for="q8-o1">False</label>
+          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="false">
+          <label for="q9-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> True  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Surrogate tasks create labels from data transformations.  
 <blockquote>"...a surrogate task... where we try to predict the rotation... even though the original image has no label."</blockquote></div>
     </div>
-    <div class="question" data-question-index="9">
+    <div class="question" data-question-index="10">
       <h3>Question 10 (Multiple Choice)  </h3>
-      <p></p>
+      <p>Why is predicting image rotation considered a useful surrogate task?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="false">
-          <label for="q9-o0">It trains the network to detect object boundaries precisely</label>
+          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="false">
+          <label for="q10-o0">A. It trains the network to detect object boundaries precisely</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="true">
-          <label for="q9-o1">It forces the model to recognize semantic content of images</label>
+          <input type="radio" id="q10-o1" name="q10" value="1" data-correct="false">
+          <label for="q10-o1">B. It forces the model to recognize semantic content of images</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o2" name="q9" value="2" data-correct="false">
-          <label for="q9-o2">It directly improves classification performance on downstream tasks</label>
+          <input type="radio" id="q10-o2" name="q10" value="2" data-correct="false">
+          <label for="q10-o2">C. It directly improves classification performance on downstream tasks</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o3" name="q9" value="3" data-correct="false">
-          <label for="q9-o3">It encodes time-based sequence relationships</label>
+          <input type="radio" id="q10-o3" name="q10" value="3" data-correct="false">
+          <label for="q10-o3">D. It encodes time-based sequence relationships</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> It forces the model to recognize semantic content of images  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Rotation prediction forces semantic awareness.  
 <blockquote>"...predict which of the four rotations... the neural network must understand whether there is an upright dog..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="10">
+    <div class="question" data-question-index="11">
       <h3>Question 11 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which of the following are common surrogate tasks for self-supervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
-          <label for="q10-o0">Colorization</label>
+          <input type="checkbox" id="q11-o0" name="q11" value="0" data-correct="false">
+          <label for="q11-o0">A. Colorization</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="true">
-          <label for="q10-o1">Jigsaw puzzle solving</label>
+          <input type="checkbox" id="q11-o1" name="q11" value="1" data-correct="false">
+          <label for="q11-o1">B. Jigsaw puzzle solving</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="true">
-          <label for="q10-o2">Rotation prediction</label>
+          <input type="checkbox" id="q11-o2" name="q11" value="2" data-correct="false">
+          <label for="q11-o2">C. Rotation prediction</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="false">
-          <label for="q10-o3">GAN-based style transfer</label>
+          <input type="checkbox" id="q11-o3" name="q11" value="3" data-correct="false">
+          <label for="q11-o3">D. GAN-based style transfer</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Colorization, Jigsaw puzzle solving, Rotation prediction  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 These are classic self-supervised tasks.  
 <blockquote>"...predict the correct color... jigsaw puzzles... rotation prediction..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="11">
-      <h3>Question 12 (True/False)  </h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="radio" id="q11-o0" name="q11" value="0" data-correct="false">
-          <label for="q11-o0">True</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q11-o1" name="q11" value="1" data-correct="true">
-          <label for="q11-o1">False</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
-Representations are evaluated using a simple linear classifier to avoid confounding effects.  
-<blockquote>"We will train a linear classifier on top of the features... and test the accuracy..."</blockquote></div>
-    </div>
     <div class="question" data-question-index="12">
-      <h3>Question 13 (Multiple Choice)  </h3>
-      <p></p>
+      <h3>Question 12 (True/False)  </h3>
+      <p>The quality of learned representations is typically evaluated by training a complex nonlinear classifier on top of the encoder.</p>
       <div class="options">
         <div class="option">
           <input type="radio" id="q12-o0" name="q12" value="0" data-correct="false">
-          <label for="q12-o0">Maximize diversity of the input images</label>
+          <label for="q12-o0">A. True</label>
         </div>
         <div class="option">
           <input type="radio" id="q12-o1" name="q12" value="1" data-correct="true">
-          <label for="q12-o1">Align representations of augmentations of the same image while separating others</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q12-o2" name="q12" value="2" data-correct="false">
-          <label for="q12-o2">Match latent codes across different modalities</label>
-        </div>
-        <div class="option">
-          <input type="radio" id="q12-o3" name="q12" value="3" data-correct="false">
-          <label for="q12-o3">Use nearest neighbors for label propagation</label>
+          <label for="q12-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> Align representations of augmentations of the same image while separating others  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
+Representations are evaluated using a simple linear classifier to avoid confounding effects.  
+<blockquote>"We will train a linear classifier on top of the features... and test the accuracy..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="13">
+      <h3>Question 13 (Multiple Choice)  </h3>
+      <p>What is the goal of instance discrimination in contrastive learning?</p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q13-o0" name="q13" value="0" data-correct="false">
+          <label for="q13-o0">A. Maximize diversity of the input images</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q13-o1" name="q13" value="1" data-correct="false">
+          <label for="q13-o1">B. Align representations of augmentations of the same image while separating others</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q13-o2" name="q13" value="2" data-correct="false">
+          <label for="q13-o2">C. Match latent codes across different modalities</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q13-o3" name="q13" value="3" data-correct="false">
+          <label for="q13-o3">D. Use nearest neighbors for label propagation</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation"><strong>Explanation:</strong>  
 Instance discrimination aims to align augmentations and separate distinct inputs.  
 <blockquote>"...make the representations of the augmentations of the same image close together... other examples farther apart..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="13">
+    <div class="question" data-question-index="14">
       <h3>Question 14 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which techniques improve the efficiency of instance discrimination training?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q13-o0" name="q13" value="0" data-correct="true">
-          <label for="q13-o0">Using mini-batch negatives</label>
+          <input type="checkbox" id="q14-o0" name="q14" value="0" data-correct="false">
+          <label for="q14-o0">A. Using mini-batch negatives</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q13-o1" name="q13" value="1" data-correct="true">
-          <label for="q13-o1">Maintaining a memory bank of encoded features</label>
+          <input type="checkbox" id="q14-o1" name="q14" value="1" data-correct="false">
+          <label for="q14-o1">B. Maintaining a memory bank of encoded features</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q13-o2" name="q13" value="2" data-correct="false">
-          <label for="q13-o2">Sampling only hard negatives manually</label>
+          <input type="checkbox" id="q14-o2" name="q14" value="2" data-correct="false">
+          <label for="q14-o2">C. Sampling only hard negatives manually</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q13-o3" name="q13" value="3" data-correct="true">
-          <label for="q13-o3">Using an exponential moving average to stabilize key encoders</label>
+          <input type="checkbox" id="q14-o3" name="q14" value="3" data-correct="false">
+          <label for="q14-o3">D. Using an exponential moving average to stabilize key encoders</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Using mini-batch negatives, Maintaining a memory bank of encoded features, Using an exponential moving average to stabilize key encoders  
+      <div class="explanation">-batch negatives, Maintaining a memory bank of encoded features, Using an exponential moving average to stabilize key encoders  
 <strong>Explanation:</strong>  
 All of these are techniques used to improve training in contrastive learning.  
 <blockquote>"...use mini-batch negatives... use a memory bank... exponential moving average of the encoder weights..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="14">
+    <div class="question" data-question-index="15">
       <h3>Question 15 (Multiple Choice)  </h3>
-      <p></p>
+      <p>What is a key advantage of self-supervised representations learned via contrastive learning?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q14-o0" name="q14" value="0" data-correct="false">
-          <label for="q14-o0">They generalize poorly but train quickly</label>
+          <input type="radio" id="q15-o0" name="q15" value="0" data-correct="false">
+          <label for="q15-o0">A. They generalize poorly but train quickly</label>
         </div>
         <div class="option">
-          <input type="radio" id="q14-o1" name="q14" value="1" data-correct="false">
-          <label for="q14-o1">They replace labeled data with GAN-generated features</label>
+          <input type="radio" id="q15-o1" name="q15" value="1" data-correct="false">
+          <label for="q15-o1">B. They replace labeled data with GAN-generated features</label>
         </div>
         <div class="option">
-          <input type="radio" id="q14-o2" name="q14" value="2" data-correct="true">
-          <label for="q14-o2">They enable competitive performance on downstream tasks even with frozen encoders</label>
+          <input type="radio" id="q15-o2" name="q15" value="2" data-correct="false">
+          <label for="q15-o2">C. They enable competitive performance on downstream tasks even with frozen encoders</label>
         </div>
         <div class="option">
-          <input type="radio" id="q14-o3" name="q14" value="3" data-correct="false">
-          <label for="q14-o3">They require significantly more parameters than supervised models</label>
+          <input type="radio" id="q15-o3" name="q15" value="3" data-correct="false">
+          <label for="q15-o3">D. They require significantly more parameters than supervised models</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> They enable competitive performance on downstream tasks even with frozen encoders  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Contrastive methods achieve strong results with fixed feature extractors.  
 <blockquote>"...you get extremely strong performance, even when you freeze the features and only train a linear classifier..."</blockquote></div>
     </div></div>

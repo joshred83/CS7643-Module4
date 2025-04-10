@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz: Semi-Supervised Learning - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -49,310 +51,303 @@
     <div class="content">
       <h2 class="section-title">Quiz: Semi-Supervised Learning</h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
+    <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)  </h3>
-      <p></p>
+      <p>Semi-Supervised Learning assumes a large amount of labeled data and a small amount of unlabeled data.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="false">
-          <label for="q0-o0">True</label>
+          <input type="radio" id="q1-o0" name="q1" value="0" data-correct="false">
+          <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="true">
-          <label for="q0-o1">False</label>
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="true">
+          <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Semi-Supervised Learning assumes a small amount of labeled data and a larger amount of unlabeled data.  
 <blockquote>"In Semi-Supervised Learning, we have a smaller amount of labelled data and a much larger amount of unlabeled data."</blockquote></div>
     </div>
-    <div class="question" data-question-index="1">
+    <div class="question" data-question-index="2">
       <h3>Question 2 (Multi-Select)  </h3>
-      <p></p>
+      <p>Which of the following accurately describe the goals and approaches of Semi-Supervised Learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
-          <label for="q1-o0">To match supervised learning performance with fewer labels by leveraging unlabeled data</label>
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">A. To match supervised learning performance with fewer labels by leveraging unlabeled data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
-          <label for="q1-o1">To exploit the structure and distribution of unlabeled data to improve model generalization</label>
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">B. To exploit the structure and distribution of unlabeled data to improve model generalization</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="true">
-          <label for="q1-o2">To reduce annotation costs while maintaining performance</label>
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
+          <label for="q2-o2">C. To reduce annotation costs while maintaining performance</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="false">
-          <label for="q1-o3">To replace supervised learning using adversarial training</label>
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. To replace supervised learning using adversarial training</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="true">
-          <label for="q1-o4">To create more robust models by using diverse data sources</label>
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
+          <label for="q2-o4">E. To create more robust models by using diverse data sources</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o5" name="q1" value="5" data-correct="false">
-          <label for="q1-o5">To develop methods that can adapt to distribution shifts through unlabeled examples</label>
+          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
+          <label for="q2-o5">F. To develop methods that can adapt to distribution shifts through unlabeled examples</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Match performance with fewer labels, ✅ Exploit structure of unlabeled data, ✅ Reduce annotation costs, ✅ Create more robust models, ✅ Adapt to distribution shifts  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Match performance with fewer labels, ✅ Exploit structure of unlabeled data, ✅ Reduce annotation costs, ✅ Create more robust models, ✅ Adapt to distribution shifts  
 <strong>Explanation:</strong>  
 Semi-supervised learning has multiple goals and approaches beyond just the central motivation.  
 <blockquote>"Can we overcome the small amount of labeled data that we have using the larger amount of unlabeled data?"</blockquote>
 <blockquote>"This is valuable not just for performance, but also for reducing the high cost of annotation."</blockquote>
 <blockquote>"Unlabeled data provides information about the input distribution that can help models generalize better."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
+    <div class="question" data-question-index="3">
       <h3>Question 3 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which of the following are elements of the FixMatch algorithm?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
-          <label for="q2-o0">Consistency regularization</label>
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">A. Consistency regularization</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
-          <label for="q2-o1">Using weak and strong augmentations</label>
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">B. Using weak and strong augmentations</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="true">
-          <label for="q2-o2">Pseudo-labeling with a confidence threshold</label>
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">C. Pseudo-labeling with a confidence threshold</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
-          <label for="q2-o3">Gradient penalty</label>
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">D. Gradient penalty</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
-          <label for="q2-o4">Explicit entropy maximization</label>
+          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
+          <label for="q3-o4">E. Explicit entropy maximization</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Consistency regularization, Using weak and strong augmentations, Pseudo-labeling with a confidence threshold  
+      <div class="explanation">-labeling with a confidence threshold  
 <strong>Explanation:</strong>  
 FixMatch combines these three key elements.  
 <blockquote>"This particular algorithm, FixMatch, is combining several elements... consistency regularization... pseudo-labeling... weak augmentation... strong augmentation..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="3">
+    <div class="question" data-question-index="4">
       <h3>Question 4 (Multi-Select)  </h3>
-      <p></p>
+      <p>Why are confidence thresholds important when generating pseudo-labels in semi-supervised learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
-          <label for="q3-o0">They prevent noisy or incorrect labels from contaminating the training process</label>
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <label for="q4-o0">A. They prevent noisy or incorrect labels from contaminating the training process</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
-          <label for="q3-o1">They ensure only highly confident predictions are used as training targets</label>
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">B. They ensure only highly confident predictions are used as training targets</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
-          <label for="q3-o2">They allow for a curriculum learning approach, gradually incorporating more examples</label>
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">C. They allow for a curriculum learning approach, gradually incorporating more examples</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
-          <label for="q3-o3">They help balance the contribution of labeled and unlabeled data</label>
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. They help balance the contribution of labeled and unlabeled data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
-          <label for="q3-o4">They automatically determine the optimal number of augmentations</label>
+          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="false">
+          <label for="q4-o4">E. They automatically determine the optimal number of augmentations</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
-          <label for="q3-o5">They filter out examples from distribution shifts or out-of-domain data</label>
+          <input type="checkbox" id="q4-o5" name="q4" value="5" data-correct="false">
+          <label for="q4-o5">F. They filter out examples from distribution shifts or out-of-domain data</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Prevent noise/incorrect labels, ✅ Ensure highly confident predictions used, ✅ Allow curriculum learning, ✅ Help balance data contributions, ✅ Filter out-of-domain examples  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Prevent noise/incorrect labels, ✅ Ensure highly confident predictions used, ✅ Allow curriculum learning, ✅ Help balance data contributions, ✅ Filter out-of-domain examples  
 <strong>Explanation:</strong>  
 Confidence thresholds serve multiple important purposes in pseudo-labeling approaches.  
 <blockquote>"So we're using this confidence threshold tau to make sure... the labels that we're assigning have a high likelihood of being correct."</blockquote>
 <blockquote>"This allows a curriculum learning approach, starting with the easiest examples and gradually incorporating more difficult ones."</blockquote>
 <blockquote>"It helps filter out examples that might be out of the training distribution or simply too difficult to classify."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
+    <div class="question" data-question-index="5">
       <h3>Question 5 (True/False)  </h3>
-      <p></p>
+      <p>Weak augmentations in FixMatch are designed to significantly alter the content and semantics of the input.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="false">
-          <label for="q4-o0">True</label>
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="true">
-          <label for="q4-o1">False</label>
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Weak augmentations preserve content, while strong augmentations make larger changes.  
 <blockquote>"When we say weak augmentation, that means something like a crop and flip... Strong augmentation by contrast could be dramatically altering the image..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="5">
-      <h3>Question 6 (Multiple Select)  </h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="true">
-          <label for="q5-o0">To generate diverse views of unlabeled examples</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="true">
-          <label for="q5-o1">To provide more challenging tasks for the model</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="true">
-          <label for="q5-o2">To prevent the model from learning shortcut solutions</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
-          <label for="q5-o3">To reduce the need for labeled data</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> To generate diverse views of unlabeled examples, To provide more challenging tasks for the model, To prevent the model from learning shortcut solutions  
-<strong>Explanation:</strong>  
-Different augmentations serve multiple purposes in consistency training.  
-<blockquote>"...if we force the predicted label to be consistent between two different views... we force the model to adapt to different views of the unlabeled examples."</blockquote></div>
-    </div>
     <div class="question" data-question-index="6">
-      <h3>Question 7 (Multi-Select)  </h3>
-      <p></p>
+      <h3>Question 6 (Multiple Select)  </h3>
+      <p>Why does FixMatch use two different types of augmentations?</p>
       <div class="options">
         <div class="option">
           <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
-          <label for="q6-o0">Setting thresholds too high can exclude potentially useful training examples</label>
+          <label for="q6-o0">A. To generate diverse views of unlabeled examples</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
-          <label for="q6-o1">Setting thresholds too low can introduce incorrect labels and harm performance</label>
+          <label for="q6-o1">B. To provide more challenging tasks for the model</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
-          <label for="q6-o2">The optimal threshold may vary depending on the dataset and model architecture</label>
+          <label for="q6-o2">C. To prevent the model from learning shortcut solutions</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
-          <label for="q6-o3">The threshold may need to be adjusted during training as the model improves</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
-          <label for="q6-o4">Thresholds are only needed for strongly augmented images</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
-          <label for="q6-o5">Different classes or examples may benefit from different threshold values</label>
+          <label for="q6-o3">D. To reduce the need for labeled data</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Too high excludes useful examples, ✅ Too low introduces errors, ✅ Optimal threshold varies by dataset/model, ✅ May need adjustment during training, ✅ Different classes may need different thresholds  
+      <div class="explanation"><strong>Explanation:</strong>  
+Different augmentations serve multiple purposes in consistency training.  
+<blockquote>"...if we force the predicted label to be consistent between two different views... we force the model to adapt to different views of the unlabeled examples."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="7">
+      <h3>Question 7 (Multi-Select)  </h3>
+      <p>Which of the following accurately describe the challenges and considerations when setting confidence thresholds for pseudo-labeling? (Select all that apply)</p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">A. Setting thresholds too high can exclude potentially useful training examples</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <label for="q7-o1">B. Setting thresholds too low can introduce incorrect labels and harm performance</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="false">
+          <label for="q7-o2">C. The optimal threshold may vary depending on the dataset and model architecture</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="false">
+          <label for="q7-o3">D. The threshold may need to be adjusted during training as the model improves</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o4" name="q7" value="4" data-correct="false">
+          <label for="q7-o4">E. Thresholds are only needed for strongly augmented images</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q7-o5" name="q7" value="5" data-correct="false">
+          <label for="q7-o5">F. Different classes or examples may benefit from different threshold values</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Too high excludes useful examples, ✅ Too low introduces errors, ✅ Optimal threshold varies by dataset/model, ✅ May need adjustment during training, ✅ Different classes may need different thresholds  
 <strong>Explanation:</strong>  
 Setting appropriate confidence thresholds involves multiple important considerations.  
 <blockquote>"There's a trade-off in threshold setting - too high and you might exclude useful examples, too low and you might introduce too many errors."</blockquote>
 <blockquote>"The threshold depends on the dataset, model architecture, and even the current stage of training."</blockquote>
 <blockquote>"As the model improves, the threshold strategy might need to adapt accordingly."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
+    <div class="question" data-question-index="8">
       <h3>Question 8 (True/False)  </h3>
-      <p></p>
+      <p>In FixMatch, the pseudo-label is generated based on the strongly augmented version of an unlabeled image.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
-          <label for="q7-o0">True</label>
+          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="true">
-          <label for="q7-o1">False</label>
+          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="true">
+          <label for="q8-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Pseudo-labels are generated from weakly augmented images, not strongly augmented ones.  
 <blockquote>"...we predict a class, a pseudo-label... from the weakly augmented unlabeled image..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="8">
-      <h3>Question 9 (Multiple Select)  </h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="true">
-          <label for="q8-o0">It encourages the model to output similar predictions for differently augmented versions of the same input</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="true">
-          <label for="q8-o1">It promotes invariance to data transformations</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
-          <label for="q8-o2">It reduces computational complexity</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
-          <label for="q8-o3">It completely eliminates the need for labeled data</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> It encourages the model to output similar predictions for differently augmented versions of the same input, It promotes invariance to data transformations  
-<strong>Explanation:</strong>  
-Consistency regularization encourages prediction invariance across augmentations.  
-<blockquote>"...we can push for the prediction for each unlabeled point to be as similar as possible, no matter what..."</blockquote></div>
-    </div>
     <div class="question" data-question-index="9">
-      <h3>Question 10 (Multi-Select)  </h3>
-      <p></p>
+      <h3>Question 9 (Multiple Select)  </h3>
+      <p>Which of the following are advantages of consistency regularization in semi-supervised learning?</p>
       <div class="options">
         <div class="option">
           <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
-          <label for="q9-o0">Combining multiple semi-supervised learning techniques can be more effective than using any single approach</label>
+          <label for="q9-o0">A. It encourages the model to output similar predictions for differently augmented versions of the same input</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
-          <label for="q9-o1">Data augmentation plays a critical role in extracting value from unlabeled examples</label>
+          <label for="q9-o1">B. It promotes invariance to data transformations</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
-          <label for="q9-o2">Confidence thresholds help manage the quality-quantity trade-off in using unlabeled data</label>
+          <label for="q9-o2">C. It reduces computational complexity</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
-          <label for="q9-o3">Consistency across different views of the same data is a powerful learning signal</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
-          <label for="q9-o4">All semi-supervised methods require adversarial training to be effective</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
-          <label for="q9-o5">The gap between supervised and semi-supervised learning can be significantly reduced with the right techniques</label>
+          <label for="q9-o3">D. It completely eliminates the need for labeled data</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Combining techniques more effective, ✅ Data augmentation plays critical role, ✅ Confidence thresholds manage trade-offs, ✅ Consistency is powerful signal, ✅ Gap can be significantly reduced  
+      <div class="explanation"><strong>Explanation:</strong>  
+Consistency regularization encourages prediction invariance across augmentations.  
+<blockquote>"...we can push for the prediction for each unlabeled point to be as similar as possible, no matter what..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="10">
+      <h3>Question 10 (Multi-Select)  </h3>
+      <p>Which of the following insights about modern semi-supervised learning are demonstrated by the FixMatch algorithm? (Select all that apply)</p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <label for="q10-o0">A. Combining multiple semi-supervised learning techniques can be more effective than using any single approach</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <label for="q10-o1">B. Data augmentation plays a critical role in extracting value from unlabeled examples</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="false">
+          <label for="q10-o2">C. Confidence thresholds help manage the quality-quantity trade-off in using unlabeled data</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="false">
+          <label for="q10-o3">D. Consistency across different views of the same data is a powerful learning signal</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o4" name="q10" value="4" data-correct="false">
+          <label for="q10-o4">E. All semi-supervised methods require adversarial training to be effective</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q10-o5" name="q10" value="5" data-correct="false">
+          <label for="q10-o5">F. The gap between supervised and semi-supervised learning can be significantly reduced with the right techniques</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Combining techniques more effective, ✅ Data augmentation plays critical role, ✅ Confidence thresholds manage trade-offs, ✅ Consistency is powerful signal, ✅ Gap can be significantly reduced  
 <strong>Explanation:</strong>  
 FixMatch demonstrates several key insights about modern semi-supervised approaches.  
 <blockquote>"FixMatch actually combines several elements and that yields state of the art performance."</blockquote>

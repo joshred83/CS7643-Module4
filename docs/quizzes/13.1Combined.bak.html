@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Generative Models - Deep Dive - CS7643 Module 4</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2><a href="../index.html" style="color: white; text-decoration: none;">CS7643 Module 4</a></h2>
+      <div class="topic-group">
+        <h3>Generative Models</h3>
+        <ul>
+          <li><a href="13.1Combined.html">13.1 Introduction</a></li>
+          <li><a href="13.2Combined.html">13.2 PixelRNN & PixelCNN</a></li>
+          <li><a href="13.3Combined.html">13.3 GANs</a></li>
+          <li><a href="13.4Combined.html">13.4 VAEs</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Reinforcement Learning</h3>
+        <ul>
+          <li><a href="17.1Combined.html">17.1 Introduction</a></li>
+          <li><a href="17.2Combined.html">17.2 MDPs</a></li>
+          <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
+          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Advanced Topics</h3>
+        <ul>
+          <li><a href="18.1Combined.html">18.1 Introduction</a></li>
+          <li><a href="18.2Combined.html">18.2 Semi-Supervised</a></li>
+          <li><a href="18.3Combined.html">18.3 Few-Shot</a></li>
+          <li><a href="18.4Combined.html">18.4 Self-Supervised</a></li>
+        </ul>
+      </div>
+      <div class="topic-group">
+        <h3>Transcripts</h3>
+        <ul>
+          <li><a href="../transcripts/index.html">View All Transcripts</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2 class="section-title">Quiz: Generative Models - Deep Dive</h2>
+  <div class="quiz-container">
+    <div class="question" data-question-index="0">
+      <h3>Question 1 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q0-o0" name="q0" value="0" data-correct="false">
+          <label for="q0-o0">They only classify input data into known categories.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o1" name="q0" value="1" data-correct="false">
+          <label for="q0-o1">They estimate the probability distribution over the input space.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o2" name="q0" value="2" data-correct="false">
+          <label for="q0-o2">They can be used to generate new, artificial samples resembling the data.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o3" name="q0" value="3" data-correct="false">
+          <label for="q0-o3">They are used for tasks such as density estimation.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q0-o4" name="q0" value="4" data-correct="false">
+          <label for="q0-o4">They require labeled data to function effectively.</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Estimate probability distribution, ✅ Generate new samples, ✅ Used for density estimation  
+<strong>Explanation:</strong>  
+Generative models do <strong>not require labeled data</strong> and <strong>do more than classification</strong>.
+
+<blockquote>"Here we take a probabilistic view of unsupervised learning and try to estimate the probability distribution over the input space."</blockquote>  
+<blockquote>"In this lesson, we'll focus on Density Estimation... we may want to just have the ability to generate samples from this distribution..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="1">
+      <h3>Question 2 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
+          <label for="q1-o0">Naive Bayes classifiers</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
+          <label for="q1-o1">Support Vector Machines</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="false">
+          <label for="q1-o2">Gaussian Mixture Models</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="false">
+          <label for="q1-o3">Linear Discriminant Analysis</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
+          <label for="q1-o4">Hidden Markov Models</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Gaussian Mixture Models, ✅ Naive Bayes classifiers, ✅ Hidden Markov Models  
+<strong>Explanation:</strong>  
+GMMs were traditionally used for density estimation, though they struggle with high-dimensional input spaces. Naive Bayes and HMMs are also probabilistic models used for modeling data distributions.
+
+<blockquote>"For example, Gaussian mixture models also produce some estimate of the probability distribution over the input space. However, these methods have severe deficiencies when the input is very high dimensional."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="2">
+      <h3>Question 3 (True/False)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> ❌ False  
+<strong>Explanation:</strong>  
+Discriminative models model \( P(y|x) \); generative models model \( P(x) \).
+
+<blockquote>"Discriminative models, model the conditional distribution probability of the label given the input... Generative models, on the other hand, model the distribution over the input space."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="3">
+      <h3>Question 4 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">High computational complexity</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">Intractability of the exact probability distribution</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">Lack of any theoretical basis</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">Requirement of assumptions or simplifications</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ High computational complexity, ✅ Intractability, ✅ Need for simplification  
+<strong>Explanation:</strong>  
+Modeling \( P(x) \) directly is challenging without simplifying assumptions.
+
+<blockquote>"This is a very intractable and hard thing to do. And so we'll have to make various assumptions or simplifications in order to make this feasible."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="4">
+      <h3>Question 5 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <label for="q4-o0">Use deep learning architectures that reduce dimensionality</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">Use rule-based symbolic reasoning</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">Leverage embeddings to find low-dimensional representations</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">Avoid simplifications to maintain full generality</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="false">
+          <label for="q4-o4">Apply parametric approximations of probability distributions</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q4-o5" name="q4" value="5" data-correct="false">
+          <label for="q4-o5">Utilize maximum likelihood estimation principles</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Use deep architectures, ✅ Use embeddings, ✅ Apply parametric approximations, ✅ Utilize maximum likelihood estimation  
+<strong>Explanation:</strong>  
+The transcript emphasizes several strategies for handling high-dimensional data: using deep architectures for dimensionality reduction, leveraging embeddings, applying parametric approximations, and using maximum likelihood estimation.
+
+<blockquote>"Deep learning is very good at learning features that extract meaningful information in a low dimensional embedding from high dimensional data."</blockquote>
+<blockquote>"Just, like discriminative models we can have a parametric approximation of this distribution."</blockquote>
+<blockquote>"And use the principle of maximum likelihood to optimize the parameters given the unlabeled data set."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="5">
+      <h3>Question 6 (Multiple Choice)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">Discriminative models generate new samples from the data distribution.</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="false">
+          <label for="q5-o1">Generative models are always more accurate than discriminative ones.</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q5-o2" name="q5" value="2" data-correct="false">
+          <label for="q5-o2">Discriminative models estimate \( P(y|x) \), while generative models estimate \( P(x) \).</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q5-o3" name="q5" value="3" data-correct="false">
+          <label for="q5-o3">Generative models require supervised data, while discriminative models do not.</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> ✅ Discriminative: \( P(y|x) \), Generative: \( P(x) \)  
+<strong>Explanation:</strong>  
+This is a central distinction made in the lesson.
+
+<blockquote>"Discriminative models, model the conditional distribution probability of the label given the input... Generative models... model the distribution over the input space."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="6">
+      <h3>Question 7 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <label for="q6-o0">Deep learning methods can extract meaningful low-dimensional features.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">Neural networks can model complex distributions with sufficient flexibility.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">They inherently encode explicit probabilistic rules.</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">They eliminate the need for any data preprocessing.</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Low-dim features, ✅ Flexible modeling  
+<strong>Explanation:</strong>  
+Deep learning reduces dimensionality and provides flexibility in modeling.
+
+<blockquote>"Deep learning is very good at learning features that extract meaningful information in a low dimensional embedding..."</blockquote>  
+<blockquote>"Just, like discriminative models we can have a parametric approximation of this distribution."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="7">
+      <h3>Question 8 (True/False)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="false">
+          <label for="q7-o1">False</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answer:</strong> ✅ True  
+<strong>Explanation:</strong>  
+Generating samples is one of the core applications.
+
+<blockquote>"We may want to just have the ability to generate samples from this distribution, that is actually generate artificial examples..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="8">
+      <h3>Question 9 (Multi-Select)</h3>
+      <p></p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">Cross-entropy minimization</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">Maximum likelihood estimation</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
+          <label for="q8-o2">Mean squared error</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
+          <label for="q8-o3">KL divergence minimization</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="false">
+          <label for="q8-o4">Independent and identically distributed (i.i.d.) sampling assumption</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q8-o5" name="q8" value="5" data-correct="false">
+          <label for="q8-o5">Log-likelihood summation</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <button class="btn show-answer-btn">Show Explanation</button>
+      <div class="explanation"><strong>Correct Answers:</strong> ✅ Maximum likelihood estimation, ✅ KL divergence minimization, ✅ Independent and identically distributed (i.i.d.) sampling assumption, ✅ Log-likelihood summation  
+<strong>Explanation:</strong>  
+Multiple optimization principles are used in generative modeling. MLE is the primary one, but KL divergence is also used for comparing distributions. The i.i.d. assumption and log-likelihood summation are key components of the optimization process.
+
+<blockquote>"We can have a set of parameterized models \( p(x, \theta) \)... use the principle of maximum likelihood"</blockquote>
+<blockquote>"This is because the examples are drawn independently and identically, that is we're just sampling independently from this distribution."</blockquote>
+<blockquote>"We can then take the log of this because we're maximizing it, and this turns out into a sum of log likelihoods."</blockquote></div>
+    </div></div>
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+</body>
+</html>

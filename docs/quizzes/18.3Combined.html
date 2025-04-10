@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz: Few-Shot Learning - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -49,387 +51,379 @@
     <div class="content">
       <h2 class="section-title">Quiz: Few-Shot Learning</h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
+    <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)  </h3>
-      <p></p>
+      <p>Few-shot learning assumes access to many labeled examples per class at inference time.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="false">
-          <label for="q0-o0">True</label>
+          <input type="radio" id="q1-o0" name="q1" value="0" data-correct="false">
+          <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="true">
-          <label for="q0-o1">False</label>
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="true">
+          <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Few-shot learning operates under the constraint of very limited labeled examples per class.  
 <blockquote>"We only have a few examples called a support set, typically we only have somewhere on the range of 1 to 5 examples per category..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="1">
+    <div class="question" data-question-index="2">
       <h3>Question 2 (Multi-Select)  </h3>
-      <p></p>
+      <p>Which of the following accurately describe the goals and approaches of meta-training in few-shot learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="true">
-          <label for="q1-o0">To simulate test conditions using tasks constructed from base classes</label>
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">A. To simulate test conditions using tasks constructed from base classes</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
-          <label for="q1-o1">To learn how to learn quickly from small amounts of data</label>
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">B. To learn how to learn quickly from small amounts of data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="false">
-          <label for="q1-o2">To develop models that generalize well to unseen classes</label>
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
+          <label for="q2-o2">C. To develop models that generalize well to unseen classes</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="false">
-          <label for="q1-o3">To pre-train a classifier across all possible test classes</label>
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. To pre-train a classifier across all possible test classes</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
-          <label for="q1-o4">To build experience with many related tasks that transfer to new tasks</label>
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
+          <label for="q2-o4">E. To build experience with many related tasks that transfer to new tasks</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o5" name="q1" value="5" data-correct="false">
-          <label for="q1-o5">To align the training process with the inference process</label>
+          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
+          <label for="q2-o5">F. To align the training process with the inference process</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Simulate test conditions, ✅ Learn to learn quickly, ✅ Develop models for unseen classes, ✅ Build transferable experience, ✅ Align training with inference  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Simulate test conditions, ✅ Learn to learn quickly, ✅ Develop models for unseen classes, ✅ Build transferable experience, ✅ Align training with inference  
 <strong>Explanation:</strong>  
 Meta-training serves multiple important purposes in few-shot learning beyond just task simulation.  
 <blockquote>"We'd like to align what we do during training with what we do during testing... This is called meta-training..."</blockquote>
 <blockquote>"The goal is to train the model on a distribution of tasks, so it learns how to learn quickly from small amounts of data."</blockquote>
 <blockquote>"This way, the model builds experience across many tasks that can transfer to new, unseen classes at test time."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
+    <div class="question" data-question-index="3">
       <h3>Question 3 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which of the following are strategies used to prevent overfitting during fine-tuning in few-shot learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
-          <label for="q2-o0">Freezing the feature extractor</label>
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">A. Freezing the feature extractor</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
-          <label for="q2-o1">Using cosine classifiers instead of fully connected layers</label>
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">B. Using cosine classifiers instead of fully connected layers</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
-          <label for="q2-o2">Training on thousands of examples per class</label>
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">C. Training on thousands of examples per class</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
-          <label for="q2-o3">Applying early stopping and hyperparameter tuning</label>
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">D. Applying early stopping and hyperparameter tuning</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Freezing the feature extractor, Using cosine classifiers instead of fully connected layers  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 These techniques help prevent overfitting when training with very few examples.  
 <blockquote>"...fix all the weights and just fine tune the last layer..."</blockquote>  
 <blockquote>"...cosine classifier... are so constrained that it's harder to overfit with them..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="3">
+    <div class="question" data-question-index="4">
       <h3>Question 4 (Multi-Select)  </h3>
-      <p></p>
+      <p>Which of the following accurately describe properties and advantages of cosine similarity-based classification in few-shot learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
-          <label for="q3-o0">It primarily compares the angular separation (directional similarity) between vectors</label>
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <label for="q4-o0">A. It primarily compares the angular separation (directional similarity) between vectors</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
-          <label for="q3-o1">It normalizes feature vectors, making the comparison invariant to magnitude</label>
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">B. It normalizes feature vectors, making the comparison invariant to magnitude</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
-          <label for="q3-o2">It helps address the scarcity of examples by focusing on direction rather than scale</label>
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">C. It helps address the scarcity of examples by focusing on direction rather than scale</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
-          <label for="q3-o3">It requires computing the absolute differences between vector components</label>
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. It requires computing the absolute differences between vector components</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
-          <label for="q3-o4">It works well with embeddings from different domains or distributions</label>
+          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="false">
+          <label for="q4-o4">E. It works well with embeddings from different domains or distributions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
-          <label for="q3-o5">It provides a natural way to measure semantic similarity in the feature space</label>
+          <input type="checkbox" id="q4-o5" name="q4" value="5" data-correct="false">
+          <label for="q4-o5">F. It provides a natural way to measure semantic similarity in the feature space</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Compares angular separation, ✅ Normalizes vectors for magnitude invariance, ✅ Addresses scarcity by focusing on direction, ✅ Works well across domains, ✅ Measures semantic similarity  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Compares angular separation, ✅ Normalizes vectors for magnitude invariance, ✅ Addresses scarcity by focusing on direction, ✅ Works well across domains, ✅ Measures semantic similarity  
 <strong>Explanation:</strong>  
 Cosine similarity has several important properties that make it well-suited for few-shot learning.  
 <blockquote>"You're only looking at the angles between the feature vectors rather than incorporating how long they are..."</blockquote>
 <blockquote>"This normalization is particularly helpful when examples are scarce and feature magnitudes might vary."</blockquote>
 <blockquote>"Cosine similarity provides a natural way to compare the semantic direction of embeddings across potentially different distributions."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
-      <h3>Question 5 (Multiple Select)  </h3>
-      <p></p>
-      <div class="options">
-        <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
-          <label for="q4-o0">Feature extractor shared across support and query sets</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
-          <label for="q4-o1">One-hot encoding of query items</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="true">
-          <label for="q4-o2">Mean embeddings of each class in the support set</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
-          <label for="q4-o3">Learned reward functions for each query</label>
-        </div>
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Feature extractor shared across support and query sets, Mean embeddings of each class in the support set  
-<strong>Explanation:</strong>  
-Prototypical networks use class prototypes computed as the mean of embeddings.  
-<blockquote>"...you take the mean of those and then you compare each query item to that mean..."</blockquote></div>
-    </div>
     <div class="question" data-question-index="5">
-      <h3>Question 6 (Multi-Select)  </h3>
-      <p></p>
+      <h3>Question 5 (Multiple Select)  </h3>
+      <p>Which of the following are core components of a prototypical network?</p>
       <div class="options">
         <div class="option">
           <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="false">
-          <label for="q5-o0">They create class prototypes by averaging support set examples for each class</label>
+          <label for="q5-o0">A. Feature extractor shared across support and query sets</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="false">
-          <label for="q5-o1">They compare query items to all prototypes using a distance function</label>
+          <label for="q5-o1">B. One-hot encoding of query items</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="false">
-          <label for="q5-o2">They require no fine-tuning or adaptation during inference</label>
+          <label for="q5-o2">C. Mean embeddings of each class in the support set</label>
         </div>
         <div class="option">
           <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
-          <label for="q5-o3">They can handle variable numbers of examples per class</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q5-o4" name="q5" value="4" data-correct="false">
-          <label for="q5-o4">They rely on detailed class-level annotations beyond class labels</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q5-o5" name="q5" value="5" data-correct="false">
-          <label for="q5-o5">They perform well even with extremely limited support examples</label>
+          <label for="q5-o3">D. Learned reward functions for each query</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Create prototypes by averaging examples, ✅ Compare queries to all prototypes, ✅ Require no fine-tuning during inference, ✅ Handle variable example counts, ✅ Perform well with limited examples  
+      <div class="explanation"><strong>Explanation:</strong>  
+Prototypical networks use class prototypes computed as the mean of embeddings.  
+<blockquote>"...you take the mean of those and then you compare each query item to that mean..."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="6">
+      <h3>Question 6 (Multi-Select)  </h3>
+      <p>Which of the following accurately describe the key aspects and advantages of prototypical networks in few-shot learning? (Select all that apply)</p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <label for="q6-o0">A. They create class prototypes by averaging support set examples for each class</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">B. They compare query items to all prototypes using a distance function</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">C. They require no fine-tuning or adaptation during inference</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">D. They can handle variable numbers of examples per class</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
+          <label for="q6-o4">E. They rely on detailed class-level annotations beyond class labels</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
+          <label for="q6-o5">F. They perform well even with extremely limited support examples</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Create prototypes by averaging examples, ✅ Compare queries to all prototypes, ✅ Require no fine-tuning during inference, ✅ Handle variable example counts, ✅ Perform well with limited examples  
 <strong>Explanation:</strong>  
 Prototypical networks have several advantageous properties for few-shot learning scenarios.  
 <blockquote>"...you take the mean of those and then you compare each query item to that mean..."</blockquote>
 <blockquote>"This approach is elegant because it can handle any number of examples per class and doesn't require explicit parameter updates during inference."</blockquote>
 <blockquote>"The averaging operation provides a simple yet effective way to combine the limited information from support examples."</blockquote></div>
     </div>
-    <div class="question" data-question-index="6">
+    <div class="question" data-question-index="7">
       <h3>Question 7 (True/False)  </h3>
-      <p></p>
+      <p>Prototypical networks compare each query item to every example in the support set individually.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q6-o0" name="q6" value="0" data-correct="false">
-          <label for="q6-o0">True</label>
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q6-o1" name="q6" value="1" data-correct="true">
-          <label for="q6-o1">False</label>
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="true">
+          <label for="q7-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Query items are compared to class prototypes (means), not individual examples.  
 <blockquote>"...we're going to compute the distance... to each prototype."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
+    <div class="question" data-question-index="8">
       <h3>Question 8 (Multiple Select)  </h3>
-      <p></p>
+      <p>Which challenges or limitations are associated with fine-tuning-based few-shot learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
-          <label for="q7-o0">It lacks task-specific awareness during meta-training</label>
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">A. It lacks task-specific awareness during meta-training</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
-          <label for="q7-o1">It requires large support sets to work effectively</label>
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <label for="q8-o1">B. It requires large support sets to work effectively</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="true">
-          <label for="q7-o2">It is sensitive to hyperparameter choices</label>
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
+          <label for="q8-o2">C. It is sensitive to hyperparameter choices</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="false">
-          <label for="q7-o3">It cannot generalize to new classes</label>
+          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="false">
+          <label for="q8-o3">D. It cannot generalize to new classes</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> It lacks task-specific awareness during meta-training, It is sensitive to hyperparameter choices  
+      <div class="explanation">-specific awareness during meta-training, It is sensitive to hyperparameter choices  
 <strong>Explanation:</strong>  
 Fine-tuning approaches face challenges related to meta-awareness and sensitivity.  
 <blockquote>"...not meta-aware, as we're not explicitly simulating few-shot tasks during pre-training..."</blockquote>  
 <blockquote>"...the hyperparameters for fine-tuning matter a lot..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="8">
+    <div class="question" data-question-index="9">
       <h3>Question 9 (Multi-Select)  </h3>
-      <p></p>
+      <p>What aspect of meta-learning does MAML specifically aim to optimize? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
-          <label for="q8-o0">The initialization of parameters for rapid adaptation</label>
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <label for="q9-o0">A. The initialization of parameters for rapid adaptation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
-          <label for="q8-o1">The learning algorithm itself</label>
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <label for="q9-o1">B. The learning algorithm itself</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
-          <label for="q8-o2">The architecture of the neural network</label>
+          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
+          <label for="q9-o2">C. The architecture of the neural network</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="true">
-          <label for="q8-o3">The meta-optimization strategy for efficient adaptation</label>
+          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
+          <label for="q9-o3">D. The meta-optimization strategy for efficient adaptation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="false">
-          <label for="q8-o4">The representation space of the model</label>
+          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
+          <label for="q9-o4">E. The representation space of the model</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o5" name="q8" value="5" data-correct="false">
-          <label for="q8-o5">The capability to quickly adapt to new tasks with minimal steps</label>
+          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
+          <label for="q9-o5">F. The capability to quickly adapt to new tasks with minimal steps</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Initialization for rapid adaptation, ✅ Meta-optimization strategy, ✅ Capability for quick adaptation  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Initialization for rapid adaptation, ✅ Meta-optimization strategy, ✅ Capability for quick adaptation  
 <strong>Explanation:</strong>  
 MAML focuses on finding optimal initialization parameters that allow quick adaptation.  
 <blockquote>"The goal of MAML is to learn an initialization that can be fine-tuned quickly to new tasks with just a few gradient steps."</blockquote>
 <blockquote>"It's meta-learning because we're optimizing specifically for adaptability rather than just task performance."</blockquote>
 <blockquote>"MAML optimizes for the ability to learn new tasks quickly, not just performance on the training tasks."</blockquote></div>
     </div>
-    <div class="question" data-question-index="9">
+    <div class="question" data-question-index="10">
       <h3>Question 10 (Multi-Select)  </h3>
-      <p></p>
+      <p>Which of the following accurately describe the relationship between gradient descent and meta-learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
-          <label for="q9-o0">Gradient descent can be viewed as a differentiable computation graph suitable for meta-learning</label>
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <label for="q10-o0">A. Gradient descent can be viewed as a differentiable computation graph suitable for meta-learning</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
-          <label for="q9-o1">Meta-learning can optimize the initial parameters that gradient descent starts from</label>
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <label for="q10-o1">B. Meta-learning can optimize the initial parameters that gradient descent starts from</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
-          <label for="q9-o2">The meta-objective includes performance after adaptation, not just initial performance</label>
+          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="false">
+          <label for="q10-o2">C. The meta-objective includes performance after adaptation, not just initial performance</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
-          <label for="q9-o3">Gradient descent must be replaced with more advanced algorithms in meta-learning</label>
+          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="false">
+          <label for="q10-o3">D. Gradient descent must be replaced with more advanced algorithms in meta-learning</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
-          <label for="q9-o4">The learning algorithm itself can be parameterized and learned</label>
+          <input type="checkbox" id="q10-o4" name="q10" value="4" data-correct="false">
+          <label for="q10-o4">E. The learning algorithm itself can be parameterized and learned</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
-          <label for="q9-o5">Meta-learning can optimize for quick adaptation rather than final performance</label>
+          <input type="checkbox" id="q10-o5" name="q10" value="5" data-correct="false">
+          <label for="q10-o5">F. Meta-learning can optimize for quick adaptation rather than final performance</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Gradient descent is a differentiable computation graph, ✅ Meta-learning optimizes initial parameters, ✅ Meta-objective includes post-adaptation performance, ✅ Learning algorithm can be parameterized, ✅ Can optimize for quick adaptation  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> [Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Gradient descent is a differentiable computation graph, ✅ Meta-learning optimizes initial parameters, ✅ Meta-objective includes post-adaptation performance, ✅ Learning algorithm can be parameterized, ✅ Can optimize for quick adaptation  
 <strong>Explanation:</strong>  
 The relationship between gradient descent and meta-learning has several important dimensions.  
 <blockquote>"Gradient descent itself is a differentiable computation, which means we can differentiate through the adaptation process."</blockquote>
 <blockquote>"Meta-learning optimizes for performance after adaptation, which is a fundamentally different objective than standard learning."</blockquote>
 <blockquote>"We can either learn good initialization points for gradient descent, or learn the update rule itself."</blockquote></div>
     </div>
-    <div class="question" data-question-index="10">
+    <div class="question" data-question-index="11">
       <h3>Question 11 (Multiple Choice)  </h3>
-      <p></p>
+      <p>What does the Meta-LSTM approach learn that MAML does not?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="false">
-          <label for="q10-o0">How to initialize parameters before adaptation</label>
+          <input type="radio" id="q11-o0" name="q11" value="0" data-correct="true">
+          <label for="q11-o0">A. How to initialize parameters before adaptation</label>
         </div>
         <div class="option">
-          <input type="radio" id="q10-o1" name="q10" value="1" data-correct="false">
-          <label for="q10-o1">A task-specific regularizer</label>
+          <input type="radio" id="q11-o1" name="q11" value="1" data-correct="false">
+          <label for="q11-o1">B. A task-specific regularizer</label>
         </div>
         <div class="option">
-          <input type="radio" id="q10-o2" name="q10" value="2" data-correct="true">
-          <label for="q10-o2">A learnable update rule conditioned on gradients</label>
+          <input type="radio" id="q11-o2" name="q11" value="2" data-correct="false">
+          <label for="q11-o2">C. A learnable update rule conditioned on gradients</label>
         </div>
         <div class="option">
-          <input type="radio" id="q10-o3" name="q10" value="3" data-correct="false">
-          <label for="q10-o3">The number of steps required for convergence</label>
+          <input type="radio" id="q11-o3" name="q11" value="3" data-correct="false">
+          <label for="q11-o3">D. The number of steps required for convergence</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> A learnable update rule conditioned on gradients  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Meta-LSTM learns an explicit update rule rather than just initialization.  
 <blockquote>"...it can learn to do more complex update rules that are not purely following the gradient..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="11">
+    <div class="question" data-question-index="12">
       <h3>Question 12 (Multiple Select)  </h3>
-      <p></p>
+      <p>What are advantages of learning initialization via MAML compared to learning an explicit update rule?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q11-o0" name="q11" value="0" data-correct="true">
-          <label for="q11-o0">Simpler optimization</label>
+          <input type="checkbox" id="q12-o0" name="q12" value="0" data-correct="false">
+          <label for="q12-o0">A. Simpler optimization</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q11-o1" name="q11" value="1" data-correct="false">
-          <label for="q11-o1">Better theoretical convergence guarantees</label>
+          <input type="checkbox" id="q12-o1" name="q12" value="1" data-correct="false">
+          <label for="q12-o1">B. Better theoretical convergence guarantees</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q11-o2" name="q11" value="2" data-correct="false">
-          <label for="q11-o2">Higher flexibility in modeling long-range dependencies</label>
+          <input type="checkbox" id="q12-o2" name="q12" value="2" data-correct="false">
+          <label for="q12-o2">C. Higher flexibility in modeling long-range dependencies</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q11-o3" name="q11" value="3" data-correct="true">
-          <label for="q11-o3">Less overfitting when applied to small support sets</label>
+          <input type="checkbox" id="q12-o3" name="q12" value="3" data-correct="false">
+          <label for="q12-o3">D. Less overfitting when applied to small support sets</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Simpler optimization, Less overfitting when applied to small support sets  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Learning initialization has practical advantages in terms of simplicity and generalization.  
 <blockquote>"...simpler conceptually and more robust in practice..."</blockquote>  
 <blockquote>"...less prone to overfitting on small tasks..."</blockquote></div>

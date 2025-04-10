@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz: Introduction to Reinforcement Learning - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +27,7 @@
           <li><a href="17.1Combined.html">17.1 Introduction</a></li>
           <li><a href="17.2Combined.html">17.2 MDPs</a></li>
           <li><a href="17.3Combined.html">17.3 Solving MDPs</a></li>
-          <li><a href="17.4-Combined.html">17.4 Deep Q-Learning</a></li>
+          <li><a href="17.4Combined.html">17.4 Deep Q-Learning</a></li>
           <li><a href="17.5Combined.html">17.5 Policy Gradients</a></li>
         </ul>
       </div>
@@ -49,59 +51,56 @@
     <div class="content">
       <h2 class="section-title">Quiz: Introduction to Reinforcement Learning</h2>
   <div class="quiz-container">
-    <div class="question" data-question-index="0">
+    <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)</h3>
-      <p></p>
+      <p>In reinforcement learning, agents are trained with labeled data to learn a direct mapping from inputs to outputs.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q0-o0" name="q0" value="0" data-correct="false">
-          <label for="q0-o0">True</label>
+          <input type="radio" id="q1-o0" name="q1" value="0" data-correct="false">
+          <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q0-o1" name="q0" value="1" data-correct="true">
-          <label for="q0-o1">False</label>
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="true">
+          <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Unlike supervised learning, reinforcement learning does not rely on labeled data.  
 <blockquote>"We will not receive supervision in the form of the correct decision... instead, we will only receive evaluative feedback in the form of reward for the decision..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="1">
+    <div class="question" data-question-index="2">
       <h3>Question 2 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe key characteristics and properties of reinforcement learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="true">
-          <label for="q1-o0">Sequential decision-making in an environment with evaluative feedback</label>
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <label for="q2-o0">A. Sequential decision-making in an environment with evaluative feedback</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="true">
-          <label for="q1-o1">Learning through trial and error</label>
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
+          <label for="q2-o1">B. Learning through trial and error</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="true">
-          <label for="q1-o2">Delayed feedback on the quality of decisions</label>
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="false">
+          <label for="q2-o2">C. Delayed feedback on the quality of decisions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o3" name="q1" value="3" data-correct="false">
-          <label for="q1-o3">Learning optimal behavior through direct supervision</label>
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. Learning optimal behavior through direct supervision</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
-          <label for="q1-o4">Balancing exploration of new strategies with exploitation of known good strategies</label>
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
+          <label for="q2-o4">E. Balancing exploration of new strategies with exploitation of known good strategies</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o5" name="q1" value="5" data-correct="false">
-          <label for="q1-o5">Receiving only rewards/penalties rather than correct action labels</label>
+          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
+          <label for="q2-o5">F. Receiving only rewards/penalties rather than correct action labels</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
       <div class="explanation"><strong>Correct Answers:</strong> ✅ Sequential decision-making with evaluative feedback, ✅ Learning through trial and error, ✅ Delayed feedback, ✅ Balancing exploration and exploitation, ✅ Receiving rewards/penalties not labels  
 <strong>Explanation:</strong>  
 Reinforcement learning involves multiple key characteristics beyond just the basic definition.  
@@ -109,250 +108,241 @@ Reinforcement learning involves multiple key characteristics beyond just the bas
 <blockquote>"A key characteristic is that the agent receives delayed feedback, making it difficult to determine which actions led to rewards."</blockquote>
 <blockquote>"RL algorithms must balance exploration of new strategies with exploitation of known successful strategies."</blockquote></div>
     </div>
-    <div class="question" data-question-index="2">
+    <div class="question" data-question-index="3">
       <h3>Question 3 (Multiple Select)</h3>
-      <p></p>
+      <p>Which of the following are key characteristics or challenges of reinforcement learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
-          <label for="q2-o0">The agent receives a label for the correct action at each step</label>
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <label for="q3-o0">A. The agent receives a label for the correct action at each step</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
-          <label for="q2-o1">The reward signal may be delayed</label>
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <label for="q3-o1">B. The reward signal may be delayed</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="true">
-          <label for="q2-o2">The policy affects future data distribution</label>
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <label for="q3-o2">C. The policy affects future data distribution</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
-          <label for="q2-o3">Every state-action pair is observed multiple times</label>
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">D. Every state-action pair is observed multiple times</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> The reward signal may be delayed, The policy affects future data distribution  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 RL faces unique challenges like delayed rewards and non-stationary data caused by policy updates.  
 <blockquote>"The reward may be delayed and it can only happen at the end of the task..."</blockquote>  
 <blockquote>"Any updates made to the policy... will change the data distribution... making this distribution non stationary."</blockquote></div>
     </div>
-    <div class="question" data-question-index="3">
+    <div class="question" data-question-index="4">
       <h3>Question 4 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe what an RL agent receives from the environment during the interaction loop? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
-          <label for="q3-o0">The next observation (state) after taking an action</label>
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <label for="q4-o0">A. The next observation (state) after taking an action</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
-          <label for="q3-o1">A reward signal that evaluates the action taken</label>
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">B. A reward signal that evaluates the action taken</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
-          <label for="q3-o2">Information about which action would have been optimal</label>
+          <input type="checkbox" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">C. Information about which action would have been optimal</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
-          <label for="q3-o3">The probability distribution over all possible next states</label>
+          <input type="checkbox" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. The probability distribution over all possible next states</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
-          <label for="q3-o4">The environment's internal state which may differ from the observation</label>
+          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="false">
+          <label for="q4-o4">E. The environment's internal state which may differ from the observation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o5" name="q3" value="5" data-correct="false">
-          <label for="q3-o5">The time remaining until the episode terminates</label>
+          <input type="checkbox" id="q4-o5" name="q4" value="5" data-correct="false">
+          <label for="q4-o5">F. The time remaining until the episode terminates</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ The next observation/state, ✅ A reward signal  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ The next observation/state, ✅ A reward signal  
 <strong>Explanation:</strong>  
 The agent receives both the new observation and the reward after taking an action, but not the other information.  
 <blockquote>"...the agent will receive an observation... it will execute an action... and produce a new observation... as well as a reward..."</blockquote>
 <blockquote>"The agent does not receive information about what the optimal action would have been, nor does it typically have access to the environment's full internal state."</blockquote></div>
     </div>
-    <div class="question" data-question-index="4">
+    <div class="question" data-question-index="5">
       <h3>Question 5 (True/False)</h3>
-      <p></p>
+      <p>The data distribution that a reinforcement learning agent sees remains stationary throughout training.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="false">
-          <label for="q4-o0">True</label>
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="true">
-          <label for="q4-o1">False</label>
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The data distribution is non-stationary because the policy changes what data the agent sees.  
 <blockquote>"...will change the data distribution of states and rewards... making this distribution non stationary."</blockquote></div>
     </div>
-    <div class="question" data-question-index="5">
+    <div class="question" data-question-index="6">
       <h3>Question 6 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe the nature and characteristics of "evaluative feedback" in reinforcement learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="false">
-          <label for="q5-o0">Feedback is received in the form of a reward signal</label>
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <label for="q6-o0">A. Feedback is received in the form of a reward signal</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="false">
-          <label for="q5-o1">Feedback is only provided for actions actually taken, not hypothetical actions</label>
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <label for="q6-o1">B. Feedback is only provided for actions actually taken, not hypothetical actions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="true">
-          <label for="q5-o2">Feedback may be delayed, not immediate after each action</label>
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">C. Feedback may be delayed, not immediate after each action</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="false">
-          <label for="q5-o3">Feedback provides a scalar value rather than a complete corrective instruction</label>
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">D. Feedback provides a scalar value rather than a complete corrective instruction</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o4" name="q5" value="4" data-correct="false">
-          <label for="q5-o4">Feedback indicates the quality of an action, not the correct action itself</label>
+          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
+          <label for="q6-o4">E. Feedback indicates the quality of an action, not the correct action itself</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q5-o5" name="q5" value="5" data-correct="false">
-          <label for="q5-o5">Feedback is deterministic and consistent across all environments</label>
+          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
+          <label for="q6-o5">F. Feedback is deterministic and consistent across all environments</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Received as reward signal, ✅ Only provided for actions taken, ✅ May be delayed, ✅ Provides scalar value, ✅ Indicates quality not correctness  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ Received as reward signal, ✅ Only provided for actions taken, ✅ May be delayed, ✅ Provides scalar value, ✅ Indicates quality not correctness  
 <strong>Explanation:</strong>  
 Evaluative feedback has multiple key characteristics that distinguish it from instructional feedback.  
 <blockquote>"Evaluative feedback means that the agent... receive rewards... only for the actions that it did take and not for the actions that did not take."</blockquote>
 <blockquote>"The reward signal merely evaluates actions, rather than instructing which action is correct."</blockquote>
 <blockquote>"The reward signal might be delayed, making it challenging to determine which action in a sequence led to a positive outcome."</blockquote></div>
     </div>
-    <div class="question" data-question-index="6">
+    <div class="question" data-question-index="7">
       <h3>Question 7 (Multiple Select)</h3>
-      <p></p>
+      <p>Which are common application domains for reinforcement learning as discussed in the lecture?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
-          <label for="q6-o0">Image segmentation</label>
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">A. Image segmentation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="true">
-          <label for="q6-o1">Robotic control</label>
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <label for="q7-o1">B. Robotic control</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="true">
-          <label for="q6-o2">Atari game playing</label>
+          <input type="checkbox" id="q7-o2" name="q7" value="2" data-correct="false">
+          <label for="q7-o2">C. Atari game playing</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="true">
-          <label for="q6-o3">Board games like Go</label>
+          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="false">
+          <label for="q7-o3">D. Board games like Go</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> Robotic control, Atari game playing, Board games like Go  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 These specific applications are mentioned in the lecture.  
 <blockquote>"Here is an instance of a robotic control task..."</blockquote>  
 <blockquote>"RL applied to learn how to play Atari video games..."</blockquote>  
 <blockquote>"RL has also been applied to games like go..."</blockquote></div>
     </div>
-    <div class="question" data-question-index="7">
+    <div class="question" data-question-index="8">
       <h3>Question 8 (True/False)</h3>
-      <p></p>
+      <p>The RL agent receives rewards for all actions, including those it did not take.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
-          <label for="q7-o0">True</label>
+          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="true">
-          <label for="q7-o1">False</label>
+          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="true">
+          <label for="q8-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> False  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Only actions that are actually taken receive rewards.  
 <blockquote>"...the agent is supposed to pick actions and receive rewards... only for the actions that it did take and not for the actions that did not take."</blockquote></div>
     </div>
-    <div class="question" data-question-index="8">
+    <div class="question" data-question-index="9">
       <h3>Question 9 (Multi-Select)</h3>
-      <p></p>
+      <p>Which of the following accurately describe challenges specific to reinforcement learning in real-world robotic settings? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
-          <label for="q8-o0">Some states may be seen only once</label>
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <label for="q9-o0">A. Some states may be seen only once</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
-          <label for="q8-o1">Exploration can be dangerous or costly</label>
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <label for="q9-o1">B. Exploration can be dangerous or costly</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
-          <label for="q8-o2">Real-world dynamics are often complex and difficult to model</label>
+          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="false">
+          <label for="q9-o2">C. Real-world dynamics are often complex and difficult to model</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o3" name="q8" value="3" data-correct="true">
-          <label for="q8-o3">Hardware constraints limit computation speed</label>
+          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
+          <label for="q9-o3">D. Hardware constraints limit computation speed</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="true">
-          <label for="q8-o4">Actions have physical consequences that cannot be reversed</label>
+          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
+          <label for="q9-o4">E. Actions have physical consequences that cannot be reversed</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o5" name="q8" value="5" data-correct="false">
-          <label for="q8-o5">Reward signals may be sparse and difficult to design</label>
+          <input type="checkbox" id="q9-o5" name="q9" value="5" data-correct="false">
+          <label for="q9-o5">F. Reward signals may be sparse and difficult to design</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ States seen only once, ✅ Exploration can be dangerous/costly, ✅ Complex dynamics, ✅ Hardware constraints, ✅ Physical consequences, ✅ Sparse rewards  
+      <div class="explanation">[Need to manually determine]
+<strong>Correct Answers:</strong> ✅ States seen only once, ✅ Exploration can be dangerous/costly, ✅ Complex dynamics, ✅ Hardware constraints, ✅ Physical consequences, ✅ Sparse rewards  
 <strong>Explanation:</strong>  
 Real-world robotics faces numerous challenges that make RL particularly difficult.  
 <blockquote>"...the agent will see certain states only once and never again in his lifetime, making it difficult to learn from past mistakes."</blockquote>
 <blockquote>"In real-world settings, exploration can lead to physical damage, and the dynamics are often complex and difficult to model accurately."</blockquote>
 <blockquote>"The hardware constraints and physical consequences of actions create additional challenges not present in simulated environments."</blockquote></div>
     </div>
-    <div class="question" data-question-index="9">
+    <div class="question" data-question-index="10">
       <h3>Question 10 (Multiple Choice)</h3>
-      <p></p>
+      <p>What is the agent’s goal in reinforcement learning?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="false">
-          <label for="q9-o0">Minimize classification error</label>
+          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="false">
+          <label for="q10-o0">A. Minimize classification error</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="false">
-          <label for="q9-o1">Memorize sequences of states</label>
+          <input type="radio" id="q10-o1" name="q10" value="1" data-correct="false">
+          <label for="q10-o1">B. Memorize sequences of states</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o2" name="q9" value="2" data-correct="true">
-          <label for="q9-o2">Maximize long-term accumulated reward</label>
+          <input type="radio" id="q10-o2" name="q10" value="2" data-correct="false">
+          <label for="q10-o2">C. Maximize long-term accumulated reward</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o3" name="q9" value="3" data-correct="false">
-          <label for="q9-o3">Discover</label>
+          <input type="radio" id="q10-o3" name="q10" value="3" data-correct="false">
+          <label for="q10-o3">D. Discover</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <button class="btn show-answer-btn">Show Explanation</button>
-      <div class="explanation"><strong>Correct Answer:</strong> Maximize long-term accumulated reward  
+      <div class="explanation">-term accumulated reward  
 <strong>Explanation:</strong>  
 The core objective of the agent is long-term reward maximization.  
 <blockquote>"The objective of this agent is to maximize the reward it will get from the environment in the long run."</blockquote></div>
