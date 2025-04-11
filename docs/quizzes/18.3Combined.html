@@ -75,11 +75,11 @@ Few-shot learning operates under the constraint of very limited labeled examples
       <p>Which of the following accurately describe the goals and approaches of meta-training in few-shot learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. To simulate test conditions using tasks constructed from base classes</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
           <label for="q2-o1">B. To learn how to learn quickly from small amounts of data</label>
         </div>
         <div class="option">
@@ -101,10 +101,7 @@ Few-shot learning operates under the constraint of very limited labeled examples
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Simulate test conditions, ✅ Learn to learn quickly, ✅ Develop models for unseen classes, ✅ Build transferable experience, ✅ Align training with inference  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Meta-training serves multiple important purposes in few-shot learning beyond just task simulation.  
 <blockquote>"We'd like to align what we do during training with what we do during testing... This is called meta-training..."</blockquote>
 <blockquote>"The goal is to train the model on a distribution of tasks, so it learns how to learn quickly from small amounts of data."</blockquote>
@@ -115,7 +112,7 @@ Meta-training serves multiple important purposes in few-shot learning beyond jus
       <p>Which of the following are strategies used to prevent overfitting during fine-tuning in few-shot learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. Freezing the feature extractor</label>
         </div>
         <div class="option">
@@ -143,11 +140,11 @@ These techniques help prevent overfitting when training with very few examples.
       <p>Which of the following accurately describe properties and advantages of cosine similarity-based classification in few-shot learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. It primarily compares the angular separation (directional similarity) between vectors</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. It normalizes feature vectors, making the comparison invariant to magnitude</label>
         </div>
         <div class="option">
@@ -169,10 +166,7 @@ These techniques help prevent overfitting when training with very few examples.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Compares angular separation, ✅ Normalizes vectors for magnitude invariance, ✅ Addresses scarcity by focusing on direction, ✅ Works well across domains, ✅ Measures semantic similarity  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Cosine similarity has several important properties that make it well-suited for few-shot learning.  
 <blockquote>"You're only looking at the angles between the feature vectors rather than incorporating how long they are..."</blockquote>
 <blockquote>"This normalization is particularly helpful when examples are scarce and feature magnitudes might vary."</blockquote>
@@ -183,7 +177,7 @@ Cosine similarity has several important properties that make it well-suited for 
       <p>Which of the following are core components of a prototypical network?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="false">
+          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="true">
           <label for="q5-o0">A. Feature extractor shared across support and query sets</label>
         </div>
         <div class="option">
@@ -210,11 +204,11 @@ Prototypical networks use class prototypes computed as the mean of embeddings.
       <p>Which of the following accurately describe the key aspects and advantages of prototypical networks in few-shot learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. They create class prototypes by averaging support set examples for each class</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="true">
           <label for="q6-o1">B. They compare query items to all prototypes using a distance function</label>
         </div>
         <div class="option">
@@ -236,10 +230,7 @@ Prototypical networks use class prototypes computed as the mean of embeddings.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Create prototypes by averaging examples, ✅ Compare queries to all prototypes, ✅ Require no fine-tuning during inference, ✅ Handle variable example counts, ✅ Perform well with limited examples  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Prototypical networks have several advantageous properties for few-shot learning scenarios.  
 <blockquote>"...you take the mean of those and then you compare each query item to that mean..."</blockquote>
 <blockquote>"This approach is elegant because it can handle any number of examples per class and doesn't require explicit parameter updates during inference."</blockquote>
@@ -269,7 +260,7 @@ Query items are compared to class prototypes (means), not individual examples.
       <p>Which challenges or limitations are associated with fine-tuning-based few-shot learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="true">
           <label for="q8-o0">A. It lacks task-specific awareness during meta-training</label>
         </div>
         <div class="option">
@@ -287,8 +278,7 @@ Query items are compared to class prototypes (means), not individual examples.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-specific awareness during meta-training, It is sensitive to hyperparameter choices  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Fine-tuning approaches face challenges related to meta-awareness and sensitivity.  
 <blockquote>"...not meta-aware, as we're not explicitly simulating few-shot tasks during pre-training..."</blockquote>  
 <blockquote>"...the hyperparameters for fine-tuning matter a lot..."</blockquote></div>
@@ -298,11 +288,11 @@ Fine-tuning approaches face challenges related to meta-awareness and sensitivity
       <p>What aspect of meta-learning does MAML specifically aim to optimize? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. The initialization of parameters for rapid adaptation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="true">
           <label for="q9-o1">B. The learning algorithm itself</label>
         </div>
         <div class="option">
@@ -324,10 +314,7 @@ Fine-tuning approaches face challenges related to meta-awareness and sensitivity
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Initialization for rapid adaptation, ✅ Meta-optimization strategy, ✅ Capability for quick adaptation  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 MAML focuses on finding optimal initialization parameters that allow quick adaptation.  
 <blockquote>"The goal of MAML is to learn an initialization that can be fine-tuned quickly to new tasks with just a few gradient steps."</blockquote>
 <blockquote>"It's meta-learning because we're optimizing specifically for adaptability rather than just task performance."</blockquote>
@@ -338,11 +325,11 @@ MAML focuses on finding optimal initialization parameters that allow quick adapt
       <p>Which of the following accurately describe the relationship between gradient descent and meta-learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. Gradient descent can be viewed as a differentiable computation graph suitable for meta-learning</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="true">
           <label for="q10-o1">B. Meta-learning can optimize the initial parameters that gradient descent starts from</label>
         </div>
         <div class="option">
@@ -364,10 +351,7 @@ MAML focuses on finding optimal initialization parameters that allow quick adapt
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Gradient descent is a differentiable computation graph, ✅ Meta-learning optimizes initial parameters, ✅ Meta-objective includes post-adaptation performance, ✅ Learning algorithm can be parameterized, ✅ Can optimize for quick adaptation  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The relationship between gradient descent and meta-learning has several important dimensions.  
 <blockquote>"Gradient descent itself is a differentiable computation, which means we can differentiate through the adaptation process."</blockquote>
 <blockquote>"Meta-learning optimizes for performance after adaptation, which is a fundamentally different objective than standard learning."</blockquote>
@@ -405,7 +389,7 @@ Meta-LSTM learns an explicit update rule rather than just initialization.
       <p>What are advantages of learning initialization via MAML compared to learning an explicit update rule?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q12-o0" name="q12" value="0" data-correct="false">
+          <input type="checkbox" id="q12-o0" name="q12" value="0" data-correct="true">
           <label for="q12-o0">A. Simpler optimization</label>
         </div>
         <div class="option">

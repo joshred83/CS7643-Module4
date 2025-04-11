@@ -75,11 +75,11 @@ Semi-Supervised Learning assumes a small amount of labeled data and a larger amo
       <p>Which of the following accurately describe the goals and approaches of Semi-Supervised Learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. To match supervised learning performance with fewer labels by leveraging unlabeled data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
           <label for="q2-o1">B. To exploit the structure and distribution of unlabeled data to improve model generalization</label>
         </div>
         <div class="option">
@@ -101,10 +101,7 @@ Semi-Supervised Learning assumes a small amount of labeled data and a larger amo
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Match performance with fewer labels, ✅ Exploit structure of unlabeled data, ✅ Reduce annotation costs, ✅ Create more robust models, ✅ Adapt to distribution shifts  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Semi-supervised learning has multiple goals and approaches beyond just the central motivation.  
 <blockquote>"Can we overcome the small amount of labeled data that we have using the larger amount of unlabeled data?"</blockquote>
 <blockquote>"This is valuable not just for performance, but also for reducing the high cost of annotation."</blockquote>
@@ -115,7 +112,7 @@ Semi-supervised learning has multiple goals and approaches beyond just the centr
       <p>Which of the following are elements of the FixMatch algorithm?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. Consistency regularization</label>
         </div>
         <div class="option">
@@ -137,8 +134,7 @@ Semi-supervised learning has multiple goals and approaches beyond just the centr
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-labeling with a confidence threshold  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 FixMatch combines these three key elements.  
 <blockquote>"This particular algorithm, FixMatch, is combining several elements... consistency regularization... pseudo-labeling... weak augmentation... strong augmentation..."</blockquote></div>
     </div>
@@ -147,11 +143,11 @@ FixMatch combines these three key elements.
       <p>Why are confidence thresholds important when generating pseudo-labels in semi-supervised learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. They prevent noisy or incorrect labels from contaminating the training process</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. They ensure only highly confident predictions are used as training targets</label>
         </div>
         <div class="option">
@@ -173,10 +169,7 @@ FixMatch combines these three key elements.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Prevent noise/incorrect labels, ✅ Ensure highly confident predictions used, ✅ Allow curriculum learning, ✅ Help balance data contributions, ✅ Filter out-of-domain examples  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Confidence thresholds serve multiple important purposes in pseudo-labeling approaches.  
 <blockquote>"So we're using this confidence threshold tau to make sure... the labels that we're assigning have a high likelihood of being correct."</blockquote>
 <blockquote>"This allows a curriculum learning approach, starting with the easiest examples and gradually incorporating more difficult ones."</blockquote>
@@ -206,7 +199,7 @@ Weak augmentations preserve content, while strong augmentations make larger chan
       <p>Why does FixMatch use two different types of augmentations?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. To generate diverse views of unlabeled examples</label>
         </div>
         <div class="option">
@@ -233,11 +226,11 @@ Different augmentations serve multiple purposes in consistency training.
       <p>Which of the following accurately describe the challenges and considerations when setting confidence thresholds for pseudo-labeling? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. Setting thresholds too high can exclude potentially useful training examples</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
           <label for="q7-o1">B. Setting thresholds too low can introduce incorrect labels and harm performance</label>
         </div>
         <div class="option">
@@ -259,10 +252,7 @@ Different augmentations serve multiple purposes in consistency training.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Too high excludes useful examples, ✅ Too low introduces errors, ✅ Optimal threshold varies by dataset/model, ✅ May need adjustment during training, ✅ Different classes may need different thresholds  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Setting appropriate confidence thresholds involves multiple important considerations.  
 <blockquote>"There's a trade-off in threshold setting - too high and you might exclude useful examples, too low and you might introduce too many errors."</blockquote>
 <blockquote>"The threshold depends on the dataset, model architecture, and even the current stage of training."</blockquote>
@@ -292,7 +282,7 @@ Pseudo-labels are generated from weakly augmented images, not strongly augmented
       <p>Which of the following are advantages of consistency regularization in semi-supervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. It encourages the model to output similar predictions for differently augmented versions of the same input</label>
         </div>
         <div class="option">
@@ -319,11 +309,11 @@ Consistency regularization encourages prediction invariance across augmentations
       <p>Which of the following insights about modern semi-supervised learning are demonstrated by the FixMatch algorithm? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. Combining multiple semi-supervised learning techniques can be more effective than using any single approach</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="true">
           <label for="q10-o1">B. Data augmentation plays a critical role in extracting value from unlabeled examples</label>
         </div>
         <div class="option">
@@ -345,10 +335,7 @@ Consistency regularization encourages prediction invariance across augmentations
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Combining techniques more effective, ✅ Data augmentation plays critical role, ✅ Confidence thresholds manage trade-offs, ✅ Consistency is powerful signal, ✅ Gap can be significantly reduced  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 FixMatch demonstrates several key insights about modern semi-supervised approaches.  
 <blockquote>"FixMatch actually combines several elements and that yields state of the art performance."</blockquote>
 <blockquote>"The key insight of FixMatch is that the consistency signal and confidence-based pseudo-labeling can effectively leverage unlabeled data."</blockquote>

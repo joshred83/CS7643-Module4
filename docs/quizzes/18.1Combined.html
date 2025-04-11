@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: Introduction to Unsupervised, Semi-Supervised, and Few-Shot Learning - CS7643 Module 4</title>
+  <title>Quiz: Advanced Topics Introduction - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Quiz: Introduction to Unsupervised, Semi-Supervised, and Few-Shot Learning</h2>
+      <h2 class="section-title">Quiz: Advanced Topics Introduction</h2>
   <div class="quiz-container">
     <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)  </h3>
@@ -75,11 +75,11 @@ Few-shot learning typically assumes access to a small auxiliary labeled dataset,
       <p>Which of the following accurately describe key characteristics and assumptions of semi-supervised learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. It combines a small amount of labeled data with a large amount of unlabeled data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
           <label for="q2-o1">B. It assumes that data points in the same cluster should have the same label</label>
         </div>
         <div class="option">
@@ -101,10 +101,7 @@ Few-shot learning typically assumes access to a small auxiliary labeled dataset,
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Combines labeled and unlabeled data, ✅ Assumes same-cluster points have same label, ✅ Leverages unlabeled data structure, ✅ Assumes decision boundaries in low-density regions, ✅ Can use pseudo-labeling  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Semi-supervised learning incorporates several key assumptions and techniques.  
 <blockquote>"In semi-supervised learning... we also have a large set of unlabeled data..."</blockquote>
 <blockquote>"Semi-supervised methods leverage assumptions about data clustering and the decision boundary placement."</blockquote>
@@ -115,7 +112,7 @@ Semi-supervised learning incorporates several key assumptions and techniques.
       <p>Which of the following are traditional unsupervised learning tasks mentioned in the lecture?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. Density estimation</label>
         </div>
         <div class="option">
@@ -142,11 +139,11 @@ These are listed as classic unsupervised tasks.
       <p>Which of the following accurately describe the motivations and properties of pseudo-labeling in semi-supervised learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. To generate labeled examples from confident predictions on unlabeled data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. To iteratively expand the training set with model-generated labels</label>
         </div>
         <div class="option">
@@ -168,10 +165,7 @@ These are listed as classic unsupervised tasks.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Generate from confident predictions, ✅ Iteratively expand training set, ✅ Leverage unlabeled data structure, ✅ Implement self-training, ✅ Benefit from distribution information  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Pseudo-labeling serves multiple important purposes in semi-supervised learning.  
 <blockquote>"We can then take that and convert it into a pseudo label... and put them into the training set and retrain."</blockquote>
 <blockquote>"This allows the model to iteratively improve by incorporating its own confident predictions into training."</blockquote>
@@ -201,7 +195,7 @@ Self-supervised learning does not use human-annotated labels but instead creates
       <p>What are some of the challenges in feature learning from unlabeled data?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. Selecting appropriate loss functions</label>
         </div>
         <div class="option">
@@ -229,11 +223,11 @@ The lecture highlights challenges in selecting suitable losses and task difficul
       <p>Which of the following accurately describe "surrogate tasks" in self-supervised learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. They are designed to force networks to learn useful representations, though the tasks themselves may be artificial</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
           <label for="q7-o1">B. They can involve predicting properties of data that are automatically generated (like rotations)</label>
         </div>
         <div class="option">
@@ -255,10 +249,7 @@ The lecture highlights challenges in selecting suitable losses and task difficul
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Designed to force learning useful representations, ✅ Can involve predicting generated properties, ✅ Create supervision without human annotation, ✅ Often designed with domain knowledge, ✅ Can involve reconstruction tasks  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Surrogate tasks have several key characteristics in self-supervised learning.  
 <blockquote>"...we'll rotate an image... and try to make the neural network predict which rotations we applied... we actually don't care about it... but we're trying to force the neural network to learn..."</blockquote>
 <blockquote>"These tasks generate their own supervision signal from the data structure itself."</blockquote>
@@ -288,7 +279,7 @@ Metric learning can be done without labeled pairwise supervision by learning sim
       <p>Which of the following strategies are used in semi-supervised learning as described in the lecture?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. Using strong and weak augmentations</label>
         </div>
         <div class="option">
@@ -306,8 +297,7 @@ Metric learning can be done without labeled pairwise supervision by learning sim
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-entropy loss with hard pseudo labels, Using data to self-generate soft targets for knowledge distillation  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 These techniques are all discussed as part of the semi-supervised learning pipeline.  
 <blockquote>"...perform augmentation of two types... weak form... strong augmentation..."</blockquote>  
 <blockquote>"We can take these confident pseudo labels... and retrain."</blockquote>  
@@ -318,11 +308,11 @@ These techniques are all discussed as part of the semi-supervised learning pipel
       <p>Which of the following accurately describe the motivations and approaches of meta-learning in few-shot scenarios? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. To learn an initialization that adapts well to new tasks with few training steps</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="true">
           <label for="q10-o1">B. To simulate the test-time scenario during meta-training</label>
         </div>
         <div class="option">
@@ -344,10 +334,7 @@ These techniques are all discussed as part of the semi-supervised learning pipel
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Learn an initialization for quick adaptation, ✅ Simulate test-time scenario during training, ✅ Leverage experience across tasks, ✅ Develop models for quick adaptation  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Meta-learning approaches have several important goals in few-shot learning.  
 <blockquote>"...learning an initialization that after you go through such process will be effective..."</blockquote>
 <blockquote>"The goal is to learn from many related tasks during meta-training so that the model can quickly adapt to new tasks at test time."</blockquote>

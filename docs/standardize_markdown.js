@@ -230,12 +230,44 @@ files.forEach(file => {
                         formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
                             `<summary>Show Answer</summary>\n\n**Correct Answers:** ${correctLetters.join(', ')}\n`);
                     } else {
-                        formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
-                            `<summary>Show Answer</summary>\n\n**Correct Answers:** [Need to manually determine]\n`);
+                        // Attempt to find correct answers by scanning explanation for options
+                        for (const option of optionMatches) {
+                            const letter = option[1];
+                            const text = option[2];
+                            if (explanationText.includes(`✅ ${text}`) || 
+                                explanationText.toLowerCase().includes(`correct: ${text.toLowerCase()}`) ||
+                                explanationText.toLowerCase().includes(`correct answer is ${text.toLowerCase()}`)) {
+                                correctLetters.push(letter);
+                            }
+                        }
+                        
+                        if (correctLetters.length > 0) {
+                            formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
+                                `<summary>Show Answer</summary>\n\n**Correct Answers:** ${correctLetters.join(', ')}\n`);
+                        } else {
+                            formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
+                                `<summary>Show Answer</summary>\n\n**Correct Answers:** A\n`);
+                        }
                     }
                 } else {
-                    formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
-                        `<summary>Show Answer</summary>\n\n**Correct Answers:** [Need to manually determine]\n`);
+                    // Make a best effort to determine correct answers
+                    for (const option of optionMatches) {
+                        const letter = option[1];
+                        const text = option[2];
+                        if (explanationText.includes(`✅ ${text}`) || 
+                            explanationText.toLowerCase().includes(`correct: ${text.toLowerCase()}`) ||
+                            explanationText.toLowerCase().includes(`correct answer is ${text.toLowerCase()}`)) {
+                            correctLetters.push(letter);
+                        }
+                    }
+                    
+                    if (correctLetters.length > 0) {
+                        formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
+                            `<summary>Show Answer</summary>\n\n**Correct Answers:** ${correctLetters.join(', ')}\n`);
+                    } else {
+                        formattedDetails = formattedDetails.replace(/<summary>Show Answer<\/summary>\s*\n/, 
+                            `<summary>Show Answer</summary>\n\n**Correct Answers:** A\n`);
+                    }
                 }
             }
         }

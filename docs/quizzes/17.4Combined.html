@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz:  - CS7643 Module 4</title>
+  <title>Quiz: Deep Q-Learning - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,119 +49,270 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Quiz: </h2>
+      <h2 class="section-title">Quiz: Deep Q-Learning</h2>
   <div class="quiz-container">
     <div class="question" data-question-index="1">
-      <h3>Question 1 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 1 (True/False)</h3>
+      <p>Deep Q-Learning uses a for-loop over all states to update the Q-function, similar to traditional Q-iteration.</p>
       <div class="options">
+        <div class="option">
+          <input type="radio" id="q1-o0" name="q1" value="0" data-correct="false">
+          <label for="q1-o0">A. True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="true">
+          <label for="q1-o1">B. False</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Deep Q-Learning avoids full for-loops and instead uses function approximation and minibatches.  
+      <div class="explanation">-Learning avoids full for-loops and instead uses function approximation and minibatches.
+
 <blockquote>"Instead of having a for loop over all states to update the Q-network, as was done in Q-iteration, we introduced a regression objective..."</blockquote></div>
     </div>
     <div class="question" data-question-index="2">
-      <h3>Question 2 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 2 (Multi-Select)</h3>
+      <p>What role does the Bellman equation play in Deep Q-Learning? (Select all that apply)</p>
       <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
+          <label for="q2-o0">A. It provides a recursive objective for value prediction</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <label for="q2-o1">B. It helps determine which states to sample in each batch</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o2" name="q2" value="2" data-correct="true">
+          <label for="q2-o2">C. It is used to construct the loss function for neural network training</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o3" name="q2" value="3" data-correct="false">
+          <label for="q2-o3">D. It ensures that Q-values are bounded between 0 and 1</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
+          <label for="q2-o4">E. It defines how to update the agent's policy</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-The Bellman equation is used to generate Q-value targets recursively.  
+      <div class="explanation">-value targets recursively (A) and forms the basis of the loss function for training the Q-network (C). It doesn't determine which states to sample (B), doesn't bound Q-values between 0 and 1 (D), and doesn't directly define policy updates (E) - these happen through greedy action selection.
+
 <blockquote>"The update for our Q-network will again be inspired, by the recursive bellman optimality equation."</blockquote></div>
     </div>
     <div class="question" data-question-index="3">
-      <h3>Question 3 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 3 (Multi-Select)</h3>
+      <p>Which of the following are key components of the Deep Q-Learning training approach? (Select all that apply)</p>
       <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
+          <label for="q3-o0">A. Gradient descent updates</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="true">
+          <label for="q3-o1">B. A fixed replay buffer for data sampling</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="true">
+          <label for="q3-o2">C. A target Q-network updated periodically</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <label for="q3-o3">D. Importance sampling for prioritized replay</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q3-o4" name="q3" value="4" data-correct="false">
+          <label for="q3-o4">E. Actor and critic networks</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-network updated periodically  
-<strong>Explanation:</strong>  
-Training involves minibatch gradient descent, a replay buffer, and two networks (Qnew and Qold).  
+      <div class="explanation">(A), a replay buffer for sampling past experiences (B), and two networks (Qnew and Qold) with the target network updated periodically (C). Importance sampling for prioritized replay (D) is an extension but not part of the basic algorithm, and actor-critic networks (E) are used in other RL approaches.
+
 <blockquote>"We introduced a regression objective..."</blockquote>  
 <blockquote>"Two copies of the Q-network are maintained... Qold and Qnew..."</blockquote>  
 <blockquote>"Deep Q-learning employs an experience replay buffer..."</blockquote></div>
     </div>
     <div class="question" data-question-index="4">
       <h3>Question 4 (Multiple Choice)</h3>
-      <p></p>
+      <p>What is the purpose of using a separate target network (Qold) in Deep Q-Learning?</p>
       <div class="options">
+        <div class="option">
+          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="true">
+          <label for="q4-o0">A. To stabilize training by decoupling target predictions</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="false">
+          <label for="q4-o1">B. To enable parallel computation across multiple processors</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q4-o2" name="q4" value="2" data-correct="false">
+          <label for="q4-o2">C. To reduce memory usage during training</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q4-o3" name="q4" value="3" data-correct="false">
+          <label for="q4-o3">D. To allow for different learning rates at different stages</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Using a separate Qold network helps reduce instability in loss updates.  
+      <div class="explanation">. This decoupling prevents the "moving target" problem where both predictions and targets shift simultaneously.
+
 <blockquote>"Using a single Q-network, makes the loss minimization unstable... Instead, two copies... are maintained..."</blockquote></div>
     </div>
     <div class="question" data-question-index="5">
-      <h3>Question 5 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 5 (True/False)</h3>
+      <p>In Deep Q-Learning, both Q-networks (Qnew and Qold) are updated simultaneously during training.</p>
       <div class="options">
+        <div class="option">
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="false">
+          <label for="q5-o0">A. True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">B. False</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Two Q-networks are maintained: one for predictions (Qnew) and one as a fixed target (Qold).  
+      <div class="explanation">. The Qold network is kept fixed for a number of iterations and then periodically updated with the weights from Qnew.
+
 <blockquote>"Qnew parameters are updated while preventing any update to the Qold parameters."</blockquote></div>
     </div>
     <div class="question" data-question-index="6">
-      <h3>Question 6 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 6 (Multi-Select)</h3>
+      <p>What problems can arise when collecting training data using a purely greedy policy in Deep Q-Learning? (Select all that apply)</p>
       <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
+          <label for="q6-o0">A. It can prevent exploration of better strategies</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="true">
+          <label for="q6-o1">B. It causes training data to be highly correlated</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">C. It may lead to catastrophic forgetting</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
+          <label for="q6-o3">D. It can result in overestimation of Q-values</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Using a greedy data collection policy limits exploration and causes data bias.  
+      <div class="explanation">(A) and causes consecutive training samples to be highly correlated (B), which can harm neural network training. While catastrophic forgetting (C) and Q-value overestimation (D) are challenges in RL, they're not directly caused by greedy data collection.
+
 <blockquote>"...it will not have incentive to explore other less rewarding states..."</blockquote>  
 <blockquote>"The data... will be highly correlated with similar states, actions and rewards."</blockquote></div>
     </div>
     <div class="question" data-question-index="7">
       <h3>Question 7 (Multiple Choice)</h3>
-      <p></p>
+      <p>What is the main purpose of the epsilon-greedy strategy in Deep Q-Learning?</p>
       <div class="options">
+        <div class="option">
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
+          <label for="q7-o0">A. To reduce computational complexity</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="true">
+          <label for="q7-o1">B. To balance exploration and exploitation during data gathering</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q7-o2" name="q7" value="2" data-correct="false">
+          <label for="q7-o2">C. To compensate for overestimation bias</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q7-o3" name="q7" value="3" data-correct="false">
+          <label for="q7-o3">D. To gradually decrease learning rates over time</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Epsilon-greedy selects random actions occasionally to encourage exploration.  
+      <div class="explanation">-greedy strategy allows for occasional random action selection (exploration) while still leveraging the learned Q-values for maximizing rewards (exploitation). This balance is crucial for finding optimal policies.
+
 <blockquote>"...a random action is chosen with a typically small epsilon probability, and the greedy action is selected otherwise."</blockquote></div>
     </div>
     <div class="question" data-question-index="8">
-      <h3>Question 8 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 8 (True/False)</h3>
+      <p>In a replay buffer, only the most recent experiences are stored to ensure the agent learns from the latest environment dynamics.</p>
       <div class="options">
+        <div class="option">
+          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="false">
+          <label for="q8-o0">A. True</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="true">
+          <label for="q8-o1">B. False</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Replay buffers store a range of past experiences, not just recent ones, to reduce correlation.  
+      <div class="explanation">. While older experiences may eventually be discarded, the buffer maintains a diverse set of samples to reduce correlation between training examples.
+
 <blockquote>"The buffer is a finite size and older samples are discarded in favor of newer ones... to lower the correlation..."</blockquote></div>
     </div>
     <div class="question" data-question-index="9">
-      <h3>Question 9 (Multiple Choice)</h3>
-      <p></p>
+      <h3>Question 9 (Multi-Select)</h3>
+      <p>Which techniques help stabilize Deep Q-Learning training? (Select all that apply)</p>
       <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
+          <label for="q9-o0">A. Using two separate Q-networks</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="true">
+          <label for="q9-o1">B. Sampling random minibatches from past experiences</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o2" name="q9" value="2" data-correct="true">
+          <label for="q9-o2">C. Clipping rewards to a fixed range</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="true">
+          <label for="q9-o3">D. Normalizing state inputs</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
+          <label for="q9-o4">E. Limiting the number of training steps</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-networks, Sampling random minibatches from past experiences  
-<strong>Explanation</strong></div>
+      <div class="explanation">: using separate target and online networks (A), sampling random minibatches to break correlation (B), clipping rewards to manage scale (C), and normalizing inputs to improve neural network training (D). Limiting training steps (E) isn't typically used for stabilization.
+
+<blockquote>"Two copies of the Q-network are maintained... Qold and Qnew..."</blockquote>
+<blockquote>"...samples a random minibatch of size m from the replay buffer..."</blockquote>
+<blockquote>"Preprocessing is vital for the successful training of deep Q-learning agents."</blockquote></div>
     </div>
     <div class="question" data-question-index="10">
       <h3>Question 10 (Multiple Choice)</h3>
-      <p></p>
+      <p>What is a key challenge when applying Deep Q-Learning to environments with continuous action spaces?</p>
       <div class="options">
+        <div class="option">
+          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="true">
+          <label for="q10-o0">A. The Q-function must be evaluated for infinitely many actions</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q10-o1" name="q10" value="1" data-correct="false">
+          <label for="q10-o1">B. Neural networks cannot approximate continuous functions</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q10-o2" name="q10" value="2" data-correct="false">
+          <label for="q10-o2">C. The replay buffer becomes inefficient</label>
+        </div>
+        <div class="option">
+          <input type="radio" id="q10-o3" name="q10" value="3" data-correct="false">
+          <label for="q10-o3">D. Reward signals become too sparse</label>
+        </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-Answer not found</div>
+      <div class="explanation">-value requires evaluating infinitely many actions, which is computationally infeasible. This limitation makes basic Deep Q-Learning better suited for discrete action spaces.
+
+<blockquote>"If our action space is continuous, choosing the best action becomes an optimization problem in its own right, because the arg max step requires enumerating all possible actions."</blockquote></div>
     </div></div>
     </div>
   </div>

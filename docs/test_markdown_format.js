@@ -16,6 +16,7 @@ const QUESTION_PATTERN = /^### Question \d+.*$/m;
 const OPTION_PATTERN = /^- \[ \] ([A-Z])\.\s+(.+)$/m;
 const CORRECT_ANSWERS_PATTERN = /^\*\*Correct Answers?:\*\*\s+([A-Z,\s]+)$/m;
 const DETAILS_PATTERN = /<details>[\s\S]+?<summary>Show Answer<\/summary>([\s\S]+?)<\/details>/m;
+const NEEDS_MANUAL_DETERMINATION = /\[Need to manually determine\]/;
 
 // Question types
 const QUESTION_TYPES = {
@@ -120,13 +121,27 @@ function testFile(filePath) {
       } else {
         const explanationText = detailsMatch[1];
         
-        // Test 4: Correct Answers format
+        // Test 4: Check for "[Need to manually determine]" placeholder
+        testResult(`Question ${index+1} has no manual determination needed`,
+                  !NEEDS_MANUAL_DETERMINATION.test(explanationText));
+        
+        if (NEEDS_MANUAL_DETERMINATION.test(explanationText)) {
+          fileIssues[fileName].push(`Question ${index+1} has "[Need to manually determine]" placeholder that must be replaced`);
+          // This needs manual intervention, so we mark it but don't attempt to auto-fix
+        }
+        
+        // Test 5: Correct Answers format
         const correctAnswersMatch = explanationText.match(CORRECT_ANSWERS_PATTERN);
         testResult(`Question ${index+1} has proper Correct Answers format`,
                   correctAnswersMatch !== null);
         
         if (!correctAnswersMatch) {
           fileIssues[fileName].push(`Question ${index+1} doesn't use the standard "**Correct Answers:** A, B, C" format`);
+          
+          // Test for checkmark usage instead of letter format
+          if (explanationText.includes('✅') || explanationText.includes('✓')) {
+            fileIssues[fileName].push(`Question ${index+1} uses checkmarks (✅/✓) instead of the letter format`);
+          }
           
           // Try to fix the format if possible
           const fixedSection = fixAnswerFormat(section, questionType, optionMatches);

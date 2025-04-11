@@ -53,31 +53,33 @@
   <div class="quiz-container">
     <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)</h3>
-      <p>GANs learn an explicit probability density function over the input data \( p(x) \).</p>
+      <p></p>
       <div class="options">
         <div class="option">
           <input type="radio" id="q1-o0" name="q1" value="0" data-correct="false">
           <label for="q1-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="false">
+          <input type="radio" id="q1-o1" name="q1" value="1" data-correct="true">
           <label for="q1-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]</div>
+      <div class="explanation">. They belong to the category of implicit density models that learn to generate samples without explicitly modeling the probability distribution.
+
+<blockquote>"Generative adversarial networks or GANS did not learn an explicit density function p of x, rather they fit under the implicit density category."</blockquote></div>
     </div>
     <div class="question" data-question-index="2">
       <h3>Question 2 (Multi-Select)</h3>
       <p>Which of the following accurately describe the role and characteristics of the discriminator in a GAN? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. To distinguish between real and generated samples</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
           <label for="q2-o1">B. To provide gradient feedback to improve the generator</label>
         </div>
         <div class="option">
@@ -89,43 +91,46 @@
           <label for="q2-o3">D. To encode images for classification</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="false">
+          <input type="checkbox" id="q2-o4" name="q2" value="4" data-correct="true">
           <label for="q2-o4">E. To act as an adaptive loss function for the generator</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="false">
+          <input type="checkbox" id="q2-o5" name="q2" value="5" data-correct="true">
           <label for="q2-o5">F. To approximate the Jensen-Shannon divergence between distributions</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
-<blockquote>"The key idea of generative adversarial networks is to have another network that distinguishes between real and generated or fake images."</blockquote></div>
+      <div class="explanation">: it differentiates between real and fake samples (A); provides gradient feedback that helps the generator improve (B); functions as an adaptive loss function that evolves as the generator improves (E); and implicitly helps approximate the Jensen-Shannon divergence between the real and generated distributions (F). The discriminator does not generate images (C) or encode them for classification tasks (D) - these are not its primary functions in the GAN framework.
+
+<blockquote>"The key idea of generative adversarial networks is to have another network that distinguishes between real and generated or fake images."</blockquote>
+<blockquote>"The discriminator provides gradient information that allows the generator to improve over time."</blockquote></div>
     </div>
     <div class="question" data-question-index="3">
-      <h3>Question 3 (Multiple Select)</h3>
-      <p>Which of the following challenges are associated with training GANs?</p>
+      <h3>Question 3 (Multi-Select)</h3>
+      <p>Which of the following challenges are associated with training GANs? (Select all that apply)</p>
       <div class="options">
         <div class="option">
           <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
           <label for="q3-o0">A. Require labeled data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="false">
+          <input type="checkbox" id="q3-o1" name="q3" value="1" data-correct="true">
           <label for="q3-o1">B. Instability due to adversarial training</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="true">
           <label for="q3-o2">C. Mode collapse</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="true">
           <label for="q3-o3">D. Non-convex optimization difficulties</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">: the adversarial training process creates instability (B); mode collapse can occur where the generator fails to capture the full diversity of the data distribution (C); and the optimization involves non-convex objectives with complex neural networks (D). GANs do not require labeled data (A is incorrect) as they can be trained in an unsupervised manner.
+
 <blockquote>"The complex dynamics of learning will actually turn out to be quite difficult to train."</blockquote>  
 <blockquote>"You have all sorts of strange dynamics that can occur between the generator and discriminator."</blockquote>  
 <blockquote>"There's something called mode collapse where you can't capture all the modes of the distribution."</blockquote>  
@@ -140,86 +145,90 @@
           <label for="q4-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="radio" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">. The generator and discriminator use different components of the overall objective function.
+
 <blockquote>"Note that for the generator, only one part of this objective function is valid... gradients for the discriminator comes from both."</blockquote></div>
     </div>
     <div class="question" data-question-index="5">
-      <h3>Question 5 (Multiple Choice)</h3>
-      <p></p>
-      <div class="options">
-      </div>
-      <div class="feedback"></div>
-      <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"></div>
-    </div>
-    <div class="question" data-question-index="6">
       <h3>Question 5 (Multi-Select)</h3>
       <p>Which of the following can be used as inputs and characteristics of the generator component in GANs? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
-          <label for="q6-o0">A. A vector sampled from a Gaussian distribution</label>
+          <input type="checkbox" id="q5-o0" name="q5" value="0" data-correct="true">
+          <label for="q5-o0">A. A vector sampled from a Gaussian distribution</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
-          <label for="q6-o1">B. Random noise from a uniform distribution</label>
+          <input type="checkbox" id="q5-o1" name="q5" value="1" data-correct="true">
+          <label for="q5-o1">B. Random noise from a uniform distribution</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
-          <label for="q6-o2">C. A real image</label>
+          <input type="checkbox" id="q5-o2" name="q5" value="2" data-correct="false">
+          <label for="q5-o2">C. A real image</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="false">
-          <label for="q6-o3">D. A label vector for conditional generation</label>
+          <input type="checkbox" id="q5-o3" name="q5" value="3" data-correct="true">
+          <label for="q5-o3">D. A label vector for conditional generation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o4" name="q6" value="4" data-correct="false">
-          <label for="q6-o4">E. The generator maps from a simple distribution to a complex one</label>
+          <input type="checkbox" id="q5-o4" name="q5" value="4" data-correct="true">
+          <label for="q5-o4">E. The generator maps from a simple distribution to a complex one</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o5" name="q6" value="5" data-correct="false">
-          <label for="q6-o5">F. The generator requires pre-training on autoencoder objectives</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q6-o6" name="q6" value="6" data-correct="false">
-          <label for="q6-o6">G. Batch normalization</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q6-o7" name="q6" value="7" data-correct="false">
-          <label for="q6-o7">H. Removing fully connected layers</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q6-o8" name="q6" value="8" data-correct="false">
-          <label for="q6-o8">I. undefined. Freezing the discriminator weights</label>
-        </div>
-        <div class="option">
-          <input type="checkbox" id="q6-o9" name="q6" value="9" data-correct="false">
-          <label for="q6-o9">J. undefined. Using LeakyReLU in the discriminator</label>
+          <input type="checkbox" id="q5-o5" name="q5" value="5" data-correct="false">
+          <label for="q5-o5">F. The generator requires pre-training on autoencoder objectives</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">(A) or uniform (B) distribution. In conditional GANs, label vectors can also be used as input (D). The generator's role is to map from a simple distribution to a complex one (E). However, generators don't require pre-training on autoencoder objectives (F) and don't typically take real images as direct inputs (C).
+
 <blockquote>"We're going to use a simple idea of first sampling from a simple distribution, say a Gaussian... then feed it through a neural network."</blockquote>
 <blockquote>"The generator transforms points from a simple noise distribution into the complex data distribution through a neural network mapping."</blockquote>
 <blockquote>"In conditional GANs, we can provide additional information like class labels to guide the generation process."</blockquote></div>
+    </div>
+    <div class="question" data-question-index="6">
+      <h3>Question 6 (Multi-Select)</h3>
+      <p>Which of the following are methods used to stabilize GAN training? (Select all that apply)</p>
+      <div class="options">
+        <div class="option">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
+          <label for="q6-o0">A. Batch normalization</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="true">
+          <label for="q6-o1">B. Removing fully connected layers</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o2" name="q6" value="2" data-correct="false">
+          <label for="q6-o2">C. Freezing the discriminator weights</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="q6-o3" name="q6" value="3" data-correct="true">
+          <label for="q6-o3">D. Using LeakyReLU in the discriminator</label>
+        </div>
+      </div>
+      <div class="feedback"></div>
+      <button class="btn btn-check">Check Answer</button>
+      <div class="explanation">: batch normalization helps control the distribution of activations (A); replacing fully connected layers with convolutional layers improves stability (B); using LeakyReLU in the discriminator prevents gradient saturation (D). Freezing discriminator weights (C) is not a standard practice for stabilizing training.
+
+<blockquote>"Several findings were developed. For example, replacing pooling layers with strided convolution, using batchnorm both in the generator and discriminator, removing the fully connected hidden layers... using LeakyReLU activations for the discriminator."</blockquote></div>
     </div>
     <div class="question" data-question-index="7">
       <h3>Question 7 (Multi-Select)</h3>
       <p>Which of the following accurately describe the objectives and optimization dynamics of the generator in a GAN? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. To fool the discriminator into thinking generated images are real</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
           <label for="q7-o1">B. To minimize the likelihood that the discriminator correctly identifies fake samples</label>
         </div>
         <div class="option">
@@ -227,11 +236,11 @@
           <label for="q7-o2">C. To minimize pixel-wise reconstruction error</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="false">
+          <input type="checkbox" id="q7-o3" name="q7" value="3" data-correct="true">
           <label for="q7-o3">D. To maximize the probability that generated samples are classified as real</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o4" name="q7" value="4" data-correct="false">
+          <input type="checkbox" id="q7-o4" name="q7" value="4" data-correct="true">
           <label for="q7-o4">E. To learn the mapping from latent space to data space</label>
         </div>
         <div class="option">
@@ -241,7 +250,8 @@
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">'s objectives include: fooling the discriminator into classifying generated images as real (A); minimizing the likelihood of the discriminator correctly identifying fake samples (B); maximizing the probability that generated samples are classified as real by the discriminator (D); and learning an effective mapping from the latent space to the data space (E). Unlike autoencoders, GANs don't use pixel-wise reconstruction error (C), and the generator computes gradients on fake rather than real data (F).
+
 <blockquote>"That means that it taking fake data and giving it a probability of being real as 1, which is what the generator wants because it wants to fool the discriminator."</blockquote>
 <blockquote>"The generator is trying to maximize the log probability of the discriminator making a mistake."</blockquote>
 <blockquote>"The generator learns the mapping from the latent space to a particular data distribution."</blockquote></div>
@@ -251,7 +261,7 @@
       <p>After training a GAN, only the generator is typically used to sample new data.</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="false">
+          <input type="radio" id="q8-o0" name="q8" value="0" data-correct="true">
           <label for="q8-o0">A. True</label>
         </div>
         <div class="option">
@@ -261,7 +271,8 @@
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">. The discriminator has served its purpose in training the generator and is no longer required for the generation process.
+
 <blockquote>"At the end of the training, we'll have an implicit generator model... We actually don't need the discriminator for this process, we can just throw it away."</blockquote></div>
     </div>
     <div class="question" data-question-index="9">
@@ -269,11 +280,11 @@
       <p>Which of the following accurately describe mode collapse and related challenges in GAN training? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. The generator produces a small set of nearly identical outputs</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="true">
           <label for="q9-o1">B. The generator fails to capture the full diversity of the training distribution</label>
         </div>
         <div class="option">
@@ -281,11 +292,11 @@
           <label for="q9-o2">C. The discriminator fails to distinguish real and fake samples</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="false">
+          <input type="checkbox" id="q9-o3" name="q9" value="3" data-correct="true">
           <label for="q9-o3">D. The generator learns to generate only the most common patterns in the data</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="false">
+          <input type="checkbox" id="q9-o4" name="q9" value="4" data-correct="true">
           <label for="q9-o4">E. Mode collapse can be diagnosed by observing low diversity in generated samples</label>
         </div>
         <div class="option">
@@ -295,24 +306,25 @@
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">(A), failing to capture the full diversity of the data distribution (B), focusing on common patterns while ignoring rarer ones (D), and can be detected by observing low diversity in generated samples (E). It is related to the minimax optimization process (F is incorrect), and doesn't involve the discriminator failing to distinguish samples (C) - in fact, the discriminator may be very good at its task.
+
 <blockquote>"There's something called mode collapse... you're not truly sampling from the distribution, you're just outputting the samples that you already have."</blockquote>
 <blockquote>"The generator simply isn't able to represent all modes of the data distribution, leading to a lack of diversity in the generated samples."</blockquote></div>
     </div>
     <div class="question" data-question-index="10">
-      <h3>Question 10 (Multiple Select)</h3>
-      <p>What are some real-world applications or extensions of GANs mentioned in the lecture?</p>
+      <h3>Question 10 (Multi-Select)</h3>
+      <p>What are some real-world applications or extensions of GANs mentioned in the lecture? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. Video generation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="false">
+          <input type="checkbox" id="q10-o1" name="q10" value="1" data-correct="true">
           <label for="q10-o1">B. Audio synthesis</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="false">
+          <input type="checkbox" id="q10-o2" name="q10" value="2" data-correct="true">
           <label for="q10-o2">C. Domain adaptation using adversarial losses</label>
         </div>
         <div class="option">
@@ -322,7 +334,8 @@
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Justification:</strong>  
+      <div class="explanation">: generating videos by modeling temporal dynamics (A); synthesizing realistic audio waveforms (B); and performing domain adaptation with adversarial losses (C). GANs do not perform direct supervised classification with explicit modeling of p(x) (D) as they are generative models that learn implicit distributions.
+
 <blockquote>"These days other adaptations have been developed to produce audio waveforms..."</blockquote>  
 <blockquote>"You can then take as input a 10 second footage of you... generate an entire video of you dancing..."</blockquote>  
 <blockquote>"The notion of adversarial losses... have been used successfully."</blockquote></div>

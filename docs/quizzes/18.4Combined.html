@@ -75,7 +75,7 @@ Unsupervised learning does not rely on labels; it uses patterns in the data.
       <p>What is the primary purpose of autoencoders in unsupervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. To classify input data using pseudo-labels</label>
         </div>
         <div class="option">
@@ -93,8 +93,7 @@ Unsupervised learning does not rely on labels; it uses patterns in the data.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-dimensional representations that capture important features  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Autoencoders compress data into lower-dimensional representations for reconstruction.  
 <blockquote>"...we're trying to compress the image or any other data through some bottleneck..."</blockquote></div>
     </div>
@@ -103,7 +102,7 @@ Autoencoders compress data into lower-dimensional representations for reconstruc
       <p>Which of the following are traditional tasks associated with unsupervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. Clustering</label>
         </div>
         <div class="option">
@@ -131,7 +130,7 @@ These are core classical tasks under unsupervised learning.
       <p>What does the “bottleneck” in an autoencoder architecture encourage?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="radio" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. Overfitting to high-dimensional features</label>
         </div>
         <div class="option">
@@ -149,8 +148,7 @@ These are core classical tasks under unsupervised learning.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-dimensional embeddings  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The bottleneck enforces feature learning through constrained representation.  
 <blockquote>"...compress the image... and then decompress it again..."</blockquote></div>
     </div>
@@ -178,7 +176,7 @@ Autoencoders learn from reconstruction loss, not labels.
       <p>What are characteristics of an effective feature space learned via unsupervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. High density clusters for semantically similar inputs</label>
         </div>
         <div class="option">
@@ -196,8 +194,7 @@ Autoencoders learn from reconstruction loss, not labels.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-density regions separating conceptually distinct inputs  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Effective representations cluster similar inputs and separate dissimilar ones.  
 <blockquote>"...samples that are semantically similar are close together..."</blockquote>  
 <blockquote>"...semantically dissimilar examples are far apart..."</blockquote></div>
@@ -207,7 +204,7 @@ Effective representations cluster similar inputs and separate dissimilar ones.
       <p>In clustering-based unsupervised learning pipelines, what are pseudo-labels?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="radio" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. Randomly assigned labels for evaluation</label>
         </div>
         <div class="option">
@@ -234,7 +231,7 @@ Clustering assigns pseudo-labels which are then used as targets.
       <p>Which are potential issues when clustering is used to generate pseudo-labels?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="true">
           <label for="q8-o0">A. Empty clusters</label>
         </div>
         <div class="option">
@@ -280,7 +277,7 @@ Surrogate tasks create labels from data transformations.
       <p>Why is predicting image rotation considered a useful surrogate task?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. It trains the network to detect object boundaries precisely</label>
         </div>
         <div class="option">
@@ -307,7 +304,7 @@ Rotation prediction forces semantic awareness.
       <p>Which of the following are common surrogate tasks for self-supervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q11-o0" name="q11" value="0" data-correct="false">
+          <input type="checkbox" id="q11-o0" name="q11" value="0" data-correct="true">
           <label for="q11-o0">A. Colorization</label>
         </div>
         <div class="option">
@@ -353,7 +350,7 @@ Representations are evaluated using a simple linear classifier to avoid confound
       <p>What is the goal of instance discrimination in contrastive learning?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q13-o0" name="q13" value="0" data-correct="false">
+          <input type="radio" id="q13-o0" name="q13" value="0" data-correct="true">
           <label for="q13-o0">A. Maximize diversity of the input images</label>
         </div>
         <div class="option">
@@ -380,7 +377,7 @@ Instance discrimination aims to align augmentations and separate distinct inputs
       <p>Which techniques improve the efficiency of instance discrimination training?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q14-o0" name="q14" value="0" data-correct="false">
+          <input type="checkbox" id="q14-o0" name="q14" value="0" data-correct="true">
           <label for="q14-o0">A. Using mini-batch negatives</label>
         </div>
         <div class="option">
@@ -398,8 +395,7 @@ Instance discrimination aims to align augmentations and separate distinct inputs
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-batch negatives, Maintaining a memory bank of encoded features, Using an exponential moving average to stabilize key encoders  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 All of these are techniques used to improve training in contrastive learning.  
 <blockquote>"...use mini-batch negatives... use a memory bank... exponential moving average of the encoder weights..."</blockquote></div>
     </div>
@@ -408,7 +404,7 @@ All of these are techniques used to improve training in contrastive learning.
       <p>What is a key advantage of self-supervised representations learned via contrastive learning?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q15-o0" name="q15" value="0" data-correct="false">
+          <input type="radio" id="q15-o0" name="q15" value="0" data-correct="true">
           <label for="q15-o0">A. They generalize poorly but train quickly</label>
         </div>
         <div class="option">

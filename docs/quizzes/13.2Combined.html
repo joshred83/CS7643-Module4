@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: PixelRNN & PixelCNN Deep Dive - CS7643 Module 4</title>
+  <title>Quiz: PixelRNN & PixelCNN - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,22 +49,22 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Quiz: PixelRNN & PixelCNN Deep Dive</h2>
+      <h2 class="section-title">Quiz: PixelRNN & PixelCNN</h2>
   <div class="quiz-container">
     <div class="question" data-question-index="1">
       <h3>Question 1 (Multi-Select)</h3>
       <p>Which of the following accurately describe the use of the chain rule in probabilistic modeling for PixelRNN and PixelCNN? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
+          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="true">
           <label for="q1-o0">A. It decomposes the joint distribution of pixels into a product of conditional distributions</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="false">
+          <input type="checkbox" id="q1-o1" name="q1" value="1" data-correct="true">
           <label for="q1-o1">B. It enables autoregressive generation of image pixels</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="false">
+          <input type="checkbox" id="q1-o2" name="q1" value="2" data-correct="true">
           <label for="q1-o2">C. It requires an explicit ordering of image pixels</label>
         </div>
         <div class="option">
@@ -72,7 +72,7 @@
           <label for="q1-o3">D. It increases the computational efficiency of the models</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="false">
+          <input type="checkbox" id="q1-o4" name="q1" value="4" data-correct="true">
           <label for="q1-o4">E. It allows modeling the probability of each pixel conditioned on previous pixels</label>
         </div>
         <div class="option">
@@ -82,8 +82,7 @@
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-The chain rule is fundamental to PixelRNN and PixelCNN as it decomposes complex joint distributions (A) into manageable conditional probabilities. This enables autoregressive generation (B) where each pixel depends on previously generated ones. The approach requires defining an explicit pixel ordering (C) and allows modeling each pixel's probability conditioned on previous pixels (E). However, it doesn't improve computational efficiency (D) - in fact, generation is sequential and slow. Neural networks are still essential (F) for modeling the complex conditional distributions.
+      <div class="explanation">(A) into manageable conditional probabilities. This enables autoregressive generation (B) where each pixel depends on previously generated ones. The approach requires defining an explicit pixel ordering (C) and allows modeling each pixel's probability conditioned on previous pixels (E). However, it doesn't improve computational efficiency (D) - in fact, generation is sequential and slow. Neural networks are still essential (F) for modeling the complex conditional distributions.
 
 <blockquote>"We can factorize the joint distribution as the product of conditionals, where we define some ordering over the pixels."</blockquote>
 <blockquote>"Using the chain rule, we can compute the joint probability of all pixels by decomposing it into a product of conditional probabilities."</blockquote></div>
@@ -97,14 +96,13 @@ The chain rule is fundamental to PixelRNN and PixelCNN as it decomposes complex 
           <label for="q2-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q2-o1" name="q2" value="1" data-correct="false">
+          <input type="radio" id="q2-o1" name="q2" value="1" data-correct="true">
           <label for="q2-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-PixelRNN's autoregressive nature means each pixel depends on previously generated pixels, forcing the generation process to be sequential. This inherent sequential dependency makes parallelization impossible during the generation phase, resulting in slow sampling.
+      <div class="explanation">'s autoregressive nature means each pixel depends on previously generated pixels, forcing the generation process to be sequential. This inherent sequential dependency makes parallelization impossible during the generation phase, resulting in slow sampling.
 
 <blockquote>"This can be really slow, unlike convolution layers it's not parallelized."</blockquote></div>
     </div>
@@ -113,7 +111,7 @@ PixelRNN's autoregressive nature means each pixel depends on previously generate
       <p>Which of the following challenges are associated with modeling images using PixelRNN? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. Sequential generation leading to slow sampling processes</label>
         </div>
         <div class="option">
@@ -121,11 +119,11 @@ PixelRNN's autoregressive nature means each pixel depends on previously generate
           <label for="q3-o1">B. Computational intensity of recurrent neural networks</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="false">
+          <input type="checkbox" id="q3-o2" name="q3" value="2" data-correct="true">
           <label for="q3-o2">C. Difficulty in capturing long-range dependencies effectively</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="false">
+          <input type="checkbox" id="q3-o3" name="q3" value="3" data-correct="true">
           <label for="q3-o3">D. Inability to model complex data distributions</label>
         </div>
         <div class="option">
@@ -139,8 +137,7 @@ PixelRNN's autoregressive nature means each pixel depends on previously generate
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-PixelRNN faces several significant challenges: it generates pixels sequentially which results in slow sampling (A); recurrent neural networks are computationally intensive (B); the generation process cannot be parallelized (E); and the RNN architecture can suffer from vanishing gradients when handling long sequences (F). However, PixelRNN is actually designed to capture long-range dependencies (C is incorrect) through its recurrent structure, and it is quite capable of modeling complex data distributions (D is incorrect) - this is one of its strengths.
+      <div class="explanation">: it generates pixels sequentially which results in slow sampling (A); recurrent neural networks are computationally intensive (B); the generation process cannot be parallelized (E); and the RNN architecture can suffer from vanishing gradients when handling long sequences (F). However, PixelRNN is actually designed to capture long-range dependencies (C is incorrect) through its recurrent structure, and it is quite capable of modeling complex data distributions (D is incorrect) - this is one of its strengths.
 
 <blockquote>"This can be really slow, unlike convolution layers it's not parallelized."</blockquote>
 <blockquote>"The RNN is computationally more intensive and sequential by nature, which creates challenges when generating high-resolution images."</blockquote></div>
@@ -150,11 +147,11 @@ PixelRNN faces several significant challenges: it generates pixels sequentially 
       <p>What are the key architectural and functional differences between PixelCNN and PixelRNN? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. PixelCNN uses masked convolutions, while PixelRNN uses recurrent neural networks</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. PixelCNN allows for more parallelization during training</label>
         </div>
         <div class="option">
@@ -166,7 +163,7 @@ PixelRNN faces several significant challenges: it generates pixels sequentially 
           <label for="q4-o3">D. PixelCNN uses recurrent layers, while PixelRNN uses convolutional layers</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="false">
+          <input type="checkbox" id="q4-o4" name="q4" value="4" data-correct="true">
           <label for="q4-o4">E. PixelCNN is generally faster during training but still sequential during generation</label>
         </div>
         <div class="option">
@@ -176,8 +173,7 @@ PixelRNN faces several significant challenges: it generates pixels sequentially 
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Key differences between these models include: PixelCNN uses masked convolutions while PixelRNN uses recurrent neural networks (A); PixelCNN's architecture allows for greater parallelization during training (B), making it computationally more efficient; PixelRNN has superior capacity for modeling long-range dependencies (C) due to its recurrent structure; and PixelCNN offers faster training though both models remain sequential during the actual generation phase (E). Option D incorrectly reverses the architectures. Option F is incorrect as both models require an explicit pixel ordering - this ordering is a fundamental requirement of autoregressive models.
+      <div class="explanation">: PixelCNN uses masked convolutions while PixelRNN uses recurrent neural networks (A); PixelCNN's architecture allows for greater parallelization during training (B), making it computationally more efficient; PixelRNN has superior capacity for modeling long-range dependencies (C) due to its recurrent structure; and PixelCNN offers faster training though both models remain sequential during the actual generation phase (E). Option D incorrectly reverses the architectures. Option F is incorrect as both models require an explicit pixel ordering - this ordering is a fundamental requirement of autoregressive models.
 
 <blockquote>"We can train this using similar methods as the language models, for example, a recurrent neural network."</blockquote>
 <blockquote>"This can be really slow, unlike convolution layers it's not parallelized."</blockquote>
@@ -192,14 +188,13 @@ Key differences between these models include: PixelCNN uses masked convolutions 
           <label for="q5-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="false">
+          <input type="radio" id="q5-o1" name="q5" value="1" data-correct="true">
           <label for="q5-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Masked convolutions in PixelCNN specifically prevent simultaneous pixel dependency modeling. They enforce the autoregressive property by ensuring each pixel can only depend on previously generated pixels (those above and to the left in raster scan order). This maintains the sequential nature of generation where each pixel is conditioned only on pixels that came before it, not on all pixels simultaneously.
+      <div class="explanation">. They enforce the autoregressive property by ensuring each pixel can only depend on previously generated pixels (those above and to the left in raster scan order). This maintains the sequential nature of generation where each pixel is conditioned only on pixels that came before it, not on all pixels simultaneously.
 
 <blockquote>"We'd like to make sure that when predicting a particular pixel, we're only using information from pixels that are above and to the left of the current pixel."</blockquote>
 <blockquote>"The causal structure is enforced by masking certain elements of the convolution kernel so that a pixel cannot see the future pixels that are below or to the right."</blockquote></div>
@@ -217,7 +212,7 @@ Masked convolutions in PixelCNN specifically prevent simultaneous pixel dependen
           <label for="q6-o1">B. It lacks the capacity to learn from data.</label>
         </div>
         <div class="option">
-          <input type="radio" id="q6-o2" name="q6" value="2" data-correct="false">
+          <input type="radio" id="q6-o2" name="q6" value="2" data-correct="true">
           <label for="q6-o2">C. It requires sequential processing, making it less efficient.</label>
         </div>
         <div class="option">
@@ -227,8 +222,7 @@ Masked convolutions in PixelCNN specifically prevent simultaneous pixel dependen
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-The primary disadvantage of PixelRNN is its sequential nature, which makes it computationally inefficient (C). The model must generate pixels one at a time, and the recurrent structure cannot be parallelized, resulting in slow processing. In contrast, options A, B, and D are incorrect: PixelRNN successfully models the joint distribution of pixels through autoregressive factorization; it has strong learning capacity from data; and it explicitly accounts for spatial image structure through its pixel ordering scheme.
+      <div class="explanation">. In contrast, options A, B, and D are incorrect: PixelRNN successfully models the joint distribution of pixels through autoregressive factorization; it has strong learning capacity from data; and it explicitly accounts for spatial image structure through its pixel ordering scheme.
 
 <blockquote>"This can be really slow, unlike convolution layers it's not parallelized."</blockquote>
 <blockquote>"Using an RNN, a recurrent neural network, the idea is that we're going to follow some ordering."</blockquote></div>
@@ -242,7 +236,7 @@ The primary disadvantage of PixelRNN is its sequential nature, which makes it co
           <label for="q7-o0">A. It allows the model to generate images without any input.</label>
         </div>
         <div class="option">
-          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="false">
+          <input type="radio" id="q7-o1" name="q7" value="1" data-correct="true">
           <label for="q7-o1">B. It uses actual image pixels to guide the model's predictions during training.</label>
         </div>
         <div class="option">
@@ -256,8 +250,7 @@ The primary disadvantage of PixelRNN is its sequential nature, which makes it co
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Teacher forcing is a training strategy where, instead of using the model's own generated outputs as inputs for subsequent steps, the actual ground truth data is provided. In PixelRNN training, this means using the real pixels from training images (B) rather than previously generated pixels. This approach helps stabilize and accelerate training by preventing error accumulation. Options A, C, and D mischaracterize the purpose of teacher forcing - it doesn't generate images without input, doesn't remove supervision, and doesn't eliminate the need for pixel ordering.
+      <div class="explanation">(real image pixels) rather than its own predictions. This stabilizes training by preventing error accumulation. Options A, C, and D are incorrect characterizations of teacher forcing.
 
 <blockquote>"We can train this using similar methods as the language models, for example, a recurrent neural network."</blockquote>
 <blockquote>"At training time, we have an image and we want to maximize the likelihood of that image."</blockquote></div>
@@ -267,15 +260,15 @@ Teacher forcing is a training strategy where, instead of using the model's own g
       <p>What are the advantages of using PixelCNN over PixelRNN for image generation tasks? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="false">
+          <input type="checkbox" id="q8-o0" name="q8" value="0" data-correct="true">
           <label for="q8-o0">A. PixelCNN allows for parallel processing during training, improving efficiency</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="false">
+          <input type="checkbox" id="q8-o1" name="q8" value="1" data-correct="true">
           <label for="q8-o1">B. PixelCNN has a simpler architecture that is easier to implement</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="false">
+          <input type="checkbox" id="q8-o2" name="q8" value="2" data-correct="true">
           <label for="q8-o2">C. PixelCNN uses convolutional operations which are better optimized in modern deep learning frameworks</label>
         </div>
         <div class="option">
@@ -283,7 +276,7 @@ Teacher forcing is a training strategy where, instead of using the model's own g
           <label for="q8-o3">D. PixelCNN inherently captures long-range dependencies better than PixelRNN</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="false">
+          <input type="checkbox" id="q8-o4" name="q8" value="4" data-correct="true">
           <label for="q8-o4">E. PixelCNN requires less memory during training</label>
         </div>
         <div class="option">
@@ -293,8 +286,7 @@ Teacher forcing is a training strategy where, instead of using the model's own g
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-PixelCNN offers several advantages over PixelRNN: it enables parallel processing during training (A), significantly improving computational efficiency; it employs a simpler architecture based on CNNs rather than RNNs (B), making implementation more straightforward; it leverages convolutional operations that are highly optimized in modern deep learning frameworks (C); and it typically requires less memory during training (E) due to its architecture. Option D is incorrect - PixelRNN actually has better capacity for modeling long-range dependencies than PixelCNN. Option F is not necessarily true in all cases - while training may be faster per epoch, convergence depends on multiple factors beyond architecture.
+      <div class="explanation">: it enables parallel processing during training (A), significantly improving computational efficiency; it employs a simpler architecture based on CNNs rather than RNNs (B), making implementation more straightforward; it leverages convolutional operations that are highly optimized in modern deep learning frameworks (C); and it typically requires less memory during training (E) due to its architecture. Option D is incorrect - PixelRNN actually has better capacity for modeling long-range dependencies than PixelCNN. Option F is not necessarily true in all cases - while training may be faster per epoch, convergence depends on multiple factors beyond architecture.
 
 <blockquote>"This can be really slow, unlike convolution layers it's not parallelized."</blockquote>
 <blockquote>"PixelCNN is actually our early attempt to replace the RNN in PixelRNN with a more efficient CNN based architecture."</blockquote>
@@ -309,14 +301,13 @@ PixelCNN offers several advantages over PixelRNN: it enables parallel processing
           <label for="q9-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="false">
+          <input type="radio" id="q9-o1" name="q9" value="1" data-correct="true">
           <label for="q9-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Despite their architectural differences, both PixelRNN and PixelCNN share the same fundamental approach to modeling images: they factorize the joint probability distribution of all pixels into a product of conditional distributions. This autoregressive approach allows both models to estimate the probability of each pixel conditioned on previously generated pixels, following a specific ordering. Their core difference lies in how they implement this conditioning (RNNs vs. masked convolutions), not in the probabilistic framework they employ.
+      <div class="explanation">: they factorize the joint probability distribution of all pixels into a product of conditional distributions. This autoregressive approach allows both models to estimate the probability of each pixel conditioned on previously generated pixels, following a specific ordering. Their core difference lies in how they implement this conditioning (RNNs vs. masked convolutions), not in the probabilistic framework they employ.
 
 <blockquote>"We can factorize the joint distribution as the product of conditionals, where we define some ordering over the pixels."</blockquote>
 <blockquote>"Using the chain rule, we can compute the joint probability of all pixels by decomposing it into a product of conditional probabilities."</blockquote></div>
@@ -326,7 +317,7 @@ Despite their architectural differences, both PixelRNN and PixelCNN share the sa
       <p>Which of the following accurately describe the significance and implications of pixel ordering in PixelRNN and PixelCNN models? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="checkbox" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. It enables the decomposition of the joint pixel distribution into a sequence of conditional probabilities</label>
         </div>
         <div class="option">
@@ -338,7 +329,7 @@ Despite their architectural differences, both PixelRNN and PixelCNN share the sa
           <label for="q10-o2">C. It affects the receptive field of the model's architecture</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="false">
+          <input type="checkbox" id="q10-o3" name="q10" value="3" data-correct="true">
           <label for="q10-o3">D. It allows the models to bypass the need for training data</label>
         </div>
         <div class="option">
@@ -352,8 +343,7 @@ Despite their architectural differences, both PixelRNN and PixelCNN share the sa
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Pixel ordering is fundamental to autoregressive image generation models. It enables factorizing the joint distribution into conditional probabilities (A), directly determines which pixels can influence later predictions (B), affects the architecture's receptive field design (C), creates a directed dependency graph between pixels (E), and influences how the model captures spatial relationships (F). Option D is incorrect - pixel ordering has no impact on the need for training data; these models still require substantial training data regardless of the chosen ordering scheme.
+      <div class="explanation">. It enables factorizing the joint distribution into conditional probabilities (A), directly determines which pixels can influence later predictions (B), affects the architecture's receptive field design (C), creates a directed dependency graph between pixels (E), and influences how the model captures spatial relationships (F). Option D is incorrect - pixel ordering has no impact on the need for training data; these models still require substantial training data regardless of the chosen ordering scheme.
 
 <blockquote>"We can factorize the joint distribution as the product of conditionals, where we define some ordering over the pixels."</blockquote>
 <blockquote>"Using an RNN, a recurrent neural network, the idea is that we're going to follow some ordering."</blockquote>

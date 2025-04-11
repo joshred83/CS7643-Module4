@@ -13,14 +13,15 @@ function setupQuizInteractivity() {
       // Check the answer
       const result = checkAnswer(questionEl);
       
-      // If incorrect or explanation not yet shown, show the explanation
-      if (!result.isCorrect || explanationEl.style.display !== 'block') {
-        explanationEl.style.display = 'block';
-        this.textContent = 'Hide Explanation';
-      } else if (explanationEl.style.display === 'block') {
-        // Toggle the explanation visibility if already shown
+      // Toggle explanation visibility
+      if (explanationEl.style.display === 'block') {
+        // If explanation is showing, hide it
         explanationEl.style.display = 'none';
         this.textContent = 'Check Answer';
+      } else {
+        // If explanation is hidden, show it and check answer
+        explanationEl.style.display = 'block';
+        this.textContent = 'Hide Explanation';
       }
     });
   });
@@ -28,6 +29,11 @@ function setupQuizInteractivity() {
   // Hide explanations initially
   document.querySelectorAll('.explanation').forEach(explanation => {
     explanation.style.display = 'none';
+  });
+  
+  // Make sure all buttons initially say "Check Answer"
+  document.querySelectorAll('.btn-check').forEach(button => {
+    button.textContent = 'Check Answer';
   });
 }
 

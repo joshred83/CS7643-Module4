@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: Policy Gradients and Actor-Critic Methods - CS7643 Module 4</title>
+  <title>Quiz: Policy Gradients, Actor-Critic - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Quiz: Policy Gradients and Actor-Critic Methods</h2>
+      <h2 class="section-title">Quiz: Policy Gradients, Actor-Critic</h2>
   <div class="quiz-container">
     <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)  </h3>
@@ -75,11 +75,11 @@ Policy-based methods directly parameterize and optimize a policy.
       <p>Which of the following accurately describe differences between value-based and policy-based reinforcement learning methods? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="checkbox" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. Value-based methods optimize value functions, while policy-based methods optimize policies directly</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="false">
+          <input type="checkbox" id="q2-o1" name="q2" value="1" data-correct="true">
           <label for="q2-o1">B. Policy-based methods can naturally handle continuous action spaces, unlike basic value-based methods</label>
         </div>
         <div class="option">
@@ -101,10 +101,7 @@ Policy-based methods directly parameterize and optimize a policy.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Optimize different targets (values vs policies), ✅ Different handling of continuous actions, ✅ Different exploration approaches, ✅ Indirect vs explicit policy representation, ✅ Different discretization requirements  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Value-based and policy-based methods differ in several fundamental ways.  
 <blockquote>"Among the types of methods using RL value based methods learn q functions... Policy based methods... directly parameterize a policy..."</blockquote>
 <blockquote>"Policy-based methods have some advantages... they can naturally handle continuous action spaces."</blockquote>
@@ -115,7 +112,7 @@ Value-based and policy-based methods differ in several fundamental ways.
       <p>Which of the following are components of the REINFORCE algorithm?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. Sampling trajectories using the current policy</label>
         </div>
         <div class="option">
@@ -133,8 +130,7 @@ Value-based and policy-based methods differ in several fundamental ways.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-derivative trick to compute the gradient  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 REINFORCE involves sampling data and using the log-derivative trick to compute gradients.  
 <blockquote>"We simply need to collect a small batch of trajectories using the current pi theta..."</blockquote>  
 <blockquote>"...in order to apply a relation known as the log derivative trick..."</blockquote></div>
@@ -144,11 +140,11 @@ REINFORCE involves sampling data and using the log-derivative trick to compute g
       <p>Which of the following accurately describe the purposes and benefits of using the log-derivative trick in policy gradient methods? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. To simplify the integral of the gradient of a probability density</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. To convert a complex gradient computation into an expectation that can be sampled</label>
         </div>
         <div class="option">
@@ -170,10 +166,7 @@ REINFORCE involves sampling data and using the log-derivative trick to compute g
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Simplify integral of gradient, ✅ Convert to expectation for sampling, ✅ Avoid derivatives of dynamics, ✅ Enable model-free gradient estimation, ✅ Facilitate stochastic gradient ascent  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The log-derivative trick has several important benefits in policy gradient algorithms.  
 <blockquote>"...we can write the expectation as an integral... and apply a relation known as the log derivative trick..."</blockquote>
 <blockquote>"This allows us to express the gradient in terms of an expectation, which we can then estimate by sampling."</blockquote>
@@ -203,7 +196,7 @@ Gradient updates push the probability of successful actions higher.
       <p>What are some limitations of REINFORCE as discussed in the lecture?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. It cannot compute gradients for deterministic policies</label>
         </div>
         <div class="option">
@@ -231,11 +224,11 @@ REINFORCE suffers from variance and lacks fine-grained credit assignment.
       <p>Which of the following accurately describe the roles and properties of baselines in policy gradient algorithms? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. They reduce variance in gradient estimation</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="false">
+          <input type="checkbox" id="q7-o1" name="q7" value="1" data-correct="true">
           <label for="q7-o1">B. They preserve the expected value of the gradient</label>
         </div>
         <div class="option">
@@ -257,10 +250,7 @@ REINFORCE suffers from variance and lacks fine-grained credit assignment.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Reduce variance, ✅ Preserve expected gradient, ✅ Can be state-dependent, ✅ Often implemented as value functions, ✅ Help with credit assignment  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Baselines serve several important purposes in policy gradient methods.  
 <blockquote>"...subtracting some baseline... will preserve the mean... while possibly reducing the variance..."</blockquote>
 <blockquote>"We can use a state-dependent baseline such as a value function approximation."</blockquote>
@@ -290,11 +280,11 @@ Subtracting a baseline that does not depend on action preserves the mean.
       <p>Which of the following accurately describe scaling factors and signal reductions used in different actor-critic variant algorithms? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. The advantage function (Q minus V) is used in Advantage Actor-Critic</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="true">
           <label for="q9-o1">B. TD error can be used as an unbiased estimate of the advantage</label>
         </div>
         <div class="option">
@@ -316,10 +306,7 @@ Subtracting a baseline that does not depend on action preserves the mean.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> [Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Advantage function (Q minus V), ✅ TD error as advantage estimate, ✅ State-value functions as baselines, ✅ Combination of n-step returns and values, ✅ Importance sampling for off-policy  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Actor-critic methods use various signals and scaling factors to improve performance.  
 <blockquote>"...advantage actor-critic that substitutes the reward with the advantage... defined as the Q function minus the V function."</blockquote>
 <blockquote>"TD error can be used as an unbiased sample of the advantage function."</blockquote>
@@ -348,8 +335,7 @@ Actor-critic methods use various signals and scaling factors to improve performa
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-function, Policy gradient updates, Advantage estimates, A reward baseline derived from the policy’s V-function  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Actor-Critic methods include all of these elements as discussed.  
 <blockquote>"...actor-critic algorithm that replaces rewards with the Q function..."</blockquote>  
 <blockquote>"...advantage actor-critic... defined as the Q function minus the V function."</blockquote></div>

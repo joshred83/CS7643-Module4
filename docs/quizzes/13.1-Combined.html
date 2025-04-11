@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: Generative Models - Deep Dive - CS7643 Module 4</title>
+  <title>Quiz: Generative Models Introduction - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,14 +49,14 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Quiz: Generative Models - Deep Dive</h2>
+      <h2 class="section-title">Quiz: Generative Models Introduction</h2>
   <div class="quiz-container">
     <div class="question" data-question-index="1">
       <h3>Question 1 (Multi-Select)</h3>
       <p>Which of the following accurately describe the role and goals of generative models in unsupervised learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="false">
+          <input type="checkbox" id="q1-o0" name="q1" value="0" data-correct="true">
           <label for="q1-o0">A. They only classify input data into known categories.</label>
         </div>
         <div class="option">
@@ -78,8 +78,7 @@
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Generative models do <strong>not require labeled data</strong> and <strong>do more than classification</strong>.
+      <div class="explanation"><strong>not require labeled data</strong> and <strong>do more than classification</strong>.
 
 <blockquote>"Here we take a probabilistic view of unsupervised learning and try to estimate the probability distribution over the input space."</blockquote>  
 <blockquote>"In this lesson, we'll focus on Density Estimation... we may want to just have the ability to generate samples from this distribution..."</blockquote></div>
@@ -89,7 +88,7 @@ Generative models do <strong>not require labeled data</strong> and <strong>do mo
       <p>Which traditional method was used for density estimation before the resurgence of deep learning, despite its limitations with high-dimensional data?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="false">
+          <input type="radio" id="q2-o0" name="q2" value="0" data-correct="true">
           <label for="q2-o0">A. Naive Bayes classifiers</label>
         </div>
         <div class="option">
@@ -107,8 +106,7 @@ Generative models do <strong>not require labeled data</strong> and <strong>do mo
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-GMMs were traditionally used, though they struggle with high-dimensional input spaces.
+      <div class="explanation">-dimensional input spaces.
 
 <blockquote>"For example, Gaussian mixture models also produce some estimate of the probability distribution over the input space. However, these methods have severe deficiencies when the input is very high dimensional."</blockquote></div>
     </div>
@@ -121,14 +119,13 @@ GMMs were traditionally used, though they struggle with high-dimensional input s
           <label for="q3-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q3-o1" name="q3" value="1" data-correct="false">
+          <input type="radio" id="q3-o1" name="q3" value="1" data-correct="true">
           <label for="q3-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Discriminative models model \( P(y|x) \); generative models model \( P(x) \).
+      <div class="explanation">\( P(y|x) \); generative models model \( P(x) \).
 
 <blockquote>"Discriminative models, model the conditional distribution probability of the label given the input... Generative models, on the other hand, model the distribution over the input space."</blockquote></div>
     </div>
@@ -137,7 +134,7 @@ Discriminative models model \( P(y|x) \); generative models model \( P(x) \).
       <p>What are key challenges associated with modeling the joint distribution of high-dimensional data in generative models?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. High computational complexity</label>
         </div>
         <div class="option">
@@ -155,17 +152,16 @@ Discriminative models model \( P(y|x) \); generative models model \( P(x) \).
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Modeling \( P(x) \) directly is challenging without simplifying assumptions.
+      <div class="explanation">\( P(x) \) directly is challenging without simplifying assumptions.
 
 <blockquote>"This is a very intractable and hard thing to do. And so we'll have to make various assumptions or simplifications in order to make this feasible."</blockquote></div>
     </div>
     <div class="question" data-question-index="5">
-      <h3>Question 5 (Concept Application)</h3>
+      <h3>Question 5 (Multiple Choice)</h3>
       <p>You are asked to design a generative model for a new high-dimensional image dataset. What strategies from the transcript are likely to help in tackling the complexity?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="false">
+          <input type="radio" id="q5-o0" name="q5" value="0" data-correct="true">
           <label for="q5-o0">A. Use deep learning architectures that reduce dimensionality</label>
         </div>
         <div class="option">
@@ -183,8 +179,7 @@ Modeling \( P(x) \) directly is challenging without simplifying assumptions.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-The transcript emphasizes dimensionality reduction using neural networks.
+      <div class="explanation">.
 
 <blockquote>"Deep learning is very good at learning features that extract meaningful information in a low dimensional embedding from high dimensional data."</blockquote></div>
     </div>
@@ -193,7 +188,7 @@ The transcript emphasizes dimensionality reduction using neural networks.
       <p>Which of the following statements best captures the distinction between discriminative and generative models?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="radio" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. Discriminative models generate new samples from the data distribution.</label>
         </div>
         <div class="option">
@@ -211,8 +206,7 @@ The transcript emphasizes dimensionality reduction using neural networks.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-This is a central distinction made in the lesson.
+      <div class="explanation">.
 
 <blockquote>"Discriminative models, model the conditional distribution probability of the label given the input... Generative models... model the distribution over the input space."</blockquote></div>
     </div>
@@ -221,7 +215,7 @@ This is a central distinction made in the lesson.
       <p>According to the transcript, why is deep learning suitable for generative modeling of high-dimensional data?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. Deep learning methods can extract meaningful low-dimensional features.</label>
         </div>
         <div class="option">
@@ -239,8 +233,7 @@ This is a central distinction made in the lesson.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Deep learning reduces dimensionality and provides flexibility in modeling.
+      <div class="explanation">.
 
 <blockquote>"Deep learning is very good at learning features that extract meaningful information in a low dimensional embedding..."</blockquote>  
 <blockquote>"Just, like discriminative models we can have a parametric approximation of this distribution."</blockquote></div>
@@ -254,14 +247,13 @@ Deep learning reduces dimensionality and provides flexibility in modeling.
           <label for="q8-o0">A. True</label>
         </div>
         <div class="option">
-          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="false">
+          <input type="radio" id="q8-o1" name="q8" value="1" data-correct="true">
           <label for="q8-o1">B. False</label>
         </div>
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-Generating samples is one of the core applications.
+      <div class="explanation">.
 
 <blockquote>"We may want to just have the ability to generate samples from this distribution, that is actually generate artificial examples..."</blockquote></div>
     </div>
@@ -270,7 +262,7 @@ Generating samples is one of the core applications.
       <p>Which principle is often used to optimize the parameters of generative models?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="radio" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. Cross-entropy minimization</label>
         </div>
         <div class="option">
@@ -288,8 +280,7 @@ Generating samples is one of the core applications.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Explanation:</strong>  
-MLE is the optimization principle used for learning generative models.
+      <div class="explanation">.
 
 > "We can have a set of parameterized models \( p(x, \theta) \)... use the principle of maximum likelihood</div>
     </div></div>

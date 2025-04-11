@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz: Introduction to Reinforcement Learning - CS7643 Module 4</title>
+  <title>Quiz: Reinforcement Learning Introduction - CS7643 Module 4</title>
   <link rel="stylesheet" href="../css/styles.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     </div>
     
     <div class="content">
-      <h2 class="section-title">Quiz: Introduction to Reinforcement Learning</h2>
+      <h2 class="section-title">Quiz: Reinforcement Learning Introduction</h2>
   <div class="quiz-container">
     <div class="question" data-question-index="1">
       <h3>Question 1 (True/False)</h3>
@@ -101,8 +101,7 @@ Unlike supervised learning, reinforcement learning does not rely on labeled data
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation"><strong>Correct Answers:</strong> ✅ Sequential decision-making with evaluative feedback, ✅ Learning through trial and error, ✅ Delayed feedback, ✅ Balancing exploration and exploitation, ✅ Receiving rewards/penalties not labels  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Reinforcement learning involves multiple key characteristics beyond just the basic definition.  
 <blockquote>"Reinforcement learning can be defined in one sentence as a sequential decision making in an environment with evaluative feedback."</blockquote>
 <blockquote>"A key characteristic is that the agent receives delayed feedback, making it difficult to determine which actions led to rewards."</blockquote>
@@ -113,7 +112,7 @@ Reinforcement learning involves multiple key characteristics beyond just the bas
       <p>Which of the following are key characteristics or challenges of reinforcement learning?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="false">
+          <input type="checkbox" id="q3-o0" name="q3" value="0" data-correct="true">
           <label for="q3-o0">A. The agent receives a label for the correct action at each step</label>
         </div>
         <div class="option">
@@ -141,11 +140,11 @@ RL faces unique challenges like delayed rewards and non-stationary data caused b
       <p>Which of the following accurately describe what an RL agent receives from the environment during the interaction loop? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="false">
+          <input type="checkbox" id="q4-o0" name="q4" value="0" data-correct="true">
           <label for="q4-o0">A. The next observation (state) after taking an action</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="false">
+          <input type="checkbox" id="q4-o1" name="q4" value="1" data-correct="true">
           <label for="q4-o1">B. A reward signal that evaluates the action taken</label>
         </div>
         <div class="option">
@@ -167,9 +166,7 @@ RL faces unique challenges like delayed rewards and non-stationary data caused b
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> ✅ The next observation/state, ✅ A reward signal  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The agent receives both the new observation and the reward after taking an action, but not the other information.  
 <blockquote>"...the agent will receive an observation... it will execute an action... and produce a new observation... as well as a reward..."</blockquote>
 <blockquote>"The agent does not receive information about what the optimal action would have been, nor does it typically have access to the environment's full internal state."</blockquote></div>
@@ -198,11 +195,11 @@ The data distribution is non-stationary because the policy changes what data the
       <p>Which of the following accurately describe the nature and characteristics of "evaluative feedback" in reinforcement learning? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="false">
+          <input type="checkbox" id="q6-o0" name="q6" value="0" data-correct="true">
           <label for="q6-o0">A. Feedback is received in the form of a reward signal</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="false">
+          <input type="checkbox" id="q6-o1" name="q6" value="1" data-correct="true">
           <label for="q6-o1">B. Feedback is only provided for actions actually taken, not hypothetical actions</label>
         </div>
         <div class="option">
@@ -224,9 +221,7 @@ The data distribution is non-stationary because the policy changes what data the
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> ✅ Received as reward signal, ✅ Only provided for actions taken, ✅ May be delayed, ✅ Provides scalar value, ✅ Indicates quality not correctness  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Evaluative feedback has multiple key characteristics that distinguish it from instructional feedback.  
 <blockquote>"Evaluative feedback means that the agent... receive rewards... only for the actions that it did take and not for the actions that did not take."</blockquote>
 <blockquote>"The reward signal merely evaluates actions, rather than instructing which action is correct."</blockquote>
@@ -237,7 +232,7 @@ Evaluative feedback has multiple key characteristics that distinguish it from in
       <p>Which are common application domains for reinforcement learning as discussed in the lecture?</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="false">
+          <input type="checkbox" id="q7-o0" name="q7" value="0" data-correct="true">
           <label for="q7-o0">A. Image segmentation</label>
         </div>
         <div class="option">
@@ -285,11 +280,11 @@ Only actions that are actually taken receive rewards.
       <p>Which of the following accurately describe challenges specific to reinforcement learning in real-world robotic settings? (Select all that apply)</p>
       <div class="options">
         <div class="option">
-          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="false">
+          <input type="checkbox" id="q9-o0" name="q9" value="0" data-correct="true">
           <label for="q9-o0">A. Some states may be seen only once</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="false">
+          <input type="checkbox" id="q9-o1" name="q9" value="1" data-correct="true">
           <label for="q9-o1">B. Exploration can be dangerous or costly</label>
         </div>
         <div class="option">
@@ -311,9 +306,7 @@ Only actions that are actually taken receive rewards.
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">[Need to manually determine]
-<strong>Correct Answers:</strong> ✅ States seen only once, ✅ Exploration can be dangerous/costly, ✅ Complex dynamics, ✅ Hardware constraints, ✅ Physical consequences, ✅ Sparse rewards  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 Real-world robotics faces numerous challenges that make RL particularly difficult.  
 <blockquote>"...the agent will see certain states only once and never again in his lifetime, making it difficult to learn from past mistakes."</blockquote>
 <blockquote>"In real-world settings, exploration can lead to physical damage, and the dynamics are often complex and difficult to model accurately."</blockquote>
@@ -324,7 +317,7 @@ Real-world robotics faces numerous challenges that make RL particularly difficul
       <p>What is the agent’s goal in reinforcement learning?</p>
       <div class="options">
         <div class="option">
-          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="false">
+          <input type="radio" id="q10-o0" name="q10" value="0" data-correct="true">
           <label for="q10-o0">A. Minimize classification error</label>
         </div>
         <div class="option">
@@ -342,8 +335,7 @@ Real-world robotics faces numerous challenges that make RL particularly difficul
       </div>
       <div class="feedback"></div>
       <button class="btn btn-check">Check Answer</button>
-      <div class="explanation">-term accumulated reward  
-<strong>Explanation:</strong>  
+      <div class="explanation"><strong>Explanation:</strong>  
 The core objective of the agent is long-term reward maximization.  
 <blockquote>"The objective of this agent is to maximize the reward it will get from the environment in the long run."</blockquote></div>
     </div></div>
